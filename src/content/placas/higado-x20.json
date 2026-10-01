@@ -1,0 +1,53 @@
+{
+  "id": "higado-x20",
+  "titulo": "Higado",
+  "sistema": "digestivo",
+  "organo": "Higado",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "20x"
+  ],
+  "descripcionGeneral": "hígado está cubierto por la cápsula de Glisson y organizado en lobulillos hexagonales. El parénquima está formado por cordones de hepatocitos que irradian hacia una vena centrolobulillar central. Entre estos cordones corren los sinusoides hepáticos (capilares con células de Kupffer) y se delimita el espacio de Disse (con células de Ito). En las esquinas del hexágono se ubican los espacios porta, constituidos por la tríada portal: una rama de la arteria hepática, una de la vena porta y un conductillo biliar de epitelio cúbico.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "higado-x20-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "triada-portal",
+      "numero": 1,
+      "nombre": "Triada portal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-conjuntivo-denso-y-fibroblastos",
+      "numero": 2,
+      "nombre": "Tejido conjuntivo denso y fibroblastos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vasos-linfaticos",
+      "numero": 3,
+      "nombre": "Vasos linfáticos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "parenquima-hepatico-circundante",
+      "numero": 4,
+      "nombre": "Parenquima hepatico circundante",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

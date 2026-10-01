@@ -1,0 +1,78 @@
+{
+  "id": "bronquiolo",
+  "titulo": "Bronquiolo",
+  "sistema": "respiratorio",
+  "organo": "Bronquiolo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x20",
+    "x40"
+  ],
+  "descripcionGeneral": "El bronquiolo es una vía aérea de conducción (≤ 1 mm) cuya característica principal es la ausencia total de cartílago y de glándulas. Su mucosa transiciona de un epitelio cilíndrico simple a cúbico simple, donde las células caliciformes son sustituidas por células de Clara (secretoras de agente tensioactivo y proteínas protectoras). Su pared destaca por poseer una capa prominente de músculo liso circular que regula el flujo de aire, delimitada exteriormente por una delgada adventicia.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1 : bronquiolo. · Figura 2 : bronquiolo, partes.",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "bronquiolo-1",
+      "aumento": "x20",
+      "credito": "Figura 2 : bronquiolo. · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "bronquiolo-2",
+      "aumento": "x40",
+      "credito": "Figura 2 : bronquiolo, partes. · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "bronquiolo",
+      "numero": 1,
+      "nombre": "Bronquiolo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.532,
+          "y": 0.3457,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cilindrico-pseudoestratificado-ciliado",
+      "numero": 2,
+      "nombre": "Epitelio cilíndrico pseudoestratificado ciliado",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "epitelio-cilindrico-simple-ciliado",
+      "numero": 3,
+      "nombre": "Epitelio cilíndrico simple ciliado",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-conectivo",
+      "numero": 4,
+      "nombre": "Tejido Conectivo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "capa-muscular",
+      "numero": 5,
+      "nombre": "Capa muscular",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.634,
+          "y": 0.7623,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

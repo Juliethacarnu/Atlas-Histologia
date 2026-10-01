@@ -1,0 +1,39 @@
+{
+  "id": "neurohipofisis",
+  "titulo": "Neurohipófisis",
+  "sistema": "endocrino",
+  "organo": "Neurohipófisis",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×60"
+  ],
+  "descripcionGeneral": "La neurohipófisis (lóbulo posterior de la hipófisis) comprende la porción nerviosa y el infundíbulo, constituyendo no una glándula endocrina primaria, sino una extensión del sistema nervioso central especializada en almacenar y liberar neurosecreciones. Histológicamente está formada por una intrincada red de axones amielínicos pertenecientes al tracto hipotálamo-hipofisario, cuyos somas neuronales se ubican en los núcleos supraóptico y paraventricular del hipotálamo. En el trayecto terminal de estos axones destacan los cuerpos de Herring, dilataciones focalizadas ricas en vesículas neurosecretoras que contienen oxitocina o vasopresina (ADH) unidas a neurofisinas, las cuales se liberan en la proximidad de una red capilar fenestrada. Como elemento celular de sostén se encuentran los pituicitos, células gliales especializadas e irregulares con abundantes filamentos de GFAP que cumplen funciones de apoyo estructural y trófico similares a los astrocitos.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "neurohipofisis-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "granulos-secretorios",
+      "numero": 1,
+      "nombre": "Gránulos Secretorios",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cuerpos-de-herring",
+      "numero": 2,
+      "nombre": "Cuerpos de Herring",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

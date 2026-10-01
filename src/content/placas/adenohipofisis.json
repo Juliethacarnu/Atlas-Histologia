@@ -1,0 +1,53 @@
+{
+  "id": "adenohipofisis",
+  "titulo": "Adenohipófisis",
+  "sistema": "endocrino",
+  "organo": "Adenohipófisis",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "La adenohipófisis (lóbulo anterior de la hipófisis) comprende tres regiones principales derivadas embrionariamente de la bolsa de Rathke: la porción distal (pars distalis, la más extensa), la porción intermedia (caracterizada por folículos quísticos llenos de coloide) y la porción tuberal (que rodea al infundíbulo). Histológicamente, sus células parenquimatosas se organizan en cordones y cúmulos estrechamente asociados a una vasta red de capilares fenestrados pertenecientes al sistema porta hipotálamo-hipofisario. Mediante tinciones generales, las células secretoras se clasifican tradicionalmente en acidófilas, basófilas y cromófobas, las cuales corresponden funcionalmente a cinco poblaciones inmunohistoquímicas: somatotropas y lactotropas (acidófilas), junto con corticotropas, gonadotropas y tirotropas (basófilas). Asimismo, el parénquima alberga un 5-10% de células foliculoestrelladas, las cuales no secretan hormonas pero se interconectan mediante uniones comunicantes para brindar soporte físico y transmitir señales reguladoras locales",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "adenohipofisis-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "celulas-acidofilos",
+      "numero": 1,
+      "nombre": "Células Acidófilos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celulas-basofilas",
+      "numero": 2,
+      "nombre": "Células Basófilas",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celulas-cromofobas",
+      "numero": 3,
+      "nombre": "Células Cromófobas",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "capilar",
+      "numero": 4,
+      "nombre": "Capilar",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,116 @@
+{
+  "id": "yeyuno",
+  "titulo": "Yeyuno",
+  "sistema": "digestivo",
+  "organo": "Yeyuno / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×2",
+    "×40"
+  ],
+  "descripcionGeneral": "El yeyuno mantiene las cuatro capas digestivas, pero se especializa intensamente en la absorción de nutrientes. Su mucosa destaca por tener las vellosidades intestinales más altas y desarrolladas, sostenidas por pliegues circulares permanentes (válvulas de Kerckring) muy prominentes, revestidas por un epitelio cilíndrico simple rico en enterocitos y células caliciformes que se invaginan en las criptas de Lieberkühn. A diferencia del duodeno, su submucosa es un tejido conectivo típico que carece de glándulas de Brunner, y tampoco posee las grandes placas de Peyer características del íleon. La capa muscular externa conserva sus dos subcapas de músculo liso (circular interna y longitudinal externa) para el peristaltismo, y toda su superficie exterior está revestida por una capa serosa (peritoneo visceral), ya que es un órgano completamente intraperitoneal y móvil.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "yeyuno-1",
+      "aumento": "×2",
+      "credito": ""
+    },
+    {
+      "archivo": "yeyuno-2",
+      "aumento": "×40",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.28,
+          "imagen": 0
+        },
+        {
+          "x": 0.75,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "enterocitos",
+      "numero": 1.1,
+      "nombre": "Enterocitos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celulas-caliciformes",
+      "numero": 1.2,
+      "nombre": "Células Caliciformes",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "borde-en-cepillo",
+      "numero": 1.3,
+      "nombre": "Borde en Cepillo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celula-plasmatica",
+      "numero": 1.4,
+      "nombre": "Célula plasmática",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "submucosa",
+      "numero": 2,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.52,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 3,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.22,
+          "y": 0.72,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "serosa",
+      "numero": 4,
+      "nombre": "Serosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.15,
+          "y": 0.93,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,92 @@
+{
+  "id": "pleura",
+  "titulo": "Pleura",
+  "sistema": "respiratorio",
+  "organo": "Pleura",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x 40"
+  ],
+  "descripcionGeneral": "La pleura es una membrana serosa formada histológicamente por una capa de mesotelio (epitelio plano simple) apoyada sobre una capa subyacente de tejido conjuntivo rico en fibras elásticas, fibras de colágeno y vasos linfáticos superficiales. Se organiza estructuralmente en dos capas continuas: la hoja visceral, que cubre la superficie exterior del pulmón, y la hoja parietal, que tapiza la cavidad torácica, el diafragma y el mediastino. Entre ambas capas se delimita la cavidad pleural, la cual alberga líquido pleural secretado por las células mesoteliales para lubricar y facilitar el deslizamiento de los pulmones durante la ventilación.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1 . Pleura",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "pleura-1",
+      "aumento": "",
+      "credito": "Figura 1 . Pleura · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mesotelio-epitelio-plano-simple",
+      "numero": 1,
+      "nombre": "Mesotelio (epitelio plano simple)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2491,
+          "y": 0.252,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tejido-conectivo",
+      "numero": 2,
+      "nombre": "Tejido Conectivo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3481,
+          "y": 0.1924,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fibras-de-colageno",
+      "numero": 3,
+      "nombre": "Fibras de colágeno",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4912,
+          "y": 0.4661,
+          "imagen": 0
+        },
+        {
+          "x": 0.2774,
+          "y": 0.9241,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fibroblasto",
+      "numero": 4,
+      "nombre": "Fibroblasto",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4682,
+          "y": 0.6531,
+          "imagen": 0
+        },
+        {
+          "x": 0.3816,
+          "y": 0.7344,
+          "imagen": 0
+        },
+        {
+          "x": 0.2173,
+          "y": 0.7751,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

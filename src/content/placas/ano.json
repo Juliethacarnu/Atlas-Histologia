@@ -1,0 +1,58 @@
+{
+  "id": "ano",
+  "titulo": "Ano",
+  "sistema": "digestivo",
+  "organo": "Ano",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "(4x-10x)(20x-40x)"
+  ],
+  "descripcionGeneral": "El ano representa la zona de transición terminal del tubo digestivo hacia el exterior, donde sus cuatro capas cambian drásticamente. Su mucosa destaca por una transición epitelial brusca: pasa de epitelio cilíndrico simple (en el recto) a epitelio plano estratificado no queratinizado (en la zona anal), y finalmente a epitelio plano estratificado queratinizado (epidermis) en la piel perianal; además, carece de criptas de Lieberkühn y células caliciformes, reemplazándolas por glándulas anales circundantes. La submucosa es un tejido conectivo denso muy elástico que contiene grandes redes vasculares del plexo venoso hemorroidal externo. La capa muscular externa se modifica por completo para el control de la defecación: la capa circular interna de músculo liso se engrosa para formar el esfínter anal interno (involuntario), mientras que externamente se rodea por músculo esquelético de la pelvis que constituye el esfínter anal externo (voluntario). Al estar fuera de la cavidad peritoneal, su capa más externa es exclusivamente una adventicia que une el conducto a los tejidos pélvicos adyacentes.",
+  "fuente": "",
+  "credito": "Figura 1. epitelio de transicion.",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "ano-1",
+      "aumento": "",
+      "credito": ""
+    },
+    {
+      "archivo": "ano-2",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "zona-de-transicion-del-epitelio",
+      "numero": 1,
+      "nombre": "Zona de transición del epitelio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "glandulas-anales",
+      "numero": 2,
+      "nombre": "Glándulas anales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "esfinter-anal-interno",
+      "numero": 3,
+      "nombre": "Esfinter anal interno",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "esfinter-anal-externo",
+      "numero": 4,
+      "nombre": "Esfinter anal externo",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

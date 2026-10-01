@@ -1,0 +1,184 @@
+---
+import type { ImagenPlaca } from '../utils/placas';
+
+interface Props {
+  imagenes: ImagenPlaca[];
+  titulo: string;
+}
+const { imagenes, titulo } = Astro.props;
+const variasImagenes = imagenes.length > 1;
+---
+
+<div id="marco-visor" class="vineta-campo relative isolate h-full w-full overflow-hidden bg-campo">
+  <!-- Contenedor de OpenSeadragon -->
+  <div
+    id="visor"
+    class="absolute inset-0"
+    aria-label={`Visor de la preparación: ${titulo}`}
+    role="application"
+  ></div>
+
+  <!-- Mensaje mientras carga / si falla la imagen -->
+  <p
+    id="estado-visor"
+    class="pointer-events-none absolute inset-0 grid place-items-center text-sm text-white/55"
+  >
+    Cargando la preparación…
+  </p>
+
+  <!-- Minimapa -->
+  <div
+    id="minimapa"
+    class="absolute top-3 right-3 z-20 h-24 w-32 overflow-hidden rounded-md border border-white/25 bg-nucleo/70 shadow-lg max-sm:hidden! lg:right-[23.5rem]"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Selector de aumento -->
+  {variasImagenes && (
+    <div
+      class="absolute top-3 left-3 z-20 flex gap-1 rounded-lg border border-white/15 bg-nucleo/75 p-1 backdrop-blur"
+      role="group"
+      aria-label="Aumento de la preparación"
+    >
+      {imagenes.map((im, i) => (
+        <button
+          type="button"
+          data-imagen={i}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          class="boton-aumento"
+        >
+          {im.aumento || `Imagen ${i + 1}`}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Controles de zoom -->
+  <div
+    class="absolute bottom-3 left-3 z-20 flex gap-1 rounded-lg border border-white/15 bg-nucleo/75 p-1 backdrop-blur"
+    role="group"
+    aria-label="Controles del visor"
+  >
+    <button type="button" class="boton-visor" data-accion="acercar" aria-keyshortcuts="+">
+      <span class="solo-lectores">Acercar</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 6v12M6 12h12" />
+      </svg>
+    </button>
+    <button type="button" class="boton-visor" data-accion="alejar" aria-keyshortcuts="-">
+      <span class="solo-lectores">Alejar</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 12h12" />
+      </svg>
+    </button>
+    <button type="button" class="boton-visor" data-accion="ajustar" aria-keyshortcuts="0">
+      <span class="solo-lectores">Ajustar a la pantalla</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15" />
+      </svg>
+    </button>
+    <button type="button" class="boton-visor" data-accion="pantalla-completa">
+      <span class="solo-lectores">Pantalla completa</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Crédito de la imagen visible -->
+  <p
+    id="credito-imagen"
+    class="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 px-3 text-center text-[0.7rem] text-white/45 max-sm:hidden"
+  ></p>
+</div>
+
+<style is:global>
+  /* ---------- Marcadores numerados ---------- */
+  .marcador {
+    display: grid;
+    place-items: center;
+    /* Ancho flexible: hay estructuras con sub-numero («3.1»). */
+    min-width: 1.75rem;
+    width: auto;
+    height: 1.75rem;
+    padding-inline: 0.3rem;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    background: var(--color-hematoxilina);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgb(14 9 32 / 0.55);
+    transition:
+      background-color 160ms,
+      transform 160ms var(--ease-visor);
+  }
+  .marcador:hover {
+    transform: scale(1.12);
+  }
+  .marcador--activo {
+    background: var(--color-eosina);
+    animation: atlas-pulso-eosina 1.5s ease-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marcador--activo {
+      animation: none;
+      border-width: 4px;
+    }
+  }
+  /* En modo repaso el número sigue visible; lo que se oculta es el nombre. */
+  .repaso-activo .marcador {
+    background: var(--color-nucleo);
+  }
+  .repaso-activo .marcador--activo {
+    background: var(--color-eosina);
+  }
+
+  /* ---------- Botones sobre el campo oscuro ---------- */
+  .boton-visor,
+  .boton-aumento {
+    display: grid;
+    place-items: center;
+    border-radius: 0.375rem;
+    color: rgb(255 255 255 / 0.8);
+    transition:
+      background-color 140ms,
+      color 140ms;
+  }
+  .boton-visor {
+    width: 2rem;
+    height: 2rem;
+  }
+  .boton-visor svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .boton-aumento {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .boton-visor:hover,
+  .boton-aumento:hover {
+    background: rgb(255 255 255 / 0.14);
+    color: #fff;
+  }
+  .boton-aumento[aria-pressed='true'] {
+    background: var(--color-eosina);
+    color: #fff;
+  }
+
+  /* El minimapa de OpenSeadragon */
+  #minimapa .displayregion {
+    border: 2px solid var(--color-eosina) !important;
+  }
+</style>

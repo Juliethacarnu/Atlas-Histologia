@@ -1,0 +1,84 @@
+{
+  "id": "ileon",
+  "titulo": "Íleon",
+  "sistema": "digestivo",
+  "organo": "Íleon / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4"
+  ],
+  "descripcionGeneral": "El íleon mantiene las cuatro capas del tubo digestivo y representa el tramo final de la absorción y la defensa inmunológica. Su mucosa presenta vellosidades intestinales más cortas, un aumento marcado de células caliciformes y criptas de Lieberkühn; sin embargo, su rasgo diagnóstico fundamental es la presencia de las placas de Peyer, que son grandes conglomerados de nódulos linfáticos que invaden la lámina propia y se extienden significativamente hacia la submucosa. Esta última capa conectiva carece por completo de glándulas de Brunner. La capa muscular externa conserva sus dos subcapas de músculo liso (circular interna y longitudinal externa) para propulsar el quimo hacia el intestino grueso, y su superficie exterior está revestida por una capa serosa que lo envuelve como órgano intraperitoneal.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "ileon-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "placas-de-peyer",
+      "numero": 1,
+      "nombre": "Placas de Peyer",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.491,
+          "y": 0.593,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "mucosa",
+      "numero": 2,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.63,
+          "y": 0.12,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 3,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.799,
+          "y": 0.42,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 4,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.751,
+          "y": 0.796,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "serosa",
+      "numero": 5,
+      "nombre": "Serosa",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,88 @@
+{
+  "id": "placa-ungeal",
+  "titulo": "Placa ungeal",
+  "sistema": "piel-anexos",
+  "organo": "Placa Ungeal",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4"
+  ],
+  "descripcionGeneral": "La placa ungueal es una lámina rígida compuesta por láminas compactas de queratina dura, la cual descansa directamente sobre el lecho ungueal, constituido por un epitelio continuo con los estratos basal y espinoso de la epidermis. Su desarrollo se inicia en la raíz ungueal a partir de la matriz, una zona germinativa que alberga células madre, células epiteliales, melanocitos, células de Merkel y de Langerhans, cuyas divisiones y acumulación constante de queratina impulsan el crecimiento continuo de la uña. Histológicamente, la placa está protegida en su margen proximal por el eponiquio (cutícula), presenta en su base la lúnula (un área semilunar opaca por queratinización parcial) y se afianza en su borde libre distal sobre el hiponiquio, que es un engrosamiento de la capa epidérmica.",
+  "fuente": "",
+  "credito": "Figura 1. Anexos. placa ungeal",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "placa-ungeal-1",
+      "aumento": "",
+      "credito": "Figura 1. Anexos. placa ungeal"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "raiz-de-la-una",
+      "numero": 1,
+      "nombre": "Raiz de la Uña",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "matriz-ungeal",
+      "numero": 2,
+      "nombre": "Matriz Ungeal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "eponiquio",
+      "numero": 3,
+      "nombre": "Eponiquio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "dermis",
+      "numero": 4,
+      "nombre": "Dermis",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "hueso",
+      "numero": 5,
+      "nombre": "Hueso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "corpusculo-de-pacini",
+      "numero": 6,
+      "nombre": "Corpúsculo de Pacini",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-lucido",
+      "numero": 7,
+      "nombre": "Estrato lúcido",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "hiponiquio",
+      "numero": 8,
+      "nombre": "Hiponiquio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "una",
+      "numero": 9,
+      "nombre": "uña",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,104 @@
+{
+  "id": "diente",
+  "titulo": "Diente",
+  "sistema": "digestivo",
+  "organo": "Diente",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4"
+  ],
+  "descripcionGeneral": "El diente está constituido por tres tejidos duros mineralizados y un núcleo blando central distribuidos entre la corona y la raíz. El esmalte, que recubre la corona, es el tejido más duro y calcificado del organismo, es acelular y está formado por prismas secretados por ameloblastos. Debajo se encuentra la dentina, un tejido elástico y avascular que conforma la mayor parte del diente, caracterizado por túbulos dentinarios que alojan los procesos de los odontoblastos. Estos últimos delimitan con la pulpa dental, un tejido conectivo laxo altamente vascularizado e inervado que nutre y da sensibilidad al órgano a través del complejo dentino-pulpar. Finalmente, la raíz está recubierta por el cemento, un tejido similar al hueso y avascular que permite el anclaje del diente al hueso alveolar mediante el ligamento periodontal.",
+  "fuente": "",
+  "credito": "Figura 1. Diente",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "diente-1",
+      "aumento": "",
+      "credito": "Figura 1. Diente"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "ameloblastos",
+      "numero": 1,
+      "nombre": "Ameloblastos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "esmalte",
+      "numero": 2,
+      "nombre": "Esmalte",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "dentina",
+      "numero": 3,
+      "nombre": "Dentina",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4876,
+          "y": 0.1314,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "odontoblasto",
+      "numero": 4,
+      "nombre": "Odontoblasto",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5041,
+          "y": 0.1962,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-externo-del-esmalte",
+      "numero": 5,
+      "nombre": "Epitelio Externo del esmalte",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7052,
+          "y": 0.2457,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "reticulo-estrellado",
+      "numero": 6,
+      "nombre": "Reticulo estrellado",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1543,
+          "y": 0.4133,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "papila-dental",
+      "numero": 7,
+      "nombre": "Papila dental",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3609,
+          "y": 0.6419,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

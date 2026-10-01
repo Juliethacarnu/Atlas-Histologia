@@ -1,0 +1,102 @@
+{
+  "id": "timo-x40",
+  "titulo": "Timo",
+  "sistema": "sangre-linfoide",
+  "organo": "Timo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "El corpúsculo de Hassall es una masa aislada ubicada en la médula tímica, formada por células epiteliorreticulares tipo VI dispuestas de manera concéntrica y unidas por desmosomas. En su interior contiene gránulos de queratohialina, haces de filamentos intermedios e inclusiones lipídicas, y se postula que produce citocinas como la IL-4 y la IL-7, las cuales intervienen en la diferenciación y educación de los linfocitos T. Por fuera, se encuentra rodeado por el parénquima medular constituido por una red estromal de células epiteliorreticulares tipo V y linfocitos T agrupados de forma laxa",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Timo órgano linfatico",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "timo-x40-1",
+      "aumento": "",
+      "credito": "Figura 1. Timo órgano linfatico · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "corpusculo-de-hassall",
+      "numero": 1,
+      "nombre": "Corpúsculo de Hassall",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5721,
+          "y": 0.4888,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "granulos-de-queratohialina",
+      "numero": 2,
+      "nombre": "Gránulos de queratohialina",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4808,
+          "y": 0.4439,
+          "imagen": 0
+        },
+        {
+          "x": 0.5545,
+          "y": 0.586,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-epitelioreticulares-tipo-5",
+      "numero": 3,
+      "nombre": "Células epitelioreticulares tipo 5",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1218,
+          "y": 0.4863,
+          "imagen": 0
+        },
+        {
+          "x": 0.1923,
+          "y": 0.6983,
+          "imagen": 0
+        },
+        {
+          "x": 0.7853,
+          "y": 0.7481,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "linfocitos",
+      "numero": 4,
+      "nombre": "Linfocitos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2564,
+          "y": 0.0449,
+          "imagen": 0
+        },
+        {
+          "x": 0.3782,
+          "y": 0.1995,
+          "imagen": 0
+        },
+        {
+          "x": 0.641,
+          "y": 0.1247,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

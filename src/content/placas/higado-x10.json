@@ -1,0 +1,66 @@
+{
+  "id": "higado-x10",
+  "titulo": "Higado",
+  "sistema": "digestivo",
+  "organo": "Higado",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "10x",
+    "40x"
+  ],
+  "descripcionGeneral": "El hígado está cubierto por la cápsula de Glisson y organizado en lobulillos hexagonales. El parénquima está formado por cordones de hepatocitos que irradian hacia una vena centrolobulillar central. Entre estos cordones corren los sinusoides hepáticos (capilares con células de Kupffer) y se delimita el espacio de Disse (con células de Ito). En las esquinas del hexágono se ubican los espacios porta, constituidos por la tríada portal: una rama de la arteria hepática, una de la vena porta y un conductillo biliar de epitelio cúbico.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "higado-x10-1",
+      "aumento": "10x",
+      "credito": ""
+    },
+    {
+      "archivo": "higado-x10-2",
+      "aumento": "40x",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capsula-de-gilsson",
+      "numero": 1,
+      "nombre": "Cápsula de Gilsson",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "lobulillo-hepatico-clasico",
+      "numero": 2,
+      "nombre": "Lobulillo hepatico clasico",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vena-central",
+      "numero": 3,
+      "nombre": "Vena central",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "triada-portal",
+      "numero": 4,
+      "nombre": "Triada portal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cordones-hepaticos",
+      "numero": 5,
+      "nombre": "Cordones hepaticos",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

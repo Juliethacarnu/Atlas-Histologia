@@ -1,0 +1,67 @@
+{
+  "id": "epiglotis",
+  "titulo": "Epiglotis",
+  "sistema": "respiratorio",
+  "organo": "Epiglotis",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x8"
+  ],
+  "descripcionGeneral": "La epiglotis es una estructura cartilaginosa de la laringe cuyo núcleo o esqueleto central está constituido por una placa de cartílago elástico,. Histológicamente, la mucosa de la mayor parte de la epiglotis está revestida por un epitelio plano estratificado, el cual le brinda protección contra la fricción mecánica durante la deglución, mientras que el resto de la superficie laríngea presenta el epitelio cilíndrico pseudoestratificado ciliado. Por debajo del epitelio, el tejido conectivo alberga glándulas mixtas (seromucosas) que vierten sus secreciones a través de conductos hacia la superficie para mantener lubricada la vía aérea",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Epiglotis",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "epiglotis-1",
+      "aumento": "",
+      "credito": "Figura 1. Epiglotis · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "epitelio-plano-estratificado",
+      "numero": 1,
+      "nombre": "Epitelio plano estratificado",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-conectivo-laxo",
+      "numero": 2,
+      "nombre": "Tejido Conectivo Laxo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "nervio",
+      "numero": 3,
+      "nombre": "Nervio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "adipocitos-blancos",
+      "numero": 4,
+      "nombre": "Adipocitos blancos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-cartilaginoso-elastico-cartilago-epiglotico",
+      "numero": 5,
+      "nombre": "Tejido cartilaginoso elástico ( cartílago epiglótico)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "acinos-glandulares",
+      "numero": 6,
+      "nombre": "Acinos glandulares",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

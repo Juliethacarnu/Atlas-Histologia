@@ -1,0 +1,280 @@
+@import 'tailwindcss';
+
+/* Tipografias autoalojadas (sin CDN). Newsreader para titulos, Instrument Sans para interfaz. */
+@import '@fontsource-variable/newsreader/wght.css';
+@import '@fontsource-variable/newsreader/wght-italic.css';
+@import '@fontsource-variable/instrument-sans/wght.css';
+
+/* ============================================================
+   PALETA FIJA  ·  estetica de microscopio y tincion H&E
+   ============================================================ */
+@theme {
+  --color-hematoxilina: #2e2566;
+  --color-hematoxilina-claro: #8b7fd4;
+  --color-hematoxilina-tenue: #e4e0f2;
+  --color-eosina: #d9497a;
+  --color-eosina-claro: #f0739c;
+  --color-eosina-tenue: #fbe6ed;
+  --color-nucleo: #1a1233;
+  --color-nucleo-profundo: #0e0920;
+  --color-portaobjetos: #f4f1f8;
+  --color-vidrio: #ffffff;
+
+  /* Acentos por sistema: se usan en dosis pequenas (etiqueta y filo del portaobjetos) */
+  --color-sis-sangre: #a8304a;
+  --color-sis-piel: #b4762a;
+  --color-sis-respiratorio: #3c6b93;
+  --color-sis-digestivo: #55733a;
+  --color-sis-urinario: #2a7f80;
+  --color-sis-endocrino: #6b4a9e;
+
+  --font-serif: 'Newsreader Variable', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans:
+    'Instrument Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-portaobjetos: 0.375rem;
+
+  --ease-visor: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ============================================================
+   TOKENS SEMANTICOS  ·  cambian con el tema
+   `@theme inline` conserva la referencia var(), asi el interruptor
+   funciona en caliente sin recompilar utilidades.
+   ============================================================ */
+@theme inline {
+  --color-fondo: var(--atlas-fondo);
+  --color-superficie: var(--atlas-superficie);
+  --color-superficie-alta: var(--atlas-superficie-alta);
+  --color-texto: var(--atlas-texto);
+  --color-texto-suave: var(--atlas-texto-suave);
+  --color-borde: var(--atlas-borde);
+  --color-acento: var(--atlas-acento);
+  --color-campo: var(--atlas-campo);
+}
+
+:root {
+  color-scheme: light;
+  --atlas-fondo: var(--color-portaobjetos);
+  --atlas-superficie: var(--color-vidrio);
+  --atlas-superficie-alta: #fbfafd;
+  --atlas-texto: var(--color-nucleo);
+  --atlas-texto-suave: #55496f;
+  --atlas-borde: #ddd6ea;
+  --atlas-acento: var(--color-hematoxilina);
+  /* El campo del microscopio es oscuro en ambos temas: es el fondo del visor. */
+  --atlas-campo: var(--color-nucleo);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    color-scheme: dark;
+    --atlas-fondo: #15101f;
+    --atlas-superficie: #221a38;
+    --atlas-superficie-alta: #2c2246;
+    --atlas-texto: #ece8f5;
+    --atlas-texto-suave: #b3a9cc;
+    --atlas-borde: #382c56;
+    --atlas-acento: var(--color-hematoxilina-claro);
+    --atlas-campo: var(--color-nucleo-profundo);
+  }
+}
+
+:root[data-tema='oscuro'] {
+  color-scheme: dark;
+  --atlas-fondo: #15101f;
+  --atlas-superficie: #221a38;
+  --atlas-superficie-alta: #2c2246;
+  --atlas-texto: #ece8f5;
+  --atlas-texto-suave: #b3a9cc;
+  --atlas-borde: #382c56;
+  --atlas-acento: var(--color-hematoxilina-claro);
+  --atlas-campo: var(--color-nucleo-profundo);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--atlas-fondo);
+    color: var(--atlas-texto);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 1.3rem + 3.2vw, 3.05rem);
+  }
+  h2 {
+    font-size: clamp(1.55rem, 1.15rem + 1.5vw, 2.15rem);
+  }
+  h3 {
+    font-size: 1.35rem;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Foco visible y coherente en todo el sitio. */
+  :focus-visible {
+    outline: 2px solid var(--color-eosina);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-eosina-tenue);
+    color: var(--color-nucleo);
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   UTILIDADES PROPIAS
+   ============================================================ */
+@utility medida {
+  /* Lineas de menos de 75 caracteres */
+  max-width: 68ch;
+}
+
+@utility medida-corta {
+  max-width: 52ch;
+}
+
+@utility contenedor-atlas {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Viniteado sutil del campo de microscopio */
+@utility vineta-campo {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 52%,
+      color-mix(in srgb, var(--color-nucleo-profundo) 62%, transparent) 100%
+    );
+  }
+}
+
+/* Reflejo diagonal muy tenue: sugiere el vidrio del portaobjetos */
+@utility brillo-vidrio {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      108deg,
+      color-mix(in srgb, white 34%, transparent) 0%,
+      transparent 36%,
+      transparent 64%,
+      color-mix(in srgb, white 14%, transparent) 100%
+    );
+    mix-blend-mode: soft-light;
+  }
+}
+
+/* Superficie flotante sobre el campo oscuro del visor */
+@utility panel-flotante {
+  background: color-mix(in srgb, var(--atlas-superficie) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.1);
+  border: 1px solid color-mix(in srgb, var(--atlas-borde) 70%, transparent);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 2px rgb(14 9 32 / 0.2),
+    0 12px 34px -12px rgb(14 9 32 / 0.45);
+}
+
+@utility solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================
+   MOVIMIENTO  ·  solo dos gestos: el zoom del visor y el avatar hablando
+   ============================================================ */
+@keyframes atlas-pulso-eosina {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--color-eosina) 65%, transparent),
+      0 2px 6px rgb(14 9 32 / 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px color-mix(in srgb, var(--color-eosina) 0%, transparent),
+      0 2px 6px rgb(14 9 32 / 0.5);
+  }
+}
+
+@keyframes atlas-hablando {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-2px) scaleY(1.012);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

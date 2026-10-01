@@ -1,0 +1,87 @@
+{
+  "id": "foliculo-piloso",
+  "titulo": "Folículo piloso",
+  "sistema": "piel-anexos",
+  "organo": "Piel fina - folículo piloso",
+  "tincion": "Tricrómico de Masson y Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "4x",
+    "16x"
+  ],
+  "descripcionGeneral": "El folículo piloso es una invaginación de la epidermis especializada en la producción y crecimiento del pelo. Histológicamente se organiza en cuatro segmentos principales: el infundíbulo, el istmo, la protuberancia folicular —que alberga un reservorio de células madre y melanoblastos— y el segmento inferior. En la base de este último se expande el bulbo piloso, el cual rodea una papila dérmica vascularizada y contiene la matriz del pelo, conformada por células matriciales en rápida división. Dichas células originan tanto la estructura central del pelo —compuesta por médula, corteza y cutícula— como la vaina radicular interna (subdividida en capa de Henle, capa de Huxley y cutícula de la vaina). Por fuera se dispone la vaina radicular externa, separada del tejido conjuntivo por una membrana vítrea, organizando la estructura junto con la glándula sebácea y el músculo erector del pelo.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Imagen fotografica propia · Figura 2. Foliculo piloso",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "foliculo-piloso-1",
+      "aumento": "4x",
+      "credito": "Figura 1. Imagen fotografica propia · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "foliculo-piloso-2",
+      "aumento": "16x",
+      "credito": "Figura 2. Foliculo piloso · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "foliculo-piloso",
+      "numero": 1,
+      "nombre": "Folículo piloso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "bulbo-piloso",
+      "numero": 2,
+      "nombre": "Bulbo piloso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tallo-piloso",
+      "numero": 3,
+      "nombre": "Tallo piloso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vaina-radicular-interna",
+      "numero": 4,
+      "nombre": "Vaina Radicular Interna",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vaina-radicular-externa",
+      "numero": 5,
+      "nombre": "Vaina Radicular Externa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "pelo",
+      "numero": 6,
+      "nombre": "Pelo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vaina-folicular",
+      "numero": 7,
+      "nombre": "Vaina folicular",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-adiposo",
+      "numero": 8,
+      "nombre": "Tejido adiposo",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,107 @@
+{
+  "id": "frotis-de-sangre",
+  "titulo": "Frotis de sangre",
+  "sistema": "sangre-linfoide",
+  "organo": "Tejido sanguíneo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x100"
+  ],
+  "descripcionGeneral": "Tejido conjuntivo líquido que se divide en dos componentes principales plasma(55%): compuesta por un 92% de agua, además de proteínas como la albumina y fibrogeno, sales y nutrientes. Y elementos formes(45%): erictocitos (glóbulos rojos), leucocitos (glóbulos blancos), plaquetas (trombocitos). Sus funciones principales son transporte, regulación protección.",
+  "fuente": "",
+  "credito": "Figura 1. Imagen fotografica propia · Figura 2. Imagen fotografica propia",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "frotis-de-sangre-1",
+      "aumento": "",
+      "credito": "Figura 1. Imagen fotografica propia"
+    },
+    {
+      "archivo": "frotis-de-sangre-2",
+      "aumento": "",
+      "credito": "Figura 2. Imagen fotografica propia"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "eritrocito-globulo-rojo",
+      "numero": 1,
+      "nombre": "Eritrocito (glóbulo rojo)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.478,
+          "y": 0.25,
+          "imagen": 0
+        },
+        {
+          "x": 0.335,
+          "y": 0.152,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "plaquetas",
+      "numero": 2,
+      "nombre": "Plaquetas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.232,
+          "y": 0.478,
+          "imagen": 0
+        },
+        {
+          "x": 0.62,
+          "y": 0.748,
+          "imagen": 0
+        },
+        {
+          "x": 0.463,
+          "y": 0.658,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "neutrofilo",
+      "numero": 3,
+      "nombre": "Neutrófilo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.583,
+          "y": 0.048,
+          "imagen": 0
+        },
+        {
+          "x": 0.252,
+          "y": 0.608,
+          "imagen": 0
+        },
+        {
+          "x": 0.77,
+          "y": 0.778,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corpusculo-de-barr",
+      "numero": 4,
+      "nombre": "Corpúsculo de Barr",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.418,
+          "y": 0.378,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,104 @@
+{
+  "id": "bazo-x10",
+  "titulo": "Bazo",
+  "sistema": "sangre-linfoide",
+  "organo": "Bazo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×10"
+  ],
+  "descripcionGeneral": "La pulpa blanca del bazo está constituida por tejido linfoide basófilo formado por la vaina linfática periarterial (VLPA) rica en linfocitos T y por nódulos esplénicos de linfocitos B, los cuales rodean a la arteria central y la desplazan hacia una posición excéntrica. A su vez, la pulpa roja está integrada por una red de cordones esplénicos (de Billroth) y senos o sinusoides vasculares, cuya función principal es la filtración de la sangre y la destrucción de eritrocitos y plaquetas envejecidos o dañados mediante la acción de los macrófagos.",
+  "fuente": "",
+  "credito": "Figura 1. Bazo, organo linfoide",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "bazo-x10-1",
+      "aumento": "",
+      "credito": "Figura 1. Bazo, organo linfoide"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "tabique",
+      "numero": 1,
+      "nombre": "Tabique",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5886,
+          "y": 0.4297,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pulpa-roja",
+      "numero": 2,
+      "nombre": "Pulpa Roja",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3171,
+          "y": 0.1484,
+          "imagen": 0
+        },
+        {
+          "x": 0.5143,
+          "y": 0.5273,
+          "imagen": 0
+        },
+        {
+          "x": 0.5371,
+          "y": 0.6445,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pulpa-blanca",
+      "numero": 3,
+      "nombre": "Pulpa Blanca",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1371,
+          "y": 0.4648,
+          "imagen": 0
+        },
+        {
+          "x": 0.8143,
+          "y": 0.6875,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "zona-del-manto",
+      "numero": 3.1,
+      "nombre": "Zona del Manto",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "centro-germinativo",
+      "numero": 3.2,
+      "nombre": "Centro germinativo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3905,
+          "y": 0.1563,
+          "imagen": 0
+        },
+        {
+          "x": 0.8,
+          "y": 0.375,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

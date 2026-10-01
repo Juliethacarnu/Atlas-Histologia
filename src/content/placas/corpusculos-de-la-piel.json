@@ -1,0 +1,84 @@
+{
+  "id": "corpusculos-de-la-piel",
+  "titulo": "Corpúsculos de la piel",
+  "sistema": "piel-anexos",
+  "organo": "Corpúsculos de la Piel",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x40"
+  ],
+  "descripcionGeneral": "Los corpúsculos de la piel son receptores sensitivos encapsulados y especializados en la transducción de diversos estímulos mecánicos. Entre ellos destacan los corpúsculos de Meissner, estructuras cilíndricas situadas en las papilas dérmicas compuestas por células de Schwann aplanadas y axones en espiral que perciben el tacto leve y vibraciones de baja frecuencia; los corpúsculos de Vater-Pacini, grandes receptores ovoides localizados en la dermis profunda e hipodermis con láminas concéntricas especializados en la detección de presión y vibración; los corpúsculos de Ruffini, estructuras fusiformes sensibles al estiramiento y la tensión mecánica de las fibras de colágeno; y los corpúsculos de Merkel, mecanorreceptores formados por la unión de una célula de Merkel del estrato basal epidérmico con el disco terminal de una fibra nerviosa aferente para la percepción táctil fina.",
+  "fuente": "",
+  "credito": "Figura 1. Corpusculo de Paccini · Figura 2. Corpusculo de Meissner · Figura 3. Corpusculo de Ruffini",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "corpusculos-de-la-piel-1",
+      "aumento": "",
+      "credito": "Figura 1. Corpusculo de Paccini"
+    },
+    {
+      "archivo": "corpusculos-de-la-piel-2",
+      "aumento": "",
+      "credito": "Figura 2. Corpusculo de Meissner"
+    },
+    {
+      "archivo": "corpusculos-de-la-piel-3",
+      "aumento": "",
+      "credito": "Figura 3. Corpusculo de Ruffini"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "corpusculo-de-pacini",
+      "numero": 1,
+      "nombre": "Corpúsculo de Pacini",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7829,
+          "y": 0.4229,
+          "imagen": 0
+        },
+        {
+          "x": 0.08,
+          "y": 0.6432,
+          "imagen": 0
+        },
+        {
+          "x": 0.2229,
+          "y": 0.8767,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corpusculo-de-meissner",
+      "numero": 2,
+      "nombre": "Corpúsculo de Meissner",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7388,
+          "y": 0.4927,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "corpusculo-de-ruffini",
+      "numero": 3,
+      "nombre": "Corpúsculo de Ruffini",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5682,
+          "y": 0.4464,
+          "imagen": 2
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

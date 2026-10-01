@@ -1,0 +1,314 @@
+---
+import type { Placa, Presentador } from '../utils/placas';
+import Avatar from './Avatar.astro';
+
+interface Props {
+  placa: Placa;
+  presentador: Presentador | null;
+}
+const { placa, presentador } = Astro.props;
+const video = placa.video;
+const esAudio = video?.tipo === 'audio';
+const nombre = presentador?.nombre ?? 'Sin presentador';
+const rol = presentador?.rol ?? '';
+
+const porNumero = new Map(placa.estructuras.map((e) => [e.id, e]));
+const capitulos = (video?.capitulos ?? [])
+  .map((c) => ({ ...c, estructura: porNumero.get(c.estructuraId) }))
+  .filter((c) => c.estructura)
+  .sort((a, b) => a.tiempoSegundos - b.tiempoSegundos);
+
+function reloj(s: number) {
+  const m = Math.floor(s / 60);
+  const r = Math.floor(s % 60);
+  return `${m}:${String(r).padStart(2, '0')}`;
+}
+
+const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicación todavía';
+---
+
+<div
+  id="explicador"
+  class="explicador"
+  data-tiene-video={video ? 'si' : 'no'}
+  aria-labelledby="explicador-nombre"
+>
+  <!-- Burbuja: estado minimizado -->
+  <button type="button" id="explicador-abrir" class="explicador__burbuja" aria-expanded="false">
+    <Avatar presentador={presentador} tamano={52} animable={!!video} clase="avatar-burbuja" />
+    <span class="solo-lectores">Abrir al explicador: {nombre}</span>
+    {video && <span class="explicador__punto" aria-hidden="true" />}
+  </button>
+
+  <!-- Ventana -->
+  <section class="explicador__ventana panel-flotante" aria-label="Explicación de la placa">
+    <header class="flex items-center gap-2.5 px-3 pt-2.5 pb-2">
+      <Avatar presentador={presentador} tamano={40} animable={!!video} clase="avatar-cabecera" />
+      <div class="min-w-0 flex-1">
+        <p
+          id="explicador-nombre"
+          class="truncate font-serif text-[0.95rem] leading-tight font-medium"
+        >
+          {nombre}
+        </p>
+        <p class="truncate text-[0.72rem] text-texto-suave">
+          {rol}
+          {subtituloCabecera}
+        </p>
+      </div>
+      <button
+        type="button"
+        id="explicador-minimizar"
+        class="explicador__icono"
+        aria-keyshortcuts="M"
+      >
+        <span class="solo-lectores">Minimizar al explicador</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 15h12" />
+        </svg>
+      </button>
+    </header>
+
+    {video ? (
+      <>
+        {esAudio ? (
+          <>
+            {/* Solo voz: la caricatura es la imagen del reproductor. */}
+            <div class="explicador__escenario">
+              <Avatar
+                presentador={presentador}
+                tamano={128}
+                animable={true}
+                conBucle={true}
+                clase="avatar-escenario"
+              />
+            </div>
+            <div id="hueco-video" class="px-3 pt-2" />
+          </>
+        ) : (
+          <>
+            <div id="hueco-video" class="aspect-video w-full overflow-hidden bg-black" />
+            <div class="flex items-center gap-2 px-3 py-2">
+              <button type="button" id="video-alternar" class="explicador__play">
+                <svg viewBox="0 0 24 24" aria-hidden="true" data-icono="play">
+                  <path d="M8 5.5v13l11-6.5z" />
+                </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  data-icono="pausa"
+                  {...{ hidden: true }}
+                >
+                  <path d="M8.5 5.5h3v13h-3zM12.5 5.5h3v13h-3z" />
+                </svg>
+                <span class="solo-lectores" id="video-alternar-texto">
+                  Reproducir el video
+                </span>
+              </button>
+              <p class="text-[0.72rem] tabular-nums text-texto-suave">
+                <span id="video-tiempo">0:00</span>
+              </p>
+            </div>
+          </>
+        )}
+
+        <p class="truncate px-3 pb-2 text-[0.72rem] text-texto-suave">
+          <span id="video-capitulo-actual">
+            {capitulos.length === 0
+                ? ''
+                : capitulos.length === 1
+                  ? '1 capítulo'
+                  : `${capitulos.length} capítulos`}
+          </span>
+        </p>
+
+        {capitulos.length > 0 && (
+          <details class="explicador__capitulos">
+            <summary>Capítulos</summary>
+            <ol role="list">
+              {capitulos.map((c) => (
+                <li>
+                  <button
+                    type="button"
+                    data-capitulo={c.estructuraId}
+                    data-tiempo={c.tiempoSegundos}
+                  >
+                    <span class="tabular-nums opacity-65">{reloj(c.tiempoSegundos)}</span>
+                    <span class="truncate" data-nombre-capitulo>
+                      {c.estructura!.nombre}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )}
+
+        {/* Un <audio> no muestra subtítulos: el .vtt se pinta como transcripción. */}
+        {esAudio && video.subtitulos && (
+          <details class="explicador__capitulos transcripcion" id="transcripcion" hidden>
+            <summary>Transcripción</summary>
+            <ol role="list" id="transcripcion-lista" />
+          </details>
+        )}
+      </>
+    ) : (
+      <div class="px-3 pb-3">
+        <p class="text-[0.82rem] leading-relaxed text-texto-suave">
+          {placa.descripcionGeneral ||
+            'Todavía no hay explicación para esta placa. Cuando subas el audio o el video, aparecerá aquí junto a la caricatura del presentador.'}
+        </p>
+      </div>
+    )}
+  </section>
+</div>
+
+<style>
+  .explicador {
+    position: fixed;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 40;
+  }
+  @media (min-width: 1024px) {
+    .explicador {
+      /* Dentro del marco del visor, a la izquierda del panel de estructuras. */
+      position: absolute;
+      right: 23.5rem;
+      bottom: 0.75rem;
+    }
+  }
+
+  .explicador__ventana {
+    width: min(20rem, calc(100vw - 1.5rem));
+    overflow: hidden;
+  }
+
+  /* Escenario del modo audio: la caricatura sobre el campo del microscopio. */
+  .explicador__escenario {
+    display: grid;
+    place-items: end center;
+    padding-top: 0.75rem;
+    background:
+      radial-gradient(
+        ellipse at 50% 120%,
+        color-mix(in srgb, var(--color-eosina) 22%, transparent) 0%,
+        transparent 68%
+      ),
+      var(--color-nucleo);
+  }
+
+  .explicador__burbuja {
+    display: none;
+    position: relative;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--atlas-superficie) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border: 1px solid color-mix(in srgb, var(--atlas-borde) 70%, transparent);
+    box-shadow: 0 6px 20px -8px rgb(14 9 32 / 0.55);
+    padding: 0.2rem;
+  }
+
+  /* Estado minimizado */
+  .explicador--minimizado .explicador__ventana {
+    display: none;
+  }
+  .explicador--minimizado .explicador__burbuja {
+    display: block;
+  }
+
+  .explicador__punto {
+    position: absolute;
+    right: 0.15rem;
+    bottom: 0.15rem;
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 999px;
+    border: 2px solid var(--atlas-superficie);
+    background: var(--color-eosina);
+  }
+
+  .explicador__icono {
+    display: grid;
+    place-items: center;
+    height: 1.6rem;
+    width: 1.6rem;
+    flex: none;
+    border-radius: 0.375rem;
+    color: var(--atlas-texto-suave);
+  }
+  .explicador__icono:hover {
+    background: var(--atlas-fondo);
+    color: var(--atlas-texto);
+  }
+  .explicador__icono svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+  }
+
+  .explicador__play {
+    display: grid;
+    place-items: center;
+    height: 2rem;
+    width: 2rem;
+    flex: none;
+    border-radius: 999px;
+    background: var(--color-eosina);
+    color: #fff;
+  }
+  .explicador__play svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: currentColor;
+  }
+
+  .explicador__capitulos {
+    border-top: 1px solid var(--atlas-borde);
+    font-size: 0.76rem;
+  }
+  .explicador__capitulos summary {
+    cursor: pointer;
+    padding: 0.4rem 0.75rem;
+    color: var(--atlas-texto-suave);
+  }
+  .explicador__capitulos ol {
+    list-style: none;
+    margin: 0;
+    padding: 0 0.4rem 0.5rem;
+    max-height: 9rem;
+    overflow-y: auto;
+  }
+  .explicador__capitulos button {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    border-radius: 0.35rem;
+    padding: 0.25rem 0.4rem;
+    text-align: left;
+    color: var(--atlas-texto);
+  }
+  .explicador__capitulos button:hover {
+    background: var(--atlas-fondo);
+  }
+  .explicador__capitulos button[aria-current='true'] {
+    background: var(--color-eosina-tenue);
+    color: var(--color-nucleo);
+  }
+
+  /* Transcripción del audio */
+  .transcripcion ol {
+    max-height: 11rem;
+  }
+  :global(.transcripcion__linea) {
+    align-items: baseline;
+  }
+  :global(.transcripcion__marca) {
+    flex: none;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.6;
+  }
+</style>

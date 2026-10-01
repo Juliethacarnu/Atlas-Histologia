@@ -1,0 +1,118 @@
+{
+  "id": "esofago",
+  "titulo": "Esófago",
+  "sistema": "digestivo",
+  "organo": "Esófago / epitelioplano estratificado no queratinizado",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x 4",
+    "x12"
+  ],
+  "descripcionGeneral": "El esófago es un tubo muscular de aproximadamente 25 cm de longitud que transporta los alimentos y líquidos desde la faringe hasta el estómago, cuya luz en corte transversal se observa colapsada por pliegues longitudinales. Su pared histológica comprende una mucosa revestida por un epitelio plano estratificado no queratinizado, una lámina propia con tejido linfoide y una muscular de la mucosa compuesta por músculo liso dispuesto en dirección longitudinal; una submucosa de tejido conectivo denso irregular que alberga el plexo submucoso (de Meissner) y glándulas esofágicas propiamente dichas secretoras de moco lubricante; una muscular externa organizada en capas circular interna y longitudinal externa con el plexo mientérico (de Auerbach) entre ellas, que exhibe una transición de músculo estriado en su tercio superior, mixto en el tercio medio y liso en el distal; y una capa externa de adventicia que lo fija al cuello y mediastino, la cual pasa a ser serosa en sus últimos 2 cm dentro de la cavidad abdominal",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Esofago, Estructuras · Figura 2. Esofago",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "esofago-1",
+      "aumento": "x 4",
+      "credito": "Figura 1. Esofago, Estructuras · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "esofago-2",
+      "aumento": "x12",
+      "credito": "Figura 2. Esofago · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.0519,
+          "y": 0.4456,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio",
+      "numero": 1.1,
+      "nombre": "epitelio",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1377,
+          "y": 0.2041,
+          "imagen": 0
+        },
+        {
+          "x": 0.1812,
+          "y": 0.1593,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "lamina-propia",
+      "numero": 2,
+      "nombre": "lamina propia",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1896,
+          "y": 0.3299,
+          "imagen": 0
+        },
+        {
+          "x": 0.0764,
+          "y": 0.5356,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 3,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7788,
+          "y": 0.0714,
+          "imagen": 0
+        },
+        {
+          "x": 0.1151,
+          "y": 0.8299,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 4,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2393,
+          "y": 0.9388,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "adventicia",
+      "numero": 5,
+      "nombre": "Adventicia",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

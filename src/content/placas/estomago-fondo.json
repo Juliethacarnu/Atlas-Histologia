@@ -1,0 +1,71 @@
+{
+  "id": "estomago-fondo",
+  "titulo": "Estomago :fondo",
+  "sistema": "digestivo",
+  "organo": "Fondo / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4",
+    "x20"
+  ],
+  "descripcionGeneral": "El fondo gástrico es una región especializada principalmente en la secreción del jugo gástrico y la digestión de proteínas. Su mucosa está revestida por epitelio cilíndrico simple mucosecretor y presenta fovéolas gástricas cortas, en cuyo fondo desembocan glándulas fúndicas largas y rectas. Estas contienen células parietales, que producen ácido clorhídrico (HCl) y factor intrínseco, y células principales, que secretan pepsinógeno y lipasa gástrica. También posee células mucosas del cuello y enteroendocrinas. El HCl crea un medio ácido que favorece la activación de la pepsina y ayuda a destruir microorganismos, mientras que el factor intrínseco es fundamental para la posterior absorción de vitamina B12.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Estómago · Figura 2. Glandulas fondocorporales",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "estomago-fondo-1",
+      "aumento": "x4",
+      "credito": "Figura 1. Estómago · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "estomago-fondo-2",
+      "aumento": "x20",
+      "credito": "Figura 2. Glandulas fondocorporales · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4757,
+          "y": 0.4352,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 2,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.649,
+          "y": 0.9601,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 3,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "serosa",
+      "numero": 4,
+      "nombre": "Serosa",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

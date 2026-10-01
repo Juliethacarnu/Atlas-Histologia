@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { ruta } from '../utils/ruta';
+---
+
+<Base titulo="Página no encontrada" descripcion="La página que buscas no existe en el atlas.">
+  <div class="py-16">
+    <p class="mb-2 text-sm text-texto-suave">Error 404</p>
+    <h1 class="mb-4">Esta preparación no está en la bandeja</h1>
+    <p class="medida mb-6 text-lg text-texto-suave">
+      La dirección que abriste no corresponde a ninguna placa del atlas. Puede que el enlace sea
+      antiguo o que el identificador de la placa haya cambiado.
+    </p>
+    <a
+      href={ruta()}
+      class="inline-block rounded-lg bg-hematoxilina px-4 py-2 text-vidrio no-underline"
+    >
+      Volver a la bandeja de placas
+    </a>
+  </div>
+</Base>

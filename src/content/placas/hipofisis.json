@@ -1,0 +1,40 @@
+{
+  "id": "hipofisis",
+  "titulo": "Hipófisis",
+  "sistema": "endocrino",
+  "organo": "Hipófisis",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4",
+    "×10"
+  ],
+  "descripcionGeneral": "La hipófisis (glándula pituitaria) se sitúa en la silla turca del hueso esfenoides y se conecta al hipotálamo a través del infundíbulo. Se organiza en dos componentes principales: la adenohipófisis (lóbulo anterior), integrada por la porción distal, intermedia y tuberal, cuyos cordones de células secretoras (acidófilas, basófilas y cromófobas) y células foliculoestrelladas se disponen entre capilares fenestrados del sistema porta hipofisario; y la neurohipófisis (lóbulo posterior), constituida por el infundíbulo y la porción nerviosa, la cual no es una glándula secretora primaria sino un sitio de almacenamiento y liberación de oxitocina y vasopresina (ADH) desde los cuerpos de Herring —dilataciones de los axones amielínicos del tracto hipotálamo-hipofisario— hacia la red capilar, respaldada por células gliales de sostén denominadas pituicitos.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "hipofisis-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "adenohipofisis",
+      "numero": 1,
+      "nombre": "Adenohipófisis",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "neurohipofisis",
+      "numero": 2,
+      "nombre": "Neurohipófisis",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

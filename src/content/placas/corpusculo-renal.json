@@ -1,0 +1,46 @@
+{
+  "id": "corpusculo-renal",
+  "titulo": "Corpúsculo Renal",
+  "sistema": "urinario",
+  "organo": "Corpúsculo Renal",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "Dentro del corpúsculo renal coexisten cuatro poblaciones celulares principales: las células endoteliales, que revisten los capilares glomerulares y poseen fenestraciones sin diafragma; los podocitos, que forman la capa visceral de la cápsula de Bowman y extienden prolongaciones llamadas pedicelos para rodear a los capilares y constituir las ranuras de filtración; las células mesangiales intraglomerulares, ubicadas en el intersticio capilar, que brindan soporte mecánico, fagocitan residuos de la membrana basal, secretan citocinas y regulan la distensión glomerular gracias a su capacidad contráctil; y las células epiteliales parietales, un epitelio plano simple que delimita la cubierta externa de la cápsula de Bowman y rodea el espacio urinario",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "corpusculo-renal-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capsula-de-bowman",
+      "numero": 1,
+      "nombre": "Cápsula de Bowman",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "glomerulo-renal",
+      "numero": 2,
+      "nombre": "Glomerulo renal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "aparato-yuxtaglomerular",
+      "numero": 3,
+      "nombre": "Aparato Yuxtaglomerular",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

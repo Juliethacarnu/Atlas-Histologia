@@ -1,0 +1,67 @@
+{
+  "id": "rinon",
+  "titulo": "Riñon",
+  "sistema": "urinario",
+  "organo": "Organización Renal",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "El riñón es un órgano retroperitoneal con forma de habichuela protegido por una cápsula de tejido conectivo con componentes elásticos y contráctiles que le ayudan a resistir variaciones de volumen y presión. Su parénquima se organiza en una corteza externa pardo rojiza —donde se ubican los corpúsculos renales y los laberintos corticales— y una médula interna más pálida compuesta por las pirámides renales. La unidad estructural y funcional de este órgano es la nefrona, la cual filtra el plasma sanguíneo a nivel del glomérulo para generar un ultrafiltrado primario que es reabsorbido, secretado y concentrado por el sistema tubular y los conductos colectores, permitiendo regular el pH, el equilibrio acidobásico y el volumen del líquido extracelular.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "rinon-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capsula-renal",
+      "numero": 1,
+      "nombre": "Capsula renal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "corteza-renal",
+      "numero": 2,
+      "nombre": "Corteza renal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "medula-renal",
+      "numero": 3,
+      "nombre": "Medula renal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "lobulo-y-lobulillo-renal",
+      "numero": 4,
+      "nombre": "Lobulo y lobulillo renal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "columnas-renales",
+      "numero": 5,
+      "nombre": "Columnas renales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "papila-renal",
+      "numero": 6,
+      "nombre": "Papila renal",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

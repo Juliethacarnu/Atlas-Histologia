@@ -1,0 +1,146 @@
+{
+  "id": "piel-fina",
+  "titulo": "Piel Fina",
+  "sistema": "piel-anexos",
+  "organo": "Tejido epitelial plano estratificado queratinizado",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4",
+    "x20"
+  ],
+  "descripcionGeneral": "La piel fina es un órgano laminar con un espesor total de entre 1 y 2 mm, cuya arquitectura histológica está adaptada para ofrecer una protección flexible en las zonas del cuerpo que no sufren fricción mecánica extrema,está compuesta externamente por una epidermis delgada de epitelio plano estratificado (de solo cuatro capas, sin estrato lúcido) que actúa como barrera impermeable. Justo debajo se encuentra la dermis, una capa de tejido conectivo con ondulaciones muy suaves que le aporta nutrición y elasticidad. El rasgo microscópico más característico de este tejido es la unidad pilosebácea, un conjunto exclusivo de la piel fina que integra el folículo piloso, la glándula sebácea que lo lubrica y el músculo erector del pelo.",
+  "fuente": "",
+  "credito": "Figura 1. Piel fina · Figura 2. Piel fina",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "piel-fina-1",
+      "aumento": "x4",
+      "credito": "Figura 1. Piel fina"
+    },
+    {
+      "archivo": "piel-fina-2",
+      "aumento": "x20",
+      "credito": "Figura 1. Piel fina"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "epidermis",
+      "numero": 1,
+      "nombre": "Epidermis",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7709,
+          "y": 0.3391,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "dermis",
+      "numero": 2,
+      "nombre": "Dermis",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.642,
+          "y": 0.5431,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "glandulas-cebaceas",
+      "numero": 3,
+      "nombre": "Glándulas cebáceas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7589,
+          "y": 0.7701,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "crestas-dermicas",
+      "numero": 4,
+      "nombre": "Crestas dérmicas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8616,
+          "y": 0.5086,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "estrato-corneo",
+      "numero": 5,
+      "nombre": "Estrato córneo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-granuloso",
+      "numero": 6,
+      "nombre": "Estrato granuloso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-espinoso",
+      "numero": 7,
+      "nombre": "Estrato espinoso",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5741,
+          "y": 0.4137,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "estrato-basal",
+      "numero": 8,
+      "nombre": "Estrato Basal",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.456,
+          "y": 0.5244,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "queratinocitos",
+      "numero": 9,
+      "nombre": "Queratinocitos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8866,
+          "y": 0.2769,
+          "imagen": 1
+        },
+        {
+          "x": 0.0949,
+          "y": 0.3355,
+          "imagen": 1
+        },
+        {
+          "x": 0.8449,
+          "y": 0.772,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

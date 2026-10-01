@@ -1,0 +1,26 @@
+---
+import { ruta } from '../../utils/ruta';
+---
+
+<footer class="mt-20 border-t border-borde py-10 text-sm text-texto-suave">
+  <div class="contenedor-atlas flex flex-wrap items-start justify-between gap-6">
+    <p class="medida-corta">
+      Atlas virtual de histología · proyecto universitario. Preparaciones teñidas con hematoxilina y
+      eosina. Las imágenes y los textos son material de estudio, no de diagnóstico.
+    </p>
+    <nav aria-label="Enlaces del pie" class="flex flex-col gap-1.5">
+      <a
+        href={ruta('autores')}
+        class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
+      >
+        Autores
+      </a>
+      <a
+        href={ruta('creditos')}
+        class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
+      >
+        Créditos y fuentes
+      </a>
+    </nav>
+  </div>
+</footer>

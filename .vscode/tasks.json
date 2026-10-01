@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "detail": "Servidor de desarrollo de Astro (incluye /admin/anotar)",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "build",
+      "detail": "Compila el sitio estático en dist/ (sin la herramienta de anotación)",
+      "type": "shell",
+      "command": "npm run build",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "optimizar imágenes",
+      "detail": "Convierte ./originales/ a WebP en public/placas/ (o genera placeholders)",
+      "type": "shell",
+      "command": "npm run optimizar",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "previsualizar build",
+      "detail": "Sirve dist/ como lo verá GitHub Pages",
+      "type": "shell",
+      "command": "npm run preview",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "comprobar tipos",
+      "detail": "astro check: tipos y esquemas de contenido",
+      "type": "shell",
+      "command": "npm run check",
+      "problemMatcher": ["$tsc"],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    }
+  ]
+}

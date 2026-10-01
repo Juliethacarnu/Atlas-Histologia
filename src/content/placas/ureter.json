@@ -1,0 +1,77 @@
+{
+  "id": "ureter",
+  "titulo": "Uréter",
+  "sistema": "urinario",
+  "organo": "Uréter",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×8"
+  ],
+  "descripcionGeneral": "El uréter (conducto encargado de transportar la orina desde la pelvis renal hasta la vejiga) presenta una pared conformada por tres capas histológicas: una mucosa interna revestida por urotelio (epitelio de transición) impermeable dispuesto sobre una lámina propia de tejido conectivo; una capa muscular de músculo liso organizada con una capa longitudinal interna y circular externa (a la que se le suma una capa longitudinal externa adicional en su tercio inferior o distal) que genera peristaltismo para impulsar el flujo urinario; y una adventicia externa de tejido conectivo laxo que alberga vasos sanguíneos, nervios y tejido adiposo para fijarlo a las estructuras retroperitoneales.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "ureter-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "luz-estrellada-irregular",
+      "numero": 1,
+      "nombre": "Luz estrellada irregular",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.13,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "mucosa",
+      "numero": 2,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.364,
+          "y": 0.22,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-musculo-liso",
+      "numero": 3,
+      "nombre": "Muscular (músculo liso)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.73,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "adventicia",
+      "numero": 4,
+      "nombre": "Adventicia",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.08,
+          "y": 0.93,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

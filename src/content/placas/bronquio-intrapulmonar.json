@@ -1,0 +1,108 @@
+{
+  "id": "bronquio-intrapulmonar",
+  "titulo": "Bronquio Intrapulmonar",
+  "sistema": "respiratorio",
+  "organo": "Bronquio Intrapulmonar",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x3",
+    "x6"
+  ],
+  "descripcionGeneral": "El bronquio intrapulmonar presenta una mucosa revestida por epitelio cilíndrico pseudoestratificado ciliado con una lámina propia cuyo espesor disminuye conforme se reduce su calibre. Inmediatamente por fuera se dispone una capa muscular de músculo liso organizado de forma continua, seguida de una submucosa de tejido conectivo laxo con glándulas seromucosas y tejido adiposo. A diferencia de la tráquea, su soporte de sostén se transforma en placas cartilaginosas discontinuas e irregulares distribuidas alrededor de la circunferencia, las cuales disminuyen gradualmente hasta desaparecer en los bronquiolos, todo delimitado exteriormente por una adventicia de tejido conectivo.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1: Bronquio · Figura 2 : bronquio, partes.",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "bronquio-intrapulmonar-1",
+      "aumento": "x3",
+      "credito": "Figura 1: Bronquio · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "bronquio-intrapulmonar-2",
+      "aumento": "x6",
+      "credito": "Figura 2 : bronquio, partes. · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capa-mucosa",
+      "numero": 1,
+      "nombre": "Capa mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5071,
+          "y": 0.637,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-muscular",
+      "numero": 2,
+      "nombre": "Capa muscular",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "glandulas-broquiales",
+      "numero": 3,
+      "nombre": "Glándulas Broquiales",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1114,
+          "y": 0.7099,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "capa-fibrocartilaginosa",
+      "numero": 4,
+      "nombre": "Capa fibrocartilaginosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8624,
+          "y": 0.4778,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "placas-de-cartilago-hialino",
+      "numero": 4.1,
+      "nombre": "Placas de cartílago hialino",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.658,
+          "y": 0.2491,
+          "imagen": 0
+        },
+        {
+          "x": 0.5131,
+          "y": 0.2526,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "adventicia",
+      "numero": 5,
+      "nombre": "Adventicia",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8712,
+          "y": 0.0956,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,113 @@
+{
+  "id": "bazo-x100",
+  "titulo": "Bazo",
+  "sistema": "sangre-linfoide",
+  "organo": "Bazo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×100"
+  ],
+  "descripcionGeneral": "La pulpa roja del bazo está integrada por una red de senos o sinusoides esplénicos separados entre sí por los cordones esplénicos (de Billroth), los cuales consisten en una malla laxa de células y fibras reticulares (con colágeno tipo III y V) en la que se aloja una gran cantidad de eritrocitos, macrófagos, plaquetas, linfocitos y otros granulocitos. Los senos vasculares están revestidos por células endoteliales alargadas que carecen de lámina basal continua y de células musculares lisas, creando hendiduras e espacios intercelulares que permiten la libre entrada y salida de eritrocitos. Esta estructura se especializa en la filtración de la sangre, permitiendo que los macrófagos esplénicos reconozcan, capten y destruyan los eritrocitos y plaquetas envejecidos, anómalos o dañados",
+  "fuente": "",
+  "credito": "Figura 1. Bazo, organo linfoide",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "bazo-x100-1",
+      "aumento": "",
+      "credito": "Figura 1. Bazo, organo linfoide"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "seno-venoso",
+      "numero": 1,
+      "nombre": "Seno venoso",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1859,
+          "y": 0.3006,
+          "imagen": 0
+        },
+        {
+          "x": 0.2525,
+          "y": 0.5187,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cordones-esplenicos",
+      "numero": 2,
+      "nombre": "Cordones Esplenicos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.0303,
+          "y": 0.389,
+          "imagen": 0
+        },
+        {
+          "x": 0.1576,
+          "y": 0.4322,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pared-sinusoide-venoso",
+      "numero": 3,
+      "nombre": "Pared Sinusoide venoso",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.0747,
+          "y": 0.7387,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-endoteliales-bastoniformes",
+      "numero": 4,
+      "nombre": "Células endoteliales bastoniformes",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.9212,
+          "y": 0.4322,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nucleos-de-las-celulas-endoteliales",
+      "numero": 4.1,
+      "nombre": "Nucleos de las células endoteliales",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.503,
+          "y": 0.6149,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "macrofago",
+      "numero": 5,
+      "nombre": "Macrófago",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.796,
+          "y": 0.8507,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

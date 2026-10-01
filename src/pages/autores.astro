@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Avatar from '../componentes/Avatar.astro';
+import { SISTEMAS, nombreSistema } from '../datos/sistemas';
+import { ordenarPlacas } from '../utils/placas';
+import { rutaPlaca } from '../utils/ruta';
+
+const presentadores = await getCollection('presentadores');
+const placas = ordenarPlacas(
+  await getCollection('placas'),
+  SISTEMAS.map((s) => s.id),
+);
+
+const fichas = presentadores
+  .map((p) => ({
+    presentador: p.data,
+    placas: placas.filter((pl) => pl.data.presentador === p.id),
+  }))
+  .sort((a, b) => a.presentador.nombre.localeCompare(b.presentador.nombre, 'es'));
+
+const sinPresentador = placas.filter(
+  (pl) => !pl.data.presentador || !presentadores.some((p) => p.id === pl.data.presentador),
+);
+---
+
+<Base
+  titulo="Autores"
+  descripcion="Los compañeros que explican cada placa del atlas, con su caricatura y la lista de preparaciones a su cargo."
+>
+  <header class="mb-10">
+    <h1 class="mb-3">Autores</h1>
+    <p class="medida text-lg leading-relaxed text-texto-suave">
+      Cada placa la explica un compañero del grupo. Su caricatura acompaña el video en el visor y
+      aparece aquí junto a las preparaciones que preparó.
+    </p>
+  </header>
+
+  <ul class="grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2">
+    {fichas.map(({ presentador, placas: suyas }) => (
+      <li class="flex gap-4 rounded-xl border border-borde bg-superficie p-4">
+        <Avatar presentador={presentador} tamano={72} />
+        <div class="min-w-0 flex-1">
+          <h2 class="font-serif text-xl leading-tight font-medium">{presentador.nombre}</h2>
+          <p class="mb-2 text-sm text-texto-suave">
+            {presentador.rol} · {suyas.length} {suyas.length === 1 ? 'placa' : 'placas'}
+          </p>
+          {suyas.length === 0 ? (
+            <p class="text-sm text-texto-suave">Todavía no tiene placas asignadas.</p>
+          ) : (
+            <ul class="flex list-none flex-col gap-1 p-0 text-sm">
+              {suyas.map((pl) => (
+                <li class="flex items-baseline gap-2">
+                  <a
+                    href={rutaPlaca(pl.data.id)}
+                    class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
+                  >
+                    {pl.data.titulo}
+                  </a>
+                  <span class="truncate text-xs text-texto-suave">
+                    {nombreSistema(pl.data.sistema)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  {sinPresentador.length > 0 && (
+    <section class="mt-12">
+      <h2 class="mb-2 font-serif text-xl font-medium">Placas sin presentador asignado</h2>
+      <p class="medida mb-3 text-sm text-texto-suave">
+        Añade el campo <code>presentador</code> en el JSON de la placa con el id de un registro de{' '}
+        <code>src/content/presentadores.json</code>.
+      </p>
+      <ul class="flex list-none flex-wrap gap-2 p-0 text-sm">
+        {sinPresentador.map((pl) => (
+          <li>
+            <a
+              href={rutaPlaca(pl.data.id)}
+              class="inline-block rounded-md border border-borde px-2 py-1 no-underline hover:border-eosina"
+            >
+              {pl.data.titulo}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>

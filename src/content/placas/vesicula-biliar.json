@@ -1,0 +1,59 @@
+{
+  "id": "vesicula-biliar",
+  "titulo": "Vesicula biliar",
+  "sistema": "digestivo",
+  "organo": "Vesicula biliar / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4",
+    "x 8"
+  ],
+  "descripcionGeneral": "La vesícula biliar posee una pared histológica particular de solo tres capas, ya que carece de submucosa. Su capa interna es la mucosa, revestida por un epitelio cilíndrico simple con microvellosidades especializado en absorber agua para concentrar la bilis. Esta capa se pliega densamente cuando el órgano está vacío y puede presentar invaginaciones profundas hacia la muscular llamadas senos de Rokitansky-Aschoff. La capa intermedia es la muscular externa, formada por haces de músculo liso dispuestos en múltiples direcciones que se contraen bajo el estímulo de la colecistocinina para expulsar la bilis. Finalmente, su cubierta externa es mixta: posee una adventicia de tejido conectivo en la cara unida al hígado y una serosa peritoneal en su superficie libre.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "vesicula-biliar-1",
+      "aumento": "x4",
+      "credito": ""
+    },
+    {
+      "archivo": "vesicula-biliar-2",
+      "aumento": "x 8",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "ausencia-de-submucosa-y-de-muscular-de-la-mucosa",
+      "numero": 2,
+      "nombre": "Ausencia de Submucosa y de muscular de la mucosa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "muscular-propia",
+      "numero": 3,
+      "nombre": "Muscular propia",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "adventicia-serosa",
+      "numero": 4,
+      "nombre": "Adventicia / serosa",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

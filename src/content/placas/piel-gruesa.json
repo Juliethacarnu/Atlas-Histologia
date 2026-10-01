@@ -1,0 +1,113 @@
+{
+  "id": "piel-gruesa",
+  "titulo": "Piel gruesa",
+  "sistema": "piel-anexos",
+  "organo": "Tejido epitelial plano estratificado queratinizado en su capa externa (epidermis),",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "8x",
+    "16x"
+  ],
+  "descripcionGeneral": "Se observa piel gruesa revestida por un epitelio plano estratificado queratinizado, correspondiente a la epidermis, con sus cinco estratos bien definidos: basal, espinoso, granuloso, lúcido y córneo, siendo este último muy desarrollado. Debajo se encuentra la dermis, formada por tejido conectivo, con una capa papilar que forma papilas dérmicas y una capa reticular más profunda. La piel gruesa se caracteriza por carecer de folículos pilosos y glándulas sebáceas y presentar abundantes glándulas sudoríparas ecrinas.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Piel Gruesa. · Figura 2. Epidermis",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "piel-gruesa-1",
+      "aumento": "8x",
+      "credito": "Figura 1. Piel Gruesa. · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "piel-gruesa-2",
+      "aumento": "16x",
+      "credito": "Figura 2. Epidermis · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "epidermis",
+      "numero": 1,
+      "nombre": "Epidermis",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "dermis",
+      "numero": 2,
+      "nombre": "Dermis",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6133,
+          "y": 0.8019,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "papilas-dermicas",
+      "numero": 3,
+      "nombre": "Papilas dérmicas",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "crestas-dermicas",
+      "numero": 4,
+      "nombre": "Crestas dérmicas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2266,
+          "y": 0.5455,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "estrato-corneo",
+      "numero": 5,
+      "nombre": "Estrato córneo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-lucido",
+      "numero": 6,
+      "nombre": "Estrato lúcido",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-granuloso",
+      "numero": 7,
+      "nombre": "Estrato granuloso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-espinoso",
+      "numero": 8,
+      "nombre": "Estrato espinoso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-basal",
+      "numero": 9,
+      "nombre": "Estrato Basal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "queratinocitos",
+      "numero": 10,
+      "nombre": "Queratinocitos",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

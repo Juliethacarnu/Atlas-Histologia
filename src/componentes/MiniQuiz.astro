@@ -1,0 +1,128 @@
+---
+// Mini quiz "¿qué estructura es esta?". Las preguntas se generan en el cliente
+// a partir de las estructuras de la placa; el visor se acerca a la estructura
+// preguntada y aquí solo se eligen los nombres.
+---
+
+<dialog id="quiz" class="quiz" aria-labelledby="quiz-titulo">
+  <form method="dialog" class="contents">
+    <header class="flex items-start gap-3">
+      <div class="flex-1">
+        <h2 id="quiz-titulo" class="font-serif text-xl font-medium">
+          ¿Qué estructura es esta?
+        </h2>
+        <p class="text-sm text-texto-suave">
+          El visor se ha acercado al marcador{' '}
+          <span id="quiz-numero" class="font-semibold">
+            1
+          </span>
+          .
+        </p>
+      </div>
+      <button class="quiz__cerrar" value="cerrar" aria-label="Cerrar el quiz">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </button>
+    </header>
+
+    <ul id="quiz-opciones" class="quiz__opciones" role="list"></ul>
+
+    <p id="quiz-respuesta" class="min-h-10 text-sm" aria-live="polite"></p>
+
+    <footer class="flex items-center gap-3 border-t border-borde pt-3">
+      <p class="text-sm tabular-nums text-texto-suave">
+        Acertadas <span id="quiz-puntaje">0</span> de <span id="quiz-total">0</span>
+      </p>
+      <button type="button" id="quiz-siguiente" class="quiz__siguiente ml-auto">
+        Siguiente
+      </button>
+    </footer>
+  </form>
+</dialog>
+
+<style>
+  .quiz {
+    width: min(26rem, calc(100vw - 2rem));
+    border: 1px solid var(--atlas-borde);
+    border-radius: 0.85rem;
+    background: var(--atlas-superficie);
+    color: var(--atlas-texto);
+    padding: 1.1rem;
+    box-shadow: 0 24px 60px -20px rgb(14 9 32 / 0.6);
+  }
+  .quiz::backdrop {
+    background: rgb(14 9 32 / 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .quiz .contents {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .quiz__opciones {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .quiz__opciones button {
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--atlas-borde);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    font-size: 0.88rem;
+    transition:
+      border-color 140ms,
+      background-color 140ms;
+  }
+  .quiz__opciones button:hover:not(:disabled) {
+    border-color: var(--atlas-acento);
+  }
+  .quiz__opciones button[data-estado='bien'] {
+    border-color: #2a7f56;
+    background: color-mix(in srgb, #2a7f56 14%, transparent);
+  }
+  .quiz__opciones button[data-estado='mal'] {
+    border-color: var(--color-eosina);
+    background: var(--color-eosina-tenue);
+    color: var(--color-nucleo);
+  }
+
+  .quiz__cerrar {
+    display: grid;
+    place-items: center;
+    height: 1.9rem;
+    width: 1.9rem;
+    border-radius: 0.4rem;
+    color: var(--atlas-texto-suave);
+  }
+  .quiz__cerrar svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+  }
+
+  .quiz__siguiente {
+    border-radius: 0.5rem;
+    background: var(--color-hematoxilina);
+    color: #fff;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+  }
+  .quiz__siguiente:disabled {
+    opacity: 0.45;
+  }
+  :root[data-tema='oscuro'] .quiz__siguiente {
+    background: var(--color-hematoxilina-claro);
+    color: var(--color-nucleo);
+  }
+</style>

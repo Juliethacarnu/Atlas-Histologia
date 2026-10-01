@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[astro]": { "editor.defaultFormatter": "astro-build.astro-vscode" },
+  "files.associations": { "*.css": "tailwindcss" },
+  "tailwindCSS.includeLanguages": { "astro": "html" },
+  "tailwindCSS.experimental.configFile": "src/estilos/global.css",
+  "css.customData": [],
+  "search.exclude": {
+    "dist/**": true,
+    ".astro/**": true,
+    "public/placas/**": true
+  }
+}

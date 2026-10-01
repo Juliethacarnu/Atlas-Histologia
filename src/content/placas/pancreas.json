@@ -1,0 +1,53 @@
+{
+  "id": "pancreas",
+  "titulo": "Páncreas",
+  "sistema": "digestivo",
+  "organo": "Pancreas",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "40x"
+  ],
+  "descripcionGeneral": "El páncreas es una glándula rodeada por una delgada cápsula de tejido conectivo que se divide en lobulillos, donde coexisten dos componentes funcionales distintos. El páncreas exocrino, que constituye el 98% del órgano, está formado por acinos serosos compuestos de células piramidales que secretan enzimas digestivas, caracterizadas por una base basófila y un ápice acidófilo repleto de gránulos de zimógeno, destacando la presencia de células centroacinares en el inicio de sus conductos como su rasgo histológico diagnóstico exclusivo. Por otro lado, el páncreas endocrino representa solo el 1-2% del parénquima y se dispone en cúmulos celulares redondeados y altamente vascularizados llamados islotes de Langerhans, los cuales están integrados principalmente por células beta (secretoras de insulina), células alfa (glucagón) y células delta (somatostatina) para regular la glucemia en sangre.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "pancreas-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "acinos-serosos",
+      "numero": 1,
+      "nombre": "Acinos serosos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "islotes-de-langerhans",
+      "numero": 2,
+      "nombre": "Islotes de Langerhans",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "conductos-intralobulillares-e-interlobuulillares",
+      "numero": 3,
+      "nombre": "Conductos intralobulillares e interlobuulillares",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tabiques-conjuntivos-onterlobulillares",
+      "numero": 4,
+      "nombre": "Tabiques conjuntivos onterlobulillares",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

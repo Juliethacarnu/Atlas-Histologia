@@ -1,0 +1,107 @@
+{
+  "id": "duodeno",
+  "titulo": "Duodeno",
+  "sistema": "digestivo",
+  "organo": "Duodeno / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "4x",
+    "10x"
+  ],
+  "descripcionGeneral": "El duodeno se organiza en cuatro capas adaptadas para completar la digestión química y absorber nutrientes. Su mucosa interna destaca por presentar vellosidades intestinales y microvellosidades que aumentan la superficie de absorción, revestidas por un epitelio cilíndrico simple con enterocitos (células absortivas) y células caliciformes (productoras de moco), las cuales se invaginan formando las criptas de Lieberkühn. El rasgo histológico diagnóstico del duodeno se encuentra en su submucosa, donde se localizan las glándulas de Brunner, encargadas de secretar un moco alcalino rico en bicarbonato para neutralizar el quimo ácido proveniente del estómago. La capa muscular externa posee dos subcapas de músculo liso (circular interna y longitudinal externa) para el movimiento peristáltico, y la capa más externa es una adventicia en su mayor extensión (al ser un órgano retroperitoneal), combinada con serosa solo en su porción inicial anterior.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "duodeno-1",
+      "aumento": "4x",
+      "credito": ""
+    },
+    {
+      "archivo": "duodeno-2",
+      "aumento": "10x",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5164,
+          "y": 0.3113,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cilindrico-simple",
+      "numero": 1.1,
+      "nombre": "Epitelio Cilíndrico Simple",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "submucosa",
+      "numero": 2,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8119,
+          "y": 0.3444,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "glandulas-de-brunner",
+      "numero": 2.1,
+      "nombre": "Glándulas de Brunner",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7522,
+          "y": 0.1093,
+          "imagen": 1
+        },
+        {
+          "x": 0.7343,
+          "y": 0.6325,
+          "imagen": 1
+        },
+        {
+          "x": 0.4985,
+          "y": 0.957,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 3,
+      "nombre": "Muscular Externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.9493,
+          "y": 0.8907,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "adventicia-serosa",
+      "numero": 4,
+      "nombre": "Adventicia/ serosa",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

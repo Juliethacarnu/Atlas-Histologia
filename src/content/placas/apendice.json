@@ -1,0 +1,95 @@
+{
+  "id": "apendice",
+  "titulo": "Apéndice",
+  "sistema": "digestivo",
+  "organo": "Apéndice / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4"
+  ],
+  "descripcionGeneral": "El apéndice es una evaginación digitiforme delgada que nace del ciego y cuya estructura de pared comparte la organización histológica general del intestino grueso. Su mucosa muestra una superficie lisa sin vellosidades ni pliegues circulares, tapizada por un epitelio cilíndrico simple con abundantes glándulas intestinales (criptas de Lieberkühn) tubulares rectas. El rasgo histológico más característico del apéndice es la profusa presencia de tejido linfoide (GALT), organizado en numerosos nódulos linfoides bien desarrollados en la lámina propia que se extienden de forma continua y profunda hacia la submucosa. Por último, en su muscular externa, a diferencia de las tenias del colon, la capa longitudinal externa de músculo liso adopta un grosor uniforme y continuo sobre la capa circular interna, todo delimitado exteriormente por una túnica serosa",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "apendice-1",
+      "aumento": "",
+      "credito": ""
+    },
+    {
+      "archivo": "apendice-2",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "nodulos-linfoides-galt",
+      "numero": 1,
+      "nombre": "Nodulos linfoides /(GALT)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.62,
+          "y": 0.323,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "mucosa",
+      "numero": 2,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.38,
+          "y": 0.215,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 3,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.38,
+          "y": 0.49,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 4,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.38,
+          "y": 0.818,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "serosa",
+      "numero": 5,
+      "nombre": "Serosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.267,
+          "y": 0.92,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

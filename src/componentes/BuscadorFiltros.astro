@@ -1,0 +1,166 @@
+---
+import { SISTEMAS } from '../datos/sistemas';
+
+interface Props {
+  conteos: Record<string, number>;
+  total: number;
+}
+const { conteos, total } = Astro.props;
+---
+
+<div class="mb-8 flex flex-col gap-4">
+  <div class="flex flex-wrap items-end gap-4">
+    <div class="w-full max-w-sm">
+      <label for="buscador" class="mb-1.5 block text-sm font-medium">
+        Buscar placa o estructura
+      </label>
+      <div class="relative">
+        <svg
+          class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-texto-suave"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="m16 16 4.5 4.5" />
+        </svg>
+        <input
+          type="search"
+          id="buscador"
+          placeholder="duodeno, glándulas de Brunner, tráquea…"
+          autocomplete="off"
+          class="w-full rounded-lg border border-borde bg-superficie py-2 pr-3 pl-9 text-sm placeholder:text-texto-suave/70"
+        />
+      </div>
+    </div>
+    <p class="text-sm text-texto-suave" aria-live="polite" id="conteo-resultados">
+      {total} placas
+    </p>
+  </div>
+
+  <div role="group" aria-label="Filtrar por sistema" class="flex flex-wrap gap-2">
+    <button type="button" class="chip-sistema" data-filtro="todos" aria-pressed="true">
+      Todos <span class="tabular-nums opacity-60">{total}</span>
+    </button>
+    {SISTEMAS.map((s) => (
+      <button
+        type="button"
+        class="chip-sistema"
+        data-filtro={s.id}
+        aria-pressed="false"
+        style={`--acento-sistema: ${s.acento}`}
+      >
+        <span class="punto-acento" aria-hidden="true" />
+        {s.nombre} <span class="tabular-nums opacity-60">{conteos[s.id] ?? 0}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .chip-sistema {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--atlas-borde);
+    background: var(--atlas-superficie);
+    padding: 0.35rem 0.8rem;
+    font-size: 0.82rem;
+    color: var(--atlas-texto-suave);
+    transition:
+      color 140ms,
+      border-color 140ms,
+      background-color 140ms;
+  }
+  .chip-sistema:hover {
+    color: var(--atlas-texto);
+  }
+  .chip-sistema[aria-pressed='true'] {
+    color: var(--atlas-texto);
+    border-color: var(--acento-sistema, var(--atlas-acento));
+    box-shadow: inset 0 0 0 1px var(--acento-sistema, var(--atlas-acento));
+  }
+  .punto-acento {
+    height: 0.45rem;
+    width: 0.45rem;
+    border-radius: 999px;
+    background: var(--acento-sistema, var(--atlas-acento));
+  }
+</style>
+
+<script>
+  const buscador = document.getElementById('buscador') as HTMLInputElement | null;
+  const conteo = document.getElementById('conteo-resultados');
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filtro]'));
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-placa]'));
+  const grupos = Array.from(document.querySelectorAll<HTMLElement>('[data-grupo-sistema]'));
+  const vacio = document.getElementById('sin-resultados');
+
+  let filtro = 'todos';
+
+  function normalizar(t: string) {
+    return t.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().trim();
+  }
+
+  function aplicar() {
+    const consulta = normalizar(buscador?.value ?? '');
+    let visibles = 0;
+
+    for (const item of items) {
+      const coincideSistema = filtro === 'todos' || item.dataset.sistema === filtro;
+      const coincideTexto = consulta === '' || (item.dataset.busqueda ?? '').includes(consulta);
+      const visible = coincideSistema && coincideTexto;
+      item.hidden = !visible;
+      if (visible) visibles++;
+    }
+
+    // Oculta los encabezados de sistema que quedan sin placas.
+    for (const grupo of grupos) {
+      const algunaVisible =
+        grupo.querySelectorAll<HTMLElement>('[data-placa]:not([hidden])').length > 0;
+      grupo.hidden = !algunaVisible;
+    }
+
+    if (conteo) {
+      conteo.textContent =
+        visibles === 0
+          ? 'Ninguna placa coincide'
+          : `${visibles} ${visibles === 1 ? 'placa' : 'placas'}`;
+    }
+    vacio?.toggleAttribute('hidden', visibles !== 0);
+
+    const url = new URL(window.location.href);
+    if (filtro === 'todos') url.searchParams.delete('sistema');
+    else url.searchParams.set('sistema', filtro);
+    if (consulta === '') url.searchParams.delete('q');
+    else url.searchParams.set('q', buscador?.value ?? '');
+    history.replaceState(null, '', url);
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      filtro = chip.dataset.filtro ?? 'todos';
+      for (const otro of chips) otro.setAttribute('aria-pressed', String(otro === chip));
+      aplicar();
+    });
+  }
+
+  buscador?.addEventListener('input', aplicar);
+
+  // Estado inicial desde la URL, para poder compartir un filtro.
+  const inicial = new URL(window.location.href).searchParams;
+  const sistemaInicial = inicial.get('sistema');
+  const qInicial = inicial.get('q');
+  if (qInicial && buscador) buscador.value = qInicial;
+  if (sistemaInicial) {
+    const chip = chips.find((c) => c.dataset.filtro === sistemaInicial);
+    if (chip) {
+      filtro = sistemaInicial;
+      for (const otro of chips) otro.setAttribute('aria-pressed', String(otro === chip));
+    }
+  }
+  if (qInicial || sistemaInicial) aplicar();
+</script>

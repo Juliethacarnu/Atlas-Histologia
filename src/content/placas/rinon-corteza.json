@@ -1,0 +1,53 @@
+{
+  "id": "rinon-corteza",
+  "titulo": "Riñon :Corteza",
+  "sistema": "urinario",
+  "organo": "Corteza",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "La corteza renal es la región externa pardo rojiza del riñón que recibe entre el 90 % y el 95 % del flujo sanguíneo renal. Su parénquima está compuesto por los corpúsculos renales, los túbulos contorneados (proximales y distales), los túbulos conectores y una densa red vascular. Histológicamente, se organiza en rayos medulares (de Ferrein) —estriaciones compuestas por túbulos rectos y conductos colectores— alternados con laberintos corticales, que son las zonas intermedias donde reposan los corpúsculos y los túbulos contorneados. Asimismo, la corteza se extiende hacia la médula rodeando las pirámides renales para formar las columnas renales (de Bertin)",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "rinon-corteza-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "corpusculos-renales",
+      "numero": 1,
+      "nombre": "Corpusculos renales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tubulos-del-laberinto-cortical",
+      "numero": 2,
+      "nombre": "Tubulos del laberinto cortical",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "rayos-medulares",
+      "numero": 3,
+      "nombre": "Rayos medulares",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "intersticio-renal-y-capilares-peritubulares",
+      "numero": 4,
+      "nombre": "Intersticio renal y capilares peritubulares",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

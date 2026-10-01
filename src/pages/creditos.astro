@@ -1,0 +1,160 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { SISTEMAS, TOTAL_PLACAS_ESPERADAS } from '../datos/sistemas';
+import { ordenarPlacas } from '../utils/placas';
+import { rutaPlaca } from '../utils/ruta';
+
+const placas = ordenarPlacas(
+  await getCollection('placas'),
+  SISTEMAS.map((s) => s.id),
+);
+
+const conFuente = placas.filter((p) => p.data.fuente || p.data.credito);
+const sinFuente = placas.filter((p) => !p.data.fuente && !p.data.credito);
+
+const recuento = SISTEMAS.map((s) => ({
+  ...s,
+  reales: placas.filter((p) => p.data.sistema === s.id).length,
+}));
+const descuadre = recuento.filter((r) => r.reales !== r.placasEsperadas);
+
+// Bibliografía del proyecto. Cita la edición que uses realmente.
+const bibliografia = [
+  {
+    texto:
+      'Atlas de Histología Vegetal y Animal. Departamento de Biología Funcional y Ciencias de la Salud, Universidad de Vigo / material de la Universidad de Zaragoza.',
+    nota: 'PLACEHOLDER: ajusta la cita exacta del atlas que consultaste.',
+    url: null,
+  },
+  {
+    texto: 'Pawlina W, Ross MH. Histología. Texto y atlas. 8.ª edición. Wolters Kluwer, 2020.',
+    nota: null,
+    url: null,
+  },
+  {
+    texto: 'Histology Guide (University of Leeds). Virtual histology laboratory.',
+    nota: null,
+    url: 'https://histology.leeds.ac.uk/',
+  },
+  {
+    texto: 'Fotografías propias de las preparaciones del laboratorio de la asignatura.',
+    nota: null,
+    url: null,
+  },
+];
+---
+
+<Base
+  titulo="Créditos y fuentes"
+  descripcion="Créditos de las imágenes de cada placa y bibliografía consultada para las descripciones de las estructuras."
+>
+  <header class="mb-10">
+    <h1 class="mb-3">Créditos y fuentes</h1>
+    <p class="medida text-lg leading-relaxed text-texto-suave">
+      Las descripciones de las estructuras se redactaron a partir de las fuentes de abajo. Las
+      imágenes son fotografías de las preparaciones del laboratorio salvo donde se indique otra
+      procedencia.
+    </p>
+  </header>
+
+  <section class="mb-12">
+    <h2 class="mb-3 font-serif text-2xl font-medium">Bibliografía</h2>
+    <ol class="medida flex list-decimal flex-col gap-3 pl-5">
+      {bibliografia.map((b) => (
+        <li>
+          {b.url ? (
+            <a
+              href={b.url}
+              class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
+              rel="noopener"
+            >
+              {b.texto}
+            </a>
+          ) : (
+            b.texto
+          )}
+          {b.nota && <span class="block text-sm text-texto-suave">{b.nota}</span>}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="mb-3 font-serif text-2xl font-medium">Créditos de las imágenes</h2>
+    {conFuente.length === 0 ? (
+      <p class="medida text-texto-suave">
+        Ninguna placa declara todavía los campos <code>fuente</code> o <code>credito</code>.
+        Rellénalos en el JSON de cada placa y aparecerán aquí automáticamente.
+      </p>
+    ) : (
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-borde text-left">
+              <th scope="col" class="py-2 pr-4 font-medium">
+                Placa
+              </th>
+              <th scope="col" class="py-2 pr-4 font-medium">
+                Fuente
+              </th>
+              <th scope="col" class="py-2 font-medium">
+                Crédito
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {conFuente.map((p) => (
+              <tr class="border-b border-borde/60 align-top">
+                <td class="py-2 pr-4">
+                  <a
+                    href={rutaPlaca(p.data.id)}
+                    class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
+                  >
+                    {p.data.titulo}
+                  </a>
+                </td>
+                <td class="py-2 pr-4 text-texto-suave">{p.data.fuente || '—'}</td>
+                <td class="py-2 text-texto-suave">{p.data.credito || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+    {sinFuente.length > 0 && (
+      <p class="medida mt-4 text-sm text-texto-suave">
+        {sinFuente.length} de {placas.length} placas aún no declaran fuente ni crédito.
+      </p>
+    )}
+  </section>
+
+  <section>
+    <h2 class="mb-3 font-serif text-2xl font-medium">Estado del atlas</h2>
+    <p class="medida mb-4 text-sm text-texto-suave">
+      {placas.length} de {TOTAL_PLACAS_ESPERADAS} placas cargadas.
+    </p>
+    <ul class="flex list-none flex-col gap-1.5 p-0 text-sm">
+      {recuento.map((r) => (
+        <li class="flex items-baseline gap-2">
+          <span
+            class="h-1.5 w-1.5 shrink-0 rounded-full"
+            style={`background:${r.acento}`}
+            aria-hidden="true"
+          />
+          <span>{r.nombre}</span>
+          <span class="ml-auto tabular-nums text-texto-suave">
+            {r.reales} / {r.placasEsperadas}
+          </span>
+        </li>
+      ))}
+    </ul>
+    {descuadre.length > 0 && (
+      <p class="medida mt-4 rounded-lg border border-eosina/40 bg-eosina-tenue p-3 text-sm text-nucleo">
+        Hay sistemas con un número de placas distinto al previsto:{' '}
+        {descuadre.map((d) => d.nombre).join(', ')}. Revisa los archivos de
+        <code class="mx-1">src/content/placas/</code>.
+      </p>
+    )}
+  </section>
+</Base>

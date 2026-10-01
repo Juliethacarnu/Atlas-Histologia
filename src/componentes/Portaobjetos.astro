@@ -1,0 +1,98 @@
+---
+import type { Placa } from '../utils/placas';
+import { imagenesDe, urlImagen, textoBusqueda } from '../utils/placas';
+import { acentoSistema, nombreSistema } from '../datos/sistemas';
+import { rutaPlaca } from '../utils/ruta';
+
+interface Props {
+  placa: Placa;
+  /** Las primeras miniaturas se cargan de inmediato; el resto en diferido. */
+  prioridad?: boolean;
+}
+const { placa, prioridad = false } = Astro.props;
+const sistema = nombreSistema(placa.sistema);
+const acento = acentoSistema(placa.sistema);
+const portada = imagenesDe(placa)[0]!;
+const busqueda = textoBusqueda(placa, sistema);
+const nEstructuras = placa.estructuras.length;
+---
+
+<li class="portaobjetos-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
+  <a
+    href={rutaPlaca(placa.id)}
+    class="portaobjetos group block rounded-portaobjetos no-underline"
+    style={`--acento-sistema: ${acento}`}
+  >
+    <article class="flex h-full flex-col overflow-hidden rounded-portaobjetos bg-vidrio shadow-[0_1px_2px_rgb(26_18_51/0.14),0_10px_22px_-16px_rgb(26_18_51/0.5)]">
+      <!-- Vidrio: la muestra -->
+      <div class="brillo-vidrio relative aspect-4/3 overflow-hidden bg-nucleo">
+        <img
+          src={urlImagen(portada.archivo, 'miniatura')}
+          alt={`Miniatura de la preparación: ${placa.titulo}`}
+          width="480"
+          height="360"
+          loading={prioridad ? 'eager' : 'lazy'}
+          decoding="async"
+          class="h-full w-full object-cover opacity-95 transition-transform duration-300 ease-visor group-hover:scale-[1.03]"
+        />
+        <span
+          class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-white/25"
+          aria-hidden="true"
+        ></span>
+        {placa.borrador && (
+          <span class="absolute top-2 left-2 rounded bg-nucleo/85 px-1.5 py-0.5 font-sans text-[0.65rem] font-medium text-white">
+            REVISAR
+          </span>
+        )}
+      </div>
+
+      <!-- Etiqueta blanca del portaobjetos -->
+      <div
+        class="flex flex-1 flex-col gap-1 border-t-2 bg-white px-3 py-2.5"
+        style={`border-top-color: ${acento}`}
+      >
+        <h3 class="font-serif text-[1.02rem] leading-snug font-medium text-nucleo">
+          {placa.titulo}
+        </h3>
+        <p class="text-[0.78rem] leading-snug text-nucleo/65">
+          {placa.organo}
+        </p>
+        <p class="mt-auto flex items-center gap-1.5 pt-1 text-[0.7rem] text-nucleo/55">
+          <span
+            class="inline-block h-1.5 w-1.5 rounded-full"
+            style={`background:${acento}`}
+            aria-hidden="true"
+          ></span>
+          {sistema}
+          <span class="ml-auto tabular-nums">
+            {nEstructuras} {nEstructuras === 1 ? 'estructura' : 'estructuras'}
+          </span>
+        </p>
+      </div>
+    </article>
+  </a>
+</li>
+
+<style>
+  /* El movimiento del portaobjetos: se acerca y se inclina apenas. */
+  .portaobjetos {
+    transition:
+      transform 180ms var(--ease-visor),
+      box-shadow 180ms var(--ease-visor);
+    transform-origin: 50% 90%;
+  }
+  .portaobjetos:hover,
+  .portaobjetos:focus-visible {
+    transform: translateY(-4px) rotate(-0.45deg);
+  }
+  .portaobjetos-item[hidden] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .portaobjetos:hover,
+    .portaobjetos:focus-visible {
+      transform: none;
+      box-shadow: 0 0 0 2px var(--acento-sistema);
+    }
+  }
+</style>

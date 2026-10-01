@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+
+# Imagenes fuente exportadas de Canva: pesan mucho y no se publican.
+# Se convierten a WebP en public/placas/ con `npm run optimizar`.
+# Si prefieres versionarlas, borra la linea siguiente.
+originales/*
+!originales/.gitkeep
+
+# Videos mp4 locales: si superan los 100 MB GitHub los rechaza.
+public/videos/*.mp4

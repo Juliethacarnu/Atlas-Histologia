@@ -1,0 +1,149 @@
+---
+import type { Presentador } from '../utils/placas';
+import { iniciales } from '../utils/placas';
+import { ruta } from '../utils/ruta';
+
+interface Props {
+  presentador: Presentador | null;
+  /** Lado del avatar en píxeles. */
+  tamano?: number;
+  /** Si es true, el avatar se anima mientras la explicación está sonando. */
+  animable?: boolean;
+  /**
+   * Usar el vídeo en bucle del presentador en lugar de la imagen fija.
+   * Va mudo y se reproduce sólo mientras suena el audio de la placa.
+   */
+  conBucle?: boolean;
+  clase?: string;
+}
+const {
+  presentador,
+  tamano = 56,
+  animable = false,
+  conBucle = false,
+  clase = '',
+} = Astro.props;
+
+const nombre = presentador?.nombre ?? 'Sin presentador';
+const color = presentador?.avatarColor ?? '#2E2566';
+const imagen = presentador?.avatarImagen ?? null;
+const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
+---
+
+<span
+  class:list={['avatar', animable && 'avatar--animable', bucle && 'avatar--bucle', clase]}
+  style={`--avatar-lado:${tamano}px; --avatar-color:${color}`}
+  data-avatar
+>
+  {
+    bucle ? (
+      /* El bucle va mudo y parado: lo arranca el reproductor cuando suena el
+         audio. El poster es la caricatura, asi que en reposo se ve igual. */
+      <video
+        class="avatar__imagen avatar__bucle"
+        src={ruta('avatares', bucle)}
+        poster={imagen ? ruta('avatares', imagen) : undefined}
+        width={tamano}
+        height={tamano}
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        data-bucle
+      />
+    ) : imagen ? (
+      <img
+        src={ruta('avatares', imagen)}
+        alt={`Caricatura de ${nombre}`}
+        width={tamano}
+        height={tamano}
+        loading="lazy"
+        decoding="async"
+        class="avatar__imagen"
+      />
+    ) : (
+      <span class="avatar__iniciales" role="img" aria-label={`Avatar de ${nombre}`}>
+        <span aria-hidden="true">{iniciales(nombre)}</span>
+      </span>
+    )
+  }
+</span>
+
+<style>
+  .avatar {
+    display: inline-grid;
+    place-items: center;
+    width: var(--avatar-lado);
+    height: var(--avatar-lado);
+    flex: none;
+    border-radius: 999px;
+    /* Halo tenue: separa la caricatura de fondo transparente del panel. */
+    background:
+      radial-gradient(
+        circle at 50% 62%,
+        color-mix(in srgb, var(--avatar-color) 20%, transparent) 0%,
+        transparent 72%
+      ),
+      color-mix(in srgb, var(--avatar-color) 9%, transparent);
+    overflow: visible;
+  }
+
+  /* El bucle trae su propio fondo plano: el halo sobra. */
+  .avatar--bucle {
+    background: none;
+  }
+
+  .avatar__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* La caricatura se apoya en el borde inferior, como un busto. */
+    object-position: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+
+  .avatar__bucle {
+    border-radius: 0.5rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .avatar__iniciales {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--avatar-color);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: calc(var(--avatar-lado) * 0.36);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transform-origin: 50% 100%;
+  }
+
+  /* "Hablando": rebote muy corto mientras la explicación suena.
+     La clase la pone/quita el reproductor. En reposo, la caricatura no se mueve. */
+  .avatar--animable.avatar--hablando .avatar__imagen,
+  .avatar--animable.avatar--hablando .avatar__iniciales {
+    animation: atlas-hablando 420ms ease-in-out infinite;
+  }
+
+  /* Con bucle de vídeo el movimiento ya lo pone la boca: nada de rebote. */
+  .avatar--bucle.avatar--hablando .avatar__imagen {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .avatar--animable.avatar--hablando .avatar__imagen,
+    .avatar--animable.avatar--hablando .avatar__iniciales {
+      animation: none;
+    }
+    /* Señal estática equivalente para quien no quiere movimiento. */
+    .avatar--animable.avatar--hablando {
+      box-shadow: 0 0 0 2px var(--color-eosina);
+    }
+  }
+</style>

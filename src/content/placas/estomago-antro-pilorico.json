@@ -1,0 +1,103 @@
+{
+  "id": "estomago-antro-pilorico",
+  "titulo": "Estomago :antro pilórico",
+  "sistema": "digestivo",
+  "organo": "Antro pilorico / epitelio cilíndrico simple secretor de moco",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x2",
+    "x4"
+  ],
+  "descripcionGeneral": "El antro pilórico corresponde a la porción distal del estómago, cercana al píloro y al duodeno. Está revestido por epitelio cilíndrico simple y se caracteriza por presentar fovéolas gástricas mucho más profundas que las del fondo, acompañadas de glándulas pilóricas cortas, ramificadas y predominantemente mucosas. Estas producen moco que ayuda a proteger la mucosa gástrica. Además, contiene numerosas células G, encargadas de secretar gastrina, hormona que estimula la secreción de ácido gástrico, y células D, productoras de somatostatina, que ayuda a regular e inhibir dicha secreción. Esta región también participa en la mezcla del quimo y en la regulación de su vaciamiento hacia el duodeno.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Pilóro · Figura 2. Glandulas antropiloricas",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "estomago-antro-pilorico-1",
+      "aumento": "x2",
+      "credito": "Figura 1. Pilóro · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "estomago-antro-pilorico-2",
+      "aumento": "x4",
+      "credito": "Figura 2. Glandulas antropiloricas · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5647,
+          "y": 0.281,
+          "imagen": 0
+        },
+        {
+          "x": 0.2522,
+          "y": 0.5836,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 2,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.64,
+          "y": 0.562,
+          "imagen": 0
+        },
+        {
+          "x": 0.7165,
+          "y": 0.1317,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 3,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7082,
+          "y": 0.6934,
+          "imagen": 0
+        },
+        {
+          "x": 0.6071,
+          "y": 0.484,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "serosa",
+      "numero": 4,
+      "nombre": "Serosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7176,
+          "y": 0.8942,
+          "imagen": 0
+        },
+        {
+          "x": 0.7634,
+          "y": 0.9004,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": true
+}

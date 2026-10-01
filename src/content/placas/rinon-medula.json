@@ -1,0 +1,60 @@
+{
+  "id": "rinon-medula",
+  "titulo": "Riñon :Médula",
+  "sistema": "urinario",
+  "organo": "Médula",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×40"
+  ],
+  "descripcionGeneral": "La médula renal es la región interna y más pálida del parénquima (que recibe entre el 5 % y el 10 % del flujo sanguíneo) y está organizada en 8 a 12 pirámides renales (medulares) cuyas bases se orientan hacia la corteza y sus vértices o papilas se proyectan hacia los cálices menores. Histológicamente, se divide en médula externa —subdividida en franja externa e interna— y médula interna. Esta zona carece de corpúsculos renales y se compone principalmente de los túbulos rectos de la nefrona (las ramas delgadas y gruesas del asa de Henle), los conductos colectores medulares y los vasos rectos dispuestos en paralelo. Dichos conductos confluyen en los conductos papilares (de Bellini) para verter la orina a través del área cribosa, participando activamente junto a las asas largas en el mecanismo multiplicador de contracorriente para la concentración final del ultrafiltrado",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "rinon-medula-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "conductos-colectores",
+      "numero": 1,
+      "nombre": "Conductos colectores",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "asas-de-henle",
+      "numero": 2,
+      "nombre": "Asas de Henle",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tubulos-rectos-distales-proximales",
+      "numero": 3,
+      "nombre": "Tubulos rectos distales / proximales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vasos-rectos",
+      "numero": 4,
+      "nombre": "Vasos rectos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "intersticio-medular-y-celulas-intersticiales",
+      "numero": 5,
+      "nombre": "Intersticio medular y células intersticiales",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

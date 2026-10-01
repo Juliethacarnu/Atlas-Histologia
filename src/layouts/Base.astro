@@ -1,0 +1,51 @@
+---
+import '../estilos/global.css';
+import Meta from '../componentes/base/Meta.astro';
+import Encabezado from '../componentes/base/Encabezado.astro';
+import PiePagina from '../componentes/base/PiePagina.astro';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  imagen?: string;
+  /** La página de placa usa su propio armazón a pantalla completa. */
+  anchoCompleto?: boolean;
+  encabezadoCompacto?: boolean;
+}
+const {
+  titulo,
+  descripcion,
+  imagen,
+  anchoCompleto = false,
+  encabezadoCompacto = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <Meta titulo={titulo} descripcion={descripcion} imagen={imagen} />
+    <script is:inline>
+      // Evita el parpadeo de tema: se ejecuta antes de pintar.
+      try {
+        const t = localStorage.getItem('atlas-tema');
+        if (t === 'claro' || t === 'oscuro') document.documentElement.dataset.tema = t;
+      } catch {
+        /* modo privado: se usa prefers-color-scheme */
+      }
+    </script>
+  </head>
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#principal"
+      class="solo-lectores focus-visible:not-sr-only focus-visible:absolute focus-visible:top-2 focus-visible:left-2 focus-visible:z-50 focus-visible:h-auto focus-visible:w-auto focus-visible:rounded-md focus-visible:bg-superficie focus-visible:px-3 focus-visible:py-2 focus-visible:[clip-path:none]"
+    >
+      Ir al contenido
+    </a>
+    <Encabezado compacto={encabezadoCompacto} />
+    <main id="principal" class:list={[anchoCompleto ? 'flex-1' : 'contenedor-atlas flex-1 py-10']}>
+      <slot />
+    </main>
+    {!anchoCompleto && <PiePagina />}
+  </body>
+</html>

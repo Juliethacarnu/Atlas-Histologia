@@ -1,0 +1,84 @@
+{
+  "id": "traquea",
+  "titulo": "Tráquea",
+  "sistema": "respiratorio",
+  "organo": "Tráquea",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "8x",
+    "16x"
+  ],
+  "descripcionGeneral": "La tráquea es un tubo flexible cuya pared histológica está organizada en cuatro capas superpuestas: la mucosa, revestida por un epitelio cilíndrico pseudoestratificado ciliado (con células ciliadas, mucosas/caliciformes, basales, en cepillo y endocrinas de gránulos pequeños) asentado sobre una membrana basal prominente y una lámina propia de tejido conectivo laxo rica en fibras elásticas y tejido linfoide; la submucosa, compuesta por tejido conectivo que alberga los vasos principales y glándulas miasmáticas seromucosas; la capa de cartílago, integrada por 16 a 20 anillos de cartílago hialino en forma de \"C\" que previenen el colapso de la luz y cuyos extremos libres posteriores se unen mediante el músculo traqueal de fibra lisa y tejido fibroelástico; y la adventicia, una capa externa de tejido conectivo que fija la tráquea a las estructuras adyacentes del cuello y del mediastino",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1 Tráquea · Figura 2. Cartilago hialino Foto propia",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "traquea-1",
+      "aumento": "8x",
+      "credito": "Figura 1 Tráquea · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "traquea-2",
+      "aumento": "16x",
+      "credito": "Figura 2. Cartilago hialino Foto propia · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa",
+      "numero": 1,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "epitelio-respiratorio",
+      "numero": 2,
+      "nombre": "Epitelio respiratorio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "submucosa",
+      "numero": 3,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3488,
+          "y": 0.4012,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cartilago-hialino",
+      "numero": 4,
+      "nombre": "cartilago hialino",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3896,
+          "y": 0.7267,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "adventicia",
+      "numero": 5,
+      "nombre": "Adventicia",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1781,
+          "y": 0.8895,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,31 @@
+---
+import { ruta } from '../../utils/ruta';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  imagen?: string;
+}
+const {
+  titulo,
+  descripcion = 'Atlas virtual de histologia: 46 placas tenidas con H&E, con visor de zoom, marcadores interactivos y explicaciones en video.',
+  imagen,
+} = Astro.props;
+const tituloCompleto =
+  titulo === 'Atlas virtual de histologia' ? titulo : `${titulo} · Atlas virtual de histologia`;
+const canonica = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const favicon = ruta('favicon.svg');
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{tituloCompleto}</title>
+<meta name="description" content={descripcion} />
+<link rel="canonical" href={canonica.href} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:title" content={tituloCompleto} />
+<meta property="og:description" content={descripcion} />
+{imagen && <meta property="og:image" content={new URL(imagen, canonica).href} />}
+<meta name="twitter:card" content={imagen ? 'summary_large_image' : 'summary'} />
+<link rel="icon" href={favicon} type="image/svg+xml" />

@@ -1,0 +1,81 @@
+{
+  "id": "bronquiolo-respiratorio",
+  "titulo": "Bronquiolo Respiratorio",
+  "sistema": "respiratorio",
+  "organo": "Bronquiolo",
+  "tincion": "Hematoxilina y eosina (H&E) 4 Aumento:",
+  "aumentos": [
+    "x24",
+    "x40"
+  ],
+  "descripcionGeneral": "El bronquiolo respiratorio es una vía aérea pequeña que conecta los bronquiolos terminales con los conductos alveolares. Su pared ya presenta alvéolos, por lo que cumple una doble función: conducir el aire y comenzar el intercambio gaseoso de O₂ y CO₂.Histológicamente tiene epitelio cúbico simple, con células ciliadas y células club, además de músculo liso. No presenta cartílago ni glándulas.",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 2 : bronquiolo respiratorio · Figura 2 : bronquiolo respiratorio, partes",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "bronquiolo-respiratorio-1",
+      "aumento": "x24",
+      "credito": "Figura 2 : bronquiolo respiratorio · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "bronquiolo-respiratorio-2",
+      "aumento": "x40",
+      "credito": "Figura 2 : bronquiolo respiratorio, partes · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "epitelio-cubico-simple",
+      "numero": 1,
+      "nombre": "Epitelio Cubico Simple",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "fibras-musculares-lisas",
+      "numero": 2,
+      "nombre": "Fibras musculares lisas",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "sacos-alveolares",
+      "numero": 3,
+      "nombre": "Sacos Alvéolares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6943,
+          "y": 0.1308,
+          "imagen": 0
+        },
+        {
+          "x": 0.4475,
+          "y": 0.2866,
+          "imagen": 0
+        },
+        {
+          "x": 0.2063,
+          "y": 0.5794,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "vaso-sanguineo",
+      "numero": 4,
+      "nombre": "Vaso sanguineo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5249,
+          "y": 0.4579,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

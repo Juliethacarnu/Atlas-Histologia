@@ -1,0 +1,64 @@
+{
+  "id": "alveolos",
+  "titulo": "Alvéolos",
+  "sistema": "respiratorio",
+  "organo": "Alvéolos",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x 40"
+  ],
+  "descripcionGeneral": "Los alvéolos son evaginaciones poliédricas terminales especializadas en el intercambio gaseoso, cuya pared o tabique interalveolar está sostenido por una delicada red de capilares sanguíneos. Su epitelio está integrado por neumocitos tipo I, células planas y delgadas que recubren cerca del 95 % de la superficie; neumocitos tipo II, células cúbicas que secretan el agente tensioactivo (surfactante) desde sus cuerpos laminares para reducir la tensión superficial y actúan como progenitoras de los neumocitos tipo I; y escasas células en cepillo de función quimiorreceptora. Asimismo, los macrófagos alveolares (provenientes de los monocitos) barren continuamente el espacio alveolar y los tabiques fagocitando partículas inhaladas y microorganismos, permitiendo que la difusión de gases se realice eficazmente a través de la delgada barrera hematogaseosa, compuesta por la capa de surfactante, el neumocito tipo I, sus láminas basales y la célula endotelial del capilar",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Alveolos",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "alveolos-1",
+      "aumento": "",
+      "credito": "Figura 1. Alveolos"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "neumocitos-tipo-1",
+      "numero": 1,
+      "nombre": "Neumocitos tipo 1",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "neumocito-tipo-2",
+      "numero": 2,
+      "nombre": "Neumocito tipo 2",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2608,
+          "y": 0.7057,
+          "imagen": 0
+        },
+        {
+          "x": 0.464,
+          "y": 0.92,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "macrofago-alveolar",
+      "numero": 3,
+      "nombre": "Macrofago alveolar",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "miofibroblasto",
+      "numero": 4,
+      "nombre": "Miofibroblasto",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

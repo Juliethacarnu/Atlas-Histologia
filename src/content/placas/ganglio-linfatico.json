@@ -1,0 +1,88 @@
+{
+  "id": "ganglio-linfatico",
+  "titulo": "Ganglio Linfático",
+  "sistema": "sangre-linfoide",
+  "organo": "Ganglio Linfático",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4"
+  ],
+  "descripcionGeneral": "El ganglio linfático es un órgano linfoide secundario encapsulado y de forma arriñonada que actúa como un filtro de la linfa interpuesto a lo largo de los vasos linfáticos. Está rodeado por una cápsula de tejido conectivo denso de la cual parten trabéculas hacia el parénquima, recibiendo la linfa a través de vasos aferentes en su superficie convexa y drenándola mediante vasos eferentes a nivel del hilio. Histológicamente, su parénquima comprende una corteza superficial organizada en nódulos linfoides ricos en linfocitos B, una corteza profunda (paracorteza) poblada predominantemente por linfocitos T y caracterizada por vénulas de endotelio alto (VEA) que permiten la entrada del 90 % de los linfocitos circulantes, y una médula interna conformada por cordones medulares y senos linfáticos que conducen la linfa filtrada hacia el efluente eferente",
+  "fuente": "",
+  "credito": "Figura 1. Ganglio linfatico",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "ganglio-linfatico-1",
+      "aumento": "",
+      "credito": "Figura 1. Ganglio linfatico"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capsula",
+      "numero": 1,
+      "nombre": "Cápsula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.965,
+          "imagen": 0
+        },
+        {
+          "x": 0.055,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "hilio",
+      "numero": 2,
+      "nombre": "Hilio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "corteza-superficial-nodulo-linfoide",
+      "numero": 3,
+      "nombre": "Corteza Superficial (nódulo linfoide)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.17,
+          "y": 0.22,
+          "imagen": 0
+        },
+        {
+          "x": 0.8,
+          "y": 0.33,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corteza-profunda-vea",
+      "numero": 4,
+      "nombre": "Corteza profunda (VEA)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "medula",
+      "numero": 5,
+      "nombre": "Médula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.58,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

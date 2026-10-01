@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Portaobjetos from '../componentes/Portaobjetos.astro';
+import BuscadorFiltros from '../componentes/BuscadorFiltros.astro';
+import { SISTEMAS, TOTAL_PLACAS_ESPERADAS } from '../datos/sistemas';
+
+const placas = await getCollection('placas');
+const conteos: Record<string, number> = {};
+for (const s of SISTEMAS) {
+  conteos[s.id] = placas.filter((p) => p.data.sistema === s.id).length;
+}
+
+const porSistema = SISTEMAS.map((s) => ({
+  sistema: s,
+  placas: placas
+    .filter((p) => p.data.sistema === s.id)
+    .sort((a, b) => a.data.titulo.localeCompare(b.data.titulo, 'es')),
+}));
+
+let contadorGlobal = 0;
+---
+
+<Base titulo="Atlas virtual de histologia">
+  <section class="mb-12">
+    <p class="mb-2 font-sans text-sm text-texto-suave">Proyecto universitario · tinción H&amp;E</p>
+    <h1 class="mb-4">Atlas virtual de histología</h1>
+    <p class="medida text-lg leading-relaxed text-texto-suave">
+      {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina, agrupadas por
+      sistema. Cada placa se abre en un visor con zoom profundo, sus estructuras están señaladas con
+      marcadores numerados y un compañero la explica en un video corto.
+    </p>
+  </section>
+
+  <section aria-labelledby="titulo-bandeja">
+    <h2 id="titulo-bandeja" class="solo-lectores">
+      Bandeja de placas
+    </h2>
+    <BuscadorFiltros conteos={conteos} total={placas.length} />
+
+    <div class="flex flex-col gap-12">
+      {porSistema.map(({ sistema, placas: delSistema }) => (
+        <section data-grupo-sistema={sistema.id} aria-labelledby={`sis-${sistema.id}`}>
+          <div class="mb-4 flex items-baseline gap-3 border-b border-borde pb-2">
+            <span
+              class="h-2.5 w-2.5 shrink-0 rounded-full"
+              style={`background:${sistema.acento}`}
+              aria-hidden="true"
+            />
+            <h3 id={`sis-${sistema.id}`} class="font-serif text-xl font-medium">
+              {sistema.nombre}
+            </h3>
+            <p class="medida-corta hidden text-sm text-texto-suave sm:block">
+              {sistema.descripcion}
+            </p>
+            <span class="ml-auto shrink-0 text-sm tabular-nums text-texto-suave">
+              {delSistema.length} / {sistema.placasEsperadas}
+            </span>
+          </div>
+          <ul class="grid list-none grid-cols-2 gap-4 p-0 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {delSistema.map((p) => {
+              contadorGlobal++;
+              return <Portaobjetos placa={p.data} prioridad={contadorGlobal <= 8} />;
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <p id="sin-resultados" hidden class="mt-10 medida text-texto-suave">
+      Ninguna placa coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
+    </p>
+  </section>
+</Base>

@@ -1,0 +1,53 @@
+{
+  "id": "recto",
+  "titulo": "Recto",
+  "sistema": "digestivo",
+  "organo": "Recto / epitelio cilíndrico simple",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4"
+  ],
+  "descripcionGeneral": "El recto consta de cuatro capas adaptadas para almacenar y lubricar las heces antes de la defecación. Su mucosa es lisa y carece de vellosidades; está revestida por un epitelio cilíndrico simple que posee la mayor densidad de células caliciformes de todo el tracto digestivo, organizadas en criptas de Lieberkühn profundas. Debajo se sitúa la submucosa, un tejido conectivo elástico que destaca por albergar el desarrollado plexo venoso hemorroidal. En la capa muscular externa, la subcapa longitudinal de músculo liso vuelve a ser continua y uniforme, perdiendo las tenias que venían del colon. Su envoltura externa es mixta: presenta una capa serosa en su porción superior intraperitoneal y una adventicia fibrosa en su segmento inferior retroperitoneal.",
+  "fuente": "",
+  "credito": "Figura 1. Recto",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "recto-1",
+      "aumento": "",
+      "credito": "Figura 1. Recto"
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa-criptas-de-lieberkuhn",
+      "numero": 1,
+      "nombre": "Mucosa (Criptas de Lieberkühn)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "submucosa",
+      "numero": 2,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 3,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "adventicia-serosa",
+      "numero": 4,
+      "nombre": "Adventicia / serosa",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

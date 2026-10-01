@@ -1,0 +1,207 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import VisorPlaca from '../../componentes/VisorPlaca.astro';
+import PanelEstructuras from '../../componentes/PanelEstructuras.astro';
+import ExplicadorFlotante from '../../componentes/ExplicadorFlotante.astro';
+import MiniQuiz from '../../componentes/MiniQuiz.astro';
+import { SISTEMAS, nombreSistema } from '../../datos/sistemas';
+import { imagenesDe, urlImagen, puntosDe, ordenarPlacas } from '../../utils/placas';
+import { ruta, rutaPlaca } from '../../utils/ruta';
+import type { DatosPlaca } from '../../cliente/tipos';
+import type { Placa } from '../../utils/placas';
+
+interface Props {
+  placa: Placa;
+  anterior: Placa | null;
+  siguiente: Placa | null;
+  posicion: number;
+  total: number;
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const placas = await getCollection('placas');
+  const orden = ordenarPlacas(
+    placas,
+    SISTEMAS.map((s) => s.id),
+  );
+  return orden.map((entrada, i) => ({
+    params: { id: entrada.data.id },
+    props: {
+      placa: entrada.data,
+      anterior: orden[i - 1]?.data ?? null,
+      siguiente: orden[i + 1]?.data ?? null,
+      posicion: i + 1,
+      total: orden.length,
+    },
+  }));
+};
+
+const { placa, anterior, siguiente, posicion, total } = Astro.props;
+const presentadorEntrada = placa.presentador
+  ? await getEntry('presentadores', placa.presentador)
+  : undefined;
+const presentador = presentadorEntrada?.data ?? null;
+
+const imagenes = imagenesDe(placa);
+
+// Datos que consume el cliente: sólo lo necesario, con coordenadas normalizadas.
+const datosCliente: DatosPlaca = {
+  id: placa.id,
+  titulo: placa.titulo,
+  imagenes: imagenes.map((im) => ({
+    url: urlImagen(im.archivo, 'grande'),
+    aumento: im.aumento,
+    credito: im.credito || placa.credito,
+  })),
+  estructuras: placa.estructuras.map((e) => ({
+    id: e.id,
+    numero: e.numero,
+    nombre: e.nombre,
+    descripcion: e.descripcion,
+    puntos: puntosDe(e),
+  })),
+  video: placa.video,
+};
+
+const descripcion =
+  placa.descripcionGeneral ||
+  `Preparación de ${placa.organo} teñida con ${placa.tincion}, con ${placa.estructuras.length} estructuras señaladas.`;
+---
+
+<Base
+  titulo={placa.titulo}
+  descripcion={descripcion}
+  imagen={urlImagen(imagenes[0]!.archivo, 'media')}
+  anchoCompleto
+  encabezadoCompacto
+>
+  <script
+    type="application/json"
+    id="datos-placa"
+    set:html={JSON.stringify(datosCliente)}
+    is:inline
+  ></script>
+  <!-- Barra de contexto y navegación entre placas -->
+  <nav
+    id="nav-placas"
+    class="contenedor-atlas flex items-center gap-3 py-2 text-sm"
+    aria-label="Navegación entre placas"
+    data-anterior={anterior ? rutaPlaca(anterior.id) : ''}
+    data-siguiente={siguiente ? rutaPlaca(siguiente.id) : ''}
+  >
+    <a href={ruta()} class="text-texto-suave hover:text-texto">
+      {' '}
+      ← Todas las placas{' '}
+    </a>
+    <span class="text-texto-suave/50" aria-hidden="true">
+      /
+    </span>
+    <span class="truncate text-texto-suave">{nombreSistema(placa.sistema)}</span>
+    <span class="ml-auto shrink-0 tabular-nums text-texto-suave">
+      {posicion} / {total}
+    </span>
+    <div class="flex shrink-0 gap-1">
+      {anterior ? (
+        <a
+          href={rutaPlaca(anterior.id)}
+          rel="prev"
+          class="nav-flecha"
+          aria-keyshortcuts="ArrowLeft"
+          title={`Anterior: ${anterior.titulo}`}
+        >
+          <span class="solo-lectores">Placa anterior: {anterior.titulo}</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m14 6-6 6 6 6" />
+          </svg>
+        </a>
+      ) : (
+        <span class="nav-flecha nav-flecha--inerte" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="m14 6-6 6 6 6" />
+          </svg>
+        </span>
+      )}
+      {siguiente ? (
+        <a
+          href={rutaPlaca(siguiente.id)}
+          rel="next"
+          class="nav-flecha"
+          aria-keyshortcuts="ArrowRight"
+          title={`Siguiente: ${siguiente.titulo}`}
+        >
+          <span class="solo-lectores">Placa siguiente: {siguiente.titulo}</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m10 6 6 6-6 6" />
+          </svg>
+        </a>
+      ) : (
+        <span class="nav-flecha nav-flecha--inerte" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="m10 6 6 6-6 6" />
+          </svg>
+        </span>
+      )}
+    </div>
+  </nav>
+
+  <h1 class="solo-lectores">{placa.titulo}</h1>
+
+  <!-- El visor es el protagonista: el panel y el avatar flotan encima. -->
+  <div class="relative lg:h-[calc(100dvh-6.5rem)]">
+    <div class="h-[58dvh] w-full lg:h-full">
+      <VisorPlaca imagenes={imagenes} titulo={placa.titulo} />
+    </div>
+    <PanelEstructuras placa={placa} />
+    <ExplicadorFlotante placa={placa} presentador={presentador} />
+  </div>
+
+  <MiniQuiz />
+
+  <!-- Fuente y crédito de la placa, fuera del campo del visor -->
+  {(placa.fuente || placa.credito) && (
+    <section class="contenedor-atlas py-6 text-sm text-texto-suave">
+      <h2 class="mb-1 font-serif text-base font-medium text-texto">Fuente de esta placa</h2>
+      <p class="medida">
+        {placa.fuente}
+        {placa.credito && ` · ${placa.credito}`}
+      </p>
+    </section>
+  )}
+</Base>
+
+<style>
+  .nav-flecha {
+    display: grid;
+    place-items: center;
+    height: 1.9rem;
+    width: 1.9rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--atlas-borde);
+    color: var(--atlas-texto-suave);
+    transition:
+      color 140ms,
+      background-color 140ms;
+  }
+  .nav-flecha svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .nav-flecha:hover {
+    background: var(--atlas-superficie);
+    color: var(--atlas-texto);
+  }
+  .nav-flecha--inerte {
+    opacity: 0.3;
+  }
+</style>
+
+<script>
+  import '../../cliente/placa';
+</script>

@@ -1,0 +1,74 @@
+{
+  "id": "laringe",
+  "titulo": "Laringe",
+  "sistema": "respiratorio",
+  "organo": "Laringe",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×8"
+  ],
+  "descripcionGeneral": "La laringe alberga dos pares de repliegues mucosos separados por la cavidad del ventrículo laríngeo: los pliegues vocales (cuerdas vocales verdaderas) en la posición inferior, móviles y revestidos por un epitelio plano estratificado resistente a la fricción, los cuales albergan en su interior el ligamento vocal y el músculo vocal esquelético para ajustar la tensión de la glotis y modular los tonos en la fonación; y los pliegues vestibulares (cuerdas vocales falsas) en la posición superior, inmóviles, tapizados por epitelio cilíndrico pseudoestratificado ciliado y constituidos por tejido conectivo rico en glándulas seromucosas sin tejido muscular intrínseco, cuya función principal es actuar como protección y generar resonancia acústica junto con los ventrículos",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 2. Laringe",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "laringe-1",
+      "aumento": "",
+      "credito": "Figura 2. Laringe · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "pliegue-vestibular-cuerda-vocal-falsa",
+      "numero": 1,
+      "nombre": "Pliegue Vestibular ( cuerda vocal falsa)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "ventriculo-laringeo",
+      "numero": 2,
+      "nombre": "Ventrículo laríngeo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cuerda-vocal-verdadera",
+      "numero": 3,
+      "nombre": "Cuerda vocal verdadera",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "epitelio-plano-estratificado-no-queratinizado",
+      "numero": 4,
+      "nombre": "Epitelio plano estratificado no queratinizado",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "lamina-propia",
+      "numero": 5,
+      "nombre": "Lámina Propia",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "musculo-vocal",
+      "numero": 6,
+      "nombre": "Músculo vocal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "ligamento-vocal",
+      "numero": 7,
+      "nombre": "Ligamento vocal",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

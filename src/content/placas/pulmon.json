@@ -1,0 +1,97 @@
+{
+  "id": "pulmon",
+  "titulo": "Pulmón",
+  "sistema": "respiratorio",
+  "organo": "Pulmón",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "8x",
+    "16x"
+  ],
+  "descripcionGeneral": "El pulmón está recubierto exteriormente por la pleura y su parénquima se divide en una porción conductora (bronquios con placas cartilaginosas y bronquiolos desprovistos de cartílago) y una porción respiratoria conformada por bronquiolos respiratorios, conductos y sacos alveolares. En los alvéolos, el epitelio se compone de neumocitos tipo I que recubren la mayor parte de la superficie, neumocitos tipo II que secretan surfactante y macrófagos alveolares defensivos, los cuales junto con la red capilar constituyen la barrera hematogaseosa para el intercambio eficiente de gases",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Pulmon · Figura 2. Bronquiolos y alveolos",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "pulmon-1",
+      "aumento": "8x",
+      "credito": "Figura 1. Pulmon · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "pulmon-2",
+      "aumento": "16x",
+      "credito": "Figura 2. Bronquiolos y alveolos · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "alveolo",
+      "numero": 1,
+      "nombre": "Alvéolo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1761,
+          "y": 0.3119,
+          "imagen": 0
+        },
+        {
+          "x": 0.6457,
+          "y": 0.5119,
+          "imagen": 0
+        },
+        {
+          "x": 0.4312,
+          "y": 0.539,
+          "imagen": 0
+        },
+        {
+          "x": 0.8077,
+          "y": 0.539,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tabique-alveolar",
+      "numero": 2,
+      "nombre": "Tabique alveolar",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6316,
+          "y": 0.8102,
+          "imagen": 0
+        },
+        {
+          "x": 0.1518,
+          "y": 0.8847,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "septum-interalveolar",
+      "numero": 3,
+      "nombre": "Septum interalveolar",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vaso-sanguineo",
+      "numero": 4,
+      "nombre": "Vaso sanguineo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2348,
+          "y": 0.6949,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

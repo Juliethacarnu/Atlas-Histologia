@@ -1,0 +1,233 @@
+---
+/**
+ * Herramienta interna de anotación. Esta página NO vive en src/pages/: la
+ * inyecta astro.config.mjs sólo cuando el comando es `astro dev`, así que no
+ * se genera en el build de producción.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { SISTEMAS, nombreSistema } from '../datos/sistemas';
+import { imagenesDe, urlImagen, ordenarPlacas, puntosDe } from '../utils/placas';
+
+const placas = ordenarPlacas(
+  await getCollection('placas'),
+  SISTEMAS.map((s) => s.id),
+);
+
+const datos = placas.map((p) => ({
+  id: p.data.id,
+  titulo: p.data.titulo,
+  sistema: nombreSistema(p.data.sistema),
+  imagenes: imagenesDe(p.data).map((im) => ({
+    url: urlImagen(im.archivo, 'grande'),
+    aumento: im.aumento,
+  })),
+  estructuras: p.data.estructuras.map((e) => {
+    const punto = puntosDe(e)[0] ?? { x: 0.5, y: 0.5 };
+    return {
+      id: e.id,
+      numero: e.numero,
+      nombre: e.nombre,
+      descripcion: e.descripcion,
+      x: punto.x,
+      y: punto.y,
+    };
+  }),
+}));
+---
+
+<Base titulo="Anotar placas (desarrollo)" descripcion="Herramienta interna de anotación.">
+  <script
+    type="application/json"
+    id="datos-anotador"
+    set:html={JSON.stringify(datos)}
+    is:inline
+  ></script>
+  <header class="mb-6">
+    <p class="mb-1 text-sm text-eosina">Sólo en desarrollo · no se publica</p>
+    <h1 class="mb-3">Anotar estructuras</h1>
+    <p class="medida text-texto-suave">
+      Elige una placa, haz clic sobre la imagen para colocar un marcador y escribe su número, nombre
+      y descripción. Arrastra un marcador para corregir su posición. Al final, copia el JSON y
+      pégalo en el campo <code>estructuras</code> del archivo de la placa. Las coordenadas son
+      normalizadas (0 a 1), así que no dependen de la resolución de la imagen.
+    </p>
+  </header>
+
+  <div class="mb-4 flex flex-wrap items-end gap-4">
+    <p class="flex flex-col gap-1">
+      <label for="anotador-placa" class="text-sm font-medium">
+        Placa
+      </label>
+      <select id="anotador-placa" class="anotador-select">
+        {datos.map((p) => (
+          <option value={p.id}>
+            {p.titulo} — {p.sistema}
+          </option>
+        ))}
+      </select>
+    </p>
+    <p class="flex flex-col gap-1">
+      <label for="anotador-imagen" class="text-sm font-medium">
+        Imagen
+      </label>
+      <select id="anotador-imagen" class="anotador-select"></select>
+    </p>
+    <p class="flex flex-col gap-1">
+      <label for="anotador-zoom" class="text-sm font-medium">
+        Zoom del lienzo
+      </label>
+      <input type="range" id="anotador-zoom" min="100" max="400" value="100" step="10" />
+    </p>
+    <p class="text-sm text-texto-suave" id="anotador-aviso" aria-live="polite"></p>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-[1fr_24rem]">
+    <!-- Lienzo -->
+    <div class="max-h-[75dvh] overflow-auto rounded-lg border border-borde bg-nucleo p-2">
+      <div id="anotador-lienzo" class="relative w-full">
+        <img
+          id="anotador-img"
+          alt="Placa a anotar: haz clic para colocar un marcador"
+          class="block w-full cursor-crosshair select-none"
+        />
+        <div id="anotador-capa" class="pointer-events-none absolute inset-0"></div>
+      </div>
+    </div>
+
+    <!-- Panel de edición -->
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-wrap gap-2">
+        <button type="button" id="anotador-copiar" class="anotador-boton anotador-boton--primario">
+          Copiar JSON
+        </button>
+        <button type="button" id="anotador-recargar" class="anotador-boton">
+          Volver al archivo
+        </button>
+        <button type="button" id="anotador-limpiar" class="anotador-boton">
+          Borrar todo
+        </button>
+      </div>
+
+      <ul
+        id="anotador-lista"
+        class="flex max-h-[38dvh] list-none flex-col gap-2 overflow-y-auto p-0"
+      ></ul>
+
+      <label for="anotador-json" class="text-sm font-medium">
+        JSON de <code>estructuras</code>
+      </label>
+      <textarea
+        id="anotador-json"
+        rows="12"
+        readonly
+        spellcheck="false"
+        class="w-full rounded-lg border border-borde bg-superficie-alta p-2 font-mono text-xs"
+      ></textarea>
+    </div>
+  </div>
+</Base>
+
+<style is:global>
+  .anotador-select {
+    border: 1px solid var(--atlas-borde);
+    border-radius: 0.4rem;
+    background: var(--atlas-superficie);
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+    max-width: 22rem;
+  }
+
+  .anotador-marcador {
+    position: absolute;
+    translate: -50% -50%;
+    pointer-events: auto;
+    display: grid;
+    place-items: center;
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    background: var(--color-hematoxilina);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    cursor: grab;
+    box-shadow: 0 2px 6px rgb(14 9 32 / 0.5);
+    touch-action: none;
+  }
+  .anotador-marcador--activo {
+    background: var(--color-eosina);
+  }
+
+  .anotador-fila {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border: 1px solid var(--atlas-borde);
+    border-radius: 0.5rem;
+    background: var(--atlas-superficie);
+    padding: 0.5rem;
+  }
+  .anotador-fila[data-activa='si'] {
+    border-color: var(--color-eosina);
+  }
+  .anotador-fila__cabecera {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .anotador-num {
+    width: 3.2rem;
+  }
+  .anotador-num,
+  .anotador-texto {
+    border: 1px solid var(--atlas-borde);
+    border-radius: 0.35rem;
+    background: var(--atlas-superficie-alta);
+    padding: 0.25rem 0.4rem;
+    font-size: 0.82rem;
+    font-family: inherit;
+  }
+  .anotador-texto {
+    flex: 1;
+    min-width: 0;
+    resize: vertical;
+  }
+  .anotador-borrar {
+    border-radius: 0.35rem;
+    padding: 0 0.4rem;
+    color: var(--atlas-texto-suave);
+  }
+  .anotador-borrar:hover {
+    background: var(--color-eosina-tenue);
+    color: var(--color-nucleo);
+  }
+  .anotador-coords {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--atlas-texto-suave);
+  }
+  .anotador-coords code {
+    font-size: 0.7rem;
+  }
+
+  .anotador-boton {
+    border: 1px solid var(--atlas-borde);
+    border-radius: 0.45rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+    background: var(--atlas-superficie);
+  }
+  .anotador-boton--primario {
+    background: var(--color-hematoxilina);
+    border-color: var(--color-hematoxilina);
+    color: #fff;
+  }
+</style>
+
+<script>
+  import '../cliente/anotador';
+</script>

@@ -1,0 +1,90 @@
+{
+  "id": "colon",
+  "titulo": "Colon",
+  "sistema": "digestivo",
+  "organo": "Colon / epitelio cilíndrico simple con abundantes células caliciformes",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "x4",
+    "x16"
+  ],
+  "descripcionGeneral": "El colon consta de cuatro capas adaptadas para absorber agua y compactar las heces. Su mucosa es lisa y carece de vellosidades; está revestida por un epitelio cilíndrico simple con abundantes células caliciformes que forman criptas de Lieberkühn rectas. Debajo se encuentra la submucosa, un tejido conectivo laxo muy vascularizado. El rasgo histológico más distintivo está en su muscular externa, donde la subcapa longitudinal externa de músculo liso no es continua, sino que se condensa en tres bandas gruesas llamadas tenias colónicas. Su capa más externa es una serosa en los segmentos móviles y una adventicia en las porciones fijas retroperitoneales.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "colon-1",
+      "aumento": "x4",
+      "credito": ""
+    },
+    {
+      "archivo": "colon-2",
+      "aumento": "x16",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "ausencia-de-vellosidades",
+      "numero": 1,
+      "nombre": "Ausencia de vellosidades",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.07,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "mucosa",
+      "numero": 2,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.19,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "submucosa",
+      "numero": 3,
+      "nombre": "Submucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.49,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-externa",
+      "numero": 4,
+      "nombre": "Muscular externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.77,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "serosa-porciones-intraperitoniales-adventicia-porciones-retroperitoneales",
+      "numero": 5,
+      "nombre": "Serosa (porciones intraperitoniales) Adventicia (porciones retroperitoneales)",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

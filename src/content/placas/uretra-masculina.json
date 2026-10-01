@@ -1,0 +1,59 @@
+{
+  "id": "uretra-masculina",
+  "titulo": "Uretra masculina",
+  "sistema": "urinario",
+  "organo": "Uretra",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4",
+    "×10"
+  ],
+  "descripcionGeneral": "El uréter (conducto encargado de transportar la orina desde la pelvis renal hasta la vejiga) presenta una pared conformada por tres capas histológicas: una mucosa interna revestida por urotelio (epitelio de transición) impermeable dispuesto sobre una lámina propia de tejido conectivo; una capa muscular de músculo liso organizada con una capa longitudinal interna y circular externa (a la que se le suma una capa longitudinal externa adicional en su tercio inferior o distal) que genera peristaltismo para impulsar el flujo urinario; y una adventicia externa de tejido conectivo laxo que alberga vasos sanguíneos, nervios y tejido adiposo para fijarlo a las estructuras retroperitoneales.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "uretra-masculina-1",
+      "aumento": "×4",
+      "credito": ""
+    },
+    {
+      "archivo": "uretra-masculina-2",
+      "aumento": "×10",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "luz-uretra-uretra-esponjosa",
+      "numero": 1,
+      "nombre": "Luz uretra (uretra esponjosa)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "mucosa",
+      "numero": 2,
+      "nombre": "Mucosa",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cuero-esponjoso-del-pene",
+      "numero": 3,
+      "nombre": "Cuero esponjoso del pene",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tunica-albuginea-del-cuero-esponjoso",
+      "numero": 4,
+      "nombre": "Tunica albuginea del cuero esponjoso",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": true
+}

@@ -1,0 +1,77 @@
+{
+  "id": "timo-x10",
+  "titulo": "Timo",
+  "sistema": "sangre-linfoide",
+  "organo": "Timo neonato",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×10"
+  ],
+  "descripcionGeneral": "El timo es un órgano linfoepitelial bilobulado cubierto por una cápsula conectiva de la cual parten tabiques interlobulillares que organizan los lobulillos tímicos. Su parénquima se divide en una corteza externa muy basófila con timocitos densamente agrupados y una médula interna más clara con linfocitos T organizados laxamente. En este marco ocurre la educación tímica, proceso en el que los timocitos maduran reordenando receptores TCR y moléculas CD mediante selecciones corticales y medulares, sufriendo apoptosis cerca del 98 % de ellos para asegurar la autotolerancia",
+  "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "credito": "Figura 1. Timo",
+  "presentador": "p1",
+  "imagenes": [
+    {
+      "archivo": "timo-x10-1",
+      "aumento": "",
+      "credito": "Figura 1. Timo · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "tabique-interlobulillar",
+      "numero": 1,
+      "nombre": "Tabique interlobulillar",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4694,
+          "y": 0.0728,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lobulillo",
+      "numero": 2,
+      "nombre": "Lobulillo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4694,
+          "y": 0.4925,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corteza",
+      "numero": 3,
+      "nombre": "Corteza",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5804,
+          "y": 0.2741,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "medula",
+      "numero": 4,
+      "nombre": "Médula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5832,
+          "y": 0.6317,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

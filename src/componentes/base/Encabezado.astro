@@ -1,0 +1,56 @@
+---
+import { ruta } from '../../utils/ruta';
+import InterruptorTema from '../InterruptorTema.astro';
+
+interface Props {
+  compacto?: boolean;
+}
+const { compacto = false } = Astro.props;
+const aqui = Astro.url.pathname.replace(/\/$/, '');
+const enlaces = [
+  { href: ruta(), texto: 'Placas' },
+  { href: ruta('autores'), texto: 'Autores' },
+  { href: ruta('creditos'), texto: 'Créditos y fuentes' },
+];
+function activo(href: string) {
+  return aqui === href.replace(/\/$/, '');
+}
+---
+
+<header class:list={['border-b border-borde bg-fondo', compacto ? 'py-2' : 'py-4']}>
+  <div class="contenedor-atlas flex flex-wrap items-center gap-x-4 gap-y-2">
+    <a href={ruta()} class="group flex items-center gap-2.5 no-underline">
+      <svg class="h-7 w-5 shrink-0" viewBox="0 0 20 28" aria-hidden="true" role="presentation">
+        <rect x="0.5" y="0.5" width="19" height="27" rx="2.5" class="fill-vidrio stroke-borde" />
+        <circle cx="10" cy="11" r="5.2" class="fill-eosina-tenue" />
+        <circle cx="8.4" cy="9.6" r="1.5" class="fill-hematoxilina" />
+        <circle cx="11.8" cy="12.4" r="1.2" class="fill-hematoxilina" />
+        <path d="M0.5 20.5h19" class="stroke-borde" stroke-width="1" />
+      </svg>
+      <span class="font-serif text-lg leading-tight font-medium tracking-tight">
+        Atlas de histología
+      </span>
+    </a>
+
+    <nav
+      class="flex items-center gap-1 text-sm max-sm:order-3 max-sm:-mx-1 max-sm:w-full sm:ml-auto"
+      aria-label="Secciones"
+    >
+      {enlaces.map((e) => (
+        <a
+          href={e.href}
+          aria-current={activo(e.href) ? 'page' : undefined}
+          class:list={[
+            'rounded-md px-2.5 py-1.5 no-underline transition-colors',
+            activo(e.href)
+              ? 'bg-superficie text-texto shadow-[inset_0_0_0_1px_var(--atlas-borde)]'
+              : 'text-texto-suave hover:text-texto',
+          ]}
+        >
+          {e.texto}
+        </a>
+      ))}
+      <InterruptorTema />
+    </nav>
+  </div>
+</header>
