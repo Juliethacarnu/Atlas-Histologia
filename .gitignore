@@ -4,11 +4,9 @@ dist/
 .DS_Store
 *.log
 
-# Imagenes fuente exportadas de Canva: pesan mucho y no se publican.
-# Se convierten a WebP en public/placas/ con `npm run optimizar`.
-# Si prefieres versionarlas, borra la linea siguiente.
-originales/*
-!originales/.gitkeep
-
-# Videos mp4 locales: si superan los 100 MB GitHub los rechaza.
-public/videos/*.mp4
+# Las fuentes SI se versionan: el PDF de la presentacion y las fotos
+# originales de las laminas. Sin ellas nadie mas del grupo podria regenerar
+# las imagenes ni reimportar los textos. No afectan al peso del sitio
+# publicado: GitHub Pages solo sirve lo que el workflow sube (dist/).
+#
+# Unico limite a vigilar: GitHub rechaza archivos sueltos de mas de 100 MB.
