@@ -22,9 +22,8 @@ const descuadre = recuento.filter((r) => r.reales !== r.placasEsperadas);
 // Bibliografía del proyecto. Cita la edición que uses realmente.
 const bibliografia = [
   {
-    texto:
-      'Atlas de Histología Vegetal y Animal. Departamento de Biología Funcional y Ciencias de la Salud, Universidad de Vigo / material de la Universidad de Zaragoza.',
-    nota: 'PLACEHOLDER: ajusta la cita exacta del atlas que consultaste.',
+    texto: 'Atlas de Histología. Universidad de Zaragoza (s. f.).',
+    nota: 'Procedencia que citan las propias láminas tomadas de ese atlas.',
     url: null,
   },
   {
@@ -113,6 +112,11 @@ const bibliografia = [
                   >
                     {p.data.titulo}
                   </a>
+                  {p.data.aumentos.length > 0 && (
+                    <span class="ml-1.5 text-xs tabular-nums text-texto-suave">
+                      {p.data.aumentos.join(' · ')}
+                    </span>
+                  )}
                 </td>
                 <td class="py-2 pr-4 text-texto-suave">{p.data.fuente || '—'}</td>
                 <td class="py-2 text-texto-suave">{p.data.credito || '—'}</td>

@@ -44,6 +44,11 @@ const nEstructuras = placa.estructuras.length;
             REVISAR
           </span>
         )}
+        {placa.aumentos.length > 0 && (
+          <span class="absolute right-2 bottom-2 rounded bg-nucleo/80 px-1.5 py-0.5 font-sans text-[0.65rem] font-medium tabular-nums text-white backdrop-blur-[2px]">
+            {placa.aumentos.join(' · ')}
+          </span>
+        )}
       </div>
 
       <!-- Etiqueta blanca del portaobjetos -->

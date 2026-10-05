@@ -6,45 +6,5 @@
     "avatarImagen": "p1.png",
     "avatarColor": "#2E2566",
     "avatarBucle": "p1.mp4"
-  },
-  {
-    "id": "p2",
-    "nombre": "PLACEHOLDER Compañero 2",
-    "rol": "Presentador",
-    "avatarImagen": null,
-    "avatarColor": "#A8304A",
-    "avatarBucle": null
-  },
-  {
-    "id": "p3",
-    "nombre": "PLACEHOLDER Compañero 3",
-    "rol": "Presentador",
-    "avatarImagen": null,
-    "avatarColor": "#3C6B93",
-    "avatarBucle": null
-  },
-  {
-    "id": "p4",
-    "nombre": "PLACEHOLDER Compañero 4",
-    "rol": "Presentador",
-    "avatarImagen": null,
-    "avatarColor": "#55733A",
-    "avatarBucle": null
-  },
-  {
-    "id": "p5",
-    "nombre": "PLACEHOLDER Compañero 5",
-    "rol": "Presentador",
-    "avatarImagen": null,
-    "avatarColor": "#B4762A",
-    "avatarBucle": null
-  },
-  {
-    "id": "p6",
-    "nombre": "PLACEHOLDER Compañero 6",
-    "rol": "Presentador",
-    "avatarImagen": null,
-    "avatarColor": "#6B4A9E",
-    "avatarBucle": null
   }
 ]

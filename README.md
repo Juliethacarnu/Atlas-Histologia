@@ -231,7 +231,9 @@ rostro real.
 
 **Dónde ponerlas:** `public/avatares/`, por ejemplo `public/avatares/ana.png`.
 
-**Cómo declararlas:** en `src/content/presentadores.json`:
+**Cómo declararlas:** en `src/content/presentadores.json`. Ese archivo sólo debe
+contener compañeros con nombre real: lo que haya ahí se publica tal cual en la
+página de Autores. Para añadir uno nuevo, otro objeto en la lista:
 
 ```json
 [

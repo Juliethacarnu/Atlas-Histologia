@@ -58,6 +58,9 @@ const sinPresentador = placas.filter(
                     {pl.data.titulo}
                   </a>
                   <span class="truncate text-xs text-texto-suave">
+                    {pl.data.aumentos.length > 0 && (
+                      <span class="tabular-nums">{pl.data.aumentos.join(' · ')} · </span>
+                    )}
                     {nombreSistema(pl.data.sistema)}
                   </span>
                 </li>
