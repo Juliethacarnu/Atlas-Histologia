@@ -17,87 +17,123 @@ const busqueda = textoBusqueda(placa, sistema);
 const nEstructuras = placa.estructuras.length;
 ---
 
-<li class="portaobjetos-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
-  <a
-    href={rutaPlaca(placa.id)}
-    class="portaobjetos group block rounded-portaobjetos no-underline"
-    style={`--acento-sistema: ${acento}`}
-  >
-    <article class="flex h-full flex-col overflow-hidden rounded-portaobjetos bg-vidrio shadow-[0_1px_2px_rgb(26_18_51/0.14),0_10px_22px_-16px_rgb(26_18_51/0.5)]">
-      <!-- Vidrio: la muestra -->
-      <div class="brillo-vidrio relative aspect-4/3 overflow-hidden bg-nucleo">
-        <img
-          src={urlImagen(portada.archivo, 'miniatura')}
-          alt={`Miniatura de la preparación: ${placa.titulo}`}
-          width="480"
-          height="360"
-          loading={prioridad ? 'eager' : 'lazy'}
-          decoding="async"
-          class="h-full w-full object-cover opacity-95 transition-transform duration-300 ease-visor group-hover:scale-[1.03]"
-        />
-        <span
-          class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-white/25"
-          aria-hidden="true"
-        ></span>
-        {placa.borrador && (
-          <span class="absolute top-2 left-2 rounded bg-nucleo/85 px-1.5 py-0.5 font-sans text-[0.65rem] font-medium text-white">
-            REVISAR
-          </span>
-        )}
-        {placa.aumentos.length > 0 && (
-          <span class="absolute right-2 bottom-2 rounded bg-nucleo/80 px-1.5 py-0.5 font-sans text-[0.65rem] font-medium tabular-nums text-white backdrop-blur-[2px]">
-            {placa.aumentos.join(' · ')}
-          </span>
-        )}
-      </div>
+<li class="placa-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
+  <a href={rutaPlaca(placa.id)} class="placa group block no-underline" style={`--acento: ${acento}`}>
+    <!-- La lámina manda: sin caja, sin sombra, sin marco. -->
+    <div class="placa__lamina">
+      <img
+        src={urlImagen(portada.archivo, 'miniatura')}
+        alt={`Preparación: ${placa.titulo}`}
+        width="480"
+        height="360"
+        loading={prioridad ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+      {placa.aumentos.length > 0 && (
+        <span class="placa__aumento tabular-nums">{placa.aumentos.join(' · ')}</span>
+      )}
+      {placa.borrador && <span class="placa__revisar">Revisar</span>}
+    </div>
 
-      <!-- Etiqueta blanca del portaobjetos -->
-      <div
-        class="flex flex-1 flex-col gap-1 border-t-2 bg-white px-3 py-2.5"
-        style={`border-top-color: ${acento}`}
-      >
-        <h3 class="font-serif text-[1.02rem] leading-snug font-medium text-nucleo">
-          {placa.titulo}
-        </h3>
-        <p class="text-[0.78rem] leading-snug text-nucleo/65">
-          {placa.organo}
-        </p>
-        <p class="mt-auto flex items-center gap-1.5 pt-1 text-[0.7rem] text-nucleo/55">
-          <span
-            class="inline-block h-1.5 w-1.5 rounded-full"
-            style={`background:${acento}`}
-            aria-hidden="true"
-          ></span>
-          {sistema}
-          <span class="ml-auto tabular-nums">
-            {nEstructuras} {nEstructuras === 1 ? 'estructura' : 'estructuras'}
-          </span>
-        </p>
-      </div>
-    </article>
+    <h3 class="placa__titulo">{placa.titulo}</h3>
+    <p class="placa__meta">
+      <span class="placa__punto" aria-hidden="true" />
+      <span class="truncate">{placa.organo || sistema}</span>
+      <span class="placa__sep" aria-hidden="true">·</span>
+      <span class="shrink-0 tabular-nums">{nEstructuras}</span>
+    </p>
   </a>
 </li>
 
 <style>
-  /* El movimiento del portaobjetos: se acerca y se inclina apenas. */
-  .portaobjetos {
-    transition:
-      transform 180ms var(--ease-visor),
-      box-shadow 180ms var(--ease-visor);
-    transform-origin: 50% 90%;
+  .placa__lamina {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--color-nucleo);
+    /* Un filo finísimo en vez de una sombra: separa sin pesar. */
+    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.1);
   }
-  .portaobjetos:hover,
-  .portaobjetos:focus-visible {
-    transform: translateY(-4px) rotate(-0.45deg);
+
+  .placa__lamina img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 500ms var(--ease-visor);
   }
-  .portaobjetos-item[hidden] {
+
+  .placa:hover .placa__lamina img,
+  .placa:focus-visible .placa__lamina img {
+    transform: scale(1.04);
+  }
+
+  /* Chapitas sobre la lámina: discretas, sólo cuando hacen falta. */
+  .placa__aumento,
+  .placa__revisar {
+    position: absolute;
+    bottom: 0.5rem;
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.65rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(6px);
+  }
+  .placa__aumento {
+    right: 0.5rem;
+    background: rgb(14 9 32 / 0.55);
+    color: rgb(255 255 255 / 0.92);
+  }
+  .placa__revisar {
+    left: 0.5rem;
+    background: color-mix(in srgb, var(--color-eosina) 88%, transparent);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .placa__titulo {
+    margin-top: 0.7rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 450;
+    line-height: 1.25;
+    letter-spacing: -0.008em;
+    color: var(--atlas-texto);
+    transition: color 160ms;
+  }
+  .placa:hover .placa__titulo {
+    color: var(--color-eosina);
+  }
+
+  .placa__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
+    font-size: 0.76rem;
+    color: var(--atlas-texto-suave);
+  }
+  .placa__punto {
+    height: 0.3rem;
+    width: 0.3rem;
+    flex: none;
+    border-radius: 999px;
+    background: var(--acento);
+  }
+  .placa__sep {
+    opacity: 0.4;
+  }
+
+  .placa-item[hidden] {
     display: none;
   }
+
   @media (prefers-reduced-motion: reduce) {
-    .portaobjetos:hover,
-    .portaobjetos:focus-visible {
+    .placa:hover .placa__lamina img,
+    .placa:focus-visible .placa__lamina img {
       transform: none;
-      box-shadow: 0 0 0 2px var(--acento-sistema);
     }
   }
 </style>

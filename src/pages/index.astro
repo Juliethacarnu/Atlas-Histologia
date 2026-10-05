@@ -18,46 +18,41 @@ const porSistema = SISTEMAS.map((s) => ({
     .sort((a, b) => a.data.titulo.localeCompare(b.data.titulo, 'es')),
 }));
 
+const totalEstructuras = placas.reduce((n, p) => n + p.data.estructuras.length, 0);
 let contadorGlobal = 0;
 ---
 
 <Base titulo="Atlas virtual de histologia">
-  <section class="mb-12">
-    <p class="mb-2 font-sans text-sm text-texto-suave">Proyecto universitario · tinción H&amp;E</p>
-    <h1 class="mb-4">Atlas virtual de histología</h1>
-    <p class="medida text-lg leading-relaxed text-texto-suave">
-      {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina, agrupadas por
-      sistema. Cada placa se abre en un visor con zoom profundo, sus estructuras están señaladas con
-      marcadores numerados y un compañero la explica en un video corto.
+  <section class="portada">
+    <h1>Atlas virtual<br />de histología</h1>
+    <p class="portada__entrada">
+      {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina. Cada lámina se abre
+      en un visor con zoom profundo y sus estructuras están señaladas una a una.
+    </p>
+    <p class="portada__cifras">
+      <span><b class="tabular-nums">{placas.length}</b> láminas</span>
+      <span><b class="tabular-nums">{totalEstructuras}</b> estructuras</span>
+      <span><b class="tabular-nums">{SISTEMAS.length}</b> sistemas</span>
     </p>
   </section>
 
   <section aria-labelledby="titulo-bandeja">
-    <h2 id="titulo-bandeja" class="solo-lectores">
-      Bandeja de placas
-    </h2>
+    <h2 id="titulo-bandeja" class="solo-lectores">Todas las láminas</h2>
     <BuscadorFiltros conteos={conteos} total={placas.length} />
 
-    <div class="flex flex-col gap-12">
+    <div class="flex flex-col gap-16">
       {porSistema.map(({ sistema, placas: delSistema }) => (
         <section data-grupo-sistema={sistema.id} aria-labelledby={`sis-${sistema.id}`}>
-          <div class="mb-4 flex items-baseline gap-3 border-b border-borde pb-2">
-            <span
-              class="h-2.5 w-2.5 shrink-0 rounded-full"
-              style={`background:${sistema.acento}`}
-              aria-hidden="true"
-            />
-            <h3 id={`sis-${sistema.id}`} class="font-serif text-xl font-medium">
+          <header class="grupo__cabecera">
+            <h3 id={`sis-${sistema.id}`} class="grupo__titulo">
+              <span class="grupo__punto" style={`background:${sistema.acento}`} aria-hidden="true" />
               {sistema.nombre}
             </h3>
-            <p class="medida-corta hidden text-sm text-texto-suave sm:block">
-              {sistema.descripcion}
-            </p>
-            <span class="ml-auto shrink-0 text-sm tabular-nums text-texto-suave">
-              {delSistema.length} / {sistema.placasEsperadas}
-            </span>
-          </div>
-          <ul class="grid list-none grid-cols-2 gap-4 p-0 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <p class="grupo__descripcion">{sistema.descripcion}</p>
+            <span class="grupo__cuenta tabular-nums">{delSistema.length}</span>
+          </header>
+
+          <ul class="rejilla">
             {delSistema.map((p) => {
               contadorGlobal++;
               return <Portaobjetos placa={p.data} prioridad={contadorGlobal <= 8} />;
@@ -67,8 +62,111 @@ let contadorGlobal = 0;
       ))}
     </div>
 
-    <p id="sin-resultados" hidden class="mt-10 medida text-texto-suave">
-      Ninguna placa coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
+    <p id="sin-resultados" hidden class="medida mt-16 text-texto-suave">
+      Ninguna lámina coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
     </p>
   </section>
 </Base>
+
+<style>
+  .portada {
+    padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) clamp(2.5rem, 1rem + 5vw, 4.5rem);
+  }
+
+  .portada h1 {
+    font-size: clamp(2.6rem, 1.2rem + 5.4vw, 5rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+  }
+
+  .portada__entrada {
+    max-width: 44ch;
+    margin-top: 1.6rem;
+    font-size: clamp(1rem, 0.92rem + 0.35vw, 1.13rem);
+    line-height: 1.65;
+    color: var(--atlas-texto-suave);
+    text-wrap: pretty;
+  }
+
+  .portada__cifras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--atlas-texto-suave);
+  }
+  .portada__cifras b {
+    font-weight: 500;
+    color: var(--atlas-texto);
+  }
+
+  /* --- Cabecera de cada sistema: una línea, sin caja --- */
+  .grupo__cabecera {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .grupo__titulo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex: none;
+    font-size: 1.3rem;
+    font-weight: 450;
+    letter-spacing: -0.012em;
+  }
+
+  .grupo__punto {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 999px;
+    translate: 0 -0.2rem;
+  }
+
+  .grupo__descripcion {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.82rem;
+    color: var(--atlas-texto-suave);
+    /* Una regla finísima que empuja el texto, en vez de un borde bajo todo. */
+    border-bottom: 1px solid var(--atlas-borde);
+    padding-bottom: 0.4rem;
+    translate: 0 -0.15rem;
+  }
+  @media (max-width: 639px) {
+    .grupo__descripcion {
+      display: none;
+    }
+  }
+
+  .grupo__cuenta {
+    flex: none;
+    font-size: 0.82rem;
+    color: var(--atlas-texto-suave);
+  }
+
+  /* --- Rejilla: láminas grandes y mucho aire entre ellas --- */
+  .rejilla {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: 640px) {
+    .rejilla {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1100px) {
+    .rejilla {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.25rem 1.75rem;
+    }
+  }
+</style>

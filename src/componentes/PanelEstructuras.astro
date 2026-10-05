@@ -280,18 +280,20 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
   .numero-fila {
     display: grid;
     place-items: center;
-    height: 1.25rem;
-    min-width: 1.25rem;
-    padding-inline: 0.2rem;
+    height: 1.3rem;
+    min-width: 1.3rem;
+    padding-inline: 0.25rem;
     flex: none;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--atlas-acento) 16%, transparent);
-    color: var(--atlas-acento);
-    font-size: 0.7rem;
-    font-weight: 600;
+    border: 1px solid color-mix(in srgb, var(--atlas-texto-suave) 35%, transparent);
+    color: var(--atlas-texto-suave);
+    font-size: 0.68rem;
+    font-weight: 500;
     font-variant-numeric: tabular-nums;
+    translate: 0 0.05rem;
   }
   .fila-estructura[aria-current='true'] .numero-fila {
+    border-color: var(--color-eosina);
     background: var(--color-eosina);
     color: #fff;
   }

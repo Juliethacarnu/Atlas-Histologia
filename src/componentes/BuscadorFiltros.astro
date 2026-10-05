@@ -8,7 +8,7 @@ interface Props {
 const { conteos, total } = Astro.props;
 ---
 
-<div class="mb-8 flex flex-col gap-4">
+<div class="mb-10 flex flex-col gap-5">
   <div class="flex flex-wrap items-end gap-4">
     <div class="w-full max-w-sm">
       <label for="buscador" class="mb-1.5 block text-sm font-medium">
@@ -31,7 +31,7 @@ const { conteos, total } = Astro.props;
           id="buscador"
           placeholder="duodeno, glándulas de Brunner, tráquea…"
           autocomplete="off"
-          class="w-full rounded-lg border border-borde bg-superficie py-2 pr-3 pl-9 text-sm placeholder:text-texto-suave/70"
+          class="w-full rounded-lg border border-borde bg-superficie py-2.5 pr-3 pl-9 text-sm transition-colors placeholder:text-texto-suave/60 focus:border-texto-suave"
         />
       </div>
     </div>
@@ -40,7 +40,7 @@ const { conteos, total } = Astro.props;
     </p>
   </div>
 
-  <div role="group" aria-label="Filtrar por sistema" class="flex flex-wrap gap-2">
+  <div role="group" aria-label="Filtrar por sistema" class="flex flex-wrap gap-x-6 gap-y-1">
     <button type="button" class="chip-sistema" data-filtro="todos" aria-pressed="true">
       Todos <span class="tabular-nums opacity-60">{total}</span>
     </button>
@@ -62,32 +62,33 @@ const { conteos, total } = Astro.props;
 <style>
   .chip-sistema {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     gap: 0.4rem;
-    border-radius: 999px;
-    border: 1px solid var(--atlas-borde);
-    background: var(--atlas-superficie);
-    padding: 0.35rem 0.8rem;
-    font-size: 0.82rem;
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
     color: var(--atlas-texto-suave);
+    border-bottom: 1.5px solid transparent;
     transition:
-      color 140ms,
-      border-color 140ms,
-      background-color 140ms;
+      color 150ms,
+      border-color 150ms;
   }
   .chip-sistema:hover {
     color: var(--atlas-texto);
   }
   .chip-sistema[aria-pressed='true'] {
     color: var(--atlas-texto);
-    border-color: var(--acento-sistema, var(--atlas-acento));
-    box-shadow: inset 0 0 0 1px var(--acento-sistema, var(--atlas-acento));
+    border-bottom-color: var(--acento-sistema, var(--atlas-texto));
+  }
+  .chip-sistema span.tabular-nums {
+    font-size: 0.7rem;
+    opacity: 0.5;
   }
   .punto-acento {
-    height: 0.45rem;
-    width: 0.45rem;
+    height: 0.32rem;
+    width: 0.32rem;
     border-radius: 999px;
-    background: var(--acento-sistema, var(--atlas-acento));
+    background: var(--acento-sistema, var(--atlas-texto-suave));
+    translate: 0 -0.12rem;
   }
 </style>
 

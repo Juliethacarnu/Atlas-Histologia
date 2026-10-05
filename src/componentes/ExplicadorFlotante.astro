@@ -154,7 +154,7 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
       </>
     ) : (
       <div class="px-3 pb-3">
-        <p class="text-[0.82rem] leading-relaxed text-texto-suave">
+        <p class="explicador__resumen text-[0.82rem] leading-relaxed text-texto-suave">
           {placa.descripcionGeneral ||
             'Todavía no hay explicación para esta placa. Cuando subas el audio o el video, aparecerá aquí junto a la caricatura del presentador.'}
         </p>
@@ -264,6 +264,16 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
     width: 1.1rem;
     height: 1.1rem;
     fill: currentColor;
+  }
+
+  /* Sin video, la tarjeta mostraba la descripcion entera y tapaba media
+     lamina. Se recorta: el texto completo ya esta en el panel lateral. */
+  .explicador__resumen {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
   }
 
   .explicador__capitulos {
