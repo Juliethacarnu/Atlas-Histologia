@@ -243,16 +243,11 @@
    MOVIMIENTO  ·  solo dos gestos: el zoom del visor y el avatar hablando
    ============================================================ */
 @keyframes atlas-pulso-eosina {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 0 color-mix(in srgb, var(--color-eosina) 65%, transparent),
-      0 2px 6px rgb(14 9 32 / 0.5);
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-eosina) 55%, transparent);
   }
-  50% {
-    box-shadow:
-      0 0 0 7px color-mix(in srgb, var(--color-eosina) 0%, transparent),
-      0 2px 6px rgb(14 9 32 / 0.5);
+  100% {
+    box-shadow: 0 0 0 0.7rem color-mix(in srgb, var(--color-eosina) 0%, transparent);
   }
 }
 

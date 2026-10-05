@@ -94,47 +94,91 @@ const variasImagenes = imagenes.length > 1;
 
 <style is:global>
   /* ---------- Marcadores numerados ---------- */
+  /* El marcador es un ANILLO, no un disco: si fuera macizo taparia justo la
+     estructura que senala. El centro queda hueco y el numero va en una
+     chapita al lado, fuera del area de interes. */
   .marcador {
-    display: grid;
-    place-items: center;
-    /* Ancho flexible: hay estructuras con sub-numero («3.1»). */
-    min-width: 1.75rem;
-    width: auto;
-    height: 1.75rem;
-    padding-inline: 0.3rem;
+    position: relative;
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
     border-radius: 999px;
+    background: transparent;
     border: 2px solid #fff;
+    /* Doble filo oscuro: se distingue tanto sobre tejido claro como oscuro. */
+    box-shadow:
+      0 0 0 1px rgb(14 9 32 / 0.6),
+      inset 0 0 0 1px rgb(14 9 32 / 0.35);
+    cursor: pointer;
+    transition:
+      transform 160ms var(--ease-visor),
+      border-color 160ms;
+  }
+
+  /* Area de pulsacion mayor que el anillo, invisible: el anillo es pequeno
+     pero sigue siendo comodo de tocar en movil. */
+  .marcador::before {
+    content: '';
+    position: absolute;
+    inset: -0.55rem;
+    border-radius: 999px;
+  }
+
+  /* La chapita con el numero, arriba a la derecha del anillo. */
+  .marcador > span {
+    position: absolute;
+    bottom: calc(100% - 0.3rem);
+    left: calc(100% - 0.3rem);
+    display: block;
+    min-width: 1rem;
+    padding-inline: 0.2rem;
+    border-radius: 999px;
     background: var(--color-hematoxilina);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 600;
+    font-size: 0.63rem;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
-    line-height: 1;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgb(14 9 32 / 0.55);
-    transition:
-      background-color 160ms,
-      transform 160ms var(--ease-visor);
+    line-height: 1rem;
+    text-align: center;
+    box-shadow:
+      0 0 0 1.5px #fff,
+      0 1px 3px rgb(14 9 32 / 0.5);
   }
+
   .marcador:hover {
-    transform: scale(1.12);
+    transform: scale(1.15);
   }
+
   .marcador--activo {
-    background: var(--color-eosina);
-    animation: atlas-pulso-eosina 1.5s ease-out infinite;
+    border-color: var(--color-eosina);
   }
+  .marcador--activo > span {
+    background: var(--color-eosina);
+  }
+  /* El pulso va en una capa aparte para no pisar los filos del anillo. */
+  .marcador--activo::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 999px;
+    animation: atlas-pulso-eosina 1.6s ease-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .marcador--activo {
+    .marcador--activo::after {
       animation: none;
-      border-width: 4px;
+    }
+    .marcador--activo {
+      border-width: 3px;
     }
   }
+
   /* En modo repaso el número sigue visible; lo que se oculta es el nombre. */
-  .repaso-activo .marcador {
+  .repaso-activo .marcador > span {
     background: var(--color-nucleo);
   }
-  .repaso-activo .marcador--activo {
+  .repaso-activo .marcador--activo > span {
     background: var(--color-eosina);
   }
 
