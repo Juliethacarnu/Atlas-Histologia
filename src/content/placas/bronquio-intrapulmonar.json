@@ -44,7 +44,13 @@
       "numero": 2,
       "nombre": "Capa muscular",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.56,
+          "y": 0.785,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "glandulas-broquiales",
@@ -97,8 +103,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.8712,
-          "y": 0.0956,
+          "x": 0.9,
+          "y": 0.07,
           "imagen": 1
         }
       ]

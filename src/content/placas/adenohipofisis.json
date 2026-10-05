@@ -46,7 +46,13 @@
       "numero": 4,
       "nombre": "Capilar",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.478,
+          "y": 0.862,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

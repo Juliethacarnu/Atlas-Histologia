@@ -25,14 +25,26 @@
       "numero": 1,
       "nombre": "Acino (ramificaciones)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.15,
+          "y": 0.41,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tabiques-de-tejido-conjuntivo",
       "numero": 2,
       "nombre": "Tabiques de tejido conjuntivo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.605,
+          "y": 0.405,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

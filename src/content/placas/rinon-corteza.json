@@ -25,21 +25,39 @@
       "numero": 1,
       "nombre": "Corpusculos renales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.082,
+          "y": 0.73,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tubulos-del-laberinto-cortical",
       "numero": 2,
       "nombre": "Tubulos del laberinto cortical",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.35,
+          "y": 0.35,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "rayos-medulares",
       "numero": 3,
       "nombre": "Rayos medulares",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.566,
+          "y": 0.45,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "intersticio-renal-y-capilares-peritubulares",

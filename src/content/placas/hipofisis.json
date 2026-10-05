@@ -26,14 +26,26 @@
       "numero": 1,
       "nombre": "Adenohipófisis",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.22,
+          "y": 0.68,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "neurohipofisis",
       "numero": 2,
       "nombre": "Neurohipófisis",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.55,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

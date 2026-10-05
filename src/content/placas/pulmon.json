@@ -77,7 +77,13 @@
       "numero": 3,
       "nombre": "Septum interalveolar",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.355,
+          "y": 0.352,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "vaso-sanguineo",
@@ -86,8 +92,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.2348,
-          "y": 0.6949,
+          "x": 0.215,
+          "y": 0.71,
           "imagen": 0
         }
       ]

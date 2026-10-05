@@ -31,7 +31,13 @@
       "numero": 1,
       "nombre": "Epidermis",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.2,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "dermis",
@@ -40,8 +46,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.6133,
-          "y": 0.8019,
+          "x": 0.4,
+          "y": 0.85,
           "imagen": 0
         }
       ]
@@ -51,7 +57,13 @@
       "numero": 3,
       "nombre": "Papilas dérmicas",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.425,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "crestas-dermicas",
@@ -60,8 +72,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.2266,
-          "y": 0.5455,
+          "x": 0.115,
+          "y": 0.49,
           "imagen": 0
         }
       ]
@@ -71,28 +83,52 @@
       "numero": 5,
       "nombre": "Estrato córneo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.3,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-lucido",
       "numero": 6,
       "nombre": "Estrato lúcido",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.61,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-granuloso",
       "numero": 7,
       "nombre": "Estrato granuloso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.645,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-espinoso",
       "numero": 8,
       "nombre": "Estrato espinoso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.45,
+          "y": 0.78,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-basal",
@@ -106,7 +142,13 @@
       "numero": 10,
       "nombre": "Queratinocitos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.62,
+          "y": 0.74,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": false

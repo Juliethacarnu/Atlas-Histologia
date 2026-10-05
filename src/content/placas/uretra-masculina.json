@@ -31,21 +31,39 @@
       "numero": 1,
       "nombre": "Luz uretra (uretra esponjosa)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.27,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "mucosa",
       "numero": 2,
       "nombre": "Mucosa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2,
+          "y": 0.33,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cuero-esponjoso-del-pene",
       "numero": 3,
       "nombre": "Cuero esponjoso del pene",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2,
+          "y": 0.16,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tunica-albuginea-del-cuero-esponjoso",

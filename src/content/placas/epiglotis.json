@@ -25,42 +25,78 @@
       "numero": 1,
       "nombre": "Epitelio plano estratificado",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.45,
+          "y": 0.085,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-conectivo-laxo",
       "numero": 2,
       "nombre": "Tejido Conectivo Laxo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.45,
+          "y": 0.28,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "nervio",
       "numero": 3,
       "nombre": "Nervio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.625,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "adipocitos-blancos",
       "numero": 4,
       "nombre": "Adipocitos blancos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.52,
+          "y": 0.86,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-cartilaginoso-elastico-cartilago-epiglotico",
       "numero": 5,
       "nombre": "Tejido cartilaginoso elástico ( cartílago epiglótico)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.18,
+          "y": 0.7,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "acinos-glandulares",
       "numero": 6,
       "nombre": "Acinos glandulares",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.83,
+          "y": 0.72,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

@@ -44,21 +44,39 @@
       "numero": 2,
       "nombre": "Epitelio cilíndrico pseudoestratificado ciliado",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.945,
+          "y": 0.63,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "epitelio-cilindrico-simple-ciliado",
       "numero": 3,
       "nombre": "Epitelio cilíndrico simple ciliado",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.185,
+          "y": 0.73,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "tejido-conectivo",
       "numero": 4,
       "nombre": "Tejido Conectivo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.09,
+          "y": 0.32,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "capa-muscular",

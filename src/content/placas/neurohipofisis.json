@@ -25,14 +25,26 @@
       "numero": 1,
       "nombre": "Gránulos Secretorios",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.235,
+          "y": 0.375,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cuerpos-de-herring",
       "numero": 2,
       "nombre": "Cuerpos de Herring",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.572,
+          "y": 0.35,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

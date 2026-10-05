@@ -25,42 +25,78 @@
       "numero": 1,
       "nombre": "Pliegue Vestibular ( cuerda vocal falsa)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.22,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "ventriculo-laringeo",
       "numero": 2,
       "nombre": "Ventrículo laríngeo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.49,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cuerda-vocal-verdadera",
       "numero": 3,
       "nombre": "Cuerda vocal verdadera",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.75,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "epitelio-plano-estratificado-no-queratinizado",
       "numero": 4,
       "nombre": "Epitelio plano estratificado no queratinizado",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.96,
+          "y": 0.45,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "lamina-propia",
       "numero": 5,
       "nombre": "Lámina Propia",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.82,
+          "y": 0.3,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "musculo-vocal",
       "numero": 6,
       "nombre": "Músculo vocal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.68,
+          "y": 0.85,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "ligamento-vocal",

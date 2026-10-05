@@ -38,28 +38,52 @@
       "numero": 2,
       "nombre": "Lobulillo hepatico clasico",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.45,
+          "y": 0.65,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vena-central",
       "numero": 3,
       "nombre": "Vena central",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.45,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "triada-portal",
       "numero": 4,
       "nombre": "Triada portal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.085,
+          "y": 0.6,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cordones-hepaticos",
       "numero": 5,
       "nombre": "Cordones hepaticos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.8,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": false

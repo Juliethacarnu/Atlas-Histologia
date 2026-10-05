@@ -25,28 +25,52 @@
       "numero": 1,
       "nombre": "Acinos serosos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.72,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "islotes-de-langerhans",
       "numero": 2,
       "nombre": "Islotes de Langerhans",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.515,
+          "y": 0.27,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "conductos-intralobulillares-e-interlobuulillares",
       "numero": 3,
       "nombre": "Conductos intralobulillares e interlobuulillares",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.17,
+          "y": 0.27,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tabiques-conjuntivos-onterlobulillares",
       "numero": 4,
       "nombre": "Tabiques conjuntivos onterlobulillares",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.09,
+          "y": 0.36,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

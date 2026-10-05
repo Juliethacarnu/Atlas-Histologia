@@ -31,14 +31,26 @@
       "numero": 1,
       "nombre": "Epitelio Cubico Simple",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.525,
+          "y": 0.245,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "fibras-musculares-lisas",
       "numero": 2,
       "nombre": "Fibras musculares lisas",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.435,
+          "y": 0.26,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "sacos-alveolares",

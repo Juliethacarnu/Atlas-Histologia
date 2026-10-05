@@ -25,35 +25,65 @@
       "numero": 1,
       "nombre": "Conductos colectores",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.555,
+          "y": 0.235,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "asas-de-henle",
       "numero": 2,
       "nombre": "Asas de Henle",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.428,
+          "y": 0.452,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tubulos-rectos-distales-proximales",
       "numero": 3,
       "nombre": "Tubulos rectos distales / proximales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.455,
+          "y": 0.235,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vasos-rectos",
       "numero": 4,
       "nombre": "Vasos rectos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.91,
+          "y": 0.41,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "intersticio-medular-y-celulas-intersticiales",
       "numero": 5,
       "nombre": "Intersticio medular y células intersticiales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2,
+          "y": 0.52,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

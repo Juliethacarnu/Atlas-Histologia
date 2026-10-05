@@ -25,21 +25,39 @@
       "numero": 1,
       "nombre": "Cápsula de Bowman",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.29,
+          "y": 0.48,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "glomerulo-renal",
       "numero": 2,
       "nombre": "Glomerulo renal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.6,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "aparato-yuxtaglomerular",
       "numero": 3,
       "nombre": "Aparato Yuxtaglomerular",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.29,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

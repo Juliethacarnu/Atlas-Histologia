@@ -31,14 +31,26 @@
       "numero": 1,
       "nombre": "Mucosa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.65,
+          "y": 0.275,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "epitelio-respiratorio",
       "numero": 2,
       "nombre": "Epitelio respiratorio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.65,
+          "y": 0.215,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "submucosa",
@@ -47,8 +59,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.3488,
-          "y": 0.4012,
+          "x": 0.55,
+          "y": 0.4,
           "imagen": 0
         }
       ]
@@ -73,8 +85,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.1781,
-          "y": 0.8895,
+          "x": 0.09,
+          "y": 0.87,
           "imagen": 0
         }
       ]

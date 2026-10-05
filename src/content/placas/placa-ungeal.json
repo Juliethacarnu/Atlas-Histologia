@@ -25,42 +25,83 @@
       "numero": 1,
       "nombre": "Raiz de la Uña",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.135,
+          "y": 0.641,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "matriz-ungeal",
       "numero": 2,
       "nombre": "Matriz Ungeal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.255,
+          "y": 0.586,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "eponiquio",
       "numero": 3,
       "nombre": "Eponiquio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3,
+          "y": 0.465,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "dermis",
       "numero": 4,
       "nombre": "Dermis",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.44,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "hueso",
       "numero": 5,
       "nombre": "Hueso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.52,
+          "y": 0.68,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "corpusculo-de-pacini",
       "numero": 6,
       "nombre": "Corpúsculo de Pacini",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.725,
+          "y": 0.655,
+          "imagen": 0
+        },
+        {
+          "x": 0.82,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "estrato-lucido",
@@ -74,14 +115,26 @@
       "numero": 8,
       "nombre": "Hiponiquio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.915,
+          "y": 0.17,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "una",
       "numero": 9,
       "nombre": "uña",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.115,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

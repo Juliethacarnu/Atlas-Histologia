@@ -32,7 +32,13 @@
       "numero": 2,
       "nombre": "Esmalte",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.449,
+          "y": 0.097,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "dentina",

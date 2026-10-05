@@ -25,28 +25,52 @@
       "numero": 1,
       "nombre": "Mucosa (Criptas de Lieberkühn)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.37,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "submucosa",
       "numero": 2,
       "nombre": "Submucosa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.22,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "muscular-externa",
       "numero": 3,
       "nombre": "Muscular externa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.15,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "adventicia-serosa",
       "numero": 4,
       "nombre": "Adventicia / serosa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.27,
+          "y": 0.865,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

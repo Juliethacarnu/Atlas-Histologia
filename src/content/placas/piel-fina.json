@@ -83,14 +83,26 @@
       "numero": 5,
       "nombre": "Estrato córneo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.082,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-granuloso",
       "numero": 6,
       "nombre": "Estrato granuloso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.115,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "estrato-espinoso",

@@ -25,28 +25,52 @@
       "numero": 1,
       "nombre": "Triada portal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.13,
+          "y": 0.17,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-conjuntivo-denso-y-fibroblastos",
       "numero": 2,
       "nombre": "Tejido conjuntivo denso y fibroblastos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.92,
+          "y": 0.62,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vasos-linfaticos",
       "numero": 3,
       "nombre": "Vasos linfáticos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.215,
+          "y": 0.635,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "parenquima-hepatico-circundante",
       "numero": 4,
       "nombre": "Parenquima hepatico circundante",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.75,
+          "y": 0.15,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

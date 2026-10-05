@@ -30,28 +30,52 @@
       "numero": 1,
       "nombre": "Zona de transición del epitelio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.465,
+          "y": 0.45,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "glandulas-anales",
       "numero": 2,
       "nombre": "Glándulas anales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.625,
+          "y": 0.7,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "esfinter-anal-interno",
       "numero": 3,
       "nombre": "Esfinter anal interno",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "esfinter-anal-externo",
       "numero": 4,
       "nombre": "Esfinter anal externo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.05,
+          "y": 0.605,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
