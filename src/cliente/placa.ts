@@ -163,8 +163,11 @@ function iniciar(datos: DatosPlaca) {
     alternarExplicador(false);
     minimizar?.focus();
   });
-  // En móvil el explicador empieza recogido como burbuja para no tapar el visor.
-  if (window.matchMedia('(max-width: 1023px)').matches) alternarExplicador(true);
+  // El explicador empieza recogido como burbuja cuando estorbaría más que
+  // ayuda: en móvil siempre, y sin audio ni video porque entonces la tarjeta
+  // sólo repite la descripción del panel y tapa marcadores de la lámina.
+  const estorba = window.matchMedia('(max-width: 1023px)').matches || !datos.video;
+  if (estorba) alternarExplicador(true);
 
   const hueco = document.getElementById('hueco-video');
   if (datos.video && hueco) {
