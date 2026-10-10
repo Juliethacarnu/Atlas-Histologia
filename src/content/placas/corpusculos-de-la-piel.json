@@ -28,7 +28,12 @@
       "credito": "Figura 3. Corpusculo de Ruffini"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "corpusculos-de-la-piel.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "corpusculo-de-pacini",

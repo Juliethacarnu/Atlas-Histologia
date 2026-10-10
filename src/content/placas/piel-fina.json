@@ -24,7 +24,12 @@
       "credito": "Figura 1. Piel fina"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "piel-fina.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "epidermis",

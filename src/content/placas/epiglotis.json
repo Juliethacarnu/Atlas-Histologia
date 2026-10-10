@@ -18,7 +18,12 @@
       "credito": "Figura 1. Epiglotis · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "epiglotis.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "epitelio-plano-estratificado",

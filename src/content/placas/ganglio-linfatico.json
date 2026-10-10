@@ -18,7 +18,12 @@
       "credito": "Figura 1. Ganglio linfatico"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "ganglio-linfatico.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "capsula",

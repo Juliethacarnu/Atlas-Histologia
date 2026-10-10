@@ -24,7 +24,12 @@
       "credito": "Figura 2. Cartilago hialino Foto propia · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "traquea.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "mucosa",

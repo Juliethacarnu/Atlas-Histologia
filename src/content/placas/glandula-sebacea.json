@@ -18,7 +18,12 @@
       "credito": "Figura 1. Glandula Sebacea · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "glandula-sebacea.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "acino-ramificaciones",
@@ -40,8 +45,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.605,
-          "y": 0.405,
+          "x": 0.686,
+          "y": 0.4454,
           "imagen": 0
         }
       ]

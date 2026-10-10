@@ -24,7 +24,12 @@
       "credito": "Figura 2. Glandulas antropiloricas · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "estomago-antro-pilorico.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "mucosa",

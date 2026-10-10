@@ -24,7 +24,12 @@
       "credito": "Figura 2 : bronquio, partes. · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "bronquio-intrapulmonar.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "capa-mucosa",

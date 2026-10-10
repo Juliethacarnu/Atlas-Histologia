@@ -75,12 +75,12 @@ const video = z.object({
   /**
    * youtube: video alojado en YouTube (se sirve por youtube-nocookie).
    * mp4:     video local en public/videos/.
-   * audio:   solo voz (mp3/m4a/ogg) en public/videos/; el sitio anima la
+   * audio:   solo voz (m4a/mp3/ogg) en public/audios/; el sitio anima la
    *          caricatura del presentador mientras suena. Pesa mucho menos y
    *          no exige generar ningun video.
    */
   tipo: z.enum(['youtube', 'mp4', 'audio']),
-  /** youtube: el ID del video (no la URL completa). mp4/audio: nombre del archivo en public/videos/. */
+  /** youtube: el ID del video. mp4: archivo en public/videos/. audio: archivo en public/audios/. */
   src: z.string().min(1),
   /**
    * Archivo .vtt en public/videos/. Con mp4 son los subtitulos incrustados;

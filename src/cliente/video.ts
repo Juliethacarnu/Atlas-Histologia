@@ -187,7 +187,7 @@ export function crearReproductor(
     // Solo voz: la caricatura del presentador hace de imagen y se anima
     // mientras suena. Se usan los controles nativos para poder desplazarse.
     const el = document.createElement('audio');
-    el.src = ruta('videos', video.src);
+    el.src = ruta('audios', video.src);
     el.controls = true;
     el.preload = 'metadata';
     el.className = 'w-full';

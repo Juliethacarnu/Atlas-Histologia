@@ -24,7 +24,12 @@
       "credito": "Figura 2 : bronquiolo respiratorio, partes · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "bronquiolo-respiratorio.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "epitelio-cubico-simple",

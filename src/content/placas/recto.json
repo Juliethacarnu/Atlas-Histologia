@@ -18,7 +18,12 @@
       "credito": "Figura 1. Recto"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "recto.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "mucosa-criptas-de-lieberkuhn",

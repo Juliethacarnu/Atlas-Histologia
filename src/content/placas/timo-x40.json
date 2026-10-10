@@ -18,7 +18,12 @@
       "credito": "Figura 1. Timo órgano linfatico · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "timo-x40.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "corpusculo-de-hassall",

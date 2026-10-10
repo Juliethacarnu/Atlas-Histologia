@@ -18,7 +18,12 @@
       "credito": "Figura 1. Bazo, organo linfoide"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "bazo-x10.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "tabique",

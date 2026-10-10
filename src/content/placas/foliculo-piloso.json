@@ -24,7 +24,12 @@
       "credito": "Figura 2. Foliculo piloso · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-piloso.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "foliculo-piloso",
@@ -51,8 +56,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.845,
-          "y": 0.27,
+          "x": 0.8264,
+          "y": 0.3048,
           "imagen": 1
         }
       ]

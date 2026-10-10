@@ -18,7 +18,12 @@
       "credito": "Figura 1. Anexos. placa ungeal"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "placa-ungeal.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "raiz-de-la-una",

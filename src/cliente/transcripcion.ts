@@ -63,7 +63,7 @@ export async function montarTranscripcion(
 
   let intervenciones: Intervencion[] = [];
   try {
-    const respuesta = await fetch(ruta('videos', archivoVtt));
+    const respuesta = await fetch(ruta('audios', archivoVtt));
     if (!respuesta.ok) return;
     intervenciones = parsearVtt(await respuesta.text());
   } catch {

@@ -18,7 +18,12 @@
       "credito": "Figura 1. Bazo, organo linfoide"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "bazo-x100.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "seno-venoso",

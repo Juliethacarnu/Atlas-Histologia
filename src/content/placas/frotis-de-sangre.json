@@ -23,7 +23,12 @@
       "credito": "Figura 2. Imagen fotografica propia"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "frotis-de-sangre.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "eritrocito-globulo-rojo",
