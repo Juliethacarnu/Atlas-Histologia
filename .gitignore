@@ -10,3 +10,7 @@ dist/
 # publicado: GitHub Pages solo sirve lo que el workflow sube (dist/).
 #
 # Unico limite a vigilar: GitHub rechaza archivos sueltos de mas de 100 MB.
+
+# Los cuatro arboles de trabajo con las propuestas de diseno (uno por rama).
+# Son copias de este mismo repositorio: no se versionan dentro de si mismas.
+.variantes/
