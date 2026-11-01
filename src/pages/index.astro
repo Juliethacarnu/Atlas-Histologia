@@ -108,9 +108,22 @@ let contadorGlobal = 0;
         </section>
       ))}
 
-      <p id="sin-resultados" hidden class="medida mt-16 text-texto-suave">
-        Ninguna lámina coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
-      </p>
+      <div id="sin-resultados" hidden class="vacio">
+        <p class="vacio__titulo">
+          Ninguna lámina dice «<span id="vacio-termino"></span>»
+        </p>
+        <p class="vacio__pista">
+          La búsqueda ignora tildes y mayúsculas, y mira también el órgano, el sistema y el
+          nombre de cada estructura.
+        </p>
+        <div id="vacio-cerca" hidden>
+          <p class="rotulo">Quizá buscabas</p>
+          <ul id="vacio-lista" class="vacio__lista" role="list"></ul>
+        </div>
+        <button type="button" id="vacio-limpiar" class="vacio__boton">
+          Ver las {placas.length} láminas
+        </button>
+      </div>
     </div>
   </section>
 </Base>
@@ -255,6 +268,76 @@ let contadorGlobal = 0;
     .grupo__descripcion {
       display: none;
     }
+  }
+
+  /* --- Nada coincide: se dice el termino, como busca el atlas y por donde
+     seguir. Nunca se deja al lector en un callejon sin salida. --- */
+  .vacio {
+    max-width: 48ch;
+    padding-block: clamp(2rem, 1rem + 3vw, 3rem);
+  }
+  .vacio__titulo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  .vacio__titulo span {
+    font-style: italic;
+  }
+  .vacio__pista {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--atlas-texto-suave);
+  }
+  #vacio-cerca {
+    margin-top: 1.6rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--atlas-borde);
+  }
+  .vacio__lista {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  /* Las sugerencias las construye el cliente: el ámbito de Astro no llega a
+     elementos que no están en este archivo, así que van en global. */
+  .vacio__lista :global(a) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.35rem 0;
+    text-decoration: none;
+  }
+  .vacio__lista :global(a:hover .vacio__nombre) {
+    color: var(--color-eosina);
+  }
+  .vacio__lista :global(.vacio__nombre) {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+  }
+  .vacio__lista :global(.vacio__donde) {
+    font-size: 0.78rem;
+    color: var(--atlas-texto-suave);
+  }
+  .vacio__boton {
+    margin-top: 1.6rem;
+    border: 1px solid var(--atlas-borde-fuerte);
+    border-radius: var(--radius-chapa);
+    padding: 0.5rem 1rem;
+    font-size: 0.88rem;
+    min-height: 44px;
+    transition:
+      border-color 140ms,
+      background-color 140ms;
+  }
+  .vacio__boton:hover {
+    border-color: var(--atlas-texto);
+    background: var(--atlas-superficie);
   }
 
   /* --- Mosaico: la bandeja de preparaciones ---

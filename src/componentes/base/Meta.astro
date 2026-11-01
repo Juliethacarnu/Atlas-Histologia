@@ -14,7 +14,9 @@ const {
 const tituloCompleto =
   titulo === 'Atlas virtual de histologia' ? titulo : `${titulo} · Atlas virtual de histologia`;
 const canonica = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
-const favicon = ruta('favicon.svg');
+// Cuando la pagina no trae imagen propia (una lamina trae la suya), se
+// comparte la portada del atlas.
+const imagenCompartir = new URL(imagen ?? ruta('og.png'), canonica).href;
 ---
 
 <meta charset="utf-8" />
@@ -26,6 +28,14 @@ const favicon = ruta('favicon.svg');
 <meta property="og:locale" content="es_ES" />
 <meta property="og:title" content={tituloCompleto} />
 <meta property="og:description" content={descripcion} />
-{imagen && <meta property="og:image" content={new URL(imagen, canonica).href} />}
-<meta name="twitter:card" content={imagen ? 'summary_large_image' : 'summary'} />
-<link rel="icon" href={favicon} type="image/svg+xml" />
+<meta property="og:image" content={imagenCompartir} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href={ruta('favicon.svg')} type="image/svg+xml" />
+<link rel="icon" href={ruta('favicon-32.png')} sizes="32x32" />
+<link rel="apple-touch-icon" href={ruta('apple-touch-icon.png')} />
+{/* La barra del navegador movil se tine del color del papel, no de blanco. */}
+<meta name="theme-color" content="#f3efe5" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)" />

@@ -15,8 +15,11 @@
   --color-hematoxilina: #3b2f73;
   --color-hematoxilina-claro: #a79ae6;
   --color-hematoxilina-tenue: #e7e3f5;
+  /* La eosina cambia con el tema: #c2365f sobre papel oscuro se queda en
+     3,47:1 y no llega a AA, asi que en oscuro sube a #e0688a (5,68:1). El
+     valor se redefine mas abajo; aqui va el del tema claro. */
   --color-eosina: #c2365f;
-  --color-eosina-claro: #e4698d;
+  --color-eosina-claro: #e0688a;
   --color-eosina-tenue: #f8e3e9;
   --color-nucleo: #1a1233;
   --color-nucleo-profundo: #0e0920;
@@ -26,13 +29,17 @@
   --color-tinta: #1c1a16;
   --color-papel: #f3efe5;
 
-  /* Acentos por sistema: se usan en dosis pequenas (etiqueta y filo del portaobjetos) */
-  --color-sis-sangre: #a8304a;
-  --color-sis-piel: #b4762a;
-  --color-sis-respiratorio: #3c6b93;
-  --color-sis-digestivo: #55733a;
-  --color-sis-urinario: #2a7f80;
-  --color-sis-endocrino: #6b4a9e;
+  /* Acentos por sistema. Seis tonos elegidos fuera del arco rosa-morado de
+     la tincion y separados por luminosidad ademas de por tono, para que se
+     distingan en un punto de 7 px y con daltonismo. Se redefinen por tema
+     mas abajo. Nunca se usan como color de texto: van como punto o icono
+     acompanados de la palabra en tinta. */
+  --color-sis-sangre: #c8582f;
+  --color-sis-piel: #7a4f00;
+  --color-sis-respiratorio: #3f6fc0;
+  --color-sis-digestivo: #0b5a39;
+  --color-sis-urinario: #3a8f96;
+  --color-sis-endocrino: #7f7a70;
 
   --font-serif: 'Newsreader Variable', ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans:
@@ -65,13 +72,21 @@
 :root {
   color-scheme: light;
   --atlas-fondo: var(--color-papel);
-  --atlas-superficie: #fbf9f3;
+  --atlas-superficie: #fbf8f1;
   --atlas-superficie-alta: #ffffff;
   --atlas-texto: var(--color-tinta);
-  --atlas-texto-suave: #5e5748;
-  /* Dos filos: el de pelo, casi invisible, y el que de verdad separa. */
-  --atlas-borde: #e0d9c9;
-  --atlas-borde-fuerte: #c5bba4;
+  --atlas-texto-suave: #5f5a50;
+  /* Dos filos distintos y con distinto trabajo: `borde` es decorativo y no
+     significa nada; `borde-fuerte` rodea controles y por eso llega a 3:1. */
+  --atlas-borde: #dcd5c5;
+  --atlas-borde-fuerte: #878070;
+  /* Bandas alrededor de la micrografia cuando no llena el visor: neutro y
+     sin tinte, para no alterar la lectura de la tincion. */
+  --atlas-lamina-fondo: #e8e3d6;
+  /* Texto e iconos sobre un relleno de eosina. */
+  --atlas-sobre-eosina: #fbf8f1;
+  /* Fondo de lo que flota sobre la imagen (el riel de zoom). */
+  --atlas-velo: rgb(243 239 229 / 0.92);
   --atlas-acento: var(--color-hematoxilina);
   /* El campo del microscopio es oscuro en ambos temas: es el fondo del visor. */
   --atlas-campo: var(--color-nucleo);
@@ -87,12 +102,22 @@
   :root:not([data-tema='claro']) {
     color-scheme: dark;
     --atlas-fondo: #16150f;
-    --atlas-superficie: #1f1d16;
+    --atlas-superficie: #211f19;
     --atlas-superficie-alta: #292619;
     --atlas-texto: #f1ede1;
-    --atlas-texto-suave: #b1a893;
-    --atlas-borde: #332f23;
-    --atlas-borde-fuerte: #4c4634;
+    --atlas-texto-suave: #a9a395;
+    --atlas-borde: #34312a;
+    --atlas-borde-fuerte: #77715f;
+    --atlas-lamina-fondo: #0c0b08;
+    --atlas-sobre-eosina: #16150f;
+    --atlas-velo: rgb(22 21 15 / 0.9);
+    --color-eosina: #e0688a;
+    --color-sis-sangre: #e5785c;
+    --color-sis-piel: #f2b33a;
+    --color-sis-respiratorio: #84b6f5;
+    --color-sis-digestivo: #8fe0b0;
+    --color-sis-urinario: #4fa3a8;
+    --color-sis-endocrino: #a7a197;
     --atlas-acento: var(--color-hematoxilina-claro);
     --atlas-campo: var(--color-nucleo-profundo);
     --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -102,13 +127,23 @@
 
 :root[data-tema='oscuro'] {
   color-scheme: dark;
-  --atlas-fondo: #16150f;
-  --atlas-superficie: #1f1d16;
+    --atlas-fondo: #16150f;
+  --atlas-superficie: #211f19;
   --atlas-superficie-alta: #292619;
   --atlas-texto: #f1ede1;
-  --atlas-texto-suave: #b1a893;
-  --atlas-borde: #332f23;
-  --atlas-borde-fuerte: #4c4634;
+  --atlas-texto-suave: #a9a395;
+  --atlas-borde: #34312a;
+  --atlas-borde-fuerte: #77715f;
+  --atlas-lamina-fondo: #0c0b08;
+  --atlas-sobre-eosina: #16150f;
+  --atlas-velo: rgb(22 21 15 / 0.9);
+  --color-eosina: #e0688a;
+  --color-sis-sangre: #e5785c;
+  --color-sis-piel: #f2b33a;
+  --color-sis-respiratorio: #84b6f5;
+  --color-sis-digestivo: #8fe0b0;
+  --color-sis-urinario: #4fa3a8;
+  --color-sis-endocrino: #a7a197;
   --atlas-acento: var(--color-hematoxilina-claro);
   --atlas-campo: var(--color-nucleo-profundo);
   --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -287,12 +322,14 @@
 /* ============================================================
    MOVIMIENTO  ·  solo dos gestos: el zoom del visor y el avatar hablando
    ============================================================ */
-@keyframes atlas-pulso-eosina {
+/* El latido del marcador activo. Va en tinta, no en eosina: sobre la
+   tincion rosa la eosina no se distingue. */
+@keyframes atlas-pulso-marcador {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-eosina) 55%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--atlas-texto) 45%, transparent);
   }
   100% {
-    box-shadow: 0 0 0 0.7rem color-mix(in srgb, var(--color-eosina) 0%, transparent);
+    box-shadow: 0 0 0 0.7rem color-mix(in srgb, var(--atlas-texto) 0%, transparent);
   }
 }
 
@@ -316,5 +353,88 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   IMPRESION  ·  un estudiante imprime la lamina para repasarla
+   Siempre en claro, aunque la pantalla este en oscuro, y sin nada
+   de la interfaz: la lamina, su ficha y la lista de estructuras.
+   ============================================================ */
+@media print {
+  :root,
+  :root[data-tema='oscuro'] {
+    color-scheme: light;
+    --atlas-fondo: #fff;
+    --atlas-superficie: #fff;
+    --atlas-superficie-alta: #fff;
+    --atlas-texto: #000;
+    --atlas-texto-suave: #333;
+    --atlas-borde: #bbb;
+    --atlas-borde-fuerte: #888;
+    --atlas-campo: #fff;
+  }
+
+  /* Fuera todo lo que solo sirve para operar la pagina. */
+  body > header,
+  #nav-placas,
+  .pie,
+  .tira,
+  .chapa-campo,
+  #minimapa,
+  #explicador,
+  .atajos,
+  .buscador,
+  .indice,
+  #boton-repaso,
+  #boton-quiz,
+  #alternar-descripcion,
+  .ficha__accion,
+  .ficha__cerrar,
+  #quiz {
+    display: none !important;
+  }
+
+  /* El visor deja de ocupar la ventana: la lamina se imprime entera. */
+  #marco-visor,
+  #marco-visor > div {
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .vineta-campo::after {
+    display: none;
+  }
+
+  /* El panel deja de flotar y pasa a ser la leyenda, debajo de la lamina. */
+  .panel-estructuras {
+    position: static !important;
+    width: auto !important;
+    inset: auto !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    overflow: visible !important;
+  }
+  .lista-estructuras {
+    columns: 2;
+  }
+  .placa-item,
+  .fila-estructura,
+  .autor {
+    break-inside: avoid;
+  }
+
+  /* Un enlace impreso no se puede pulsar: se escribe su direccion. */
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 8pt;
+    color: #555;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm;
   }
 }

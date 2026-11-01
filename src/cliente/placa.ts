@@ -41,12 +41,23 @@ function iniciar(datos: DatosPlaca) {
 
   /* ---------------------- Estado de carga del visor ---------------------- */
   const aviso = document.getElementById('estado-visor');
-  visor.viewer.addHandler('open', () => aviso?.setAttribute('hidden', ''));
+  const fallo = document.getElementById('fallo-visor');
+  const reintentar = document.getElementById('fallo-reintentar');
+
+  visor.viewer.addHandler('open', () => {
+    aviso?.setAttribute('hidden', '');
+    fallo?.setAttribute('hidden', '');
+  });
   visor.viewer.addHandler('open-failed', () => {
-    if (!aviso) return;
-    aviso.removeAttribute('hidden');
-    aviso.textContent =
-      'No se encontró la imagen de esta placa. Ejecuta «npm run optimizar» para generarla.';
+    aviso?.setAttribute('hidden', '');
+    fallo?.removeAttribute('hidden');
+  });
+  // La lámina sigue siendo útil sin la foto, pero merece un segundo intento:
+  // casi siempre es la red del móvil, no un archivo que falte.
+  reintentar?.addEventListener('click', () => {
+    fallo?.setAttribute('hidden', '');
+    aviso?.removeAttribute('hidden');
+    visor.recargar();
   });
 
   /* --------------------------- Crédito e imagen -------------------------- */

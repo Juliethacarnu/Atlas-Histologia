@@ -30,7 +30,14 @@ const segundaLinea =
     : sistema;
 ---
 
-<li class="placa-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
+<li
+  class="placa-item"
+  data-placa
+  data-sistema={placa.sistema}
+  data-busqueda={busqueda}
+  data-titulo={placa.titulo}
+  data-donde={segundaLinea}
+>
   <a href={rutaPlaca(placa.id)} class="placa group block no-underline" style={`--acento: ${acento}`}>
     <!-- La lámina manda: sin caja, sin sombra, sin marco. -->
     <div class="placa__lamina" style={`--proporcion: ${proporcion.toFixed(4)}`}>
@@ -119,7 +126,7 @@ const segundaLinea =
   .placa__revisar {
     left: 0.45rem;
     background: color-mix(in srgb, var(--color-eosina) 88%, transparent);
-    color: #fff;
+    color: var(--atlas-sobre-eosina);
     font-weight: 500;
   }
 

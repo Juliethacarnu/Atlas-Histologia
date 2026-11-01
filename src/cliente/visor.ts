@@ -56,6 +56,13 @@ export class Visor {
     return this.osd;
   }
 
+  /** Vuelve a pedir la imagen que ya estaba puesta, tras un fallo de red. */
+  recargar() {
+    const indice = this.indiceImagen;
+    this.indiceImagen = -1;
+    this.mostrarImagen(indice);
+  }
+
   /** Cambia la imagen/aumento visible y vuelve a colocar los marcadores. */
   mostrarImagen(indice: number) {
     const imagen = this.datos.imagenes[indice];
@@ -149,11 +156,13 @@ export class Visor {
 
   /** Refleja el estado (activa / repaso) en los marcadores ya pintados. */
   sincronizarMarcadores() {
-    const { activa } = estado.obtener();
+    const { activa, repaso, reveladas } = estado.obtener();
     for (const [id, botones] of this.marcadores) {
       const es = this.datos.estructuras.find((e) => e.id === id);
       for (const b of botones) {
         b.classList.toggle('marcador--activo', id === activa);
+        // En repaso el numero se tapa con una interrogacion hasta revelarla.
+        b.classList.toggle('marcador--oculto', repaso && !reveladas.has(id));
         b.setAttribute('aria-pressed', String(id === activa));
         if (es) this.etiquetarMarcador(b, es);
       }

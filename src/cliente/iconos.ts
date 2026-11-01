@@ -7,6 +7,8 @@
  */
 import play from '@phosphor-icons/core/assets/fill/play-fill.svg?raw';
 import pause from '@phosphor-icons/core/assets/fill/pause-fill.svg?raw';
+import checkCircle from '@phosphor-icons/core/assets/fill/check-circle-fill.svg?raw';
+import xCircle from '@phosphor-icons/core/assets/fill/x-circle-fill.svg?raw';
 
 /** Deja el SVG listo para incrustar: sin tamanos propios y con la clase comun. */
 function preparar(bruto: string): string {
@@ -15,3 +17,5 @@ function preparar(bruto: string): string {
 
 export const ICONO_PLAY = preparar(play);
 export const ICONO_PAUSA = preparar(pause);
+export const ICONO_BIEN = preparar(checkCircle);
+export const ICONO_MAL = preparar(xCircle);

@@ -21,12 +21,21 @@ function activo(href: string) {
 <header class:list={['cabecera', compacto && 'cabecera--compacta']}>
   <div class="contenedor-atlas flex items-center gap-2 sm:gap-3">
     <a href={ruta()} class="marca">
-      <svg class="marca__sello" viewBox="0 0 20 28" aria-hidden="true" role="presentation">
-        <rect x="0.5" y="0.5" width="19" height="27" rx="2.5" class="sello__vidrio" />
-        <circle cx="10" cy="11.5" r="5.4" class="sello__tejido" />
-        <circle cx="8.3" cy="10" r="1.5" class="sello__nucleo" />
-        <circle cx="11.9" cy="12.9" r="1.2" class="sello__nucleo" />
-        <path d="M0.5 20.5h19" class="sello__filo" />
+      {/* El sello del sistema de diseno: el campo del ocular con una celula
+          tenida en H&E. Va en linea y pintado con los tokens del tema, que
+          son exactamente los colores de marca-claro.svg y marca-oscuro.svg;
+          asi no parpadea al cambiar de tema ni cuesta una peticion mas. */}
+      <svg class="marca__sello" viewBox="0 0 32 32" aria-hidden="true" role="presentation">
+        <circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="3" />
+        <ellipse
+          cx="16"
+          cy="16"
+          rx="8.2"
+          ry="5.3"
+          transform="rotate(-35 16 16)"
+          fill="var(--color-eosina)"
+        />
+        <circle cx="18.3" cy="14.4" r="2.7" fill="currentColor" />
       </svg>
       <span class="marca__nombre">Atlas de histología</span>
     </a>
@@ -80,31 +89,10 @@ function activo(href: string) {
     text-decoration: none;
   }
   .marca__sello {
-    height: 1.75rem;
-    width: 1.25rem;
+    height: 1.5rem;
+    width: 1.5rem;
     flex: none;
-  }
-  .sello__vidrio {
-    fill: var(--atlas-superficie);
-    stroke: var(--atlas-borde-fuerte);
-  }
-  .sello__tejido {
-    fill: var(--color-eosina-tenue);
-  }
-  .sello__nucleo {
-    fill: var(--color-hematoxilina);
-  }
-  .sello__filo {
-    stroke: var(--atlas-borde-fuerte);
-    stroke-width: 1;
-  }
-  :root[data-tema='oscuro'] .sello__tejido,
-  :root:not([data-tema='claro']) .sello__tejido {
-    fill: color-mix(in srgb, var(--color-eosina) 55%, transparent);
-  }
-  :root[data-tema='oscuro'] .sello__nucleo,
-  :root:not([data-tema='claro']) .sello__nucleo {
-    fill: var(--color-hematoxilina-claro);
+    color: var(--atlas-texto);
   }
 
   .marca__nombre {

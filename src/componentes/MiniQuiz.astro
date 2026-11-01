@@ -103,33 +103,52 @@ import Icono from './Icono.astro';
      los estilos de arriba. -->
 <style is:global>
   #quiz-opciones button {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     width: 100%;
-    border-radius: var(--radius-chapa);
+    /* 52 px de alto minimo: se responde con el pulgar. */
+    min-height: 52px;
+    border-radius: var(--radius-ficha);
     border: 1px solid var(--atlas-borde-fuerte);
     padding: 0.55rem 0.75rem;
     text-align: left;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     line-height: 1.35;
     color: var(--atlas-texto);
     transition:
       border-color 140ms,
       background-color 140ms;
   }
+  #quiz-opciones button > span {
+    flex: 1;
+  }
+  #quiz-opciones button .icono {
+    font-size: 1.15rem;
+  }
   #quiz-opciones button:hover:not(:disabled) {
-    border-color: var(--atlas-texto-suave);
+    border-color: var(--atlas-texto);
     background: var(--atlas-superficie-alta);
   }
   #quiz-opciones button:disabled {
     cursor: default;
   }
+  /* El acierto y el fallo no se dicen solo con color: llevan icono, y la
+     frase de debajo explica cual era la respuesta. */
   #quiz-opciones button[data-estado='bien'] {
-    border-color: #2a7f56;
-    background: color-mix(in srgb, #2a7f56 14%, transparent);
+    border-width: 2px;
+    border-color: var(--color-sis-digestivo);
+    background: color-mix(in srgb, var(--color-sis-digestivo) 12%, transparent);
+  }
+  #quiz-opciones button[data-estado='bien'] .icono {
+    color: var(--color-sis-digestivo);
   }
   #quiz-opciones button[data-estado='mal'] {
-    border-color: var(--color-eosina);
-    background: var(--color-eosina-tenue);
-    color: var(--color-nucleo);
+    border-width: 2px;
+    border-color: var(--color-sis-sangre);
+    background: color-mix(in srgb, var(--color-sis-sangre) 12%, transparent);
+  }
+  #quiz-opciones button[data-estado='mal'] .icono {
+    color: var(--color-sis-sangre);
   }
 </style>

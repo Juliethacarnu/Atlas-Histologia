@@ -1,6 +1,7 @@
 import type { DatosPlaca, EstructuraCliente } from './tipos';
 import type { Visor } from './visor';
 import * as estado from './estado';
+import { ICONO_BIEN, ICONO_MAL } from './iconos';
 
 /** Baraja una copia del arreglo (Fisher-Yates). */
 function barajar<T>(lista: T[]): T[] {
@@ -54,7 +55,11 @@ export function prepararQuiz(datos: DatosPlaca, visor: Visor) {
         const li = document.createElement('li');
         const b = document.createElement('button');
         b.type = 'button';
-        b.textContent = op.nombre;
+        // El nombre va en su propio nodo: al responder, el icono de acierto
+        // o de fallo se anade al lado sin pisarlo.
+        const texto = document.createElement('span');
+        texto.textContent = op.nombre;
+        b.appendChild(texto);
         b.addEventListener('click', () => responder(op, b));
         li.appendChild(b);
         return li;
@@ -70,9 +75,15 @@ export function prepararQuiz(datos: DatosPlaca, visor: Visor) {
 
     for (const b of elOpciones.querySelectorAll('button')) {
       b.disabled = true;
-      if (b.textContent === actual.nombre) b.dataset.estado = 'bien';
+      if (b.querySelector('span')?.textContent === actual.nombre) {
+        b.dataset.estado = 'bien';
+        b.insertAdjacentHTML('beforeend', ICONO_BIEN);
+      }
     }
-    if (!correcto) boton.dataset.estado = 'mal';
+    if (!correcto) {
+      boton.dataset.estado = 'mal';
+      boton.insertAdjacentHTML('beforeend', ICONO_MAL);
+    }
 
     elRespuesta.textContent = correcto ? `Correcto: ${actual.nombre}.` : `No: es ${actual.nombre}.`;
     elPuntaje.textContent = String(aciertos);

@@ -241,6 +241,10 @@ const { conteos, total, muestras = {} } = Astro.props;
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-placa]'));
   const grupos = Array.from(document.querySelectorAll<HTMLElement>('[data-grupo-sistema]'));
   const vacio = document.getElementById('sin-resultados');
+  const vacioTermino = document.getElementById('vacio-termino');
+  const vacioCerca = document.getElementById('vacio-cerca');
+  const vacioLista = document.getElementById('vacio-lista');
+  const vacioLimpiar = document.getElementById('vacio-limpiar');
 
   let filtro = 'todos';
 
@@ -277,6 +281,7 @@ const { conteos, total, muestras = {} } = Astro.props;
       );
     }
     vacio?.toggleAttribute('hidden', visibles !== 0);
+    if (visibles === 0) pintarSugerencias(buscador?.value ?? '', consulta);
 
     const url = new URL(window.location.href);
     if (filtro === 'todos') url.searchParams.delete('sistema');
@@ -285,6 +290,51 @@ const { conteos, total, muestras = {} } = Astro.props;
     else url.searchParams.set('q', buscador?.value ?? '');
     history.replaceState(null, '', url);
   }
+
+  /**
+   * Las tres laminas mas cercanas a lo que se escribio. Se recorta la
+   * consulta por el final hasta que algo coincide: asi «glandulas de brunne»
+   * o «duoden» siguen llevando a su lamina en vez de a un callejon.
+   */
+  function pintarSugerencias(crudo: string, consulta: string) {
+    if (vacioTermino) vacioTermino.textContent = crudo.trim();
+    if (!vacioLista || !vacioCerca) return;
+
+    let cerca: HTMLElement[] = [];
+    for (let largo = consulta.length - 1; largo >= 3 && cerca.length === 0; largo--) {
+      const trozo = consulta.slice(0, largo);
+      cerca = items.filter((i) => (i.dataset.busqueda ?? '').includes(trozo)).slice(0, 3);
+    }
+
+    vacioLista.textContent = '';
+    for (const item of cerca) {
+      const enlace = item.querySelector('a')?.getAttribute('href');
+      if (!enlace) continue;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = enlace;
+      const nombre = document.createElement('span');
+      nombre.className = 'vacio__nombre';
+      nombre.textContent = item.dataset.titulo ?? '';
+      const donde = document.createElement('span');
+      donde.className = 'vacio__donde';
+      donde.textContent = item.dataset.donde ?? '';
+      a.append(nombre, donde);
+      li.appendChild(a);
+      vacioLista.appendChild(li);
+    }
+    vacioCerca.toggleAttribute('hidden', cerca.length === 0);
+  }
+
+  vacioLimpiar?.addEventListener('click', () => {
+    if (buscador) buscador.value = '';
+    filtro = 'todos';
+    for (const otro of chips) {
+      otro.setAttribute('aria-pressed', String(otro.dataset.filtro === 'todos'));
+    }
+    aplicar();
+    buscador?.focus();
+  });
 
   for (const chip of chips) {
     chip.addEventListener('click', () => {
