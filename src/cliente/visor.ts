@@ -160,8 +160,36 @@ export class Visor {
     }
   }
 
+  /**
+   * Imagen en la que está señalada una estructura, o `null` si vale para la
+   * que ya se está viendo. Una placa puede traer dos o tres fotos del mismo
+   * corte y cada estructura vivir sólo en una de ellas.
+   */
+  imagenDe(id: string): number | null {
+    const estructura = this.datos.estructuras.find((e) => e.id === id);
+    if (!estructura) return null;
+    const aqui = estructura.puntos.some(
+      (p) => p.imagen === undefined || p.imagen === this.indiceImagen,
+    );
+    if (aqui) return null;
+    const otra = estructura.puntos.find((p) => p.imagen !== undefined);
+    return otra?.imagen ?? null;
+  }
+
   /** Acercamiento animado hacia una estructura: el único movimiento importante del sitio. */
   irA(id: string, enfocar = true) {
+    // Si la estructura está señalada en otra de las fotos de la placa, se
+    // cambia de foto y se vuelve aquí cuando la nueva esté abierta. Antes el
+    // clic no hacía nada visible: el visor se quedaba donde estaba.
+    const otraImagen = this.imagenDe(id);
+    if (otraImagen !== null) {
+      this.osd.addOnceHandler('open', () => this.irA(id, enfocar));
+      // Pasa por el estado para que la tira de imágenes y el crédito se
+      // enteren del cambio igual que si lo hubiera pulsado el usuario.
+      estado.cambiarImagen(otraImagen);
+      return;
+    }
+
     const item = this.osd.world.getItemAt(0);
     if (!item) return;
     const estructura = this.datos.estructuras.find((e) => e.id === id);

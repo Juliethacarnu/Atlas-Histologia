@@ -1,7 +1,9 @@
 ---
 import type { Placa } from '../utils/placas';
+import { imagenesDe, puntosDe } from '../utils/placas';
 import { nombreSistema, acentoSistema } from '../datos/sistemas';
 import FichaEstructura from './FichaEstructura.astro';
+import Icono from './Icono.astro';
 
 interface Props {
   placa: Placa;
@@ -12,6 +14,21 @@ const estructuras = [...placa.estructuras].sort((a, b) => a.numero - b.numero);
 // Una estructura puede existir en la lista antes de estar señalada sobre la lámina.
 const sinMarcador = (e: (typeof estructuras)[number]) =>
   e.x === undefined && e.puntos.length === 0;
+
+/**
+ * Una placa puede traer dos o tres fotos del mismo corte y cada estructura
+ * estar señalada sólo en una de ellas. Entonces la fila dice en cuál, porque
+ * al pulsarla el visor cambia de foto y conviene saberlo de antemano.
+ */
+const imagenes = imagenesDe(placa);
+function fotoDe(e: (typeof estructuras)[number]): string | null {
+  if (imagenes.length < 2) return null;
+  const indices = new Set(puntosDe(e).map((p) => p.imagen));
+  if (indices.size !== 1) return null;
+  const [i] = [...indices];
+  if (i === undefined) return null;
+  return imagenes[i]?.aumento || `Imagen ${i + 1}`;
+}
 
 // «Órgano / Tejido: Tráquea» debajo del título «Tráquea» no dice nada nuevo.
 const organoDistinto =
@@ -78,19 +95,11 @@ const organoDistinto =
         aria-pressed="false"
         aria-keyshortcuts="R"
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
-          <circle cx="12" cy="12" r="2.6" />
-          <path d="m4 20 16-16" />
-        </svg>
+        <Icono nombre="eye-slash" />
         Modo repaso
       </button>
       <button type="button" id="boton-quiz" class="boton-panel" disabled>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9.2 9a2.9 2.9 0 1 1 4 2.7c-.8.4-1.2 1-1.2 1.9v.4" />
-          <circle cx="12" cy="17.6" r="0.9" fill="currentColor" stroke="none" />
-          <circle cx="12" cy="12" r="9" />
-        </svg>
+        <Icono nombre="question" />
         Mini quiz
       </button>
     </div>
@@ -118,6 +127,12 @@ const organoDistinto =
             <span class="flex-1 text-left">
               <span class="nombre-estructura" data-nombre>
                 {e.nombre}
+                {fotoDe(e) && (
+                  <span class="en-foto" title={`Está señalada en «${fotoDe(e)}»`}>
+                    <Icono nombre="images-square" />
+                    {fotoDe(e)}
+                  </span>
+                )}
                 {sinMarcador(e) && (
                   <span class="sin-marcador" title="Todavía no está señalada sobre la lámina">
                     sin marcador
@@ -163,7 +178,7 @@ const organoDistinto =
       width: 22rem;
       border-top: 0;
       border-radius: var(--radius-ficha);
-      background: color-mix(in srgb, var(--atlas-superficie) 92%, transparent);
+      background: color-mix(in srgb, var(--atlas-superficie) 94%, transparent);
       backdrop-filter: blur(18px) saturate(1.05);
       border: 1px solid color-mix(in srgb, var(--atlas-borde) 60%, transparent);
       box-shadow: var(--atlas-sombra-alta);
@@ -235,13 +250,8 @@ const organoDistinto =
       border-color 140ms,
       background-color 140ms;
   }
-  .boton-panel svg {
-    width: 0.95rem;
-    height: 0.95rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.7;
-    stroke-linecap: round;
+  .boton-panel .icono {
+    font-size: 1rem;
   }
   .boton-panel:hover:not(:disabled) {
     color: var(--atlas-texto);
@@ -279,12 +289,8 @@ const organoDistinto =
   }
   .fila-estructura[aria-current='true'] {
     background: var(--color-eosina-tenue);
-    color: var(--color-nucleo);
+    color: var(--color-tinta);
     box-shadow: inset 2px 0 0 var(--color-eosina);
-  }
-  :root[data-tema='oscuro'] .fila-estructura[aria-current='true'],
-  .fila-estructura[aria-current='true'] {
-    /* el contraste se mantiene porque el fondo es claro y el texto núcleo */
   }
 
   .numero-fila {
@@ -306,6 +312,27 @@ const organoDistinto =
     border-color: var(--color-eosina);
     background: var(--color-eosina);
     color: #fff;
+  }
+
+  /* En qué foto de la placa está señalada. Al pulsar la fila, el visor
+     cambia solo a esa foto. */
+  .en-foto {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-left: 0.35rem;
+    border-radius: 2px;
+    border: 1px solid var(--atlas-borde-fuerte);
+    padding: 0 0.25rem;
+    font-size: 0.62rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--atlas-texto-suave);
+    vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .fila-estructura[aria-current='true'] .en-foto {
+    border-color: var(--color-eosina);
+    color: var(--color-eosina);
   }
 
   .sin-marcador {

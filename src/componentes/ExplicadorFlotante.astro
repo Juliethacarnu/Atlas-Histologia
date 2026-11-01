@@ -1,6 +1,7 @@
 ---
 import type { Placa, Presentador } from '../utils/placas';
 import Avatar from './Avatar.astro';
+import Icono from './Icono.astro';
 
 interface Props {
   placa: Placa;
@@ -52,9 +53,7 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
       </div>
       <button type="button" id="explicador-minimizar" class="explicador__icono" aria-keyshortcuts="M">
         <span class="solo-lectores">Minimizar al explicador</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 15h12" />
-        </svg>
+        <Icono nombre="minus" />
       </button>
     </header>
 
@@ -80,12 +79,8 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
             <div id="hueco-video" class="aspect-video w-full overflow-hidden bg-black" />
             <div class="flex items-center gap-2 px-3 py-2">
               <button type="button" id="video-alternar" class="explicador__play">
-                <svg viewBox="0 0 24 24" aria-hidden="true" data-icono="play">
-                  <path d="M8 5.5v13l11-6.5z" />
-                </svg>
-                <svg viewBox="0 0 24 24" aria-hidden="true" data-icono="pausa" {...{ hidden: true }}>
-                  <path d="M8.5 5.5h3v13h-3zM12.5 5.5h3v13h-3z" />
-                </svg>
+                <span data-icono="play"><Icono nombre="play" peso="fill" /></span>
+                <span data-icono="pausa" hidden><Icono nombre="pause" peso="fill" /></span>
                 <span class="solo-lectores" id="video-alternar-texto">Reproducir el video</span>
               </button>
               <p class="text-[0.72rem] tabular-nums text-texto-suave">
@@ -233,20 +228,13 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
     height: 1.6rem;
     width: 1.6rem;
     flex: none;
-    border-radius: 0.375rem;
+    border-radius: var(--radius-chapa);
+    font-size: 1rem;
     color: var(--atlas-texto-suave);
   }
   .explicador__icono:hover {
     background: var(--atlas-fondo);
     color: var(--atlas-texto);
-  }
-  .explicador__icono svg {
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.9;
-    stroke-linecap: round;
   }
 
   .explicador__play {
@@ -257,12 +245,8 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
     flex: none;
     border-radius: 999px;
     background: var(--color-eosina);
+    font-size: 1.05rem;
     color: #fff;
-  }
-  .explicador__play svg {
-    width: 1.1rem;
-    height: 1.1rem;
-    fill: currentColor;
   }
 
   /* Sin video, la tarjeta mostraba la descripcion entera y tapaba media
@@ -317,7 +301,7 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
   }
   .explicador__capitulos button[aria-current='true'] {
     background: var(--color-eosina-tenue);
-    color: var(--color-nucleo);
+    color: var(--color-tinta);
   }
 
   /* Transcripción del audio */
@@ -357,11 +341,9 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
   .transporte__play:hover {
     background: var(--color-eosina-claro);
   }
-  .transporte__play svg {
+  .transporte__play .icono {
     width: 1.05rem;
     height: 1.05rem;
-    fill: currentColor;
-    translate: 0.03rem 0;
   }
 
   /* La línea de avance: un riel de pelo que se tiñe de eosina al pasar. */

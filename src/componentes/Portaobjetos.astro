@@ -72,15 +72,18 @@ const segundaLinea =
     position: relative;
     aspect-ratio: var(--proporcion, 4 / 3);
     overflow: hidden;
-    border-radius: var(--radius-chapa);
+    /* Angulos rectos: una lámina montada, no una tarjeta de aplicación. */
+    border-radius: 0;
     background: var(--color-nucleo);
     /* Un filo finísimo en vez de una sombra: separa sin pesar. */
-    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.12);
+    box-shadow: inset 0 0 0 1px rgb(28 26 22 / 0.14);
     transition: box-shadow 200ms;
   }
   .placa:hover .placa__lamina,
   .placa:focus-visible .placa__lamina {
-    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.12), 0 0 0 2px var(--color-eosina);
+    box-shadow:
+      inset 0 0 0 1px rgb(28 26 22 / 0.14),
+      0 0 0 3px var(--color-eosina);
   }
 
   .placa__lamina img {
@@ -101,16 +104,16 @@ const segundaLinea =
   .placa__aumento,
   .placa__revisar {
     position: absolute;
-    bottom: 0.45rem;
-    border-radius: 0.25rem;
+    bottom: 0.4rem;
+    border-radius: 2px;
     padding: 0.08rem 0.35rem;
     font-size: 0.65rem;
     line-height: 1.45;
     backdrop-filter: blur(6px);
   }
   .placa__aumento {
-    right: 0.45rem;
-    background: rgb(14 9 32 / 0.6);
+    right: 0.4rem;
+    background: rgb(14 9 32 / 0.66);
     color: rgb(255 255 255 / 0.94);
   }
   .placa__revisar {
@@ -120,16 +123,20 @@ const segundaLinea =
     font-weight: 500;
   }
 
+  /* El pie de la lámina va bajo un filete, como el de una reproducción
+     impresa: primero el filete, luego el título, luego la referencia. */
   .placa__titulo {
     display: flex;
     align-items: baseline;
     gap: 0.4rem;
-    margin-top: 0.65rem;
+    margin-top: 0.55rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--atlas-borde-fuerte);
     font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 450;
-    line-height: 1.25;
-    letter-spacing: -0.008em;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
     color: var(--atlas-texto);
     transition: color 160ms;
   }
@@ -150,8 +157,8 @@ const segundaLinea =
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    margin-top: 0.15rem;
-    font-size: 0.75rem;
+    margin-top: 0.2rem;
+    font-size: 0.73rem;
     color: var(--atlas-texto-suave);
   }
   .placa__punto {

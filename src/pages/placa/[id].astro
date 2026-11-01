@@ -11,6 +11,7 @@ import { imagenesDe, urlImagen, puntosDe, ordenarPlacas } from '../../utils/plac
 import { ruta, rutaPlaca } from '../../utils/ruta';
 import type { DatosPlaca } from '../../cliente/tipos';
 import type { Placa } from '../../utils/placas';
+import Icono from '../../componentes/Icono.astro';
 
 interface Props {
   placa: Placa;
@@ -76,6 +77,7 @@ const descripcion =
   imagen={urlImagen(imagenes[0]!.archivo, 'media')}
   anchoCompleto
   encabezadoCompacto
+  pie={false}
 >
   <script
     type="application/json"
@@ -92,7 +94,7 @@ const descripcion =
     data-siguiente={siguiente ? rutaPlaca(siguiente.id) : ''}
   >
     <a href={ruta()} class="shrink-0 text-texto-suave hover:text-texto">
-      <span aria-hidden="true">←</span>
+      <Icono nombre="arrow-left" />
       <span class="max-sm:hidden"> Todas las láminas</span>
       <span class="sm:hidden"> Láminas</span>
     </a>
@@ -111,15 +113,11 @@ const descripcion =
           title={`Anterior: ${anterior.titulo}`}
         >
           <span class="solo-lectores">Placa anterior: {anterior.titulo}</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m14 6-6 6 6 6" />
-          </svg>
+          <Icono nombre="caret-left" peso="bold" />
         </a>
       ) : (
         <span class="nav-flecha nav-flecha--inerte" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="m14 6-6 6 6 6" />
-          </svg>
+          <Icono nombre="caret-left" peso="bold" />
         </span>
       )}
       {siguiente ? (
@@ -131,15 +129,11 @@ const descripcion =
           title={`Siguiente: ${siguiente.titulo}`}
         >
           <span class="solo-lectores">Placa siguiente: {siguiente.titulo}</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m10 6 6 6-6 6" />
-          </svg>
+          <Icono nombre="caret-right" peso="bold" />
         </a>
       ) : (
         <span class="nav-flecha nav-flecha--inerte" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="m10 6 6 6-6 6" />
-          </svg>
+          <Icono nombre="caret-right" peso="bold" />
         </span>
       )}
     </div>
@@ -176,21 +170,15 @@ const descripcion =
     place-items: center;
     height: 1.9rem;
     width: 1.9rem;
-    border-radius: 0.4rem;
+    border-radius: var(--radius-chapa);
     border: 1px solid var(--atlas-borde);
     color: var(--atlas-texto-suave);
     transition:
       color 140ms,
       background-color 140ms;
   }
-  .nav-flecha svg {
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.9;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  .nav-flecha .icono {
+    font-size: 0.95rem;
   }
   .nav-flecha:hover {
     background: var(--atlas-superficie);

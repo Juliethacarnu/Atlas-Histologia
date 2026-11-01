@@ -2,6 +2,7 @@
 // Mini quiz "¿qué estructura es esta?". Las preguntas se generan en el cliente
 // a partir de las estructuras de la placa; el visor se acerca a la estructura
 // preguntada y aquí solo se eligen los nombres.
+import Icono from './Icono.astro';
 ---
 
 <dialog id="quiz" class="quiz" aria-labelledby="quiz-titulo">
@@ -20,9 +21,7 @@
         </p>
       </div>
       <button class="quiz__cerrar" value="cerrar" aria-label="Cerrar el quiz">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m6 6 12 12M18 6 6 18" />
-        </svg>
+        <Icono nombre="x" />
       </button>
     </header>
 
@@ -79,16 +78,9 @@
     place-items: center;
     height: 1.9rem;
     width: 1.9rem;
-    border-radius: 0.4rem;
+    border-radius: var(--radius-chapa);
+    font-size: 1.05rem;
     color: var(--atlas-texto-suave);
-  }
-  .quiz__cerrar svg {
-    width: 1.05rem;
-    height: 1.05rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
   }
 
   .quiz__siguiente {

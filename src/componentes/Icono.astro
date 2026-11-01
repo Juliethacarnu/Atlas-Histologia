@@ -1,0 +1,81 @@
+---
+/**
+ * Un unico sitio del que salen TODOS los iconos del atlas: Phosphor.
+ *
+ * Antes cada componente dibujaba su propio SVG a mano y no habia dos que
+ * compartieran grosor, remate ni rejilla. Aqui se lee el archivo original de
+ * `@phosphor-icons/core` durante el build y se incrusta su contenido: no hay
+ * CDN, no hay JavaScript en el cliente y solo viaja el icono que se usa.
+ *
+ * Si el nombre no existe el build falla a proposito: mas vale un error aqui
+ * que un hueco silencioso en la interfaz.
+ */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+/** Pesos de Phosphor. `regular` para casi todo; `fill` para play y pausa. */
+export type PesoIcono = 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
+
+interface Props {
+  nombre: string;
+  peso?: PesoIcono;
+  /** Tamano en cualquier unidad CSS. Por defecto hereda del texto. */
+  tamano?: string;
+  clase?: string;
+  /** Solo si el icono es la unica etiqueta del control. */
+  titulo?: string;
+}
+
+const { nombre, peso = 'regular', tamano, clase, titulo } = Astro.props;
+
+const CARPETA = join(process.cwd(), 'node_modules', '@phosphor-icons', 'core', 'assets');
+
+// Los iconos se reutilizan muchisimo entre paginas: leer el disco una vez.
+const cache: Map<string, string> = ((globalThis as Record<string, unknown>).__iconosAtlas ??=
+  new Map()) as Map<string, string>;
+
+function contenidoDe(nombre: string, peso: PesoIcono): string {
+  const llave = `${peso}/${nombre}`;
+  const guardado = cache.get(llave);
+  if (guardado !== undefined) return guardado;
+
+  // Phosphor nombra los pesos distintos de `regular` con sufijo: x-bold.svg.
+  const archivo = peso === 'regular' ? `${nombre}.svg` : `${nombre}-${peso}.svg`;
+  let bruto: string;
+  try {
+    bruto = readFileSync(join(CARPETA, peso, archivo), 'utf8');
+  } catch {
+    throw new Error(`El icono «${nombre}» no existe en el peso «${peso}» de Phosphor.`);
+  }
+  // Nos quedamos con el interior: el <svg> lo escribimos nosotros para
+  // controlar tamano y accesibilidad.
+  const dentro = bruto.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+  cache.set(llave, dentro);
+  return dentro;
+}
+
+const dentro = contenidoDe(nombre, peso);
+const estilo = tamano ? `width:${tamano};height:${tamano}` : undefined;
+---
+
+<svg
+  class:list={['icono', clase]}
+  viewBox="0 0 256 256"
+  fill="currentColor"
+  style={estilo}
+  role={titulo ? 'img' : undefined}
+  aria-hidden={titulo ? undefined : 'true'}
+  set:html={titulo ? `<title>${titulo}</title>${dentro}` : dentro}
+/>
+
+<style is:global>
+  /* Un solo tamano base para todos los iconos: el del texto que acompanan.
+     Quien necesite otro lo pide con `tamano`, no con utilidades sueltas. */
+  .icono {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex: none;
+    vertical-align: -0.125em;
+  }
+</style>

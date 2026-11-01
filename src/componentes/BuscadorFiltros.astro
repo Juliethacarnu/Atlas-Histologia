@@ -1,147 +1,131 @@
 ---
 import { SISTEMAS } from '../datos/sistemas';
+import Icono from './Icono.astro';
 
 interface Props {
   conteos: Record<string, number>;
   total: number;
-  /** Miniatura de una lamina de cada sistema, para la pastilla del filtro. */
+  /** Miniatura de una lamina de cada sistema, para la entrada del indice. */
   muestras?: Record<string, string>;
 }
 const { conteos, total, muestras = {} } = Astro.props;
 ---
 
 <div class="buscador">
-  <div class="buscador__campo">
-    <label for="buscador" class="solo-lectores">Buscar placa o estructura</label>
-    <svg
-      class="buscador__lupa"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.7"
-      aria-hidden="true"
-    >
-      <circle cx="11" cy="11" r="6.5"></circle>
-      <path d="m16 16 4.5 4.5"></path>
-    </svg>
-    <input
-      type="search"
-      id="buscador"
-      placeholder="Buscar una lámina o una estructura: duodeno, glándulas de Brunner…"
-      autocomplete="off"
-    />
-    <p class="buscador__conteo tabular-nums" aria-live="polite" id="conteo-resultados">
-      {total}
-    </p>
-  </div>
+  <label for="buscador" class="solo-lectores">Buscar placa o estructura</label>
+  <Icono nombre="magnifying-glass" clase="buscador__lupa" />
+  <input
+    type="search"
+    id="buscador"
+    placeholder="Buscar una lámina o una estructura: duodeno, glándulas de Brunner…"
+    autocomplete="off"
+  />
+  <p class="buscador__conteo tabular-nums" aria-live="polite" id="conteo-resultados">
+    {total}
+  </p>
+</div>
 
-  <div role="group" aria-label="Filtrar por sistema" class="filtros">
-    <button type="button" class="chip-sistema" data-filtro="todos" aria-pressed="true">
-      <span class="chip-sistema__todos" aria-hidden="true"></span>
-      Todos <span class="chip-sistema__n tabular-nums">{total}</span>
+{/* En escritorio es una columna fija a la izquierda; en movil, una tira que
+    se arrastra de lado. Es el mismo control: filtra la bandeja. */}
+<nav class="indice" aria-label="Filtrar por sistema">
+  <p class="indice__rotulo rotulo">Sistemas</p>
+  <div class="indice__lista" role="group">
+    <button type="button" class="sistema" data-filtro="todos" aria-pressed="true">
+      <span class="sistema__muestra sistema__muestra--todos" aria-hidden="true"></span>
+      <span class="sistema__texto">
+        <span class="sistema__nombre">Todos</span>
+        <span class="sistema__n tabular-nums">{total}</span>
+      </span>
     </button>
     {SISTEMAS.map((s) => (
       <button
         type="button"
-        class="chip-sistema"
+        class="sistema"
         data-filtro={s.id}
         aria-pressed="false"
         style={`--acento-sistema: ${s.acento}`}
       >
         {muestras[s.id] ? (
-          <img class="chip-sistema__muestra" src={muestras[s.id]} alt="" aria-hidden="true" loading="lazy" />
+          <img
+            class="sistema__muestra"
+            src={muestras[s.id]}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
         ) : (
-          <span class="punto-acento" aria-hidden="true" />
+          <span class="sistema__muestra" aria-hidden="true"></span>
         )}
-        {s.nombre} <span class="chip-sistema__n tabular-nums">{conteos[s.id] ?? 0}</span>
+        <span class="sistema__texto">
+          <span class="sistema__nombre">{s.nombre}</span>
+          <span class="sistema__n tabular-nums">{conteos[s.id] ?? 0}</span>
+        </span>
       </button>
     ))}
   </div>
-</div>
+</nav>
 
 <style>
+  /* --- El campo de busqueda: una linea de papel pautado, sin caja --- */
   .buscador {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    margin-bottom: 2.75rem;
-  }
-
-  /* El campo: un rectángulo de papel con filo de pelo, ancho completo. */
-  .buscador__campo {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    border: 1px solid var(--atlas-borde);
-    border-radius: var(--radius-chapa);
-    background: var(--atlas-superficie);
-    padding: 0 0.9rem;
-    transition: border-color 160ms;
+    gap: 0.7rem;
+    border-bottom: 1px solid var(--atlas-texto);
+    padding: 0 0.15rem 0.55rem;
   }
-  .buscador__campo:focus-within {
-    border-color: var(--atlas-borde-fuerte);
-  }
-
   .buscador__lupa {
-    height: 1.05rem;
-    width: 1.05rem;
-    flex: none;
+    font-size: 1.1rem;
     color: var(--atlas-texto-suave);
   }
-
-  .buscador__campo input {
+  .buscador input {
     flex: 1;
     min-width: 0;
     background: transparent;
-    padding-block: 0.8rem;
-    font-size: 0.92rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
     color: var(--atlas-texto);
   }
-  .buscador__campo input::placeholder {
-    color: color-mix(in srgb, var(--atlas-texto-suave) 70%, transparent);
+  .buscador input::placeholder {
+    color: color-mix(in srgb, var(--atlas-texto-suave) 72%, transparent);
   }
-  .buscador__campo input:focus {
+  .buscador input:focus {
     outline: none;
   }
-  .buscador__campo:focus-within {
-    outline: 2px solid var(--color-eosina);
-    outline-offset: 2px;
+  .buscador:focus-within {
+    border-bottom-color: var(--color-eosina);
   }
   /* La X nativa de Chrome no sigue el tema; se usa Escape o se borra a mano. */
-  .buscador__campo input::-webkit-search-cancel-button {
+  .buscador input::-webkit-search-cancel-button {
     appearance: none;
   }
-
   .buscador__conteo {
     flex: none;
     font-size: 0.78rem;
     color: var(--atlas-texto-suave);
   }
 
-  /* Los filtros no se envuelven: en móvil se arrastran de lado. */
-  .filtros {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    margin-inline: -1.25rem;
-    padding-inline: 1.25rem;
-    padding-bottom: 0.1rem;
-  }
-  .filtros::-webkit-scrollbar {
+  /* --- El indice de sistemas --- */
+  .indice__rotulo {
     display: none;
   }
-  @media (min-width: 900px) {
-    .filtros {
-      flex-wrap: wrap;
-      overflow: visible;
-      margin-inline: 0;
-      padding-inline: 0;
-    }
+
+  .indice__lista {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* En movil la tira llega hasta los bordes de la pantalla. */
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    padding-bottom: 0.15rem;
+  }
+  .indice__lista::-webkit-scrollbar {
+    display: none;
   }
 
-  .chip-sistema {
+  .sistema {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -149,51 +133,104 @@ const { conteos, total, muestras = {} } = Astro.props;
     border: 1px solid var(--atlas-borde);
     border-radius: 999px;
     background: var(--atlas-superficie);
-    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+    padding: 0.2rem 0.75rem 0.2rem 0.2rem;
     font-size: 0.82rem;
     white-space: nowrap;
     color: var(--atlas-texto-suave);
     transition:
       color 150ms,
-      border-color 150ms;
+      border-color 150ms,
+      background-color 150ms;
   }
-  .chip-sistema:hover {
+  .sistema__texto {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .sistema:hover {
     color: var(--atlas-texto);
     border-color: var(--atlas-borde-fuerte);
   }
-  .chip-sistema[aria-pressed='true'] {
+  .sistema[aria-pressed='true'] {
     color: var(--atlas-texto);
-    border-color: var(--atlas-texto-suave);
+    border-color: var(--atlas-texto);
   }
 
-  /* Un recorte de una lamina del sistema, dentro de la propia pastilla. */
-  .chip-sistema__muestra,
-  .chip-sistema__todos {
-    height: 1.5rem;
-    width: 1.5rem;
+  /* Un recorte de una lamina del sistema, dentro de la propia entrada. */
+  .sistema__muestra {
+    height: 1.6rem;
+    width: 1.6rem;
     flex: none;
     border-radius: 999px;
     object-fit: cover;
     background: var(--atlas-fondo);
-    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.12);
+    box-shadow: inset 0 0 0 1px rgb(28 26 22 / 0.14);
   }
-  .chip-sistema__todos {
+  .sistema__muestra--todos {
     /* «Todos» no tiene lamina propia: lleva el disco del portaobjetos. */
     background:
-      radial-gradient(circle at 50% 50%, var(--color-eosina-tenue) 38%, transparent 39%),
+      radial-gradient(circle at 50% 50%, var(--color-eosina-tenue) 40%, transparent 41%),
       var(--atlas-fondo);
   }
 
-  .chip-sistema__n {
+  .sistema__n {
     font-size: 0.72rem;
     color: var(--atlas-texto-suave);
+    font-variant-numeric: tabular-nums;
   }
-  .punto-acento {
-    height: 0.32rem;
-    width: 0.32rem;
-    border-radius: 999px;
-    background: var(--acento-sistema, var(--atlas-texto-suave));
-    translate: 0 -0.12rem;
+
+  /* --- Escritorio: el indice baja a una columna fija a la izquierda --- */
+  @media (min-width: 1100px) {
+    .indice {
+      position: sticky;
+      top: calc(var(--alto-cabecera, 4rem) + 1.5rem);
+      align-self: start;
+    }
+    .indice__rotulo {
+      display: block;
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--atlas-borde);
+    }
+    .indice__lista {
+      flex-direction: column;
+      gap: 0;
+      overflow: visible;
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+    .sistema {
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 0.45rem 0 0.45rem 0.65rem;
+      /* El filete de la izquierda es lo que marca el sistema elegido. */
+      box-shadow: inset 2px 0 0 transparent;
+      white-space: normal;
+      text-align: left;
+    }
+    .sistema__texto {
+      flex: 1;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .sistema__nombre {
+      text-wrap: balance;
+    }
+    .sistema:hover {
+      background: var(--atlas-superficie);
+      box-shadow: inset 2px 0 0 var(--atlas-borde-fuerte);
+    }
+    .sistema[aria-pressed='true'] {
+      background: var(--atlas-superficie);
+      box-shadow: inset 2px 0 0 var(--color-eosina);
+    }
+    .sistema__muestra {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 </style>
 

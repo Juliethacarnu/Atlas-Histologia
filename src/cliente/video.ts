@@ -1,5 +1,6 @@
 import type { VideoCliente } from './tipos';
 import { ruta } from '../utils/ruta';
+import { ICONO_PLAY, ICONO_PAUSA } from './iconos';
 
 /** Interfaz común a los dos orígenes de video (YouTube nocookie y mp4 local). */
 export interface Reproductor {
@@ -180,9 +181,6 @@ function reloj(segundos: number): string {
   return `${m}:${String(s).padStart(2, '0')}`;
 }
 
-const ICONO_PLAY = '<path d="M8 5.2v13.6L19 12z" />';
-const ICONO_PAUSA = '<path d="M8.4 5.4h3.1v13.2H8.4zM12.5 5.4h3.1v13.2h-3.1z" />';
-
 /**
  * Controles propios para el audio: un botón, una línea de avance y el tiempo.
  * El <audio> va oculto; esto es lo único que se ve.
@@ -199,7 +197,7 @@ function montarTransporte(
   const boton = document.createElement('button');
   boton.type = 'button';
   boton.className = 'transporte__play';
-  boton.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONO_PLAY}</svg>`;
+  boton.innerHTML = ICONO_PLAY;
   boton.setAttribute('aria-label', `Reproducir la explicación: ${titulo}`);
 
   const barra = document.createElement('input');
@@ -242,7 +240,7 @@ function montarTransporte(
   el.addEventListener('loadedmetadata', pintar);
   el.addEventListener('timeupdate', pintar);
   reproductor.onEstado((sonando) => {
-    boton.querySelector('svg')!.innerHTML = sonando ? ICONO_PAUSA : ICONO_PLAY;
+    boton.innerHTML = sonando ? ICONO_PAUSA : ICONO_PLAY;
     boton.setAttribute(
       'aria-label',
       sonando ? 'Pausar la explicación' : `Reproducir la explicación: ${titulo}`,

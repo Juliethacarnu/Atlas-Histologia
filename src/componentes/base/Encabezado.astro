@@ -49,14 +49,17 @@ function activo(href: string) {
 </header>
 
 <style>
+  /* Cabecera de publicacion: papel macizo y una regla doble debajo, como el
+     filete que separa la cabecera de un pliego impreso. */
   .cabecera {
     position: sticky;
     top: 0;
     z-index: 30;
     padding-block: 0.7rem;
-    background: color-mix(in srgb, var(--atlas-fondo) 88%, transparent);
+    background: color-mix(in srgb, var(--atlas-fondo) 92%, transparent);
     backdrop-filter: blur(12px) saturate(1.05);
-    border-bottom: 1px solid var(--atlas-borde);
+    border-bottom: 1px solid var(--atlas-texto);
+    box-shadow: 0 3px 0 -2px var(--atlas-borde-fuerte);
   }
   @media (min-width: 640px) {
     .cabecera {
@@ -77,8 +80,8 @@ function activo(href: string) {
     text-decoration: none;
   }
   .marca__sello {
-    height: 1.6rem;
-    width: 1.15rem;
+    height: 1.75rem;
+    width: 1.25rem;
     flex: none;
   }
   .sello__vidrio {
@@ -160,13 +163,14 @@ function activo(href: string) {
   .navegacion__enlace[aria-current='page'] {
     color: var(--atlas-texto);
   }
+  /* El activo se marca con un filete grueso en eosina, no con una caja. */
   .navegacion__enlace[aria-current='page']::after {
     content: '';
     position: absolute;
     left: 0.18rem;
     right: 0.18rem;
-    bottom: -0.15rem;
-    height: 1.5px;
+    bottom: -0.2rem;
+    height: 3px;
     background: var(--color-eosina);
   }
   @media (min-width: 640px) {
@@ -176,3 +180,17 @@ function activo(href: string) {
     }
   }
 </style>
+
+<script>
+  /* Lo que queda pegado debajo de la cabecera (el indice de sistemas) necesita
+     saber cuanto mide. Se mide en vez de suponerlo: depende de la tipografia
+     ya cargada y del ancho de la pantalla. */
+  const cabecera = document.querySelector('header.cabecera');
+  function medir() {
+    const alto = cabecera?.getBoundingClientRect().height ?? 0;
+    if (alto > 0) document.documentElement.style.setProperty('--alto-cabecera', alto + 'px');
+  }
+  medir();
+  window.addEventListener('resize', medir);
+  document.fonts?.ready.then(medir);
+</script>

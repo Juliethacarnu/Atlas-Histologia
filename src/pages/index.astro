@@ -30,8 +30,8 @@ for (const { placas: delSistema } of porSistema) {
   }
 }
 
-// Cada filtro lleva dentro un trocito de una de sus laminas: se reconoce el
-// sistema por el tejido antes que por el nombre.
+// Cada entrada del indice lleva dentro un trocito de una de sus laminas: se
+// reconoce el sistema por el tejido antes que por el nombre.
 const muestras: Record<string, string> = {};
 for (const { sistema, placas: delSistema } of porSistema) {
   const primera = delSistema[0];
@@ -47,31 +47,36 @@ const cifras = [
 let contadorGlobal = 0;
 ---
 
-<Base titulo="Atlas virtual de histologia">
-  <section class="portada">
-    <div class="portada__texto">
-      <h1>Atlas virtual<br />de histología</h1>
+<Base titulo="Atlas virtual de histologia" anchoCompleto>
+  <!-- Portada: un pliego de apertura con filetes arriba y abajo. -->
+  <section class="portada contenedor-bandeja">
+    <h1 class="portada__titulo">
+      Atlas virtual<br />de histología
+    </h1>
+    <div class="portada__pie">
       <p class="portada__entrada">
         {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina. Cada lámina se abre
         en un visor con zoom profundo y sus estructuras están señaladas una a una.
       </p>
+      <dl class="portada__cifras">
+        {cifras.map((c) => (
+          <div>
+            <dt class="tabular-nums">{c.n}</dt>
+            <dd>{c.etiqueta}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
-
-    <dl class="portada__cifras">
-      {cifras.map((c) => (
-        <div>
-          <dt class="tabular-nums">{c.n}</dt>
-          <dd>{c.etiqueta}</dd>
-        </div>
-      ))}
-    </dl>
   </section>
 
-  <section aria-labelledby="titulo-bandeja">
+  <section class="bandeja contenedor-bandeja" aria-labelledby="titulo-bandeja">
     <h2 id="titulo-bandeja" class="solo-lectores">Todas las láminas</h2>
+
+    {/* El componente escupe dos piezas: el campo de busqueda y el indice de
+        sistemas. La rejilla de aqui las coloca. */}
     <BuscadorFiltros conteos={conteos} total={placas.length} muestras={muestras} />
 
-    <div class="flex flex-col gap-14">
+    <div class="bandeja__laminas">
       {porSistema.map(({ sistema, placas: delSistema }) => (
         <section data-grupo-sistema={sistema.id} aria-labelledby={`sis-${sistema.id}`}>
           <header class="grupo">
@@ -79,7 +84,6 @@ let contadorGlobal = 0;
               <span class="grupo__punto" style={`background:${sistema.acento}`} aria-hidden="true" />
               {sistema.nombre}
             </h3>
-            <span class="grupo__regla" aria-hidden="true"></span>
             <span class="grupo__cuenta tabular-nums">
               {delSistema.length}
               <span class="grupo__cuenta-palabra">
@@ -103,105 +107,133 @@ let contadorGlobal = 0;
           </ul>
         </section>
       ))}
-    </div>
 
-    <p id="sin-resultados" hidden class="medida mt-16 text-texto-suave">
-      Ninguna lámina coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
-    </p>
+      <p id="sin-resultados" hidden class="medida mt-16 text-texto-suave">
+        Ninguna lámina coincide con la búsqueda. Prueba con el nombre del órgano o de una estructura.
+      </p>
+    </div>
   </section>
 </Base>
 
 <style>
-  /* --- Portada: el titulo y las cifras comparten una sola banda --- */
+  /* --- Portada --- */
   .portada {
+    padding-block: clamp(2rem, 1rem + 4vw, 4.25rem) clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  }
+
+  .portada__titulo {
+    font-size: clamp(2.6rem, 1rem + 6.4vw, 5.6rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  /* Debajo del titulo, un filete y a los lados la entradilla y las cifras:
+     la apertura de un pliego, no una caja de texto. */
+  .portada__pie {
     display: grid;
-    gap: 2rem;
-    padding-block: clamp(2rem, 1rem + 4vw, 4rem) clamp(2rem, 1rem + 3.5vw, 3.25rem);
-    border-bottom: 1px solid var(--atlas-borde);
-    margin-bottom: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+    gap: 1.5rem;
+    margin-top: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--atlas-texto);
   }
   @media (min-width: 900px) {
-    .portada {
+    .portada__pie {
       grid-template-columns: minmax(0, 1fr) auto;
-      align-items: end;
+      align-items: start;
       gap: 3.5rem;
     }
   }
 
-  .portada h1 {
-    font-size: clamp(2.5rem, 1.2rem + 5vw, 4.4rem);
-    font-weight: 400;
-    line-height: 1.03;
-    letter-spacing: -0.03em;
-  }
-
   .portada__entrada {
     max-width: 46ch;
-    margin-top: 1.4rem;
-    font-size: clamp(0.98rem, 0.92rem + 0.3vw, 1.1rem);
-    line-height: 1.65;
+    font-size: clamp(0.98rem, 0.92rem + 0.3vw, 1.08rem);
+    line-height: 1.6;
     color: var(--atlas-texto-suave);
   }
 
-  /* Las cifras: columna a la derecha en escritorio, fila debajo en movil. */
   .portada__cifras {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem 2.25rem;
+    gap: 1rem 2.5rem;
     margin: 0;
-  }
-  @media (min-width: 900px) {
-    .portada__cifras {
-      flex-direction: column;
-      gap: 1.1rem;
-      text-align: right;
-      padding-bottom: 0.4rem;
-    }
   }
   .portada__cifras dt {
     font-family: var(--font-serif);
-    font-size: 1.85rem;
+    font-size: 2.1rem;
     font-weight: 400;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
   .portada__cifras dd {
-    margin: 0.3rem 0 0;
-    font-size: 0.76rem;
+    margin: 0.25rem 0 0;
+    font-size: 0.74rem;
     line-height: 1.3;
     color: var(--atlas-texto-suave);
+  }
+
+  /* --- La bandeja: indice a la izquierda, laminas a la derecha --- */
+  .bandeja {
+    display: grid;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  @media (min-width: 1100px) {
+    .bandeja {
+      /* El indice vive en su propia columna y se queda pegado al desplazar;
+         asi los seis sistemas estan siempre a un clic sin volver arriba. */
+      grid-template-columns: 12rem minmax(0, 1fr);
+      grid-template-areas:
+        'indice buscar'
+        'indice laminas';
+      column-gap: 3rem;
+      row-gap: 2rem;
+      align-items: start;
+    }
+    .bandeja > :global(.buscador) {
+      grid-area: buscar;
+    }
+    .bandeja > :global(.indice) {
+      grid-area: indice;
+    }
+    .bandeja__laminas {
+      grid-area: laminas;
+    }
+  }
+
+  .bandeja__laminas {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
   }
 
   /* --- Cabecera de cada sistema --- */
   .grupo {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
     column-gap: 0.9rem;
-    row-gap: 0.45rem;
-    margin-bottom: 1.4rem;
+    row-gap: 0.3rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--atlas-texto);
   }
 
   .grupo__titulo {
     display: flex;
     align-items: baseline;
     gap: 0.55rem;
-    font-size: 1.28rem;
-    font-weight: 450;
-    letter-spacing: -0.015em;
+    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.75rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
 
   .grupo__punto {
-    height: 0.42rem;
-    width: 0.42rem;
+    height: 0.45rem;
+    width: 0.45rem;
     flex: none;
     border-radius: 999px;
-    translate: 0 -0.22rem;
-  }
-
-  .grupo__regla {
-    height: 1px;
-    background: var(--atlas-borde);
+    translate: 0 -0.25rem;
   }
 
   .grupo__cuenta {
@@ -251,10 +283,10 @@ let contadorGlobal = 0;
   @media (min-width: 1100px) {
     .rejilla {
       columns: 3;
-      column-gap: 1.75rem;
+      column-gap: 1.6rem;
     }
     .rejilla > :global(li) {
-      margin-bottom: 2.25rem;
+      margin-bottom: 2.1rem;
     }
   }
 </style>

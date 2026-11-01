@@ -36,8 +36,9 @@ const sinPresentador = placas.filter(
 <Base
   titulo="Autores"
   descripcion="Los compañeros que explican cada placa del atlas, con su caricatura y la lista de preparaciones a su cargo."
+  anchoCompleto
 >
-  <header class="cabecera-pagina">
+  <header class="cabecera-pagina contenedor-bandeja">
     <h1>Autores</h1>
     <p class="cabecera-pagina__entrada">
       Cada lámina la explica un compañero del grupo. Su caricatura acompaña la explicación dentro
@@ -45,113 +46,128 @@ const sinPresentador = placas.filter(
     </p>
   </header>
 
-  <div class="flex flex-col gap-16">
-    {fichas.map(({ presentador, placas: suyas }) => (
-      <section class="autor" aria-labelledby={`autor-${presentador.id}`}>
-        <header class="autor__cabecera">
-          <Avatar presentador={presentador} tamano={64} />
-          <div class="min-w-0">
-            <h2 id={`autor-${presentador.id}`} class="autor__nombre">{presentador.nombre}</h2>
-            <p class="autor__rol">{presentador.rol}</p>
-          </div>
-          <span class="autor__regla" aria-hidden="true"></span>
-          <span class="autor__cuenta tabular-nums">
-            {suyas.length}
-            <span class="max-[420px]:hidden">
-              {suyas.length === 1 ? ' lámina' : ' láminas'}
+  <div class="contenedor-bandeja pb-8">
+    <div class="flex flex-col gap-14">
+      {fichas.map(({ presentador, placas: suyas }) => (
+        <section class="autor" aria-labelledby={`autor-${presentador.id}`}>
+          {/* En escritorio la firma se queda pegada a la izquierda mientras
+              pasan sus láminas: siempre se sabe de quién son. */}
+          <header class="autor__firma">
+            <Avatar presentador={presentador} tamano={64} />
+            <div class="min-w-0">
+              <h2 id={`autor-${presentador.id}`} class="autor__nombre">{presentador.nombre}</h2>
+              <p class="autor__rol">{presentador.rol}</p>
+            </div>
+            <span class="autor__cuenta tabular-nums">
+              {suyas.length}
+              <span class="max-[420px]:hidden">
+                {suyas.length === 1 ? ' lámina' : ' láminas'}
+              </span>
             </span>
-          </span>
-        </header>
+          </header>
 
-        {suyas.length === 0 ? (
-          <p class="text-sm text-texto-suave">Todavía no tiene láminas asignadas.</p>
-        ) : (
-          <ul class="rejilla-autor">
-            {suyas.map((pl, i) => (
-              <Portaobjetos
-                placa={pl.data}
-                prioridad={i < 8}
-                tituloRepetido={repetidos.has(pl.data.titulo)}
-              />
-            ))}
-          </ul>
-        )}
+          {suyas.length === 0 ? (
+            <p class="text-sm text-texto-suave">Todavía no tiene láminas asignadas.</p>
+          ) : (
+            <ul class="rejilla-autor">
+              {suyas.map((pl, i) => (
+                <Portaobjetos
+                  placa={pl.data}
+                  prioridad={i < 8}
+                  tituloRepetido={repetidos.has(pl.data.titulo)}
+                />
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+    </div>
+
+    {sinPresentador.length > 0 && (
+      <section class="mt-16">
+        <h2 class="mb-2 font-serif text-xl font-medium">Láminas sin presentador asignado</h2>
+        <p class="medida mb-4 text-sm text-texto-suave">
+          Añade el campo <code>presentador</code> en el JSON de la lámina con el id de un registro de{' '}
+          <code>src/content/presentadores.json</code>.
+        </p>
+        <ul class="flex list-none flex-wrap gap-2 p-0 text-sm">
+          {sinPresentador.map((pl) => (
+            <li>
+              <a href={rutaPlaca(pl.data.id)} class="pildora">{pl.data.titulo}</a>
+            </li>
+          ))}
+        </ul>
       </section>
-    ))}
+    )}
   </div>
-
-  {sinPresentador.length > 0 && (
-    <section class="mt-16">
-      <h2 class="mb-2 font-serif text-xl font-medium">Láminas sin presentador asignado</h2>
-      <p class="medida mb-4 text-sm text-texto-suave">
-        Añade el campo <code>presentador</code> en el JSON de la lámina con el id de un registro de{' '}
-        <code>src/content/presentadores.json</code>.
-      </p>
-      <ul class="flex list-none flex-wrap gap-2 p-0 text-sm">
-        {sinPresentador.map((pl) => (
-          <li>
-            <a href={rutaPlaca(pl.data.id)} class="pildora">{pl.data.titulo}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
 </Base>
 
 <style>
   .cabecera-pagina {
-    padding-block: clamp(1.75rem, 1rem + 3vw, 3.25rem) clamp(1.75rem, 1rem + 2.5vw, 2.75rem);
-    border-bottom: 1px solid var(--atlas-borde);
-    margin-bottom: clamp(2rem, 1rem + 2.5vw, 3rem);
+    padding-block: clamp(2rem, 1rem + 4vw, 4rem) clamp(1.5rem, 1rem + 2vw, 2.25rem);
   }
   .cabecera-pagina h1 {
-    font-size: clamp(2.2rem, 1.3rem + 3.4vw, 3.4rem);
+    font-size: clamp(2.4rem, 1.3rem + 4.2vw, 4rem);
     font-weight: 400;
-    letter-spacing: -0.028em;
+    letter-spacing: -0.032em;
   }
   .cabecera-pagina__entrada {
     max-width: 52ch;
     margin-top: 1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--atlas-texto);
     font-size: 1.02rem;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--atlas-texto-suave);
   }
 
-  .autor__cabecera {
+  /* --- Cada autor --- */
+  .autor__firma {
     display: grid;
-    grid-template-columns: auto minmax(0, max-content) 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  @media (max-width: 559px) {
-    .autor__cabecera {
-      grid-template-columns: auto minmax(0, 1fr) auto;
-    }
-    .autor__regla {
-      display: none;
-    }
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--atlas-texto);
   }
 
   .autor__nombre {
-    font-size: 1.4rem;
-    font-weight: 450;
+    font-size: 1.45rem;
+    font-weight: 400;
     line-height: 1.2;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .autor__rol {
     margin-top: 0.1rem;
     font-size: 0.8rem;
     color: var(--atlas-texto-suave);
   }
-  .autor__regla {
-    height: 1px;
-    background: var(--atlas-borde);
-  }
   .autor__cuenta {
     font-size: 0.8rem;
     white-space: nowrap;
     color: var(--atlas-texto-suave);
+  }
+
+  @media (min-width: 1100px) {
+    .autor {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      column-gap: 3rem;
+      align-items: start;
+    }
+    .autor__firma {
+      position: sticky;
+      top: calc(var(--alto-cabecera, 4rem) + 1.5rem);
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: start;
+      gap: 0.6rem;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+      border-top: 1px solid var(--atlas-texto);
+      padding-top: 0.8rem;
+    }
   }
 
   /* --- Mosaico: la bandeja de preparaciones ---
@@ -174,16 +190,13 @@ const sinPresentador = placas.filter(
       column-gap: 1.35rem;
     }
   }
-  /* Tres columnas y no cuatro: con cuatro, el reparto secuencial de las
-     columnas CSS dejaba huecos de media pantalla, y además la lámina se ve
-     más grande, que es de lo que se trata. */
   @media (min-width: 1100px) {
     .rejilla-autor {
       columns: 3;
-      column-gap: 1.75rem;
+      column-gap: 1.6rem;
     }
     .rejilla-autor > :global(li) {
-      margin-bottom: 2.25rem;
+      margin-bottom: 2.1rem;
     }
   }
 
@@ -200,7 +213,7 @@ const sinPresentador = placas.filter(
   }
 
   code {
-    border-radius: 4px;
+    border-radius: 3px;
     background: var(--atlas-superficie-alta);
     border: 1px solid var(--atlas-borde);
     padding: 0.05rem 0.3rem;
