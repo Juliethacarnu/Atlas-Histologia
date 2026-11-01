@@ -12,13 +12,49 @@ import tailwindcss from '@tailwindcss/vite';
 const SITIO = 'https://juliethacarnu.github.io';
 const BASE = '/Atlas-Histologia';
 
+/**
+ * El sitio cuelga de /Atlas-Histologia porque asi se llama el repositorio, y
+ * tanto GitHub Pages como el servidor de desarrollo distinguen mayusculas. Al
+ * escribir la direccion a mano es facil teclearla en minusculas y encontrarse
+ * un 404. Este plugin solo existe en `astro dev`: manda a la direccion buena.
+ *
+ * No se toca la raiz: Vite ya le ha quitado la base a la URL cuando llega
+ * aqui, asi que '/' y '/Atlas-Histologia/' son indistinguibles y redirigir
+ * una acabaria redirigiendo la otra contra si misma.
+ */
+function atajoDeDesarrollo() {
+  return {
+    name: 'atlas:atajo-de-desarrollo',
+    apply: 'serve',
+    configureServer(servidor) {
+      servidor.middlewares.use((peticion, respuesta, siguiente) => {
+        const ruta = (peticion.url ?? '/').split('?')[0];
+        const enMinusculas = ruta.toLowerCase();
+        const baseEnMinusculas = BASE.toLowerCase();
+
+        const esLaBaseMalEscrita =
+          ruta !== BASE &&
+          !ruta.startsWith(BASE + '/') &&
+          (enMinusculas === baseEnMinusculas || enMinusculas.startsWith(baseEnMinusculas + '/'));
+
+        if (esLaBaseMalEscrita) {
+          respuesta.writeHead(302, { Location: BASE + ruta.slice(BASE.length) });
+          return respuesta.end();
+        }
+
+        siguiente();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   site: SITIO,
   base: BASE,
   trailingSlash: 'ignore',
   build: { format: 'directory' },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), atajoDeDesarrollo()],
   },
   integrations: [
     /**

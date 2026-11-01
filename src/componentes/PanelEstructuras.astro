@@ -12,10 +12,14 @@ const estructuras = [...placa.estructuras].sort((a, b) => a.numero - b.numero);
 // Una estructura puede existir en la lista antes de estar señalada sobre la lámina.
 const sinMarcador = (e: (typeof estructuras)[number]) =>
   e.x === undefined && e.puntos.length === 0;
+
+// «Órgano / Tejido: Tráquea» debajo del título «Tráquea» no dice nada nuevo.
+const organoDistinto =
+  !!placa.organo && placa.organo.toLowerCase() !== placa.titulo.toLowerCase();
 ---
 
 <aside class="panel-estructuras" aria-labelledby="titulo-panel">
-  <div class="flex flex-col gap-3 border-b border-borde px-4 pt-4 pb-3">
+  <div class="flex flex-col gap-3.5 border-b border-borde px-4 pt-4 pb-3.5">
     <div>
       <p class="flex items-center gap-1.5 text-[0.72rem] text-texto-suave">
         <span
@@ -32,8 +36,12 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
 
     <!-- Los mismos campos de la diapositiva, en el mismo orden. -->
     <dl class="ficha-campos">
-      <dt>Órgano / Tejido</dt>
-      <dd>{placa.organo || <span class="pendiente">sin indicar</span>}</dd>
+      {organoDistinto && (
+        <>
+          <dt>Órgano / Tejido</dt>
+          <dd>{placa.organo}</dd>
+        </>
+      )}
 
       <dt>Tinción</dt>
       <dd>{placa.tincion || <span class="pendiente">sin indicar</span>}</dd>
@@ -50,7 +58,7 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
 
     {placa.descripcionGeneral && (
       <div>
-        <h3 class="mb-1 font-sans text-[0.8rem] font-normal text-texto-suave">Descripción</h3>
+        <h3 class="rotulo mb-1">Descripción</h3>
         {/* Las descripciones rondan los 1000 caracteres: se recortan para que
             la lista de estructuras no quede enterrada. */}
         <p id="descripcion-placa" class="descripcion" data-abierta="no">
@@ -88,8 +96,8 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
     </div>
   </div>
 
-  <div class="flex items-baseline justify-between px-4 pt-3 pb-1">
-    <h3 class="font-serif text-base font-medium">Estructuras importantes</h3>
+  <div class="flex items-baseline justify-between px-4 pt-3.5 pb-1.5">
+    <h3 class="font-serif text-[1.02rem] font-medium">Estructuras importantes</h3>
     <span class="text-xs tabular-nums text-texto-suave">{estructuras.length}</span>
   </div>
 
@@ -126,10 +134,13 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
     </ol>
   )}
 
-  <p class="mt-auto px-4 py-3 text-[0.7rem] leading-relaxed text-texto-suave">
-    Atajos: <kbd>←</kbd> <kbd>→</kbd> placa anterior y siguiente · <kbd>+</kbd> <kbd>−</kbd>
-    <kbd>0</kbd> zoom · <kbd>M</kbd> avatar · <kbd>R</kbd> repaso
-  </p>
+  <details class="atajos">
+    <summary>Atajos de teclado</summary>
+    <p>
+      <kbd>←</kbd> <kbd>→</kbd> lámina anterior y siguiente · <kbd>+</kbd> <kbd>−</kbd>
+      <kbd>0</kbd> zoom · <kbd>M</kbd> explicador · <kbd>R</kbd> repaso
+    </p>
+  </details>
 
   <FichaEstructura />
 </aside>
@@ -149,15 +160,13 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
       inset-block: 0.75rem;
       right: 0.75rem;
       z-index: 20;
-      width: 21.5rem;
+      width: 22rem;
       border-top: 0;
-      border-radius: 0.75rem;
-      background: color-mix(in srgb, var(--atlas-superficie) 90%, transparent);
-      backdrop-filter: blur(14px) saturate(1.1);
-      border: 1px solid color-mix(in srgb, var(--atlas-borde) 70%, transparent);
-      box-shadow:
-        0 1px 2px rgb(14 9 32 / 0.25),
-        0 14px 40px -14px rgb(14 9 32 / 0.5);
+      border-radius: var(--radius-ficha);
+      background: color-mix(in srgb, var(--atlas-superficie) 92%, transparent);
+      backdrop-filter: blur(18px) saturate(1.05);
+      border: 1px solid color-mix(in srgb, var(--atlas-borde) 60%, transparent);
+      box-shadow: var(--atlas-sombra-alta);
       overflow-y: auto;
       overscroll-behavior: contain;
     }
@@ -215,10 +224,10 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--atlas-borde);
-    background: var(--atlas-superficie-alta);
-    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid var(--atlas-borde-fuerte);
+    background: transparent;
+    padding: 0.32rem 0.75rem;
     font-size: 0.78rem;
     color: var(--atlas-texto-suave);
     transition:
@@ -236,6 +245,7 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
   }
   .boton-panel:hover:not(:disabled) {
     color: var(--atlas-texto);
+    border-color: var(--atlas-texto-suave);
   }
   .boton-panel:disabled {
     opacity: 0.45;
@@ -312,6 +322,21 @@ const sinMarcador = (e: (typeof estructuras)[number]) =>
   .nombre-oculto {
     font-style: italic;
     color: var(--atlas-texto-suave);
+  }
+
+  .atajos {
+    margin-top: auto;
+    border-top: 1px solid var(--atlas-borde);
+    font-size: 0.7rem;
+    color: var(--atlas-texto-suave);
+  }
+  .atajos summary {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  .atajos p {
+    padding: 0 1rem 0.75rem;
+    line-height: 1.8;
   }
 
   kbd {

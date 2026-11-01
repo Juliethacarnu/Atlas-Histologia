@@ -86,18 +86,17 @@ const descripcion =
   <!-- Barra de contexto y navegación entre placas -->
   <nav
     id="nav-placas"
-    class="contenedor-atlas flex items-center gap-3 py-2 text-sm"
+    class="contenedor-atlas flex items-center gap-2 py-2 text-[0.82rem] sm:gap-3 sm:text-sm"
     aria-label="Navegación entre placas"
     data-anterior={anterior ? rutaPlaca(anterior.id) : ''}
     data-siguiente={siguiente ? rutaPlaca(siguiente.id) : ''}
   >
-    <a href={ruta()} class="text-texto-suave hover:text-texto">
-      {' '}
-      ← Todas las placas{' '}
+    <a href={ruta()} class="shrink-0 text-texto-suave hover:text-texto">
+      <span aria-hidden="true">←</span>
+      <span class="max-sm:hidden"> Todas las láminas</span>
+      <span class="sm:hidden"> Láminas</span>
     </a>
-    <span class="text-texto-suave/50" aria-hidden="true">
-      /
-    </span>
+    <span class="text-texto-suave/40" aria-hidden="true">/</span>
     <span class="truncate text-texto-suave">{nombreSistema(placa.sistema)}</span>
     <span class="ml-auto shrink-0 tabular-nums text-texto-suave">
       {posicion} / {total}
@@ -149,8 +148,8 @@ const descripcion =
   <h1 class="solo-lectores">{placa.titulo}</h1>
 
   <!-- El visor es el protagonista: el panel y el avatar flotan encima. -->
-  <div class="relative lg:h-[calc(100dvh-6.5rem)]">
-    <div class="h-[58dvh] w-full lg:h-full">
+  <div class="relative lg:h-[calc(100dvh-var(--alto-superior,5.95rem))]">
+    <div class="aspect-[4/3] max-h-[58dvh] w-full lg:aspect-auto lg:h-full lg:max-h-none">
       <VisorPlaca imagenes={imagenes} titulo={placa.titulo} />
     </div>
     <PanelEstructuras placa={placa} />
@@ -161,8 +160,8 @@ const descripcion =
 
   <!-- Fuente y crédito de la placa, fuera del campo del visor -->
   {(placa.fuente || placa.credito) && (
-    <section class="contenedor-atlas py-6 text-sm text-texto-suave">
-      <h2 class="mb-1 font-serif text-base font-medium text-texto">Fuente de esta placa</h2>
+    <section class="contenedor-atlas py-7 text-sm text-texto-suave">
+      <h2 class="rotulo mb-1.5">Fuente de esta lámina</h2>
       <p class="medida">
         {placa.fuente}
         {placa.credito && ` · ${placa.credito}`}

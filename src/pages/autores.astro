@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Avatar from '../componentes/Avatar.astro';
-import { SISTEMAS, nombreSistema } from '../datos/sistemas';
+import Portaobjetos from '../componentes/Portaobjetos.astro';
+import { SISTEMAS } from '../datos/sistemas';
 import { ordenarPlacas } from '../utils/placas';
 import { rutaPlaca } from '../utils/ruta';
 
@@ -11,6 +12,14 @@ const placas = ordenarPlacas(
   await getCollection('placas'),
   SISTEMAS.map((s) => s.id),
 );
+
+// Dos láminas pueden llamarse igual y distinguirse sólo por el aumento.
+const repetidos = new Set<string>();
+const vistos = new Set<string>();
+for (const p of placas) {
+  if (vistos.has(p.data.titulo)) repetidos.add(p.data.titulo);
+  vistos.add(p.data.titulo);
+}
 
 const fichas = presentadores
   .map((p) => ({
@@ -28,69 +37,161 @@ const sinPresentador = placas.filter(
   titulo="Autores"
   descripcion="Los compañeros que explican cada placa del atlas, con su caricatura y la lista de preparaciones a su cargo."
 >
-  <header class="mb-10">
-    <h1 class="mb-3">Autores</h1>
-    <p class="medida text-lg leading-relaxed text-texto-suave">
-      Cada placa la explica un compañero del grupo. Su caricatura acompaña el video en el visor y
-      aparece aquí junto a las preparaciones que preparó.
+  <header class="cabecera-pagina">
+    <h1>Autores</h1>
+    <p class="cabecera-pagina__entrada">
+      Cada lámina la explica un compañero del grupo. Su caricatura acompaña la explicación dentro
+      del visor y aparece aquí junto a las preparaciones que preparó.
     </p>
   </header>
 
-  <ul class="grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2">
+  <div class="flex flex-col gap-16">
     {fichas.map(({ presentador, placas: suyas }) => (
-      <li class="flex gap-4 rounded-xl border border-borde bg-superficie p-4">
-        <Avatar presentador={presentador} tamano={72} />
-        <div class="min-w-0 flex-1">
-          <h2 class="font-serif text-xl leading-tight font-medium">{presentador.nombre}</h2>
-          <p class="mb-2 text-sm text-texto-suave">
-            {presentador.rol} · {suyas.length} {suyas.length === 1 ? 'placa' : 'placas'}
-          </p>
-          {suyas.length === 0 ? (
-            <p class="text-sm text-texto-suave">Todavía no tiene placas asignadas.</p>
-          ) : (
-            <ul class="flex list-none flex-col gap-1 p-0 text-sm">
-              {suyas.map((pl) => (
-                <li class="flex items-baseline gap-2">
-                  <a
-                    href={rutaPlaca(pl.data.id)}
-                    class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
-                  >
-                    {pl.data.titulo}
-                  </a>
-                  <span class="truncate text-xs text-texto-suave">
-                    {pl.data.aumentos.length > 0 && (
-                      <span class="tabular-nums">{pl.data.aumentos.join(' · ')} · </span>
-                    )}
-                    {nombreSistema(pl.data.sistema)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </li>
+      <section class="autor" aria-labelledby={`autor-${presentador.id}`}>
+        <header class="autor__cabecera">
+          <Avatar presentador={presentador} tamano={64} />
+          <div class="min-w-0">
+            <h2 id={`autor-${presentador.id}`} class="autor__nombre">{presentador.nombre}</h2>
+            <p class="autor__rol">{presentador.rol}</p>
+          </div>
+          <span class="autor__regla" aria-hidden="true"></span>
+          <span class="autor__cuenta tabular-nums">
+            {suyas.length}
+            <span class="max-[420px]:hidden">
+              {suyas.length === 1 ? ' lámina' : ' láminas'}
+            </span>
+          </span>
+        </header>
+
+        {suyas.length === 0 ? (
+          <p class="text-sm text-texto-suave">Todavía no tiene láminas asignadas.</p>
+        ) : (
+          <ul class="rejilla-autor">
+            {suyas.map((pl, i) => (
+              <Portaobjetos
+                placa={pl.data}
+                prioridad={i < 8}
+                tituloRepetido={repetidos.has(pl.data.titulo)}
+              />
+            ))}
+          </ul>
+        )}
+      </section>
     ))}
-  </ul>
+  </div>
 
   {sinPresentador.length > 0 && (
-    <section class="mt-12">
-      <h2 class="mb-2 font-serif text-xl font-medium">Placas sin presentador asignado</h2>
-      <p class="medida mb-3 text-sm text-texto-suave">
-        Añade el campo <code>presentador</code> en el JSON de la placa con el id de un registro de{' '}
+    <section class="mt-16">
+      <h2 class="mb-2 font-serif text-xl font-medium">Láminas sin presentador asignado</h2>
+      <p class="medida mb-4 text-sm text-texto-suave">
+        Añade el campo <code>presentador</code> en el JSON de la lámina con el id de un registro de{' '}
         <code>src/content/presentadores.json</code>.
       </p>
       <ul class="flex list-none flex-wrap gap-2 p-0 text-sm">
         {sinPresentador.map((pl) => (
           <li>
-            <a
-              href={rutaPlaca(pl.data.id)}
-              class="inline-block rounded-md border border-borde px-2 py-1 no-underline hover:border-eosina"
-            >
-              {pl.data.titulo}
-            </a>
+            <a href={rutaPlaca(pl.data.id)} class="pildora">{pl.data.titulo}</a>
           </li>
         ))}
       </ul>
     </section>
   )}
 </Base>
+
+<style>
+  .cabecera-pagina {
+    padding-block: clamp(1.75rem, 1rem + 3vw, 3.25rem) clamp(1.75rem, 1rem + 2.5vw, 2.75rem);
+    border-bottom: 1px solid var(--atlas-borde);
+    margin-bottom: clamp(2rem, 1rem + 2.5vw, 3rem);
+  }
+  .cabecera-pagina h1 {
+    font-size: clamp(2.2rem, 1.3rem + 3.4vw, 3.4rem);
+    font-weight: 400;
+    letter-spacing: -0.028em;
+  }
+  .cabecera-pagina__entrada {
+    max-width: 52ch;
+    margin-top: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--atlas-texto-suave);
+  }
+
+  .autor__cabecera {
+    display: grid;
+    grid-template-columns: auto minmax(0, max-content) 1fr auto;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 559px) {
+    .autor__cabecera {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+    .autor__regla {
+      display: none;
+    }
+  }
+
+  .autor__nombre {
+    font-size: 1.4rem;
+    font-weight: 450;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .autor__rol {
+    margin-top: 0.1rem;
+    font-size: 0.8rem;
+    color: var(--atlas-texto-suave);
+  }
+  .autor__regla {
+    height: 1px;
+    background: var(--atlas-borde);
+  }
+  .autor__cuenta {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    color: var(--atlas-texto-suave);
+  }
+
+  .rejilla-autor {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: 640px) {
+    .rejilla-autor {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.75rem 1.35rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .rejilla-autor {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem 1.5rem;
+    }
+  }
+
+  .pildora {
+    display: inline-block;
+    border: 1px solid var(--atlas-borde-fuerte);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    text-decoration: none;
+    transition: border-color 150ms;
+  }
+  .pildora:hover {
+    border-color: var(--color-eosina);
+  }
+
+  code {
+    border-radius: 4px;
+    background: var(--atlas-superficie-alta);
+    border: 1px solid var(--atlas-borde);
+    padding: 0.05rem 0.3rem;
+    font-size: 0.85em;
+  }
+</style>

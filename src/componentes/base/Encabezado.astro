@@ -7,50 +7,172 @@ interface Props {
 }
 const { compacto = false } = Astro.props;
 const aqui = Astro.url.pathname.replace(/\/$/, '');
+// En movil no cabe «Créditos y fuentes»: cada enlace lleva su version corta.
 const enlaces = [
-  { href: ruta(), texto: 'Placas' },
-  { href: ruta('autores'), texto: 'Autores' },
-  { href: ruta('creditos'), texto: 'Créditos y fuentes' },
+  { href: ruta(), texto: 'Placas', corto: 'Placas' },
+  { href: ruta('autores'), texto: 'Autores', corto: 'Autores' },
+  { href: ruta('creditos'), texto: 'Créditos y fuentes', corto: 'Créditos' },
 ];
 function activo(href: string) {
   return aqui === href.replace(/\/$/, '');
 }
 ---
 
-<header class:list={['border-b border-borde bg-fondo', compacto ? 'py-2' : 'py-4']}>
-  <div class="contenedor-atlas flex flex-wrap items-center gap-x-4 gap-y-2">
-    <a href={ruta()} class="group flex items-center gap-2.5 no-underline">
-      <svg class="h-7 w-5 shrink-0" viewBox="0 0 20 28" aria-hidden="true" role="presentation">
-        <rect x="0.5" y="0.5" width="19" height="27" rx="2.5" class="fill-vidrio stroke-borde" />
-        <circle cx="10" cy="11" r="5.2" class="fill-eosina-tenue" />
-        <circle cx="8.4" cy="9.6" r="1.5" class="fill-hematoxilina" />
-        <circle cx="11.8" cy="12.4" r="1.2" class="fill-hematoxilina" />
-        <path d="M0.5 20.5h19" class="stroke-borde" stroke-width="1" />
+<header class:list={['cabecera', compacto && 'cabecera--compacta']}>
+  <div class="contenedor-atlas flex items-center gap-2 sm:gap-3">
+    <a href={ruta()} class="marca">
+      <svg class="marca__sello" viewBox="0 0 20 28" aria-hidden="true" role="presentation">
+        <rect x="0.5" y="0.5" width="19" height="27" rx="2.5" class="sello__vidrio" />
+        <circle cx="10" cy="11.5" r="5.4" class="sello__tejido" />
+        <circle cx="8.3" cy="10" r="1.5" class="sello__nucleo" />
+        <circle cx="11.9" cy="12.9" r="1.2" class="sello__nucleo" />
+        <path d="M0.5 20.5h19" class="sello__filo" />
       </svg>
-      <span class="font-serif text-lg leading-tight font-medium tracking-tight">
-        Atlas de histología
-      </span>
+      <span class="marca__nombre">Atlas de histología</span>
     </a>
 
-    <nav
-      class="flex items-center gap-1 text-sm max-sm:order-3 max-sm:-mx-1 max-sm:w-full sm:ml-auto"
-      aria-label="Secciones"
-    >
+    <nav class="navegacion" aria-label="Secciones">
       {enlaces.map((e) => (
         <a
           href={e.href}
           aria-current={activo(e.href) ? 'page' : undefined}
-          class:list={[
-            'rounded-md px-2.5 py-1.5 no-underline transition-colors',
-            activo(e.href)
-              ? 'bg-superficie text-texto shadow-[inset_0_0_0_1px_var(--atlas-borde)]'
-              : 'text-texto-suave hover:text-texto',
-          ]}
+          class="navegacion__enlace"
         >
-          {e.texto}
+          <span class="max-sm:hidden">{e.texto}</span>
+          <span class="sm:hidden">{e.corto}</span>
         </a>
       ))}
-      <InterruptorTema />
     </nav>
+
+    <InterruptorTema />
   </div>
 </header>
+
+<style>
+  .cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    padding-block: 0.7rem;
+    background: color-mix(in srgb, var(--atlas-fondo) 88%, transparent);
+    backdrop-filter: blur(12px) saturate(1.05);
+    border-bottom: 1px solid var(--atlas-borde);
+  }
+  @media (min-width: 640px) {
+    .cabecera {
+      padding-block: 0.9rem;
+    }
+  }
+  .cabecera--compacta {
+    padding-block: 0.5rem;
+  }
+
+  /* --- Marca --- */
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-right: auto;
+    min-width: 0;
+    text-decoration: none;
+  }
+  .marca__sello {
+    height: 1.6rem;
+    width: 1.15rem;
+    flex: none;
+  }
+  .sello__vidrio {
+    fill: var(--atlas-superficie);
+    stroke: var(--atlas-borde-fuerte);
+  }
+  .sello__tejido {
+    fill: var(--color-eosina-tenue);
+  }
+  .sello__nucleo {
+    fill: var(--color-hematoxilina);
+  }
+  .sello__filo {
+    stroke: var(--atlas-borde-fuerte);
+    stroke-width: 1;
+  }
+  :root[data-tema='oscuro'] .sello__tejido,
+  :root:not([data-tema='claro']) .sello__tejido {
+    fill: color-mix(in srgb, var(--color-eosina) 55%, transparent);
+  }
+  :root[data-tema='oscuro'] .sello__nucleo,
+  :root:not([data-tema='claro']) .sello__nucleo {
+    fill: var(--color-hematoxilina-claro);
+  }
+
+  .marca__nombre {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media (min-width: 420px) {
+    .marca__nombre {
+      font-size: 1rem;
+    }
+  }
+  @media (min-width: 640px) {
+    .marca__nombre {
+      font-size: 1.12rem;
+    }
+  }
+
+  /* --- Navegacion: el activo se marca con un filo, no con una caja --- */
+  .navegacion {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex: none;
+  }
+  @media (min-width: 640px) {
+    .navegacion {
+      gap: 1.1rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .navegacion__enlace {
+    position: relative;
+    padding: 0.2rem 0.18rem;
+    font-size: 0.78rem;
+    color: var(--atlas-texto-suave);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 150ms;
+  }
+  @media (min-width: 640px) {
+    .navegacion__enlace {
+      padding-inline: 0;
+      font-size: 0.88rem;
+    }
+  }
+  .navegacion__enlace:hover {
+    color: var(--atlas-texto);
+  }
+  .navegacion__enlace[aria-current='page'] {
+    color: var(--atlas-texto);
+  }
+  .navegacion__enlace[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 0.18rem;
+    right: 0.18rem;
+    bottom: -0.15rem;
+    height: 1.5px;
+    background: var(--color-eosina);
+  }
+  @media (min-width: 640px) {
+    .navegacion__enlace[aria-current='page']::after {
+      left: 0;
+      right: 0;
+    }
+  }
+</style>

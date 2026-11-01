@@ -29,67 +29,67 @@ const variasImagenes = imagenes.length > 1;
   <!-- Minimapa -->
   <div
     id="minimapa"
-    class="absolute top-3 right-3 z-20 h-24 w-32 overflow-hidden rounded-md border border-white/25 bg-nucleo/70 shadow-lg max-sm:hidden! lg:right-[23.5rem]"
+    class="chapa-campo absolute top-3 right-3 z-20 h-24 w-32 overflow-hidden max-sm:hidden! lg:right-[23.75rem]"
     aria-hidden="true"
-  ></div>
-
-  <!-- Selector de aumento -->
-  {variasImagenes && (
-    <div
-      class="absolute top-3 left-3 z-20 flex gap-1 rounded-lg border border-white/15 bg-nucleo/75 p-1 backdrop-blur"
-      role="group"
-      aria-label="Aumento de la preparación"
-    >
-      {imagenes.map((im, i) => (
-        <button
-          type="button"
-          data-imagen={i}
-          aria-pressed={i === 0 ? 'true' : 'false'}
-          class="boton-aumento"
-        >
-          {im.aumento || `Imagen ${i + 1}`}
-        </button>
-      ))}
-    </div>
-  )}
-
-  <!-- Controles de zoom -->
-  <div
-    class="absolute bottom-3 left-3 z-20 flex gap-1 rounded-lg border border-white/15 bg-nucleo/75 p-1 backdrop-blur"
-    role="group"
-    aria-label="Controles del visor"
   >
-    <button type="button" class="boton-visor" data-accion="acercar" aria-keyshortcuts="+">
-      <span class="solo-lectores">Acercar</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 6v12M6 12h12" />
-      </svg>
-    </button>
-    <button type="button" class="boton-visor" data-accion="alejar" aria-keyshortcuts="-">
-      <span class="solo-lectores">Alejar</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 12h12" />
-      </svg>
-    </button>
-    <button type="button" class="boton-visor" data-accion="ajustar" aria-keyshortcuts="0">
-      <span class="solo-lectores">Ajustar a la pantalla</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15" />
-      </svg>
-    </button>
-    <button type="button" class="boton-visor" data-accion="pantalla-completa">
-      <span class="solo-lectores">Pantalla completa</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" />
-      </svg>
-    </button>
+  </div>
+
+  <!-- Una sola barra con todo lo que cambia el tamaño de la lámina -->
+  <div class="chapa-campo absolute bottom-3 left-3 z-20 flex items-center gap-1 p-1">
+    <div class="flex gap-0.5" role="group" aria-label="Controles del visor">
+      <button type="button" class="boton-visor" data-accion="acercar" aria-keyshortcuts="+">
+        <span class="solo-lectores">Acercar</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 6v12M6 12h12"></path>
+        </svg>
+      </button>
+      <button type="button" class="boton-visor" data-accion="alejar" aria-keyshortcuts="-">
+        <span class="solo-lectores">Alejar</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 12h12"></path>
+        </svg>
+      </button>
+      <button type="button" class="boton-visor" data-accion="ajustar" aria-keyshortcuts="0">
+        <span class="solo-lectores">Ajustar a la pantalla</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"
+          ></path>
+        </svg>
+      </button>
+      <button type="button" class="boton-visor" data-accion="pantalla-completa">
+        <span class="solo-lectores">Pantalla completa</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"></path>
+        </svg>
+      </button>
+    </div>
+
+    {variasImagenes && (
+      <>
+        <span class="separador-campo" aria-hidden="true"></span>
+        <div class="flex gap-0.5" role="group" aria-label="Aumento de la preparación">
+          {imagenes.map((im, i) => (
+            <button
+              type="button"
+              data-imagen={i}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+              class="boton-aumento"
+            >
+              {im.aumento || `Imagen ${i + 1}`}
+            </button>
+          ))}
+        </div>
+      </>
+    )}
   </div>
 
   <!-- Crédito de la imagen visible -->
   <p
     id="credito-imagen"
-    class="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 px-3 text-center text-[0.7rem] text-white/45 max-sm:hidden"
-  ></p>
+    class="pointer-events-none absolute top-3.5 left-4 z-10 max-w-[min(26rem,45%)] truncate text-[0.68rem] text-white/60 max-lg:hidden"
+  >
+  </p>
 </div>
 
 <style is:global>
@@ -183,6 +183,13 @@ const variasImagenes = imagenes.length > 1;
   }
 
   /* ---------- Botones sobre el campo oscuro ---------- */
+  .separador-campo {
+    width: 1px;
+    align-self: stretch;
+    margin-inline: 0.2rem;
+    background: rgb(255 255 255 / 0.16);
+  }
+
   .boton-visor,
   .boton-aumento {
     display: grid;

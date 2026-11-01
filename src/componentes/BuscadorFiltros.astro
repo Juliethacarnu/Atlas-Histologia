@@ -8,41 +8,34 @@ interface Props {
 const { conteos, total } = Astro.props;
 ---
 
-<div class="mb-10 flex flex-col gap-5">
-  <div class="flex flex-wrap items-end gap-4">
-    <div class="w-full max-w-sm">
-      <label for="buscador" class="mb-1.5 block text-sm font-medium">
-        Buscar placa o estructura
-      </label>
-      <div class="relative">
-        <svg
-          class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-texto-suave"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          aria-hidden="true"
-        >
-          <circle cx="11" cy="11" r="6.5" />
-          <path d="m16 16 4.5 4.5" />
-        </svg>
-        <input
-          type="search"
-          id="buscador"
-          placeholder="duodeno, glándulas de Brunner, tráquea…"
-          autocomplete="off"
-          class="w-full rounded-lg border border-borde bg-superficie py-2.5 pr-3 pl-9 text-sm transition-colors placeholder:text-texto-suave/60 focus:border-texto-suave"
-        />
-      </div>
-    </div>
-    <p class="text-sm text-texto-suave" aria-live="polite" id="conteo-resultados">
-      {total} placas
+<div class="buscador">
+  <div class="buscador__campo">
+    <label for="buscador" class="solo-lectores">Buscar placa o estructura</label>
+    <svg
+      class="buscador__lupa"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="6.5"></circle>
+      <path d="m16 16 4.5 4.5"></path>
+    </svg>
+    <input
+      type="search"
+      id="buscador"
+      placeholder="Buscar una lámina o una estructura: duodeno, glándulas de Brunner…"
+      autocomplete="off"
+    />
+    <p class="buscador__conteo tabular-nums" aria-live="polite" id="conteo-resultados">
+      {total}
     </p>
   </div>
 
-  <div role="group" aria-label="Filtrar por sistema" class="flex flex-wrap gap-x-6 gap-y-1">
+  <div role="group" aria-label="Filtrar por sistema" class="filtros">
     <button type="button" class="chip-sistema" data-filtro="todos" aria-pressed="true">
-      Todos <span class="tabular-nums opacity-60">{total}</span>
+      Todos <span class="chip-sistema__n tabular-nums">{total}</span>
     </button>
     {SISTEMAS.map((s) => (
       <button
@@ -53,19 +46,102 @@ const { conteos, total } = Astro.props;
         style={`--acento-sistema: ${s.acento}`}
       >
         <span class="punto-acento" aria-hidden="true" />
-        {s.nombre} <span class="tabular-nums opacity-60">{conteos[s.id] ?? 0}</span>
+        {s.nombre} <span class="chip-sistema__n tabular-nums">{conteos[s.id] ?? 0}</span>
       </button>
     ))}
   </div>
 </div>
 
 <style>
+  .buscador {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  /* El campo: un rectángulo de papel con filo de pelo, ancho completo. */
+  .buscador__campo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    border: 1px solid var(--atlas-borde);
+    border-radius: var(--radius-chapa);
+    background: var(--atlas-superficie);
+    padding: 0 0.9rem;
+    transition: border-color 160ms;
+  }
+  .buscador__campo:focus-within {
+    border-color: var(--atlas-borde-fuerte);
+  }
+
+  .buscador__lupa {
+    height: 1.05rem;
+    width: 1.05rem;
+    flex: none;
+    color: var(--atlas-texto-suave);
+  }
+
+  .buscador__campo input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    padding-block: 0.8rem;
+    font-size: 0.92rem;
+    color: var(--atlas-texto);
+  }
+  .buscador__campo input::placeholder {
+    color: color-mix(in srgb, var(--atlas-texto-suave) 70%, transparent);
+  }
+  .buscador__campo input:focus {
+    outline: none;
+  }
+  .buscador__campo:focus-within {
+    outline: 2px solid var(--color-eosina);
+    outline-offset: 2px;
+  }
+  /* La X nativa de Chrome no sigue el tema; se usa Escape o se borra a mano. */
+  .buscador__campo input::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  .buscador__conteo {
+    flex: none;
+    font-size: 0.78rem;
+    color: var(--atlas-texto-suave);
+  }
+
+  /* Los filtros no se envuelven: en móvil se arrastran de lado. */
+  .filtros {
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    padding-bottom: 0.1rem;
+  }
+  .filtros::-webkit-scrollbar {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    .filtros {
+      flex-wrap: wrap;
+      overflow: visible;
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+  }
+
   .chip-sistema {
     display: inline-flex;
     align-items: baseline;
     gap: 0.4rem;
-    padding: 0.3rem 0;
+    flex: none;
+    padding-bottom: 0.3rem;
     font-size: 0.85rem;
+    white-space: nowrap;
     color: var(--atlas-texto-suave);
     border-bottom: 1.5px solid transparent;
     transition:
@@ -77,11 +153,11 @@ const { conteos, total } = Astro.props;
   }
   .chip-sistema[aria-pressed='true'] {
     color: var(--atlas-texto);
-    border-bottom-color: var(--acento-sistema, var(--atlas-texto));
+    border-bottom-color: var(--acento-sistema, var(--color-eosina));
   }
-  .chip-sistema span.tabular-nums {
+  .chip-sistema__n {
+    /* Más pequeño, pero sin rebajar la opacidad: el contraste debe aguantar. */
     font-size: 0.7rem;
-    opacity: 0.5;
   }
   .punto-acento {
     height: 0.32rem;
@@ -126,10 +202,13 @@ const { conteos, total } = Astro.props;
     }
 
     if (conteo) {
-      conteo.textContent =
+      conteo.textContent = String(visibles);
+      conteo.setAttribute(
+        'aria-label',
         visibles === 0
           ? 'Ninguna placa coincide'
-          : `${visibles} ${visibles === 1 ? 'placa' : 'placas'}`;
+          : `${visibles} ${visibles === 1 ? 'placa' : 'placas'}`,
+      );
     }
     vacio?.toggleAttribute('hidden', visibles !== 0);
 

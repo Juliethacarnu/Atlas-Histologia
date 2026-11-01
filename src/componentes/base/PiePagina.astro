@@ -2,25 +2,53 @@
 import { ruta } from '../../utils/ruta';
 ---
 
-<footer class="mt-20 border-t border-borde py-10 text-sm text-texto-suave">
-  <div class="contenedor-atlas flex flex-wrap items-start justify-between gap-6">
-    <p class="medida-corta">
+<footer class="pie">
+  <div class="contenedor-atlas pie__cuerpo">
+    <p class="pie__nota">
       Atlas virtual de histología · proyecto universitario. Preparaciones teñidas con hematoxilina y
       eosina. Las imágenes y los textos son material de estudio, no de diagnóstico.
     </p>
-    <nav aria-label="Enlaces del pie" class="flex flex-col gap-1.5">
-      <a
-        href={ruta('autores')}
-        class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
-      >
-        Autores
-      </a>
-      <a
-        href={ruta('creditos')}
-        class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
-      >
-        Créditos y fuentes
-      </a>
+    <nav aria-label="Enlaces del pie" class="pie__enlaces">
+      <a href={ruta('autores')}>Autores</a>
+      <a href={ruta('creditos')}>Créditos y fuentes</a>
     </nav>
   </div>
 </footer>
+
+<style>
+  .pie {
+    margin-top: 6rem;
+    border-top: 1px solid var(--atlas-borde);
+    padding-block: 2.25rem 3rem;
+  }
+
+  .pie__cuerpo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+  }
+
+  .pie__nota {
+    max-width: 48ch;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--atlas-texto-suave);
+  }
+
+  .pie__enlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+  }
+  .pie__enlaces a {
+    color: var(--atlas-texto-suave);
+    text-decoration: none;
+    transition: color 150ms;
+  }
+  .pie__enlaces a:hover {
+    color: var(--color-eosina);
+  }
+</style>

@@ -11,7 +11,7 @@
         <h2 id="quiz-titulo" class="font-serif text-xl font-medium">
           ¿Qué estructura es esta?
         </h2>
-        <p class="text-sm text-texto-suave">
+        <p class="mt-0.5 text-sm text-texto-suave">
           El visor se ha acercado al marcador{' '}
           <span id="quiz-numero" class="font-semibold">
             1
@@ -45,15 +45,16 @@
   .quiz {
     width: min(26rem, calc(100vw - 2rem));
     border: 1px solid var(--atlas-borde);
-    border-radius: 0.85rem;
+    border-radius: var(--radius-ficha);
     background: var(--atlas-superficie);
     color: var(--atlas-texto);
-    padding: 1.1rem;
-    box-shadow: 0 24px 60px -20px rgb(14 9 32 / 0.6);
+    padding: 1.25rem;
+    box-shadow: 0 32px 70px -24px rgb(14 9 32 / 0.65);
   }
   .quiz::backdrop {
-    background: rgb(14 9 32 / 0.55);
-    backdrop-filter: blur(2px);
+    /* El campo del microscopio, no un velo gris. */
+    background: rgb(14 9 32 / 0.62);
+    backdrop-filter: blur(3px);
   }
   .quiz .contents {
     display: flex;
@@ -69,31 +70,10 @@
     flex-direction: column;
     gap: 0.4rem;
   }
-  .quiz__opciones button {
-    display: block;
-    width: 100%;
-    border-radius: 0.5rem;
-    border: 1px solid var(--atlas-borde);
-    padding: 0.5rem 0.7rem;
-    text-align: left;
-    font-size: 0.88rem;
-    transition:
-      border-color 140ms,
-      background-color 140ms;
-  }
-  .quiz__opciones button:hover:not(:disabled) {
-    border-color: var(--atlas-acento);
-  }
-  .quiz__opciones button[data-estado='bien'] {
-    border-color: #2a7f56;
-    background: color-mix(in srgb, #2a7f56 14%, transparent);
-  }
-  .quiz__opciones button[data-estado='mal'] {
-    border-color: var(--color-eosina);
-    background: var(--color-eosina-tenue);
-    color: var(--color-nucleo);
-  }
 
+  #quiz-respuesta:not(:empty) {
+    color: var(--atlas-texto-suave);
+  }
   .quiz__cerrar {
     display: grid;
     place-items: center;
@@ -112,7 +92,7 @@
   }
 
   .quiz__siguiente {
-    border-radius: 0.5rem;
+    border-radius: 999px;
     background: var(--color-hematoxilina);
     color: #fff;
     padding: 0.4rem 0.9rem;
@@ -123,6 +103,41 @@
   }
   :root[data-tema='oscuro'] .quiz__siguiente {
     background: var(--color-hematoxilina-claro);
+    color: var(--color-nucleo);
+  }
+</style>
+
+<!-- Las opciones del quiz las construye el cliente: sin ámbito no llegarían
+     los estilos de arriba. -->
+<style is:global>
+  #quiz-opciones button {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-chapa);
+    border: 1px solid var(--atlas-borde-fuerte);
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--atlas-texto);
+    transition:
+      border-color 140ms,
+      background-color 140ms;
+  }
+  #quiz-opciones button:hover:not(:disabled) {
+    border-color: var(--atlas-texto-suave);
+    background: var(--atlas-superficie-alta);
+  }
+  #quiz-opciones button:disabled {
+    cursor: default;
+  }
+  #quiz-opciones button[data-estado='bien'] {
+    border-color: #2a7f56;
+    background: color-mix(in srgb, #2a7f56 14%, transparent);
+  }
+  #quiz-opciones button[data-estado='mal'] {
+    border-color: var(--color-eosina);
+    background: var(--color-eosina-tenue);
     color: var(--color-nucleo);
   }
 </style>

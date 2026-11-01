@@ -4,18 +4,51 @@ import { ruta } from '../utils/ruta';
 ---
 
 <Base titulo="Página no encontrada" descripcion="La página que buscas no existe en el atlas.">
-  <div class="py-16">
-    <p class="mb-2 text-sm text-texto-suave">Error 404</p>
-    <h1 class="mb-4">Esta preparación no está en la bandeja</h1>
-    <p class="medida mb-6 text-lg text-texto-suave">
-      La dirección que abriste no corresponde a ninguna placa del atlas. Puede que el enlace sea
-      antiguo o que el identificador de la placa haya cambiado.
+  <div class="pagina-404">
+    <p class="rotulo">Error 404</p>
+    <h1>Esta preparación no está en la bandeja</h1>
+    <p class="pagina-404__texto">
+      La dirección que abriste no corresponde a ninguna lámina del atlas. Puede que el enlace sea
+      antiguo o que el identificador de la lámina haya cambiado.
     </p>
-    <a
-      href={ruta()}
-      class="inline-block rounded-lg bg-hematoxilina px-4 py-2 text-vidrio no-underline"
-    >
-      Volver a la bandeja de placas
-    </a>
+    <a href={ruta()} class="pagina-404__boton">Volver a la bandeja de láminas</a>
   </div>
+
+<style>
+  .pagina-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-block: clamp(3rem, 2rem + 6vw, 7rem);
+  }
+  .pagina-404 h1 {
+    font-size: clamp(2rem, 1.3rem + 2.8vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+  .pagina-404__texto {
+    max-width: 54ch;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--atlas-texto-suave);
+  }
+  .pagina-404__boton {
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    background: var(--color-hematoxilina);
+    padding: 0.55rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-vidrio);
+    text-decoration: none;
+    transition: background-color 160ms;
+  }
+  .pagina-404__boton:hover {
+    background: var(--color-nucleo);
+  }
+  :root[data-tema='oscuro'] .pagina-404__boton {
+    background: var(--color-hematoxilina-claro);
+    color: var(--color-nucleo);
+  }
+</style>
 </Base>

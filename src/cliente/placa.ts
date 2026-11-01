@@ -13,6 +13,23 @@ import { montarTranscripcion } from './transcripcion';
 const datos = leerDatosPlaca();
 if (datos) iniciar(datos);
 
+/**
+ * El visor ocupa lo que queda de ventana bajo la cabecera y la barra de
+ * navegación. Sus alturas dependen de la tipografía ya cargada, así que se
+ * miden en vez de darlas por supuestas: con un valor fijo sobraban píxeles y
+ * la lámina se salía por abajo.
+ */
+function medirAlturaSuperior() {
+  const cabecera = document.querySelector('body > header');
+  const nav = document.getElementById('nav-placas');
+  const alto =
+    (cabecera?.getBoundingClientRect().height ?? 0) + (nav?.getBoundingClientRect().height ?? 0);
+  if (alto > 0) document.documentElement.style.setProperty('--alto-superior', alto + 'px');
+}
+medirAlturaSuperior();
+window.addEventListener('resize', medirAlturaSuperior);
+document.fonts?.ready.then(medirAlturaSuperior);
+
 function iniciar(datos: DatosPlaca) {
   const marco = document.getElementById('marco-visor');
   const contenedor = document.getElementById('visor');

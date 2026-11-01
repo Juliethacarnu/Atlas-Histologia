@@ -13,6 +13,19 @@ const placas = ordenarPlacas(
 const conFuente = placas.filter((p) => p.data.fuente || p.data.credito);
 const sinFuente = placas.filter((p) => !p.data.fuente && !p.data.credito);
 
+// Casi veinte láminas repiten exactamente la misma fuente. Se agrupan para
+// decirla una vez y no veinte.
+const porFuente = new Map<string, typeof conFuente>();
+for (const p of conFuente) {
+  const clave = p.data.fuente?.trim() || '';
+  const grupo = porFuente.get(clave);
+  if (grupo) grupo.push(p);
+  else porFuente.set(clave, [p]);
+}
+const gruposFuente = [...porFuente.entries()]
+  .map(([fuente, suyas]) => ({ fuente, placas: suyas }))
+  .sort((a, b) => b.placas.length - a.placas.length);
+
 const recuento = SISTEMAS.map((s) => ({
   ...s,
   reales: placas.filter((p) => p.data.sistema === s.id).length,
@@ -48,17 +61,17 @@ const bibliografia = [
   titulo="Créditos y fuentes"
   descripcion="Créditos de las imágenes de cada placa y bibliografía consultada para las descripciones de las estructuras."
 >
-  <header class="mb-10">
-    <h1 class="mb-3">Créditos y fuentes</h1>
-    <p class="medida text-lg leading-relaxed text-texto-suave">
+  <header class="cabecera-pagina">
+    <h1>Créditos y fuentes</h1>
+    <p class="cabecera-pagina__entrada">
       Las descripciones de las estructuras se redactaron a partir de las fuentes de abajo. Las
       imágenes son fotografías de las preparaciones del laboratorio salvo donde se indique otra
       procedencia.
     </p>
   </header>
 
-  <section class="mb-12">
-    <h2 class="mb-3 font-serif text-2xl font-medium">Bibliografía</h2>
+  <section class="mb-14">
+    <h2 class="titulo-seccion">Bibliografía</h2>
     <ol class="medida flex list-decimal flex-col gap-3 pl-5">
       {bibliografia.map((b) => (
         <li>
@@ -79,64 +92,52 @@ const bibliografia = [
     </ol>
   </section>
 
-  <section class="mb-12">
-    <h2 class="mb-3 font-serif text-2xl font-medium">Créditos de las imágenes</h2>
+  <section class="mb-14">
+    <h2 class="titulo-seccion">Créditos de las imágenes</h2>
     {conFuente.length === 0 ? (
       <p class="medida text-texto-suave">
-        Ninguna placa declara todavía los campos <code>fuente</code> o <code>credito</code>.
-        Rellénalos en el JSON de cada placa y aparecerán aquí automáticamente.
+        Ninguna lámina declara todavía los campos <code>fuente</code> o <code>credito</code>.
+        Rellénalos en el JSON de cada lámina y aparecerán aquí automáticamente.
       </p>
     ) : (
-      <div class="overflow-x-auto">
-        <table class="w-full border-collapse text-sm">
-          <thead>
-            <tr class="border-b border-borde text-left">
-              <th scope="col" class="py-2 pr-4 font-medium">
-                Placa
-              </th>
-              <th scope="col" class="py-2 pr-4 font-medium">
-                Fuente
-              </th>
-              <th scope="col" class="py-2 font-medium">
-                Crédito
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {conFuente.map((p) => (
-              <tr class="border-b border-borde/60 align-top">
-                <td class="py-2 pr-4">
-                  <a
-                    href={rutaPlaca(p.data.id)}
-                    class="underline decoration-borde underline-offset-4 hover:decoration-eosina"
-                  >
+      <div class="flex flex-col gap-9">
+        {gruposFuente.map((g) => (
+          <div>
+            <h3 class="grupo-fuente">
+              <span class="grupo-fuente__texto">
+                {g.fuente || 'Sin fuente declarada'}
+              </span>
+              <span class="grupo-fuente__regla" aria-hidden="true"></span>
+              <span class="grupo-fuente__cuenta tabular-nums">{g.placas.length}</span>
+            </h3>
+            <ul class="lista-creditos">
+              {g.placas.map((p) => (
+                <li>
+                  <a href={rutaPlaca(p.data.id)} class="lista-creditos__placa">
                     {p.data.titulo}
+                    {p.data.aumentos.length > 0 && (
+                      <span class="tabular-nums">{p.data.aumentos.join(' · ')}</span>
+                    )}
                   </a>
-                  {p.data.aumentos.length > 0 && (
-                    <span class="ml-1.5 text-xs tabular-nums text-texto-suave">
-                      {p.data.aumentos.join(' · ')}
-                    </span>
-                  )}
-                </td>
-                <td class="py-2 pr-4 text-texto-suave">{p.data.fuente || '—'}</td>
-                <td class="py-2 text-texto-suave">{p.data.credito || '—'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  {p.data.credito && <span class="lista-creditos__pie">{p.data.credito}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     )}
     {sinFuente.length > 0 && (
       <p class="medida mt-4 text-sm text-texto-suave">
-        {sinFuente.length} de {placas.length} placas aún no declaran fuente ni crédito.
+        {sinFuente.length} de {placas.length} láminas aún no declaran fuente ni crédito.
       </p>
     )}
   </section>
 
   <section>
-    <h2 class="mb-3 font-serif text-2xl font-medium">Estado del atlas</h2>
+    <h2 class="titulo-seccion">Estado del atlas</h2>
     <p class="medida mb-4 text-sm text-texto-suave">
-      {placas.length} de {TOTAL_PLACAS_ESPERADAS} placas cargadas.
+      {placas.length} de {TOTAL_PLACAS_ESPERADAS} láminas cargadas.
     </p>
     <ul class="flex list-none flex-col gap-1.5 p-0 text-sm">
       {recuento.map((r) => (
@@ -155,10 +156,116 @@ const bibliografia = [
     </ul>
     {descuadre.length > 0 && (
       <p class="medida mt-4 rounded-lg border border-eosina/40 bg-eosina-tenue p-3 text-sm text-nucleo">
-        Hay sistemas con un número de placas distinto al previsto:{' '}
+        Hay sistemas con un número de láminas distinto al previsto:{' '}
         {descuadre.map((d) => d.nombre).join(', ')}. Revisa los archivos de
         <code class="mx-1">src/content/placas/</code>.
       </p>
     )}
   </section>
 </Base>
+
+<style>
+  .cabecera-pagina {
+    padding-block: clamp(1.75rem, 1rem + 3vw, 3.25rem) clamp(1.75rem, 1rem + 2.5vw, 2.75rem);
+    border-bottom: 1px solid var(--atlas-borde);
+    margin-bottom: clamp(2rem, 1rem + 2.5vw, 3rem);
+  }
+  .cabecera-pagina h1 {
+    font-size: clamp(2.2rem, 1.3rem + 3.4vw, 3.4rem);
+    font-weight: 400;
+    letter-spacing: -0.028em;
+  }
+  .cabecera-pagina__entrada {
+    max-width: 56ch;
+    margin-top: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--atlas-texto-suave);
+  }
+
+  .titulo-seccion {
+    margin-bottom: 1.1rem;
+    font-size: 1.45rem;
+    font-weight: 450;
+    letter-spacing: -0.015em;
+  }
+
+  /* Cada fuente se nombra una vez y debajo van sus láminas. */
+  .grupo-fuente {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) 1fr auto;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 0.9rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .grupo-fuente__texto {
+    min-width: 0;
+  }
+  .grupo-fuente__regla {
+    height: 1px;
+    background: var(--atlas-borde);
+  }
+  .grupo-fuente__cuenta {
+    font-weight: 400;
+    color: var(--atlas-texto-suave);
+  }
+
+  .lista-creditos {
+    display: grid;
+    gap: 0.55rem 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+  }
+  @media (min-width: 720px) {
+    .lista-creditos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .lista-creditos li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.1rem 0.6rem;
+    border-bottom: 1px solid var(--atlas-borde);
+    padding-bottom: 0.5rem;
+  }
+  .lista-creditos__placa {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: color 150ms;
+  }
+  .lista-creditos__placa:hover {
+    color: var(--color-eosina);
+  }
+  .lista-creditos__placa span {
+    font-size: 0.72rem;
+    color: var(--atlas-texto-suave);
+  }
+  .lista-creditos__pie {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.76rem;
+    color: var(--atlas-texto-suave);
+  }
+  @media (min-width: 720px) {
+    .lista-creditos__pie {
+      text-align: right;
+    }
+  }
+
+  code {
+    border-radius: 4px;
+    background: var(--atlas-superficie-alta);
+    border: 1px solid var(--atlas-borde);
+    padding: 0.05rem 0.3rem;
+    font-size: 0.85em;
+  }
+</style>

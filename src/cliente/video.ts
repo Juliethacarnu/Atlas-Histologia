@@ -171,6 +171,86 @@ class ReproductorYouTube extends Emisor implements Reproductor {
   }
 }
 
+/* ------------------------- transporte del audio -------------------------- */
+
+function reloj(segundos: number): string {
+  if (!Number.isFinite(segundos)) return '–:––';
+  const m = Math.floor(segundos / 60);
+  const s = Math.floor(segundos % 60);
+  return `${m}:${String(s).padStart(2, '0')}`;
+}
+
+const ICONO_PLAY = '<path d="M8 5.2v13.6L19 12z" />';
+const ICONO_PAUSA = '<path d="M8.4 5.4h3.1v13.2H8.4zM12.5 5.4h3.1v13.2h-3.1z" />';
+
+/**
+ * Controles propios para el audio: un botón, una línea de avance y el tiempo.
+ * El <audio> va oculto; esto es lo único que se ve.
+ */
+function montarTransporte(
+  contenedor: HTMLElement,
+  el: HTMLAudioElement,
+  reproductor: Reproductor,
+  titulo: string,
+) {
+  const caja = document.createElement('div');
+  caja.className = 'transporte';
+
+  const boton = document.createElement('button');
+  boton.type = 'button';
+  boton.className = 'transporte__play';
+  boton.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONO_PLAY}</svg>`;
+  boton.setAttribute('aria-label', `Reproducir la explicación: ${titulo}`);
+
+  const barra = document.createElement('input');
+  barra.type = 'range';
+  barra.className = 'transporte__barra';
+  barra.min = '0';
+  barra.max = '100';
+  barra.step = '0.1';
+  barra.value = '0';
+  barra.setAttribute('aria-label', 'Avance de la explicación');
+
+  const tiempo = document.createElement('p');
+  tiempo.className = 'transporte__tiempo tabular-nums';
+  tiempo.textContent = '0:00';
+
+  caja.append(boton, barra, tiempo);
+  contenedor.appendChild(caja);
+
+  let arrastrando = false;
+
+  function pintar() {
+    const total = el.duration;
+    const t = el.currentTime;
+    const pct = Number.isFinite(total) && total > 0 ? (t / total) * 100 : 0;
+    if (!arrastrando) barra.value = String(pct);
+    barra.style.setProperty('--avance', pct + '%');
+    tiempo.textContent = Number.isFinite(total) ? `${reloj(t)} / ${reloj(total)}` : reloj(t);
+  }
+
+  boton.addEventListener('click', () => reproductor.alternar());
+  barra.addEventListener('pointerdown', () => (arrastrando = true));
+  barra.addEventListener('pointerup', () => (arrastrando = false));
+  barra.addEventListener('input', () => {
+    const total = el.duration;
+    if (!Number.isFinite(total)) return;
+    barra.style.setProperty('--avance', barra.value + '%');
+    el.currentTime = (Number(barra.value) / 100) * total;
+  });
+
+  el.addEventListener('loadedmetadata', pintar);
+  el.addEventListener('timeupdate', pintar);
+  reproductor.onEstado((sonando) => {
+    boton.querySelector('svg')!.innerHTML = sonando ? ICONO_PAUSA : ICONO_PLAY;
+    boton.setAttribute(
+      'aria-label',
+      sonando ? 'Pausar la explicación' : `Reproducir la explicación: ${titulo}`,
+    );
+  });
+  pintar();
+}
+
 /** Crea el reproductor adecuado dentro de `contenedor`. */
 export function crearReproductor(
   contenedor: HTMLElement,
@@ -185,15 +265,18 @@ export function crearReproductor(
 
   if (video.tipo === 'audio') {
     // Solo voz: la caricatura del presentador hace de imagen y se anima
-    // mientras suena. Se usan los controles nativos para poder desplazarse.
+    // mientras suena. Los controles nativos del navegador desentonan con el
+    // resto del atlas, asi que el <audio> va oculto y se gobierna desde un
+    // transporte propio.
     const el = document.createElement('audio');
     el.src = ruta('audios', video.src);
-    el.controls = true;
     el.preload = 'metadata';
-    el.className = 'w-full';
+    el.hidden = true;
     el.setAttribute('aria-label', `Explicación en audio: ${titulo}`);
     contenedor.appendChild(el);
-    return new ReproductorMedia(el);
+    const reproductor = new ReproductorMedia(el);
+    montarTransporte(contenedor, el, reproductor, titulo);
+    return reproductor;
   }
 
   const el = document.createElement('video');

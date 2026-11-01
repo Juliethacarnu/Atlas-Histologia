@@ -24,7 +24,7 @@ function reloj(s: number) {
   return `${m}:${String(r).padStart(2, '0')}`;
 }
 
-const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicación todavía';
+const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
 ---
 
 <div
@@ -35,33 +35,22 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
 >
   <!-- Burbuja: estado minimizado -->
   <button type="button" id="explicador-abrir" class="explicador__burbuja" aria-expanded="false">
-    <Avatar presentador={presentador} tamano={52} animable={!!video} clase="avatar-burbuja" />
+    <Avatar presentador={presentador} tamano={48} animable={!!video} clase="avatar-burbuja" />
     <span class="solo-lectores">Abrir al explicador: {nombre}</span>
     {video && <span class="explicador__punto" aria-hidden="true" />}
   </button>
 
   <!-- Ventana -->
-  <section class="explicador__ventana panel-flotante" aria-label="Explicación de la placa">
-    <header class="flex items-center gap-2.5 px-3 pt-2.5 pb-2">
-      <Avatar presentador={presentador} tamano={40} animable={!!video} clase="avatar-cabecera" />
+  <section class="explicador__ventana panel-flotante" aria-label="Explicación de la lámina">
+    <header class="explicador__cabecera">
+      {!esAudio && (
+        <Avatar presentador={presentador} tamano={34} animable={!!video} clase="avatar-cabecera" />
+      )}
       <div class="min-w-0 flex-1">
-        <p
-          id="explicador-nombre"
-          class="truncate font-serif text-[0.95rem] leading-tight font-medium"
-        >
-          {nombre}
-        </p>
-        <p class="truncate text-[0.72rem] text-texto-suave">
-          {rol}
-          {subtituloCabecera}
-        </p>
+        <p id="explicador-nombre" class="explicador__nombre">{nombre}</p>
+        <p class="explicador__rol">{rol ? `${rol} · ${subtitulo}` : subtitulo}</p>
       </div>
-      <button
-        type="button"
-        id="explicador-minimizar"
-        class="explicador__icono"
-        aria-keyshortcuts="M"
-      >
+      <button type="button" id="explicador-minimizar" class="explicador__icono" aria-keyshortcuts="M">
         <span class="solo-lectores">Minimizar al explicador</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 15h12" />
@@ -77,13 +66,14 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
             <div class="explicador__escenario">
               <Avatar
                 presentador={presentador}
-                tamano={128}
+                tamano={116}
                 animable={true}
                 conBucle={true}
                 clase="avatar-escenario"
               />
             </div>
-            <div id="hueco-video" class="px-3 pt-2" />
+            {/* El transporte propio se monta aquí desde el cliente. */}
+            <div id="hueco-video" class="explicador__transporte-hueco" />
           </>
         ) : (
           <>
@@ -93,17 +83,10 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
                 <svg viewBox="0 0 24 24" aria-hidden="true" data-icono="play">
                   <path d="M8 5.5v13l11-6.5z" />
                 </svg>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  data-icono="pausa"
-                  {...{ hidden: true }}
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true" data-icono="pausa" {...{ hidden: true }}>
                   <path d="M8.5 5.5h3v13h-3zM12.5 5.5h3v13h-3z" />
                 </svg>
-                <span class="solo-lectores" id="video-alternar-texto">
-                  Reproducir el video
-                </span>
+                <span class="solo-lectores" id="video-alternar-texto">Reproducir el video</span>
               </button>
               <p class="text-[0.72rem] tabular-nums text-texto-suave">
                 <span id="video-tiempo">0:00</span>
@@ -112,36 +95,27 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
           </>
         )}
 
-        <p class="truncate px-3 pb-2 text-[0.72rem] text-texto-suave">
-          <span id="video-capitulo-actual">
-            {capitulos.length === 0
-                ? ''
-                : capitulos.length === 1
-                  ? '1 capítulo'
-                  : `${capitulos.length} capítulos`}
-          </span>
-        </p>
-
         {capitulos.length > 0 && (
-          <details class="explicador__capitulos">
-            <summary>Capítulos</summary>
-            <ol role="list">
-              {capitulos.map((c) => (
-                <li>
-                  <button
-                    type="button"
-                    data-capitulo={c.estructuraId}
-                    data-tiempo={c.tiempoSegundos}
-                  >
-                    <span class="tabular-nums opacity-65">{reloj(c.tiempoSegundos)}</span>
-                    <span class="truncate" data-nombre-capitulo>
-                      {c.estructura!.nombre}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ol>
-          </details>
+          <>
+            <p class="explicador__capitulo-actual">
+              <span id="video-capitulo-actual">
+                {capitulos.length === 1 ? '1 capítulo' : `${capitulos.length} capítulos`}
+              </span>
+            </p>
+            <details class="explicador__capitulos">
+              <summary>Capítulos</summary>
+              <ol role="list">
+                {capitulos.map((c) => (
+                  <li>
+                    <button type="button" data-capitulo={c.estructuraId} data-tiempo={c.tiempoSegundos}>
+                      <span class="tabular-nums opacity-65">{reloj(c.tiempoSegundos)}</span>
+                      <span class="truncate" data-nombre-capitulo>{c.estructura!.nombre}</span>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          </>
         )}
 
         {/* Un <audio> no muestra subtítulos: el .vtt se pinta como transcripción. */}
@@ -153,10 +127,10 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
         )}
       </>
     ) : (
-      <div class="px-3 pb-3">
-        <p class="explicador__resumen text-[0.82rem] leading-relaxed text-texto-suave">
+      <div class="px-3.5 pb-3.5">
+        <p class="explicador__resumen">
           {placa.descripcionGeneral ||
-            'Todavía no hay explicación para esta placa. Cuando subas el audio o el video, aparecerá aquí junto a la caricatura del presentador.'}
+            'Todavía no hay explicación para esta lámina. Cuando subas el audio, aparecerá aquí junto a la caricatura del presentador.'}
         </p>
       </div>
     )}
@@ -174,28 +148,53 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
     .explicador {
       /* Dentro del marco del visor, a la izquierda del panel de estructuras. */
       position: absolute;
-      right: 23.5rem;
-      bottom: 0.75rem;
+      right: 23.75rem;
+      bottom: 0.875rem;
     }
   }
 
   .explicador__ventana {
-    width: min(20rem, calc(100vw - 1.5rem));
+    width: min(17.5rem, calc(100vw - 1.5rem));
     overflow: hidden;
   }
 
-  /* Escenario del modo audio: la caricatura sobre el campo del microscopio. */
+  /* --- Cabecera --- */
+  .explicador__cabecera {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.65rem 0.55rem 0.85rem;
+  }
+  .explicador__nombre {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .explicador__rol {
+    font-size: 0.7rem;
+    line-height: 1.35;
+    color: var(--atlas-texto-suave);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Escenario del modo audio: la caricatura sobre el campo oscuro, el mismo
+     material que el fondo del visor. */
   .explicador__escenario {
     display: grid;
     place-items: end center;
-    padding-top: 0.75rem;
-    background:
-      radial-gradient(
-        ellipse at 50% 120%,
-        color-mix(in srgb, var(--color-eosina) 22%, transparent) 0%,
-        transparent 68%
-      ),
-      var(--color-nucleo);
+    aspect-ratio: 16 / 11;
+    background: var(--color-nucleo);
+  }
+
+  .explicador__transporte-hueco {
+    padding: 0.6rem 0.85rem 0.75rem;
   }
 
   .explicador__burbuja {
@@ -205,7 +204,7 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
     background: color-mix(in srgb, var(--atlas-superficie) 92%, transparent);
     backdrop-filter: blur(10px);
     border: 1px solid color-mix(in srgb, var(--atlas-borde) 70%, transparent);
-    box-shadow: 0 6px 20px -8px rgb(14 9 32 / 0.55);
+    box-shadow: var(--atlas-sombra-alta);
     padding: 0.2rem;
   }
 
@@ -219,8 +218,8 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
 
   .explicador__punto {
     position: absolute;
-    right: 0.15rem;
-    bottom: 0.15rem;
+    right: 0.1rem;
+    bottom: 0.1rem;
     height: 0.6rem;
     width: 0.6rem;
     border-radius: 999px;
@@ -271,9 +270,21 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
   .explicador__resumen {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     overflow: hidden;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--atlas-texto-suave);
+  }
+
+  .explicador__capitulo-actual {
+    padding: 0 0.85rem 0.5rem;
+    font-size: 0.7rem;
+    color: var(--atlas-texto-suave);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .explicador__capitulos {
@@ -282,13 +293,13 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
   }
   .explicador__capitulos summary {
     cursor: pointer;
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.85rem;
     color: var(--atlas-texto-suave);
   }
   .explicador__capitulos ol {
     list-style: none;
     margin: 0;
-    padding: 0 0.4rem 0.5rem;
+    padding: 0 0.5rem 0.5rem;
     max-height: 9rem;
     overflow-y: auto;
   }
@@ -320,5 +331,109 @@ const subtituloCabecera = video ? ' · explica esta placa' : ' · sin explicaci�
     flex: none;
     font-variant-numeric: tabular-nums;
     opacity: 0.6;
+  }
+</style>
+
+<!-- El transporte del audio se construye desde el cliente: sus estilos tienen
+     que ser globales para alcanzarlo. -->
+<style is:global>
+  .transporte {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .transporte__play {
+    display: grid;
+    place-items: center;
+    height: 2.1rem;
+    width: 2.1rem;
+    flex: none;
+    border-radius: 999px;
+    background: var(--color-eosina);
+    color: #fff;
+    transition: background-color 150ms;
+  }
+  .transporte__play:hover {
+    background: var(--color-eosina-claro);
+  }
+  .transporte__play svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
+    translate: 0.03rem 0;
+  }
+
+  /* La línea de avance: un riel de pelo que se tiñe de eosina al pasar. */
+  .transporte__barra {
+    --avance: 0%;
+    flex: 1;
+    min-width: 0;
+    height: 1rem;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  .transporte__barra::-webkit-slider-runnable-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-eosina) var(--avance),
+      var(--atlas-borde-fuerte) var(--avance)
+    );
+  }
+  .transporte__barra::-moz-range-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-eosina) var(--avance),
+      var(--atlas-borde-fuerte) var(--avance)
+    );
+  }
+  .transporte__barra::-webkit-slider-thumb {
+    appearance: none;
+    height: 0.7rem;
+    width: 0.7rem;
+    margin-top: -0.2rem;
+    border-radius: 999px;
+    background: var(--color-eosina);
+    box-shadow: 0 0 0 2px var(--atlas-superficie);
+  }
+  .transporte__barra::-moz-range-thumb {
+    height: 0.7rem;
+    width: 0.7rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-eosina);
+    box-shadow: 0 0 0 2px var(--atlas-superficie);
+  }
+
+  /* Las líneas de la transcripción también nacen en el cliente. */
+  #transcripcion-lista button {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    border-radius: 0.35rem;
+    padding: 0.25rem 0.4rem;
+    text-align: left;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: var(--atlas-texto);
+  }
+  #transcripcion-lista button:hover {
+    background: var(--atlas-fondo);
+  }
+  #transcripcion-lista button[aria-current='true'] {
+    background: var(--color-eosina-tenue);
+    color: var(--color-nucleo);
+  }
+
+  .transporte__tiempo {
+    flex: none;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    color: var(--atlas-texto-suave);
   }
 </style>

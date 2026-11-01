@@ -8,13 +8,22 @@ interface Props {
   placa: Placa;
   /** Las primeras miniaturas se cargan de inmediato; el resto en diferido. */
   prioridad?: boolean;
+  /** Otra placa del mismo sistema se llama igual: hay que distinguirlas. */
+  tituloRepetido?: boolean;
 }
-const { placa, prioridad = false } = Astro.props;
+const { placa, prioridad = false, tituloRepetido = false } = Astro.props;
 const sistema = nombreSistema(placa.sistema);
 const acento = acentoSistema(placa.sistema);
 const portada = imagenesDe(placa)[0]!;
 const busqueda = textoBusqueda(placa, sistema);
 const nEstructuras = placa.estructuras.length;
+const aumentos = placa.aumentos.join(' · ');
+
+// Si el organo repite el titulo no aporta nada; en su lugar se dice el sistema.
+const segundaLinea =
+  placa.organo && placa.organo.toLowerCase() !== placa.titulo.toLowerCase()
+    ? placa.organo
+    : sistema;
 ---
 
 <li class="placa-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
@@ -29,18 +38,27 @@ const nEstructuras = placa.estructuras.length;
         loading={prioridad ? 'eager' : 'lazy'}
         decoding="async"
       />
-      {placa.aumentos.length > 0 && (
-        <span class="placa__aumento tabular-nums">{placa.aumentos.join(' · ')}</span>
+      {aumentos && !tituloRepetido && (
+        <span class="placa__aumento tabular-nums">{aumentos}</span>
       )}
       {placa.borrador && <span class="placa__revisar">Revisar</span>}
     </div>
 
-    <h3 class="placa__titulo">{placa.titulo}</h3>
+    <h3 class="placa__titulo">
+      {placa.titulo}
+      {tituloRepetido && aumentos && (
+        <span class="placa__titulo-aumento tabular-nums">{aumentos}</span>
+      )}
+    </h3>
     <p class="placa__meta">
       <span class="placa__punto" aria-hidden="true" />
-      <span class="truncate">{placa.organo || sistema}</span>
-      <span class="placa__sep" aria-hidden="true">·</span>
-      <span class="shrink-0 tabular-nums">{nEstructuras}</span>
+      <span class="truncate">{segundaLinea}</span>
+      {nEstructuras > 0 && (
+        <>
+          <span class="placa__sep" aria-hidden="true">·</span>
+          <span class="shrink-0 tabular-nums">{nEstructuras}</span>
+        </>
+      )}
     </p>
   </a>
 </li>
@@ -50,10 +68,15 @@ const nEstructuras = placa.estructuras.length;
     position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-chapa);
     background: var(--color-nucleo);
     /* Un filo finísimo en vez de una sombra: separa sin pesar. */
-    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.1);
+    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.12);
+    transition: box-shadow 200ms;
+  }
+  .placa:hover .placa__lamina,
+  .placa:focus-visible .placa__lamina {
+    box-shadow: inset 0 0 0 1px rgb(26 18 51 / 0.12), 0 0 0 2px var(--color-eosina);
   }
 
   .placa__lamina img {
@@ -61,40 +84,43 @@ const nEstructuras = placa.estructuras.length;
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 500ms var(--ease-visor);
+    transition: transform 600ms var(--ease-visor);
   }
 
+  /* Un acercamiento muy leve: insinúa el zoom del visor sin recortar. */
   .placa:hover .placa__lamina img,
   .placa:focus-visible .placa__lamina img {
-    transform: scale(1.04);
+    transform: scale(1.035);
   }
 
   /* Chapitas sobre la lámina: discretas, sólo cuando hacen falta. */
   .placa__aumento,
   .placa__revisar {
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.45rem;
     border-radius: 0.25rem;
-    padding: 0.1rem 0.35rem;
+    padding: 0.08rem 0.35rem;
     font-size: 0.65rem;
-    line-height: 1.4;
-    letter-spacing: 0.01em;
+    line-height: 1.45;
     backdrop-filter: blur(6px);
   }
   .placa__aumento {
-    right: 0.5rem;
-    background: rgb(14 9 32 / 0.55);
-    color: rgb(255 255 255 / 0.92);
+    right: 0.45rem;
+    background: rgb(14 9 32 / 0.6);
+    color: rgb(255 255 255 / 0.94);
   }
   .placa__revisar {
-    left: 0.5rem;
+    left: 0.45rem;
     background: color-mix(in srgb, var(--color-eosina) 88%, transparent);
     color: #fff;
     font-weight: 500;
   }
 
   .placa__titulo {
-    margin-top: 0.7rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
     font-family: var(--font-serif);
     font-size: 1.05rem;
     font-weight: 450;
@@ -107,12 +133,21 @@ const nEstructuras = placa.estructuras.length;
     color: var(--color-eosina);
   }
 
+  /* Cuando dos láminas se llaman igual, el aumento entra en el título. */
+  .placa__titulo-aumento {
+    flex: none;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--atlas-texto-suave);
+  }
+
   .placa__meta {
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    margin-top: 0.2rem;
-    font-size: 0.76rem;
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
     color: var(--atlas-texto-suave);
   }
   .placa__punto {
