@@ -3,6 +3,7 @@ import type { Placa } from '../utils/placas';
 import { imagenesDe, urlImagen, textoBusqueda } from '../utils/placas';
 import { acentoSistema, nombreSistema } from '../datos/sistemas';
 import { rutaPlaca } from '../utils/ruta';
+import { proporcionDe } from '../utils/dimensiones';
 
 interface Props {
   placa: Placa;
@@ -18,6 +19,9 @@ const portada = imagenesDe(placa)[0]!;
 const busqueda = textoBusqueda(placa, sistema);
 const nEstructuras = placa.estructuras.length;
 const aumentos = placa.aumentos.join(' · ');
+// La bandeja respeta la forma de cada preparación en vez de recortarlas todas
+// al mismo rectángulo: una tráquea es panorámica y un duodeno es redondo.
+const proporcion = await proporcionDe(portada.archivo);
 
 // Si el organo repite el titulo no aporta nada; en su lugar se dice el sistema.
 const segundaLinea =
@@ -29,12 +33,12 @@ const segundaLinea =
 <li class="placa-item" data-placa data-sistema={placa.sistema} data-busqueda={busqueda}>
   <a href={rutaPlaca(placa.id)} class="placa group block no-underline" style={`--acento: ${acento}`}>
     <!-- La lámina manda: sin caja, sin sombra, sin marco. -->
-    <div class="placa__lamina">
+    <div class="placa__lamina" style={`--proporcion: ${proporcion.toFixed(4)}`}>
       <img
         src={urlImagen(portada.archivo, 'miniatura')}
         alt={`Preparación: ${placa.titulo}`}
         width="480"
-        height="360"
+        height={Math.round(480 / proporcion)}
         loading={prioridad ? 'eager' : 'lazy'}
         decoding="async"
       />
@@ -66,7 +70,7 @@ const segundaLinea =
 <style>
   .placa__lamina {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: var(--proporcion, 4 / 3);
     overflow: hidden;
     border-radius: var(--radius-chapa);
     background: var(--color-nucleo);
@@ -161,6 +165,11 @@ const segundaLinea =
     opacity: 0.4;
   }
 
+  .placa-item {
+    break-inside: avoid;
+    /* Evita que una tarjeta quede cortada al final de una columna. */
+    page-break-inside: avoid;
+  }
   .placa-item[hidden] {
     display: none;
   }

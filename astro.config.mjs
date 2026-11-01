@@ -26,24 +26,32 @@ function atajoDeDesarrollo() {
   return {
     name: 'atlas:atajo-de-desarrollo',
     apply: 'serve',
+    /** @param {import('vite').ViteDevServer} servidor */
     configureServer(servidor) {
-      servidor.middlewares.use((peticion, respuesta, siguiente) => {
-        const ruta = (peticion.url ?? '/').split('?')[0];
-        const enMinusculas = ruta.toLowerCase();
-        const baseEnMinusculas = BASE.toLowerCase();
+      servidor.middlewares.use(
+        /**
+         * @param {import('node:http').IncomingMessage} peticion
+         * @param {import('node:http').ServerResponse} respuesta
+         * @param {() => void} siguiente
+         */
+        (peticion, respuesta, siguiente) => {
+          const ruta = (peticion.url ?? '/').split('?')[0];
+          const enMinusculas = ruta.toLowerCase();
+          const baseEnMinusculas = BASE.toLowerCase();
 
-        const esLaBaseMalEscrita =
-          ruta !== BASE &&
-          !ruta.startsWith(BASE + '/') &&
-          (enMinusculas === baseEnMinusculas || enMinusculas.startsWith(baseEnMinusculas + '/'));
+          const esLaBaseMalEscrita =
+            ruta !== BASE &&
+            !ruta.startsWith(BASE + '/') &&
+            (enMinusculas === baseEnMinusculas || enMinusculas.startsWith(baseEnMinusculas + '/'));
 
-        if (esLaBaseMalEscrita) {
-          respuesta.writeHead(302, { Location: BASE + ruta.slice(BASE.length) });
-          return respuesta.end();
-        }
+          if (esLaBaseMalEscrita) {
+            respuesta.writeHead(302, { Location: BASE + ruta.slice(BASE.length) });
+            return respuesta.end();
+          }
 
-        siguiente();
-      });
+          siguiente();
+        },
+      );
     },
   };
 }

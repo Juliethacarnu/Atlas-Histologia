@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Portaobjetos from '../componentes/Portaobjetos.astro';
 import BuscadorFiltros from '../componentes/BuscadorFiltros.astro';
 import { SISTEMAS, TOTAL_PLACAS_ESPERADAS } from '../datos/sistemas';
+import { imagenesDe, urlImagen } from '../utils/placas';
 
 const placas = await getCollection('placas');
 const conteos: Record<string, number> = {};
@@ -27,6 +28,14 @@ for (const { placas: delSistema } of porSistema) {
     if (vistos.has(p.data.titulo)) repetidos.add(p.data.titulo);
     vistos.add(p.data.titulo);
   }
+}
+
+// Cada filtro lleva dentro un trocito de una de sus laminas: se reconoce el
+// sistema por el tejido antes que por el nombre.
+const muestras: Record<string, string> = {};
+for (const { sistema, placas: delSistema } of porSistema) {
+  const primera = delSistema[0];
+  if (primera) muestras[sistema.id] = urlImagen(imagenesDe(primera.data)[0]!.archivo, 'miniatura');
 }
 
 const totalEstructuras = placas.reduce((n, p) => n + p.data.estructuras.length, 0);
@@ -60,7 +69,7 @@ let contadorGlobal = 0;
 
   <section aria-labelledby="titulo-bandeja">
     <h2 id="titulo-bandeja" class="solo-lectores">Todas las láminas</h2>
-    <BuscadorFiltros conteos={conteos} total={placas.length} />
+    <BuscadorFiltros conteos={conteos} total={placas.length} muestras={muestras} />
 
     <div class="flex flex-col gap-14">
       {porSistema.map(({ sistema, placas: delSistema }) => (
@@ -216,25 +225,36 @@ let contadorGlobal = 0;
     }
   }
 
-  /* --- Rejilla de laminas --- */
+  /* --- Mosaico: la bandeja de preparaciones ---
+     Columnas CSS en vez de rejilla. Asi cada lamina conserva su forma (la
+     traquea es panoramica, el duodeno redondo) y el mosaico se cierra solo,
+     sin recortar ninguna ni dejar huecos. --- */
   .rejilla {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1.1rem;
+    columns: 2;
+    column-gap: 1.1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
+  .rejilla > :global(li) {
+    margin-bottom: 1.6rem;
+  }
   @media (min-width: 640px) {
     .rejilla {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.75rem 1.35rem;
+      columns: 3;
+      column-gap: 1.35rem;
     }
   }
+  /* Tres columnas y no cuatro: con cuatro, el reparto secuencial de las
+     columnas CSS dejaba huecos de media pantalla, y además la lámina se ve
+     más grande, que es de lo que se trata. */
   @media (min-width: 1100px) {
     .rejilla {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2rem 1.5rem;
+      columns: 3;
+      column-gap: 1.75rem;
+    }
+    .rejilla > :global(li) {
+      margin-bottom: 2.25rem;
     }
   }
 </style>

@@ -154,24 +154,36 @@ const sinPresentador = placas.filter(
     color: var(--atlas-texto-suave);
   }
 
+  /* --- Mosaico: la bandeja de preparaciones ---
+     Columnas CSS en vez de rejilla. Asi cada lamina conserva su forma (la
+     traquea es panoramica, el duodeno redondo) y el mosaico se cierra solo,
+     sin recortar ninguna ni dejar huecos. --- */
   .rejilla-autor {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1.1rem;
+    columns: 2;
+    column-gap: 1.1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
+  .rejilla-autor > :global(li) {
+    margin-bottom: 1.6rem;
+  }
   @media (min-width: 640px) {
     .rejilla-autor {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.75rem 1.35rem;
+      columns: 3;
+      column-gap: 1.35rem;
     }
   }
+  /* Tres columnas y no cuatro: con cuatro, el reparto secuencial de las
+     columnas CSS dejaba huecos de media pantalla, y además la lámina se ve
+     más grande, que es de lo que se trata. */
   @media (min-width: 1100px) {
     .rejilla-autor {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2rem 1.5rem;
+      columns: 3;
+      column-gap: 1.75rem;
+    }
+    .rejilla-autor > :global(li) {
+      margin-bottom: 2.25rem;
     }
   }
 
