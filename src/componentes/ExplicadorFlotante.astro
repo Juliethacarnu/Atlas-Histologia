@@ -210,6 +210,19 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
   .explicador--minimizado .explicador__burbuja {
     display: block;
   }
+  /* En movil la burbuja no existe: el presentador se ha mudado al asa de la
+     ficha, debajo del visor. Una burbuja flotante tapaba justo el trozo de
+     lamina del que estaba hablando. */
+  @media (max-width: 1023px) {
+    .explicador--minimizado .explicador__burbuja {
+      display: none;
+    }
+    /* Cuando se abre desde el asa, la ventana se pone por delante de la
+       hoja de la ficha. */
+    .explicador {
+      z-index: 50;
+    }
+  }
 
   .explicador__punto {
     position: absolute;

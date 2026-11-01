@@ -43,7 +43,21 @@ const variasImagenes = imagenes.length > 1;
 
   {
     variasImagenes && (
-      <div class="tira" role="group" aria-label="Imágenes de esta preparación">
+      <div
+        class="tira"
+        id="tira-imagenes"
+        role="group"
+        aria-label="Imágenes de esta preparación"
+        data-abierta="no"
+      >
+        {/* Cabecera que solo se ve cuando la tira es una hoja, en movil. */}
+        <div class="tira__cabecera">
+          <p class="tira__titulo">Imágenes de esta lámina</p>
+          <button type="button" id="cerrar-laminas" class="tira__cerrar">
+            <span class="solo-lectores">Cerrar las imágenes</span>
+            <Icono nombre="x" />
+          </button>
+        </div>
         {imagenes.map((im, i) => (
           <button type="button" class="tira__hoja" data-imagen={i} aria-pressed={i === 0}>
             <img src={urlImagen(im.archivo, 'miniatura')} alt="" aria-hidden="true" loading="lazy" />
@@ -57,16 +71,20 @@ const variasImagenes = imagenes.length > 1;
     )
   }
 
-  <!-- Minimapa -->
+  {/* Minimapa: solo en escritorio. Debajo de 1024 el riel de zoom ocupa esa
+      esquina y, sobre todo, sobre la lamina en movil no va nada mas que los
+      marcadores y el riel. */}
   <div
     id="minimapa"
-    class="chapa-campo absolute top-3 right-3 z-20 h-24 w-32 overflow-hidden max-sm:hidden! lg:right-[23.75rem]"
+    class="chapa-campo absolute top-3 right-3 z-20 h-24 w-32 overflow-hidden max-lg:hidden! lg:right-[23.75rem]"
     aria-hidden="true"
   >
   </div>
 
-  <!-- Controles de tamaño -->
-  <div class="chapa-campo absolute bottom-3 left-3 z-20 flex items-center gap-0.5 p-1">
+  {/* El riel de zoom: la alternativa obligatoria al pellizco. En movil se va
+      arriba a la derecha, lejos del pulgar que arrastra y de la ficha que
+      sube por abajo. */}
+  <div class="riel" role="group" aria-label="Tamaño de la lámina">
     <button type="button" class="boton-visor" data-accion="acercar" aria-keyshortcuts="+">
       <span class="solo-lectores">Acercar</span>
       <Icono nombre="magnifying-glass-plus" />
@@ -79,11 +97,18 @@ const variasImagenes = imagenes.length > 1;
       <span class="solo-lectores">Ajustar a la pantalla</span>
       <Icono nombre="corners-in" />
     </button>
-    <button type="button" class="boton-visor" data-accion="pantalla-completa">
+    {/* A pantalla completa solo en escritorio: en el movil el navegador ya
+        se queda con la pantalla y el boton seria un cuarto objetivo de 44 px
+        sobre una foto de 280. */}
+    <button type="button" class="boton-visor max-lg:hidden" data-accion="pantalla-completa">
       <span class="solo-lectores">Pantalla completa</span>
       <Icono nombre="corners-out" />
     </button>
   </div>
+
+  {/* El aumento, arriba a la izquierda y solo mientras cambia: informa sin
+      quedarse ocupando sitio sobre la lamina. */}
+  <p id="chip-zoom" class="chip-zoom tabular-nums" aria-hidden="true" data-visible="no"></p>
 
   <!-- Crédito de la imagen visible -->
   <p
@@ -180,6 +205,66 @@ const variasImagenes = imagenes.length > 1;
     display: flex;
     gap: 0.4rem;
   }
+  .tira__cabecera {
+    display: none;
+  }
+
+  /* En movil la tira sale de encima de la lamina y se convierte en una hoja
+     que abre el boton de imagenes de la cabecera: 46 miniaturas no caben en
+     una foto de 280 px de alto y encima competian con el arrastre. */
+  @media (max-width: 1023px) {
+    .tira {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      top: auto;
+      z-index: 60;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+      gap: 0.6rem;
+      max-height: 70dvh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      border-radius: var(--radius-hoja) var(--radius-hoja) 0 0;
+      background: var(--atlas-superficie);
+      box-shadow: var(--atlas-sombra-hoja);
+      padding: 0.9rem 1rem calc(1.1rem + env(safe-area-inset-bottom));
+      transition: transform 240ms var(--ease-visor);
+    }
+    .tira[data-abierta='no'] {
+      transform: translateY(105%);
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .tira__cabecera {
+      display: flex;
+      grid-column: 1 / -1;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .tira__titulo {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+    }
+    .tira__cerrar {
+      display: grid;
+      place-items: center;
+      width: var(--medida-tactil);
+      height: var(--medida-tactil);
+      margin-right: -0.6rem;
+      flex: none;
+      border-radius: var(--radius-chapa);
+      font-size: 1.1rem;
+      color: var(--atlas-texto-suave);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tira {
+        transition: none;
+      }
+    }
+  }
+
   @media (min-width: 1024px) {
     .tira {
       flex-direction: column;
@@ -243,6 +328,30 @@ const variasImagenes = imagenes.length > 1;
   .tira__hoja[aria-pressed='true'] .tira__etiqueta {
     background: var(--color-eosina);
     color: var(--atlas-sobre-eosina);
+  }
+
+  /* Dentro de la hoja, en movil, las miniaturas ya no flotan sobre el campo
+     oscuro del visor: estan sobre papel y se visten como el resto del sitio,
+     con sitio de sobra para verlas de verdad. */
+  @media (max-width: 1023px) {
+    .tira__hoja {
+      width: auto;
+      border-color: var(--atlas-borde);
+      background: var(--atlas-fondo);
+      box-shadow: none;
+    }
+    .tira__hoja img {
+      height: 4.5rem;
+      opacity: 1;
+    }
+    .tira__etiqueta {
+      padding-block: 0.3rem;
+      font-size: 0.7rem;
+      color: var(--atlas-texto-suave);
+    }
+    .tira__hoja[aria-pressed='true'] {
+      border-color: var(--atlas-texto);
+    }
   }
 
   /* ---------- Marcadores numerados ----------
@@ -335,7 +444,39 @@ const variasImagenes = imagenes.length > 1;
     font-size: 0.75rem;
   }
 
-  /* ---------- Botones sobre el campo oscuro ---------- */
+  /* ---------- El riel de zoom ----------
+     Sobre la lamina solo hay dos materiales: tinta y papel. El riel es papel
+     translucido con los iconos en tinta, el mismo par que los marcadores, y
+     no la chapa oscura de antes: sobre una tincion clara una chapa negra
+     pesa mas que la propia foto. */
+  .riel {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    padding: 0.15rem;
+    border-radius: var(--radius-chapa);
+    border: 1px solid var(--atlas-borde-fuerte);
+    background: var(--atlas-velo);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--atlas-sombra-riel);
+    /* Escritorio: abajo a la izquierda, donde no tapa nada. */
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+  /* Movil: arriba a la derecha, lejos del pulgar y de la hoja de la ficha. */
+  @media (max-width: 1023px) {
+    .riel {
+      top: 8px;
+      right: 8px;
+      bottom: auto;
+      left: auto;
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
   .boton-visor {
     display: grid;
     place-items: center;
@@ -343,14 +484,50 @@ const variasImagenes = imagenes.length > 1;
     height: 2rem;
     border-radius: var(--radius-chapa);
     font-size: 1.15rem;
-    color: rgb(255 255 255 / 0.8);
+    color: var(--atlas-texto);
     transition:
       background-color 140ms,
       color 140ms;
   }
   .boton-visor:hover {
-    background: rgb(255 255 255 / 0.14);
-    color: #fff;
+    background: color-mix(in srgb, var(--atlas-texto) 10%, transparent);
+  }
+  /* En movil el dedo manda: los tres del riel miden 44 px de verdad. */
+  @media (max-width: 1023px) {
+    .boton-visor {
+      width: var(--medida-tactil);
+      height: var(--medida-tactil);
+    }
+    /* Tres botones y no cuatro: la utilidad de Tailwind va en una capa y
+       pierde contra la regla de arriba, asi que se dice aqui. */
+    .boton-visor[data-accion='pantalla-completa'] {
+      display: none;
+    }
+  }
+
+  /* ---------- El aumento, mientras cambia ---------- */
+  .chip-zoom {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 20;
+    border-radius: var(--radius-chapa);
+    background: var(--atlas-velo);
+    backdrop-filter: blur(8px);
+    padding: 0.15rem 0.4rem;
+    font-size: 0.72rem;
+    color: var(--atlas-texto);
+    transition: opacity 200ms;
+  }
+  .chip-zoom[data-visible='no'] {
+    opacity: 0;
+    visibility: hidden;
+  }
+  @media (min-width: 1024px) {
+    /* En escritorio el minimapa ya dice donde estas: el chip sobra. */
+    .chip-zoom {
+      display: none;
+    }
   }
 
   /* El minimapa de OpenSeadragon */

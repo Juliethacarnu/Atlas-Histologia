@@ -1,0 +1,148 @@
+---
+/**
+ * Asa de la ficha: la barra de 64 px que vive debajo del visor en movil.
+ *
+ * Es la unica pieza fija que acompana a la lamina en una pantalla pequena, y
+ * por eso recoge tres cosas que antes flotaban encima de la foto: el
+ * presentador (que era una burbuja y tapaba justo lo que explicaba), el
+ * nombre de la estructura elegida y el paso a la anterior y la siguiente.
+ * Al tirar de ella hacia arriba se convierte en la ficha.
+ */
+import type { Presentador } from '../utils/placas';
+import Avatar from './Avatar.astro';
+import Icono from './Icono.astro';
+
+interface Props {
+  presentador: Presentador | null;
+  /** Si la placa trae audio o video, el presentador se puede abrir. */
+  conExplicacion: boolean;
+}
+const { presentador, conExplicacion } = Astro.props;
+const nombre = presentador?.nombre ?? null;
+---
+
+<div class="asa" data-asa>
+  {
+    nombre && (
+      <button type="button" id="asa-presentador" class="asa__presentador">
+        <Avatar
+          presentador={presentador}
+          tamano={34}
+          animable={conExplicacion}
+          clase="avatar-asa"
+        />
+        <span class="solo-lectores">
+          {conExplicacion ? `Oír a ${nombre} explicar esta lámina` : `Ver a ${nombre}`}
+        </span>
+      </button>
+    )
+  }
+
+  <button
+    type="button"
+    id="asa-abrir"
+    class="asa__texto"
+    aria-expanded="false"
+    aria-controls="ficha-estructura"
+  >
+    <span id="asa-titulo" class="asa__titulo">
+      {conExplicacion && nombre ? `${nombre} explica esta lámina` : 'Ninguna estructura elegida'}
+    </span>
+    <span id="asa-pista" class="asa__pista">Toca un marcador de la lámina</span>
+  </button>
+
+  <div class="asa__pasos" role="group" aria-label="Moverse entre estructuras">
+    <button type="button" id="asa-anterior" class="asa__paso" disabled>
+      <span class="solo-lectores">Estructura anterior</span>
+      <Icono nombre="caret-left" peso="bold" />
+    </button>
+    <button type="button" id="asa-siguiente" class="asa__paso">
+      <span class="solo-lectores">Estructura siguiente</span>
+      <Icono nombre="caret-right" peso="bold" />
+    </button>
+  </div>
+</div>
+
+<style>
+  /* El asa solo existe en movil: en escritorio la ficha vive al pie del
+     panel lateral y el presentador tiene sitio propio junto al visor. */
+  .asa {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: var(--medida-asa);
+    padding-inline: 0.75rem;
+    border-bottom: 1px solid var(--atlas-borde);
+    background: var(--atlas-superficie);
+  }
+  @media (min-width: 1024px) {
+    .asa {
+      display: none;
+    }
+  }
+
+  .asa__presentador {
+    display: grid;
+    place-items: center;
+    width: var(--medida-tactil);
+    height: var(--medida-tactil);
+    flex: none;
+    margin-left: -0.35rem;
+    border-radius: 999px;
+  }
+  .asa__presentador:hover {
+    background: var(--atlas-fondo);
+  }
+
+  /* El texto es el tirador: ocupa todo el hueco libre para que sea facil de
+     acertar con el pulgar. */
+  .asa__texto {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: flex-start;
+    height: 100%;
+    padding-block: 0.5rem;
+    text-align: left;
+  }
+  .asa__titulo {
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-serif);
+    font-size: 0.98rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .asa__pista {
+    font-size: 0.72rem;
+    line-height: 1.2;
+    color: var(--atlas-texto-suave);
+  }
+
+  .asa__pasos {
+    display: flex;
+    flex: none;
+    gap: 0.15rem;
+  }
+  .asa__paso {
+    display: grid;
+    place-items: center;
+    width: var(--medida-tactil);
+    height: var(--medida-tactil);
+    border-radius: var(--radius-chapa);
+    color: var(--atlas-texto-suave);
+  }
+  .asa__paso .icono {
+    font-size: 1.05rem;
+  }
+  .asa__paso:hover:not(:disabled) {
+    background: var(--atlas-fondo);
+    color: var(--atlas-texto);
+  }
+  .asa__paso:disabled {
+    opacity: 0.3;
+  }
+</style>

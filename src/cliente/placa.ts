@@ -71,8 +71,71 @@ function iniciar(datos: DatosPlaca) {
   for (const boton of document.querySelectorAll<HTMLButtonElement>('[data-imagen]')) {
     boton.addEventListener('click', () => {
       estado.cambiarImagen(Number(boton.dataset.imagen));
+      cerrarLaminas();
     });
   }
+
+  /* --------------- La tira de imagenes, como hoja en movil ---------------- */
+  const tira = document.getElementById('tira-imagenes');
+  const abrirLaminas = document.getElementById('abrir-laminas');
+  const cerrarLaminasBoton = document.getElementById('cerrar-laminas');
+
+  function cerrarLaminas() {
+    if (!tira) return;
+    tira.dataset.abierta = 'no';
+    abrirLaminas?.setAttribute('aria-expanded', 'false');
+  }
+  abrirLaminas?.addEventListener('click', () => {
+    if (!tira) return;
+    const abierta = tira.dataset.abierta === 'si';
+    tira.dataset.abierta = abierta ? 'no' : 'si';
+    abrirLaminas.setAttribute('aria-expanded', String(!abierta));
+    if (!abierta) tira.querySelector<HTMLButtonElement>('[data-imagen]')?.focus();
+  });
+  cerrarLaminasBoton?.addEventListener('click', () => {
+    cerrarLaminas();
+    abrirLaminas?.focus();
+  });
+  // Tocar fuera de la hoja la cierra, como cualquier hoja del sistema.
+  document.addEventListener('pointerdown', (ev) => {
+    if (!tira || tira.dataset.abierta !== 'si') return;
+    const destino = ev.target as HTMLElement | null;
+    if (destino?.closest('#tira-imagenes, #abrir-laminas')) return;
+    cerrarLaminas();
+  });
+
+  /* ------------------- El aumento, mientras cambia ----------------------- */
+  const chip = document.getElementById('chip-zoom');
+  let ocultarChip = 0;
+  let zoomAnterior: number | null = null;
+  // El primer aviso de zoom de cada imagen es el encuadre inicial, no un
+  // cambio pedido por nadie: ese no se anuncia.
+  visor.viewer.addHandler('open', () => {
+    zoomAnterior = null;
+  });
+  visor.viewer.addHandler('zoom', () => {
+    if (!chip) return;
+    const vista = visor.viewer.viewport;
+    const encaje = vista.getHomeZoom();
+    if (!encaje) return;
+    // Cuantas veces la lamina entera, que es lo que el lector entiende por
+    // aumento. El ratio contra los pixeles originales daria «x0,6» al abrir
+    // y nadie lee eso como «la foto completa». Se pide el zoom de destino,
+    // no el de este fotograma: el aviso llega con el gesto, no despues.
+    const ahora = vista.getZoom() / encaje;
+    if (zoomAnterior === null) {
+      zoomAnterior = ahora;
+      return;
+    }
+    if (Math.abs(ahora - zoomAnterior) < 0.01) return;
+    zoomAnterior = ahora;
+    chip.textContent = '×' + ahora.toFixed(1).replace('.', ',');
+    chip.dataset.visible = 'si';
+    window.clearTimeout(ocultarChip);
+    ocultarChip = window.setTimeout(() => {
+      chip.dataset.visible = 'no';
+    }, 1100);
+  });
 
   /* ------------------------ Controles del visor -------------------------- */
   const acciones: Record<string, () => void> = {
@@ -124,13 +187,89 @@ function iniciar(datos: DatosPlaca) {
    */
   function abrirFicha() {
     if (!ficha) return;
+    const estaba = ficha.dataset.abierta === 'si';
     ficha.dataset.abierta = 'si';
     ficha.removeAttribute('inert');
+    if (!estaba) ficha.dataset.altura = 'media';
+    ajustarVisor();
   }
   function cerrarFicha() {
     if (!ficha) return;
     ficha.dataset.abierta = 'no';
     ficha.setAttribute('inert', '');
+    delete document.documentElement.dataset.ficha;
+  }
+
+  /**
+   * En movil la ficha es una hoja con dos paradas. El atributo del <html> es
+   * lo que encoge el visor a 160 px: asi la lamina no queda debajo de la
+   * hoja, que era el problema de fondo de la pagina en una pantalla pequena.
+   */
+  function alturaFicha(altura: 'media' | 'alta') {
+    if (!ficha) return;
+    ficha.dataset.altura = altura;
+    ajustarVisor();
+  }
+
+  /**
+   * El visor baja a 160 px solo cuando la hoja llegaria a taparlo. Una ficha
+   * de dos lineas no tapa nada, y encoger la lamina por sistema seria perder
+   * la mitad de la foto para no ganar nada.
+   */
+  const asaElemento = document.querySelector<HTMLElement>('.asa');
+  function ajustarVisor() {
+    const html = document.documentElement;
+    const abierta = ficha?.dataset.abierta === 'si';
+    const enMovil = !!asaElemento && getComputedStyle(asaElemento).display !== 'none';
+    if (!ficha || !abierta || !enMovil) {
+      delete html.dataset.ficha;
+      recolocar();
+      return;
+    }
+    requestAnimationFrame(() => {
+      // Hasta donde llega lo que no se puede tapar: el visor y su asa.
+      const tope = asaElemento!.getBoundingClientRect().bottom;
+      const estorba = window.innerHeight - ficha.getBoundingClientRect().height < tope;
+      if (estorba) html.dataset.ficha = ficha.dataset.altura ?? 'media';
+      else delete html.dataset.ficha;
+      recolocar();
+    });
+  }
+
+  /**
+   * Tras encoger o estirar el visor, la estructura elegida tiene que seguir
+   * a la vista: se vuelve a encuadrar cuando la transicion ha terminado.
+   */
+  let reencuadre = 0;
+  function recolocar() {
+    const id = estado.obtener().activa;
+    if (!id) return;
+    window.clearTimeout(reencuadre);
+    reencuadre = window.setTimeout(() => visor.irA(id, false), movimientoReducido() ? 0 : 280);
+  }
+
+  const fAltura = document.getElementById('ficha-altura');
+  fAltura?.addEventListener('click', () => {
+    alturaFicha(ficha?.dataset.altura === 'alta' ? 'media' : 'alta');
+  });
+
+  // El tirador tambien se arrastra, que es el gesto que la hoja pide a la
+  // vista. Hacia abajo desde media altura, la ficha se cierra.
+  if (fAltura) {
+    let inicio: number | null = null;
+    fAltura.addEventListener('pointerdown', (ev) => {
+      inicio = ev.clientY;
+    });
+    fAltura.addEventListener('pointerup', (ev) => {
+      if (inicio === null) return;
+      const recorrido = ev.clientY - inicio;
+      inicio = null;
+      if (recorrido < -40) alturaFicha('alta');
+      else if (recorrido > 40) {
+        if (ficha?.dataset.altura === 'alta') alturaFicha('media');
+        else estado.activar(null);
+      }
+    });
   }
 
   function vecina(paso: number): EstructuraCliente | undefined {
@@ -167,6 +306,99 @@ function iniciar(datos: DatosPlaca) {
     }
   });
 
+  /* ------------------------------- El asa -------------------------------- */
+  /* La barra de 64 px bajo el visor en movil. Dice que estructura esta
+     elegida, deja pasar a la de al lado y abre al presentador. */
+  const asaTitulo = document.getElementById('asa-titulo');
+  const asaPista = document.getElementById('asa-pista');
+  const asaAbrir = document.getElementById('asa-abrir');
+  const asaAnterior = document.getElementById('asa-anterior') as HTMLButtonElement | null;
+  const asaSiguiente = document.getElementById('asa-siguiente') as HTMLButtonElement | null;
+  const asaPresentador = document.getElementById('asa-presentador');
+  // Los textos de reposo los pone la plantilla; aqui solo se recuerdan.
+  const asaTituloInicial = asaTitulo?.textContent ?? '';
+  const asaPistaInicial = asaPista?.textContent ?? '';
+
+  /**
+   * Hay placas cuyas estructuras estan todas senaladas en la segunda foto:
+   * el duodeno es una, y quien la abre ve una lamina sin un solo marcador y
+   * nada que le diga que los hay en la otra. Esto lo dice, y lleva alli.
+   */
+  function imagenConEstructuras(actual: number): number | null {
+    if (datos.imagenes.length < 2) return null;
+    const aqui = datos.estructuras.some((e) =>
+      e.puntos.some((pt) => pt.imagen === undefined || pt.imagen === actual),
+    );
+    if (aqui) return null;
+    for (const e of datos.estructuras) {
+      const otro = e.puntos.find((pt) => pt.imagen !== undefined);
+      if (otro?.imagen !== undefined) return otro.imagen;
+    }
+    return null;
+  }
+  function cuantasEn(indice: number): number {
+    return datos.estructuras.filter((e) =>
+      e.puntos.some((pt) => pt.imagen === undefined || pt.imagen === indice),
+    ).length;
+  }
+
+  /** En reposo el asa presenta la lamina; con algo elegido, lo nombra. */
+  function pintarAsa() {
+    const st = estado.obtener();
+    const estructura = st.activa ? porId.get(st.activa) : undefined;
+    if (asaAnterior) asaAnterior.disabled = !vecina(-1);
+    if (asaSiguiente) asaSiguiente.disabled = !vecina(1);
+    if (asaTitulo && asaPista) {
+      const tapada = !!estructura && st.repaso && !st.reveladas.has(estructura.id);
+      if (!estructura) {
+        const otra = imagenConEstructuras(st.imagen);
+        if (otra === null) {
+          asaTitulo.textContent = asaTituloInicial;
+          asaPista.textContent = asaPistaInicial;
+        } else {
+          const n = cuantasEn(otra);
+          const donde = datos.imagenes[otra]?.aumento || 'la otra imagen';
+          asaTitulo.textContent = 'Esta foto no lleva marcadores';
+          asaPista.textContent =
+            n === 1 ? `Ver la estructura de ${donde}` : `Ver las ${n} estructuras de ${donde}`;
+        }
+      } else {
+        asaTitulo.textContent = tapada
+          ? 'Estructura ' + estructura.numero
+          : estructura.numero + ' · ' + estructura.nombre;
+        asaPista.textContent = tapada ? 'Pulsa para revelar' : 'Ver la ficha';
+      }
+    }
+    asaAbrir?.setAttribute('aria-expanded', String(ficha?.dataset.abierta === 'si'));
+  }
+  pintarAsa();
+
+  asaAbrir?.addEventListener('click', () => {
+    const activa = estado.obtener().activa;
+    // Sin nada elegido, el asa es la puerta de entrada: lleva a la primera
+    // estructura, o a la foto donde esten, si en esta no hay ninguna.
+    if (!activa) {
+      const otra = imagenConEstructuras(estado.obtener().imagen);
+      if (otra !== null) {
+        estado.cambiarImagen(otra);
+        return;
+      }
+      const primera = ordenadas[0];
+      if (primera) estado.activar(primera.id);
+      return;
+    }
+    if (ficha?.dataset.abierta === 'si') alturaFicha('alta');
+    else abrirFicha();
+  });
+  asaAnterior?.addEventListener('click', () => {
+    const v = vecina(-1);
+    if (v) estado.activar(v.id);
+  });
+  asaSiguiente?.addEventListener('click', () => {
+    const v = vecina(1);
+    if (v) estado.activar(v.id);
+  });
+
   /* ---------------------------- Modo repaso ------------------------------ */
   const botonRepaso = document.getElementById('boton-repaso');
   botonRepaso?.addEventListener('click', () => estado.alternarRepaso());
@@ -188,6 +420,12 @@ function iniciar(datos: DatosPlaca) {
     abrir?.focus();
   });
   abrir?.addEventListener('click', () => {
+    alternarExplicador(false);
+    minimizar?.focus();
+  });
+  // En movil la burbuja no se ve: quien abre al presentador es su retrato
+  // dentro del asa, pero el estado es el mismo.
+  asaPresentador?.addEventListener('click', () => {
     alternarExplicador(false);
     minimizar?.focus();
   });
@@ -328,7 +566,8 @@ function iniciar(datos: DatosPlaca) {
         estado.alternarRepaso();
         break;
       case 'Escape':
-        estado.activar(null);
+        if (tira?.dataset.abierta === 'si') cerrarLaminas();
+        else estado.activar(null);
         break;
       default:
         return;
@@ -355,6 +594,7 @@ function iniciar(datos: DatosPlaca) {
       for (const b of document.querySelectorAll<HTMLButtonElement>('[data-imagen]')) {
         b.setAttribute('aria-pressed', String(Number(b.dataset.imagen) === st.imagen));
       }
+      pintarAsa();
       return;
     }
 
@@ -383,6 +623,9 @@ function iniciar(datos: DatosPlaca) {
 
     // Ficha
     const estructura = st.activa ? porId.get(st.activa) : undefined;
+
+    pintarAsa();
+
     if (!estructura) {
       cerrarFicha();
       if (window.location.hash) {
@@ -397,7 +640,13 @@ function iniciar(datos: DatosPlaca) {
       fNombre.textContent = oculto ? 'Estructura ' + estructura.numero : estructura.nombre;
     }
     fOculto?.toggleAttribute('hidden', !oculto);
-    if (fDescripcion) fDescripcion.textContent = oculto ? '' : estructura.descripcion;
+    if (fDescripcion) {
+      const texto = oculto ? '' : estructura.descripcion;
+      fDescripcion.textContent = texto;
+      // Hay estructuras sin descripcion todavia: ahi la ficha se queda en el
+      // nombre en vez de abrir un hueco vacio.
+      fDescripcion.toggleAttribute('hidden', texto.trim() === '');
+    }
     if (fAnterior) fAnterior.disabled = !vecina(-1);
     if (fSiguiente) fSiguiente.disabled = !vecina(1);
 

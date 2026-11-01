@@ -45,9 +45,18 @@
   --font-sans:
     'Instrument Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  /* Papel recortado, no plastico: los angulos son casi rectos. */
+  /* Papel recortado, no plastico: los angulos son casi rectos. La hoja que
+     sube desde abajo en movil si lleva curva, porque imita una hoja suelta. */
   --radius-chapa: 0.25rem;
   --radius-ficha: 0.375rem;
+  --radius-hoja: 1rem;
+
+  /* Medidas del reparto de la lamina en movil, a 390 px de ancho. */
+  --medida-visor: 280px;
+  --medida-visor-con-ficha: 160px;
+  --medida-asa: 64px;
+  /* Nada que se pulse baja de aqui. */
+  --medida-tactil: 44px;
 
   --ease-visor: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -94,6 +103,10 @@
   /* Elevacion: casi nada de sombra, y siempre con el tono de la tinta. */
   --atlas-sombra-baja: 0 1px 2px rgb(28 26 22 / 0.06);
   --atlas-sombra-alta: 0 18px 48px -24px rgb(28 26 22 / 0.38);
+  /* La hoja que sube desde el borde inferior y el riel que flota sobre la
+     lamina: un filo de 1 px arriba y nada mas, para no ensuciar la foto. */
+  --atlas-sombra-hoja: 0 -1px 0 var(--atlas-borde), 0 -8px 24px rgb(28 26 22 / 0.1);
+  --atlas-sombra-riel: 0 1px 2px rgb(28 26 22 / 0.18);
 }
 
 /* El tema oscuro se repite en dos selectores: la preferencia del sistema y el
@@ -101,7 +114,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema='claro']) {
     color-scheme: dark;
-    --atlas-fondo: #16150f;
+  --atlas-fondo: #16150f;
     --atlas-superficie: #211f19;
     --atlas-superficie-alta: #292619;
     --atlas-texto: #f1ede1;
@@ -122,12 +135,14 @@
     --atlas-campo: var(--color-nucleo-profundo);
     --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);
     --atlas-sombra-alta: 0 18px 48px -24px rgb(0 0 0 / 0.75);
+    --atlas-sombra-hoja: 0 -1px 0 var(--atlas-borde), 0 -8px 24px rgb(0 0 0 / 0.5);
+    --atlas-sombra-riel: 0 1px 2px rgb(0 0 0 / 0.6);
   }
 }
 
 :root[data-tema='oscuro'] {
   color-scheme: dark;
-    --atlas-fondo: #16150f;
+  --atlas-fondo: #16150f;
   --atlas-superficie: #211f19;
   --atlas-superficie-alta: #292619;
   --atlas-texto: #f1ede1;
@@ -148,6 +163,8 @@
   --atlas-campo: var(--color-nucleo-profundo);
   --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);
   --atlas-sombra-alta: 0 18px 48px -24px rgb(0 0 0 / 0.75);
+  --atlas-sombra-hoja: 0 -1px 0 var(--atlas-borde), 0 -8px 24px rgb(0 0 0 / 0.5);
+  --atlas-sombra-riel: 0 1px 2px rgb(0 0 0 / 0.6);
 }
 
 /* ============================================================
@@ -381,6 +398,10 @@
   .pie,
   .tira,
   .chapa-campo,
+  .riel,
+  .chip-zoom,
+  .asa,
+  .ficha__asa,
   #minimapa,
   #explicador,
   .atajos,
@@ -396,6 +417,7 @@
   }
 
   /* El visor deja de ocupar la ventana: la lamina se imprime entera. */
+  .marco-alto,
   #marco-visor,
   #marco-visor > div {
     position: static !important;
@@ -419,6 +441,16 @@
   }
   .lista-estructuras {
     columns: 2;
+  }
+  /* En movil la ficha es una hoja fija al borde inferior: en papel vuelve al
+     flujo, debajo de la lamina, y sin alto propio. */
+  .ficha {
+    position: static !important;
+    height: auto !important;
+    transform: none !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
   .placa-item,
   .fila-estructura,

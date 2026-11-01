@@ -13,7 +13,12 @@ import Icono from './Icono.astro';
   data-abierta="no"
   inert
 >
-  <div class="ficha__asa" aria-hidden="true"></div>
+  {/* En movil el tirador no es un adorno: sube la hoja a pantalla casi
+      completa y la vuelve a bajar. Tambien se puede arrastrar. */}
+  <button type="button" id="ficha-altura" class="ficha__asa">
+    <span class="solo-lectores">Subir o bajar la ficha</span>
+    <span class="ficha__asa-barra" aria-hidden="true"></span>
+  </button>
 
   <header class="flex items-start gap-2.5">
     <span id="ficha-numero" class="ficha__numero" aria-hidden="true">
@@ -38,7 +43,7 @@ import Icono from './Icono.astro';
     </button>
   </header>
 
-  <p id="ficha-descripcion" class="mt-2 text-[0.86rem] leading-relaxed text-texto-suave"></p>
+  <p id="ficha-descripcion" class="mt-2 text-[0.86rem] leading-relaxed text-texto-suave" hidden></p>
 
   <div class="mt-3 flex flex-wrap items-center gap-2">
     <button type="button" id="ficha-anterior" class="ficha__accion">
@@ -82,14 +87,27 @@ import Icono from './Icono.astro';
       inset-inline: 0;
       bottom: 0;
       z-index: 45;
+      /* Dos paradas: la de reposo mide lo que mide su contenido, sin pasar
+         de media pantalla, y la alta se estira para leer una descripcion
+         larga. Una ficha de dos lineas que ocupase 62dvh seria medio
+         folio en blanco tapando la lamina. */
+      height: auto;
       max-height: 62dvh;
       overflow-y: auto;
       overscroll-behavior: contain;
-      border-radius: 1rem 1rem 0 0;
+      border-radius: var(--radius-hoja) var(--radius-hoja) 0 0;
+      padding-top: 0.35rem;
       padding-bottom: calc(1.1rem + env(safe-area-inset-bottom));
-      box-shadow: 0 -8px 30px -10px rgb(14 9 32 / 0.45);
+      box-shadow: var(--atlas-sombra-hoja);
       transform: translateY(0);
-      transition: transform 240ms var(--ease-visor);
+      transition:
+        transform 240ms var(--ease-visor),
+        height 240ms var(--ease-visor);
+      touch-action: pan-y;
+    }
+    .ficha[data-altura='alta'] {
+      height: calc(100dvh - 3rem);
+      max-height: none;
     }
     /* En móvil la hoja se desliza fuera de la pantalla en lugar de desaparecer. */
     .ficha[data-abierta='no'] {
@@ -99,12 +117,20 @@ import Icono from './Icono.astro';
       visibility: hidden;
     }
     .ficha__asa {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      /* Un tirador se agarra: el area util llega a 44 px aunque la barra
+         mida 4, porque es lo primero que toca el pulgar. */
+      height: var(--medida-tactil);
+      margin-top: -0.35rem;
+    }
+    .ficha__asa-barra {
       display: block;
       width: 2.5rem;
       height: 0.25rem;
-      margin: -0.25rem auto 0.6rem;
       border-radius: 999px;
-      background: var(--atlas-borde);
+      background: var(--atlas-borde-fuerte);
     }
     @media (prefers-reduced-motion: reduce) {
       .ficha {
@@ -134,8 +160,9 @@ import Icono from './Icono.astro';
     padding-inline: 0.25rem;
     flex: none;
     border-radius: 999px;
-    background: var(--color-eosina);
-    color: var(--atlas-sobre-eosina);
+    border: 2px solid var(--atlas-texto);
+    background: var(--atlas-texto);
+    color: var(--atlas-fondo);
     font-size: 0.8rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
@@ -156,6 +183,13 @@ import Icono from './Icono.astro';
     color: var(--atlas-texto);
   }
 
+
+  @media (max-width: 1023px) {
+    #ficha-anterior,
+    #ficha-siguiente {
+      display: none;
+    }
+  }
 
   .ficha__accion {
     display: inline-flex;

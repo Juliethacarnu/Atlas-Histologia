@@ -6,6 +6,7 @@ import VisorPlaca from '../../componentes/VisorPlaca.astro';
 import PanelEstructuras from '../../componentes/PanelEstructuras.astro';
 import ExplicadorFlotante from '../../componentes/ExplicadorFlotante.astro';
 import MiniQuiz from '../../componentes/MiniQuiz.astro';
+import AsaFicha from '../../componentes/AsaFicha.astro';
 import { SISTEMAS, nombreSistema } from '../../datos/sistemas';
 import { imagenesDe, urlImagen, puntosDe, ordenarPlacas } from '../../utils/placas';
 import { ruta, rutaPlaca } from '../../utils/ruta';
@@ -104,6 +105,22 @@ const descripcion =
       {posicion} / {total}
     </span>
     <div class="flex shrink-0 gap-1">
+      {/* En movil las miniaturas no caben sobre una foto de 280 px y encima
+          compiten con el gesto de arrastrar: se abren desde aqui como hoja. */}
+      {imagenes.length > 1 && (
+        <button
+          type="button"
+          id="abrir-laminas"
+          class="nav-flecha lg:hidden"
+          aria-expanded="false"
+          aria-controls="tira-imagenes"
+        >
+          <span class="solo-lectores">
+            Ver las {imagenes.length} imágenes de esta lámina
+          </span>
+          <Icono nombre="images-square" />
+        </button>
+      )}
       {anterior ? (
         <a
           href={rutaPlaca(anterior.id)}
@@ -143,9 +160,10 @@ const descripcion =
 
   <!-- El visor es el protagonista: el panel y el avatar flotan encima. -->
   <div class="relative lg:h-[calc(100dvh-var(--alto-superior,5.95rem))]">
-    <div class="aspect-[4/3] max-h-[58dvh] w-full lg:aspect-auto lg:h-full lg:max-h-none">
+    <div class="marco-alto w-full">
       <VisorPlaca imagenes={imagenes} titulo={placa.titulo} />
     </div>
+    <AsaFicha presentador={presentador} conExplicacion={!!placa.video} />
     <PanelEstructuras placa={placa} />
     <ExplicadorFlotante placa={placa} presentador={presentador} />
   </div>
@@ -165,7 +183,38 @@ const descripcion =
 </Base>
 
 <style>
+  /* --- El alto del visor ---
+     En movil manda una medida fija: 280 px a 390 px de ancho, como pide el
+     sistema. Con la ficha subida a media altura el visor se encoge a 160 y
+     la foto se recoloca para que el marcador elegido siga a la vista. */
+  .marco-alto {
+    height: var(--medida-visor);
+    transition: height 240ms var(--ease-visor);
+  }
+  :root[data-ficha='media'] .marco-alto,
+  :root[data-ficha='alta'] .marco-alto {
+    height: var(--medida-visor-con-ficha);
+  }
+  /* En tableta hay sitio de sobra: la lamina crece con la ventana. */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .marco-alto {
+      height: 46dvh;
+    }
+  }
+  @media (min-width: 1024px) {
+    .marco-alto,
+    :root[data-ficha] .marco-alto {
+      height: 100%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marco-alto {
+      transition: none;
+    }
+  }
+
   .nav-flecha {
+    position: relative;
     display: grid;
     place-items: center;
     height: 1.9rem;
@@ -180,12 +229,26 @@ const descripcion =
   .nav-flecha .icono {
     font-size: 0.95rem;
   }
+  /* El boton se ve de 1,9rem, pero se pulsa en 44 px: en una barra de 48 px
+     no caben tres circulos de 44 junto al rastro de migas. */
+  .nav-flecha::before {
+    content: '';
+    position: absolute;
+    inset: calc((1.9rem - var(--medida-tactil)) / 2);
+  }
   .nav-flecha:hover {
     background: var(--atlas-superficie);
     color: var(--atlas-texto);
   }
   .nav-flecha--inerte {
     opacity: 0.3;
+  }
+  /* El boton de imagenes es solo de movil. La utilidad lg:hidden va en una
+     capa y pierde contra el display de .nav-flecha, que no la tiene. */
+  @media (min-width: 1024px) {
+    #abrir-laminas {
+      display: none;
+    }
   }
 </style>
 
