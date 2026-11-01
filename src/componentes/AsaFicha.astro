@@ -18,7 +18,11 @@ interface Props {
   conExplicacion: boolean;
 }
 const { presentador, conExplicacion } = Astro.props;
-const nombre = presentador?.nombre ?? null;
+// El retrato solo entra en el asa cuando hay algo que oir. En las laminas
+// sin audio la ventana del presentador se limita a repetir la descripcion
+// que ya esta en el panel, y en una pantalla de 390 px eso no se gana el
+// sitio.
+const nombre = conExplicacion ? (presentador?.nombre ?? null) : null;
 ---
 
 <div class="asa" data-asa>
@@ -31,9 +35,7 @@ const nombre = presentador?.nombre ?? null;
           animable={conExplicacion}
           clase="avatar-asa"
         />
-        <span class="solo-lectores">
-          {conExplicacion ? `Oír a ${nombre} explicar esta lámina` : `Ver a ${nombre}`}
-        </span>
+        <span class="solo-lectores">Oír a {nombre} explicar esta lámina</span>
       </button>
     )
   }
@@ -46,7 +48,7 @@ const nombre = presentador?.nombre ?? null;
     aria-controls="ficha-estructura"
   >
     <span id="asa-titulo" class="asa__titulo">
-      {conExplicacion && nombre ? `${nombre} explica esta lámina` : 'Ninguna estructura elegida'}
+      {nombre ? `${nombre} explica esta lámina` : 'Ninguna estructura elegida'}
     </span>
     <span id="asa-pista" class="asa__pista">Toca un marcador de la lámina</span>
   </button>
