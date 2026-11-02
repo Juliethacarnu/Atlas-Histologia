@@ -183,7 +183,10 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
      material que el fondo del visor. */
   .explicador__escenario {
     display: grid;
-    place-items: end center;
+    /* La caricatura va centrada en el escenario. Iba apoyada abajo, que es
+       lo que pedia un recorte de cuerpo entero, pero con el retrato en
+       circulo deja un hueco muerto arriba y se ve descolgada. */
+    place-items: center;
     aspect-ratio: 16 / 11;
     background: var(--color-nucleo);
   }

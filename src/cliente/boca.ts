@@ -1,14 +1,16 @@
 /**
  * Mueve la boca de la caricatura segun suene o no la voz.
  *
- * Son dos posiciones y nada mas: la cara en reposo -el primer fotograma de la
- * carpeta, con la boca cerrada- y la siguiente, con la boca abierta. Mientras
- * se oye voz se van turnando; en cuanto el audio baja del umbral -una coma, un
- * punto, el hueco entre dos frases- se queda la de reposo y se para.
+ * Mientras se oye voz se van pasando los fotogramas de la carpeta en orden y
+ * vuelta a empezar; en cuanto el audio baja del umbral -una coma, un punto, el
+ * hueco entre dos frases- se queda el primero, que es la cara en reposo, y se
+ * para.
  *
- * Dos poses alternas leen mejor que repartir muchas caras por volumen: es como
- * se ha animado siempre el habla en dibujos, y no depende de acertar que cara
- * corresponde a que nivel.
+ * El primero entra en la rueda como una posicion mas: por eso la cara de
+ * cuando habla casa con la de cuando calla, porque es la misma imagen. Lo que
+ * decide el movimiento es si hay voz o no, no el volumen exacto: repartir las
+ * caras por nivel daba un movimiento nervioso y obligaba a acertar que cara
+ * corresponde a que volumen.
  *
  * El umbral no puede ser un numero fijo. Las grabaciones estan a volumenes muy
  * distintos (la mediana va de 0,013 a 0,039 segun quien la hiciera) y con un
@@ -22,7 +24,7 @@
  * explicacion tiene que seguir oyendose.
  */
 
-/** Cuanto dura cada una de las dos posiciones. */
+/** Cuanto dura cada posicion de la boca. */
 const MIN_MS = 110;
 const MAX_MS = 150;
 /** Que fraccion del pico reciente hay que pasar para contar como voz. */
@@ -99,7 +101,7 @@ async function enganchar(el: HTMLMediaElement): Promise<(() => number) | null> {
     };
   } catch {
     // Navegador sin Web Audio, o el elemento ya enganchado a otro grafo: se
-    // sigue sin oido, turnando la boca a ciegas.
+    // sigue sin oido, moviendo la boca a ciegas.
     return null;
   }
 }
@@ -107,10 +109,10 @@ async function enganchar(el: HTMLMediaElement): Promise<(() => number) | null> {
 /* ------------------------------- La boca --------------------------------- */
 
 class Boca {
-  /** La cara con la boca abierta; la cerrada es la de debajo, sin tapar. */
-  private readonly abierta: HTMLElement | null;
-  /** false = cara en reposo (boca cerrada); true = boca abierta. */
-  private abierto = false;
+  /** Las posiciones de encima; la de reposo es la de debajo, sin tapar. */
+  private readonly caras: HTMLElement[];
+  /** 0 = la cara de reposo; 1..n = cada una de las de encima. */
+  private i = 0;
   private cuadro: number | null = null;
   private siguienteSalto = 0;
   private calladoDesde = 0;
@@ -120,11 +122,11 @@ class Boca {
   private pico = 0;
 
   constructor(avatar: HTMLElement) {
-    this.abierta = avatar.querySelector<HTMLElement>('[data-boca]');
+    this.caras = Array.from(avatar.querySelectorAll<HTMLElement>('[data-boca]'));
   }
 
   get sirve() {
-    return this.abierta !== null;
+    return this.caras.length > 0;
   }
 
   oir(nivel: (() => number) | null) {
@@ -145,18 +147,25 @@ class Boca {
       cancelAnimationFrame(this.cuadro);
       this.cuadro = null;
     }
-    this.cerrar();
+    this.reposo();
   }
 
-  private cerrar() {
-    this.abierto = false;
-    this.abierta?.removeAttribute('data-activo');
+  /** Deja la cara en reposo: la de debajo, con todas las de encima tapadas. */
+  private reposo() {
+    this.i = 0;
+    this.pintar();
+  }
+
+  /** Destapa solo la que toca; con i = 0 se ve la cara de reposo de debajo. */
+  private pintar() {
+    for (const c of this.caras) c.removeAttribute('data-activo');
+    if (this.i > 0) this.caras[this.i - 1]?.setAttribute('data-activo', '');
   }
 
   private paso(ahora: number) {
     this.cuadro = requestAnimationFrame((t) => this.paso(t));
 
-    // Sin oido no hay nada que seguir: se turna la boca sin mas.
+    // Sin oido no hay nada que seguir: se pasan los fotogramas sin mas.
     let hayVoz = true;
     if (this.nivel) {
       this.envolvente = Math.max(this.nivel(), this.envolvente * CAIDA);
@@ -168,16 +177,16 @@ class Boca {
       if (this.calladoDesde === 0) this.calladoDesde = ahora;
       // Un silencio corto no cierra la boca: entre silaba y silaba tambien
       // baja el volumen, y la cara no deberia pararse por eso.
-      if (ahora - this.calladoDesde >= SILENCIO_MS && this.abierto) this.cerrar();
+      if (ahora - this.calladoDesde >= SILENCIO_MS && this.i !== 0) this.reposo();
       return;
     }
 
     this.calladoDesde = 0;
     if (ahora < this.siguienteSalto) return;
 
-    this.abierto = !this.abierto;
-    if (this.abierto) this.abierta?.setAttribute('data-activo', '');
-    else this.abierta?.removeAttribute('data-activo');
+    // La de reposo entra en la rueda como una mas: 1, 2, 3, 4, 1...
+    this.i = (this.i + 1) % (this.caras.length + 1);
+    this.pintar();
     this.siguienteSalto = ahora + alAzar(MIN_MS, MAX_MS);
   }
 }
@@ -188,7 +197,7 @@ const bocas = new WeakMap<HTMLElement, Boca>();
  * Enciende o apaga el movimiento de la boca de un avatar. Si la persona solo
  * tiene un fotograma, o si se ha pedido menos movimiento, no hace nada.
  * `medio` es el <audio> de la explicacion, para poder seguir la voz; sin el,
- * la boca se turna a ciegas.
+ * la boca se mueve a ciegas.
  */
 export function moverBoca(
   avatar: HTMLElement,

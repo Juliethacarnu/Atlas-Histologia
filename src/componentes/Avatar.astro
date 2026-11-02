@@ -30,10 +30,10 @@ const color = presentador?.avatarColor ?? '#2E2566';
 const fotogramas = fotogramasDe(presentador?.avatarCarpeta);
 const imagen = fotogramas[0] ?? null;
 const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
-// Dos poses y nada mas: la cara en reposo y una con la boca abierta, que se
-// van turnando mientras hay voz. Con un solo fotograma no hay nada que
-// turnar y la cara se queda quieta. Los fotogramas de mas no se descargan.
-const bocas = bucle ? [] : fotogramas.slice(1, 2);
+// Mientras hay voz se pasan todos los fotogramas en orden, volviendo al
+// primero; en silencio se queda el primero, que es la cara en reposo. Con un
+// solo fotograma no hay nada que pasar y la cara se queda quieta.
+const bocas = bucle ? [] : fotogramas.slice(1);
 ---
 
 <span
@@ -77,9 +77,9 @@ const bocas = bucle ? [] : fotogramas.slice(1, 2);
           class="avatar__imagen"
         />
         {bocas.map((cara, i) => (
-          /* La cara con la boca abierta va apilada encima, tapada, y el
-             reproductor la descubre y la vuelve a tapar mientras suena la
-             explicacion. Es decorativa: el alt lo pone la de abajo. */
+          /* Las demas posiciones de la boca van apiladas encima, tapadas, y
+             el reproductor va descubriendo una u otra mientras suena la
+             explicacion. Son decorativas: el alt lo pone la de abajo. */
           <img
             src={ruta('avatares', cara)}
             alt=""
