@@ -28,7 +28,7 @@ const {
 const nombre = presentador?.nombre ?? 'Sin presentador';
 const color = presentador?.avatarColor ?? '#2E2566';
 const fotogramas = fotogramasDe(presentador?.avatarCarpeta);
-const imagen = fotogramas[0] ?? null;
+const imagen = fotogramas[0]?.ruta ?? null;
 const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
 // Con un solo fotograma no hay nada que intercalar: la cara se queda quieta.
 const bocas = bucle ? [] : fotogramas.slice(1);
@@ -79,7 +79,7 @@ const bocas = bucle ? [] : fotogramas.slice(1);
              el reproductor va descubriendo una u otra mientras suena la
              explicacion. Son decorativas: el alt lo pone la de abajo. */
           <img
-            src={ruta('avatares', cara)}
+            src={ruta('avatares', cara.ruta)}
             alt=""
             width={tamano}
             height={tamano}
@@ -88,6 +88,7 @@ const bocas = bucle ? [] : fotogramas.slice(1);
             class="avatar__imagen avatar__boca"
             aria-hidden="true"
             data-boca={i + 1}
+            data-apertura={cara.apertura}
           />
         ))}
       </>

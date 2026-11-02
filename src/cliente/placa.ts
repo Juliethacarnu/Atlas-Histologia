@@ -477,8 +477,9 @@ function iniciar(datos: DatosPlaca) {
       for (const a of avatares) {
         a.classList.toggle('avatar--hablando', reproduciendo);
 
-        // Y si tiene mas de un fotograma, se le mueve la boca.
-        moverBoca(a, reproduciendo);
+        // Y si tiene mas de un fotograma, se le mueve la boca al compas
+        // de la voz: se le pasa el audio para que lo pueda escuchar.
+        moverBoca(a, reproduciendo, reproductor?.medio ?? null);
 
         // Si el presentador tiene bucle en video, se reproduce mudo a la par.
         const bucle = a.querySelector<HTMLVideoElement>('[data-bucle]');

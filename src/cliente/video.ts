@@ -11,6 +11,12 @@ export interface Reproductor {
   readonly reproduciendo: boolean;
   onTiempo(cb: (segundos: number) => void): void;
   onEstado(cb: (reproduciendo: boolean) => void): void;
+  /**
+   * El <audio> o <video> de la pagina, para quien necesite escucharlo de
+   * verdad (la boca de la caricatura). Con YouTube no hay: el sonido vive
+   * dentro de un iframe de otro dominio y no se puede medir.
+   */
+  readonly medio: HTMLMediaElement | null;
 }
 
 class Emisor {
@@ -39,6 +45,9 @@ class ReproductorMedia extends Emisor implements Reproductor {
     el.addEventListener('play', () => this.emitirEstado(true));
     el.addEventListener('pause', () => this.emitirEstado(false));
     el.addEventListener('ended', () => this.emitirEstado(false));
+  }
+  get medio() {
+    return this.el;
   }
   get reproduciendo() {
     return !this.el.paused && !this.el.ended;
@@ -99,6 +108,8 @@ class ReproductorYouTube extends Emisor implements Reproductor {
   private jugador: JugadorYT | null = null;
   private activo = false;
   private reloj: number | null = null;
+  /** El sonido vive dentro del iframe de YouTube: no se puede medir. */
+  readonly medio = null;
 
   constructor(
     private contenedor: HTMLElement,

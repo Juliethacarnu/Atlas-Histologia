@@ -32,6 +32,7 @@ const DESTINO = join('public', 'placas');
 const AVATARES = join('public', 'avatares');
 const AVATAR_LADO = 512;
 const AVATAR_PESO_MAX = 200 * 1024;
+const MANIFIESTO_BOCA = 'boca.json';
 const EXTENSIONES = new Set(['.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff']);
 
 const VARIANTES = [
@@ -115,6 +116,53 @@ if (creados > 0) {
 
 /* ------------------------------ 3. Avatares ------------------------------ */
 
+/* --------------------- Cuanto abre la boca cada cara --------------------- */
+
+/** Lado al que se reducen los fotogramas para compararlos. */
+const COMPARA_LADO = 128;
+/** Zona de la boca dentro del cuadrado: franja de abajo, centrada. */
+const ZONA_BOCA = {
+  left: Math.round(COMPARA_LADO * 0.3),
+  top: Math.round(COMPARA_LADO * 0.52),
+  width: Math.round(COMPARA_LADO * 0.4),
+  height: Math.round(COMPARA_LADO * 0.33),
+};
+
+/**
+ * Mide cuanto se aleja cada fotograma del primero en la zona de la boca y lo
+ * deja en un `boca.json` junto a las imagenes, de 0 (igual que la cara en
+ * reposo) a 1 (la que mas se abre). El sitio lo usa para elegir que cara
+ * poner segun lo fuerte que suene la voz en ese momento.
+ *
+ * Asi da igual el orden en que esten numerados los fotogramas: la posicion
+ * de cada uno se deduce de la propia imagen.
+ */
+async function medirAperturas(dentro, fotogramas) {
+  const parche = async (archivo) =>
+    sharp(join(dentro, archivo))
+      .resize(COMPARA_LADO, COMPARA_LADO, { fit: 'cover' })
+      .extract(ZONA_BOCA)
+      .greyscale()
+      .raw()
+      .toBuffer();
+
+  const base = await parche(fotogramas[0]);
+  const crudas = [];
+  for (const f of fotogramas) {
+    const otro = await parche(f);
+    let suma = 0;
+    for (let i = 0; i < base.length; i++) suma += Math.abs(base[i] - otro[i]);
+    crudas.push(suma / base.length);
+  }
+  const mayor = Math.max(...crudas, 1e-6);
+  const tabla = {};
+  fotogramas.forEach((f, i) => {
+    tabla[f] = Number((crudas[i] / mayor).toFixed(3));
+  });
+  writeFileSync(join(dentro, MANIFIESTO_BOCA), JSON.stringify(tabla, null, 2) + '\n');
+  return tabla;
+}
+
 async function optimizarAvatares() {
   if (!existsSync(AVATARES)) return;
   const carpetas = readdirSync(AVATARES).filter((f) => statSync(join(AVATARES, f)).isDirectory());
@@ -139,6 +187,7 @@ async function optimizarAvatares() {
     if (fuentes.length === 0) {
       const ya = readdirSync(dentro).filter((f) => extname(f).toLowerCase() === '.webp').length;
       console.log(`  · ${carpeta}: ${ya} fotograma(s), nada nuevo que convertir`);
+      await anotarAperturas(carpeta, dentro);
       continue;
     }
 
@@ -189,7 +238,19 @@ async function optimizarAvatares() {
         console.log(`  ! ${basename(destino)} sigue pesando mas de ${AVATAR_PESO_MAX / 1024} KB`);
       }
     }
+    await anotarAperturas(carpeta, dentro);
   }
+}
+
+/** Deja el boca.json de una carpeta al dia y lo cuenta por pantalla. */
+async function anotarAperturas(carpeta, dentro) {
+  const fotogramas = readdirSync(dentro)
+    .filter((f) => extname(f).toLowerCase() === '.webp')
+    .sort((a, b) => a.localeCompare(b, 'es', { numeric: true, sensitivity: 'base' }));
+  if (fotogramas.length < 2) return;
+  const tabla = await medirAperturas(dentro, fotogramas);
+  const resumen = fotogramas.map((f) => `${basename(f, '.webp')} ${tabla[f]}`).join(', ');
+  console.log(`    apertura de boca: ${resumen}`);
 }
 
 await optimizarAvatares();
