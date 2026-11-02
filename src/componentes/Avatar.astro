@@ -174,8 +174,10 @@ const bocas = bucle ? [] : fotogramas.slice(1);
     animation: atlas-hablando 420ms ease-in-out infinite;
   }
 
-  /* Con bucle de vídeo el movimiento ya lo pone la boca: nada de rebote. */
-  .avatar--bucle.avatar--hablando .avatar__imagen {
+  /* Si la boca se mueve sola, el rebote sobra: con las dos cosas a la vez la
+     cara tiembla. Vale igual para el bucle de video y para los fotogramas. */
+  .avatar--bucle.avatar--hablando .avatar__imagen,
+  .avatar--boca.avatar--hablando .avatar__imagen {
     animation: none;
   }
 
