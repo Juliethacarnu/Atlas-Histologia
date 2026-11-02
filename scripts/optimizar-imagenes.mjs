@@ -13,10 +13,12 @@
  * 2. Crea placeholders con aspecto H&E para las imagenes que las placas
  *    declaran pero que todavia no existen, para poder probar el sitio.
  *
- * 3. Comprime las caricaturas de public/avatares/: no se muestran a mas de
- *    128 px, asi que un PNG de 1200 px es peso tirado.
+ * 3. Prepara las caricaturas de public/avatares/<Nombre>/: recorta cada
+ *    fotograma a un cuadrado sobre la cara, lo deja a 512 px en WebP y aparta
+ *    el original a originales/avatares/<Nombre>/. Todos los fotogramas de una
+ *    persona se recortan igual, para que la cara no salte entre uno y otro.
  */
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, basename } from 'node:path';
 import sharp from 'sharp';
 import {
@@ -115,39 +117,77 @@ if (creados > 0) {
 
 async function optimizarAvatares() {
   if (!existsSync(AVATARES)) return;
-  const archivos = readdirSync(AVATARES).filter((f) => extname(f).toLowerCase() === '.png');
-  if (archivos.length === 0) return;
+  const carpetas = readdirSync(AVATARES).filter((f) => statSync(join(AVATARES, f)).isDirectory());
+
+  const sueltas = readdirSync(AVATARES).filter((f) => EXTENSIONES.has(extname(f).toLowerCase()));
+  if (sueltas.length > 0) {
+    console.log('');
+    console.log('Caricaturas sueltas en public/avatares/ (van dentro de la carpeta de su dueno):');
+    for (const f of sueltas) console.log(`  ! ${f}`);
+  }
+  if (carpetas.length === 0) return;
 
   console.log('');
   console.log('Caricaturas de public/avatares/:');
-  for (const archivo of archivos) {
-    const ruta = join(AVATARES, archivo);
-    const antes = statSync(ruta).size;
-    const meta = await sharp(ruta).metadata();
 
-    // Ya esta dentro de lo razonable: no se toca.
-    if ((meta.width ?? 0) <= AVATAR_LADO && antes <= AVATAR_PESO_MAX) {
-      console.log(`  · ${archivo} sin cambios (${meta.width}px, ${(antes / 1024).toFixed(0)} KB)`);
+  for (const carpeta of carpetas) {
+    const dentro = join(AVATARES, carpeta);
+    const fuentes = readdirSync(dentro)
+      .filter((f) => EXTENSIONES.has(extname(f).toLowerCase()) && extname(f).toLowerCase() !== '.webp')
+      .sort((a, b) => a.localeCompare(b, 'es', { numeric: true, sensitivity: 'base' }));
+
+    if (fuentes.length === 0) {
+      const ya = readdirSync(dentro).filter((f) => extname(f).toLowerCase() === '.webp').length;
+      console.log(`  · ${carpeta}: ${ya} fotograma(s), nada nuevo que convertir`);
       continue;
     }
 
-    if (!meta.hasAlpha) {
-      console.log(`  ! ${archivo} no tiene canal alfa: el fondo se vera como un rectangulo.`);
-    }
+    const guardarEn = join('originales', 'avatares', carpeta);
+    mkdirSync(guardarEn, { recursive: true });
 
-    const optimizado = await sharp(ruta)
-      .resize({ width: AVATAR_LADO, height: AVATAR_LADO, fit: 'inside', withoutEnlargement: true })
-      .png({ compressionLevel: 9, palette: true, quality: 90 })
-      .toBuffer();
+    // Todos los fotogramas de una persona se recortan igual, con la medida
+    // del primero: si cada uno se recortara por su cuenta, la cara saltaria
+    // de un fotograma al siguiente.
+    let recorte = null;
 
-    // Se sobreescribe solo si de verdad adelgaza.
-    if (optimizado.length < antes) {
-      writeFileSync(ruta, optimizado);
+    for (const archivo of fuentes) {
+      const ruta = join(dentro, archivo);
+      const antes = statSync(ruta).size;
+      const meta = await sharp(ruta).metadata();
+      const ancho = meta.width ?? 0;
+      const alto = meta.height ?? 0;
+      if (!ancho || !alto) {
+        console.log(`  ! ${carpeta}/${archivo}: no se pudo leer el tamano`);
+        continue;
+      }
+      if (recorte === null) {
+        const lado = Math.min(ancho, alto);
+        // Cuadrado pegado al borde de arriba: ahi esta la cara.
+        recorte = { left: Math.round((ancho - lado) / 2), top: 0, width: lado, height: lado };
+      }
+
+      const destino = join(dentro, basename(archivo, extname(archivo)) + '.webp');
+      const salida = await sharp(ruta, { limitInputPixels: false })
+        .rotate()
+        .extract({
+          left: Math.min(recorte.left, Math.max(0, ancho - 1)),
+          top: Math.min(recorte.top, Math.max(0, alto - 1)),
+          width: Math.min(recorte.width, ancho),
+          height: Math.min(recorte.height, alto),
+        })
+        .resize({ width: AVATAR_LADO, height: AVATAR_LADO, fit: 'cover' })
+        .webp({ quality: 90 })
+        .toBuffer();
+
+      writeFileSync(destino, salida);
+      renameSync(ruta, join(guardarEn, archivo));
       console.log(
-        `  ✓ ${archivo} ${meta.width}px ${(antes / 1024).toFixed(0)} KB -> ${AVATAR_LADO}px ${(optimizado.length / 1024).toFixed(0)} KB`
+        `  ✓ ${carpeta}/${archivo} ${ancho}x${alto} ${(antes / 1024).toFixed(0)} KB` +
+          ` -> ${basename(destino)} ${AVATAR_LADO}px ${(salida.length / 1024).toFixed(0)} KB`
       );
-    } else {
-      console.log(`  · ${archivo} ya estaba optimizado`);
+      if (salida.length > AVATAR_PESO_MAX) {
+        console.log(`  ! ${basename(destino)} sigue pesando mas de ${AVATAR_PESO_MAX / 1024} KB`);
+      }
     }
   }
 }

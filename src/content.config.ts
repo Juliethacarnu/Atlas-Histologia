@@ -11,8 +11,15 @@ const presentadores = defineCollection({
     id: z.string(),
     nombre: z.string(),
     rol: z.string().default('Presentador'),
-    /** Nombre del archivo dentro de public/avatares/ (PNG o SVG cuadrado, fondo transparente). */
-    avatarImagen: z.string().nullable().default(null),
+    /**
+     * Carpeta dentro de public/avatares/ con los fotogramas de la caricatura,
+     * cuadrados y encuadrados igual: lo unico que cambia de uno a otro es la
+     * boca. Se numeran en orden (Andrea1, Andrea2...); el primero es la cara
+     * en reposo y los demas se van pasando mientras suena la explicacion.
+     * Con un solo fotograma la cara se queda quieta. La lista se lee del
+     * disco al compilar, asi que anadir una posicion es dejar el archivo ahi.
+     */
+    avatarCarpeta: z.string().nullable().default(null),
     /**
      * Video corto en bucle del presentador (public/avatares/), mudo, que
      * sustituye a la caricatura estatica mientras suena el audio de la placa.

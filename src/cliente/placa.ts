@@ -9,6 +9,7 @@ import * as estado from './estado';
 import { crearReproductor, type Reproductor } from './video';
 import { prepararQuiz } from './quiz';
 import { montarTranscripcion } from './transcripcion';
+import { moverBoca } from './boca';
 
 const datos = leerDatosPlaca();
 if (datos) iniciar(datos);
@@ -453,7 +454,9 @@ function iniciar(datos: DatosPlaca) {
     const botonesCapitulo = Array.from(
       document.querySelectorAll<HTMLButtonElement>('[data-capitulo]'),
     );
-    const avatares = Array.from(document.querySelectorAll<HTMLElement>('.avatar--animable'));
+    const avatares = Array.from(
+      document.querySelectorAll<HTMLElement>('.avatar--animable, .avatar--boca'),
+    );
 
     botonAlternar?.addEventListener('click', () => reproductor?.alternar());
 
@@ -473,6 +476,9 @@ function iniciar(datos: DatosPlaca) {
       // La caricatura solo se anima mientras suena la explicacion.
       for (const a of avatares) {
         a.classList.toggle('avatar--hablando', reproduciendo);
+
+        // Y si tiene mas de un fotograma, se le mueve la boca.
+        moverBoca(a, reproduciendo);
 
         // Si el presentador tiene bucle en video, se reproduce mudo a la par.
         const bucle = a.querySelector<HTMLVideoElement>('[data-bucle]');

@@ -3,7 +3,7 @@
     "id": "sara",
     "nombre": "Sara",
     "rol": "Presentador",
-    "avatarImagen": "Sara.webp",
+    "avatarCarpeta": "Sara",
     "avatarBucle": null,
     "avatarColor": "#c0186a"
   },
@@ -11,7 +11,7 @@
     "id": "valeria",
     "nombre": "Valeria",
     "rol": "Presentador",
-    "avatarImagen": "Valeria.webp",
+    "avatarCarpeta": "Valeria",
     "avatarBucle": null,
     "avatarColor": "#4335c6"
   },
@@ -19,7 +19,7 @@
     "id": "daniel",
     "nombre": "Daniel",
     "rol": "Presentador",
-    "avatarImagen": "Daniel.webp",
+    "avatarCarpeta": "Daniel",
     "avatarBucle": null,
     "avatarColor": "#2e2566"
   },
@@ -27,7 +27,7 @@
     "id": "andrea",
     "nombre": "Andrea",
     "rol": "Presentador",
-    "avatarImagen": "Andrea.webp",
+    "avatarCarpeta": "Andrea",
     "avatarBucle": null,
     "avatarColor": "#0097b2"
   }

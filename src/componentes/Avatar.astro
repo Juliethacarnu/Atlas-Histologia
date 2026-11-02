@@ -1,6 +1,7 @@
 ---
 import type { Presentador } from '../utils/placas';
 import { iniciales } from '../utils/placas';
+import { fotogramasDe } from '../utils/avatares';
 import { ruta } from '../utils/ruta';
 
 interface Props {
@@ -26,13 +27,23 @@ const {
 
 const nombre = presentador?.nombre ?? 'Sin presentador';
 const color = presentador?.avatarColor ?? '#2E2566';
-const imagen = presentador?.avatarImagen ?? null;
+const fotogramas = fotogramasDe(presentador?.avatarCarpeta);
+const imagen = fotogramas[0] ?? null;
 const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
+// Con un solo fotograma no hay nada que intercalar: la cara se queda quieta.
+const bocas = bucle ? [] : fotogramas.slice(1);
 ---
 
 <span
-  class:list={['avatar', animable && 'avatar--animable', bucle && 'avatar--bucle', clase]}
+  class:list={[
+    'avatar',
+    animable && 'avatar--animable',
+    bucle && 'avatar--bucle',
+    bocas.length > 0 && 'avatar--boca',
+    clase,
+  ]}
   style={`--avatar-lado:${tamano}px; --avatar-color:${color}`}
+  data-fotogramas={fotogramas.length > 1 ? fotogramas.length : undefined}
   data-avatar
 >
   {
@@ -53,15 +64,33 @@ const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
         data-bucle
       />
     ) : imagen ? (
-      <img
-        src={ruta('avatares', imagen)}
-        alt={`Caricatura de ${nombre}`}
-        width={tamano}
-        height={tamano}
-        loading="lazy"
-        decoding="async"
-        class="avatar__imagen"
-      />
+      <>
+        <img
+          src={ruta('avatares', imagen)}
+          alt={`Caricatura de ${nombre}`}
+          width={tamano}
+          height={tamano}
+          loading="lazy"
+          decoding="async"
+          class="avatar__imagen"
+        />
+        {bocas.map((cara, i) => (
+          /* Las demas posiciones de la boca van apiladas encima, tapadas, y
+             el reproductor va descubriendo una u otra mientras suena la
+             explicacion. Son decorativas: el alt lo pone la de abajo. */
+          <img
+            src={ruta('avatares', cara)}
+            alt=""
+            width={tamano}
+            height={tamano}
+            loading="lazy"
+            decoding="async"
+            class="avatar__imagen avatar__boca"
+            aria-hidden="true"
+            data-boca={i + 1}
+          />
+        ))}
+      </>
     ) : (
       <span class="avatar__iniciales" role="img" aria-label={`Avatar de ${nombre}`}>
         <span aria-hidden="true">{iniciales(nombre)}</span>
@@ -98,12 +127,23 @@ const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
      recortan en circulo y llenan el hueco; el halo de abajo solo se ve
      cuando no hay imagen y quedan las iniciales. */
   .avatar__imagen {
+    /* Las dos caras comparten celda: una encima de la otra, no en fila. */
+    grid-area: 1 / 1;
     width: 100%;
     height: 100%;
     border-radius: 999px;
     object-fit: cover;
     object-position: 50% 50%;
     transform-origin: 50% 100%;
+  }
+
+  /* Cada posicion de la boca espera tapada; el reproductor descubre una
+     sola a la vez. Sin la marca, se ve la cara en reposo de debajo. */
+  .avatar__boca {
+    opacity: 0;
+  }
+  .avatar__boca[data-activo] {
+    opacity: 1;
   }
 
   .avatar__bucle {
@@ -139,6 +179,7 @@ const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
     animation: none;
   }
 
+
   @media (prefers-reduced-motion: reduce) {
     .avatar--animable.avatar--hablando .avatar__imagen,
     .avatar--animable.avatar--hablando .avatar__iniciales {
@@ -147,6 +188,10 @@ const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
     /* Señal estática equivalente para quien no quiere movimiento. */
     .avatar--animable.avatar--hablando {
       box-shadow: 0 0 0 2px var(--color-eosina);
+    }
+    /* La boca tampoco se mueve: se queda la cara en reposo. */
+    .avatar__boca[data-activo] {
+      opacity: 0;
     }
   }
 </style>
