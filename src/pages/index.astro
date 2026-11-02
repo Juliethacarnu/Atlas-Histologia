@@ -547,31 +547,28 @@ let contadorGlobal = 0;
   }
 
   /* ============================================================
-     MOSAICO  ·  columnas CSS para que cada lamina guarde su forma
+     BANDEJA  ·  rejilla de celdas iguales
+     Todas las preparaciones se montan del mismo tamano, como en una caja
+     de portaobjetos: la vista se lee de un golpe y nada se desalinea.
      ============================================================ */
   .rejilla {
-    columns: 2;
-    column-gap: 1.1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .rejilla > :global(li) {
-    margin-bottom: 1.6rem;
-  }
   @media (min-width: 640px) {
     .rejilla {
-      columns: 3;
-      column-gap: 1.35rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.3rem 1.35rem;
     }
   }
   @media (min-width: 1100px) {
     .rejilla {
-      columns: 3;
-      column-gap: 1.7rem;
-    }
-    .rejilla > :global(li) {
-      margin-bottom: 2.1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.8rem 1.7rem;
     }
   }
 </style>
@@ -602,5 +599,55 @@ let contadorGlobal = 0;
     consola.addEventListener('pointerleave', () => {
       delete consola.dataset.foco;
     });
+  }
+
+  /* ---------- La lupa ----------
+     Un circulo que sigue al puntero por encima de la miniatura y enseña la
+     preparacion a 2,6 aumentos. Usa la version mediana de la foto, que se
+     pide solo cuando el puntero entra: asi no cuesta nada al cargar.
+     Sin raton no aparece: en tactil el visor de la lamina ya hace zoom. */
+  const AUMENTO = 2.6;
+  const hayRaton = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (hayRaton && !quieto) {
+    for (const marco of document.querySelectorAll<HTMLElement>('.placa__lamina')) {
+      const foto = marco.querySelector('img');
+      const grande = foto?.dataset.lupa;
+      if (!foto || !grande) continue;
+
+      let lupa: HTMLSpanElement | null = null;
+
+      marco.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        if (!lupa) {
+          lupa = document.createElement('span');
+          lupa.className = 'lupa';
+          lupa.style.backgroundImage = `url("${grande}")`;
+          marco.appendChild(lupa);
+        }
+        mover(e);
+        requestAnimationFrame(() => lupa?.setAttribute('data-ver', 'si'));
+      });
+
+      marco.addEventListener('pointermove', mover);
+      marco.addEventListener('pointerleave', () => lupa?.removeAttribute('data-ver'));
+
+      function mover(e: PointerEvent) {
+        if (!lupa) return;
+        // El montaje tiene marco, y la lupa se coloca desde el borde de
+        // dentro: hay que descontarlo o la foto bailaria respecto al puntero.
+        const caja = marco.getBoundingClientRect();
+        const x = e.clientX - caja.left - marco.clientLeft;
+        const y = e.clientY - caja.top - marco.clientTop;
+        const ancho = marco.clientWidth;
+        const alto = marco.clientHeight;
+        const r = lupa.offsetWidth / 2;
+        lupa.style.left = `${x}px`;
+        lupa.style.top = `${y}px`;
+        lupa.style.backgroundSize = `${ancho * AUMENTO}px ${alto * AUMENTO}px`;
+        lupa.style.backgroundPosition = `${r - x * AUMENTO}px ${r - y * AUMENTO}px`;
+      }
+    }
   }
 </script>

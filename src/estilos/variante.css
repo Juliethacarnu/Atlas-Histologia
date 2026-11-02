@@ -587,3 +587,245 @@ h4 {
 :root:root .riel {
   border-radius: 999px;
 }
+
+/* ============================================================
+   INJERTOS DE LA PROPUESTA I
+   Sobre la consola de «Mesa de luz» se montan tres cosas pedidas:
+   la tarjeta montada con cinta de la propuesta del 4321, todas del mismo
+   tamano; la lupa del 4324; y, dentro de una lamina, el cristal redondo
+   del 4322.
+   ============================================================ */
+
+/* ---- La tarjeta: una preparacion montada y pegada con cinta ---- */
+:root:root .rejilla > li:nth-child(odd) .placa {
+  --giro: -1deg;
+}
+:root:root .rejilla > li:nth-child(even) .placa {
+  --giro: 1.2deg;
+}
+:root:root .placa {
+  display: block;
+  position: relative;
+  transform: rotate(var(--giro, 0deg));
+  transition: transform 420ms var(--brinco);
+}
+:root:root .placa:hover,
+:root:root .placa:focus-visible {
+  transform: rotate(0deg) translateY(-5px) scale(1.02);
+  z-index: 2;
+}
+
+/* Todas las laminas ocupan la misma caja: la bandeja queda a escuadra y la
+   vista se recorre de un golpe. Lo que sobra de cada forma se recorta. */
+:root:root .placa__lamina {
+  aspect-ratio: 4 / 3;
+  border-radius: 0.55rem;
+  border: 7px solid var(--atlas-superficie-alta);
+  box-shadow:
+    0 0 0 1px var(--filo-vidrio),
+    var(--sombra-flote);
+  transition:
+    box-shadow 260ms var(--suave),
+    border-color 260ms;
+}
+:root:root .placa:hover .placa__lamina,
+:root:root .placa:focus-visible .placa__lamina {
+  border-color: var(--atlas-superficie-alta);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--acento) 55%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--acento) 22%, transparent),
+    var(--sombra-flote-alta);
+}
+:root:root .placa__lamina img {
+  object-fit: cover;
+}
+/* El acercamiento al pasar por encima lo hace la lupa, no la foto. */
+:root:root .placa:hover .placa__lamina img,
+:root:root .placa:focus-visible .placa__lamina img {
+  transform: none;
+}
+
+/* La cinta: un trozo translucido del color del sistema, pegado arriba y
+   asomando por fuera del montaje. */
+:root:root .placa::before {
+  content: '';
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  width: 4.6rem;
+  height: 1.5rem;
+  transform: translateX(-50%) rotate(-4deg);
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--acento) 62%, transparent) 0 5px,
+    color-mix(in srgb, var(--acento) 36%, transparent) 5px 10px
+  );
+  border-radius: 1px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ---- La lupa: un circulo que sigue al puntero sobre la miniatura ---- */
+:root:root .lupa {
+  position: absolute;
+  z-index: 4;
+  height: 9.5rem;
+  width: 9.5rem;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 0 1px rgb(8 8 28 / 0.3),
+    0 16px 34px -14px rgb(8 8 28 / 0.8);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.75);
+  transition:
+    opacity 180ms,
+    transform 220ms var(--brinco);
+}
+:root:root .lupa[data-ver='si'] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+@media (hover: none) {
+  :root:root .lupa {
+    display: none;
+  }
+}
+
+/* ============================================================
+   DENTRO DE UNA LAMINA  ·  cristal esmerilado y esquinas redondas
+   Aqui la consola se ablanda: el fondo se vuelve una acuarela malva y todo
+   lo que se apoya encima es cristal con las esquinas muy redondeadas.
+   ============================================================ */
+:root:root[data-pagina='placa'] {
+  --radius-ficha: 1.6rem;
+  --radius-hoja: 2rem;
+  --aurora-1: rgb(141 86 240 / 0.3);
+  --aurora-2: rgb(255 158 207 / 0.24);
+  --aurora-3: rgb(190 164 255 / 0.28);
+  --linea-rejilla: rgb(109 63 200 / 0.07);
+  --vidrio: rgb(255 255 255 / 0.66);
+  --vidrio-alto: rgb(252 248 255 / 0.93);
+  --filo-vidrio: rgb(255 255 255 / 0.85);
+  --atlas-acento: #6d3fc8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:root[data-pagina='placa']:not([data-tema='claro']) {
+    --aurora-1: rgb(141 86 240 / 0.34);
+    --aurora-2: rgb(224 68 127 / 0.2);
+    --aurora-3: rgb(99 102 241 / 0.26);
+    --linea-rejilla: rgb(190 164 255 / 0.07);
+    --vidrio: rgb(60 40 110 / 0.55);
+    --vidrio-alto: rgb(40 25 80 / 0.9);
+    --filo-vidrio: rgb(196 170 255 / 0.22);
+    --atlas-acento: #c3abff;
+  }
+}
+:root:root[data-pagina='placa'][data-tema='oscuro'] {
+  --aurora-1: rgb(141 86 240 / 0.34);
+  --aurora-2: rgb(224 68 127 / 0.2);
+  --aurora-3: rgb(99 102 241 / 0.26);
+  --linea-rejilla: rgb(190 164 255 / 0.07);
+  --vidrio: rgb(60 40 110 / 0.55);
+  --vidrio-alto: rgb(40 25 80 / 0.9);
+  --filo-vidrio: rgb(196 170 255 / 0.22);
+  --atlas-acento: #c3abff;
+}
+
+/* La acuarela se mueve muy despacio, como en el 4322. */
+:root:root[data-pagina='placa']::before {
+  animation: nube-deriva 54s ease-in-out infinite alternate;
+}
+@keyframes nube-deriva {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.6vmax, -1.4vmax, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-1.4vmax, 1.6vmax, 0) scale(1.02);
+  }
+}
+
+[data-pagina='placa'] :where(.panel-estructuras, .ficha, .asa, .atajos) {
+  border-radius: var(--radius-ficha);
+}
+:root:root[data-pagina='placa'] .panel-estructuras {
+  border: 1px solid var(--filo-vidrio);
+  background: var(--vidrio-alto);
+  backdrop-filter: blur(26px) saturate(1.3);
+  box-shadow: var(--sombra-flote-alta);
+}
+:root:root[data-pagina='placa'] .rotulo {
+  color: var(--atlas-acento);
+  letter-spacing: 0.1em;
+}
+:root:root[data-pagina='placa'] .fila-estructura {
+  border-radius: 999px;
+  transition:
+    background-color 160ms,
+    transform 300ms var(--brinco);
+}
+:root:root[data-pagina='placa'] .fila-estructura:hover {
+  background: var(--vidrio);
+  transform: translateX(5px);
+}
+:root:root[data-pagina='placa'] .numero-fila {
+  border-radius: 999px;
+  font-weight: 700;
+}
+:root:root[data-pagina='placa'] .boton-panel {
+  border-radius: 999px;
+  border: 1px solid var(--filo-vidrio);
+  background: var(--vidrio);
+  font-weight: 600;
+  box-shadow: 0 4px 14px -8px rgb(15 17 48 / 0.4);
+  transition:
+    transform 300ms var(--brinco),
+    background-color 200ms;
+}
+:root:root[data-pagina='placa'] .boton-panel:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--vidrio-alto);
+}
+:root:root[data-pagina='placa'] .ficha__numero {
+  border-radius: 999px;
+  background: var(--atlas-acento);
+  border-color: var(--atlas-acento);
+  color: var(--sobre-acento);
+}
+:root:root[data-pagina='placa'] .ficha__accion {
+  border-radius: 999px;
+  border: 1px solid var(--filo-vidrio);
+  background: var(--vidrio);
+  font-weight: 600;
+}
+:root:root[data-pagina='placa'] .ficha__accion:hover:not(:disabled) {
+  background: var(--vidrio-alto);
+}
+:root:root[data-pagina='placa'] .tira__hoja,
+:root:root[data-pagina='placa'] #minimapa,
+:root:root[data-pagina='placa'] .quiz__opciones button {
+  border-radius: 1rem;
+}
+:root:root[data-pagina='placa'] .quiz__opciones button {
+  border-radius: 999px;
+}
+:root:root[data-pagina='placa'] .chip-zoom,
+:root:root[data-pagina='placa'] .riel {
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:root[data-pagina='placa']::before {
+    animation: none;
+  }
+  :root:root .placa,
+  :root:root .placa:hover,
+  :root:root .placa:focus-visible {
+    transform: none;
+  }
+}
