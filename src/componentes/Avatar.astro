@@ -28,10 +28,12 @@ const {
 const nombre = presentador?.nombre ?? 'Sin presentador';
 const color = presentador?.avatarColor ?? '#2E2566';
 const fotogramas = fotogramasDe(presentador?.avatarCarpeta);
-const imagen = fotogramas[0]?.ruta ?? null;
+const imagen = fotogramas[0] ?? null;
 const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
-// Con un solo fotograma no hay nada que intercalar: la cara se queda quieta.
-const bocas = bucle ? [] : fotogramas.slice(1);
+// Dos poses y nada mas: la cara en reposo y una con la boca abierta, que se
+// van turnando mientras hay voz. Con un solo fotograma no hay nada que
+// turnar y la cara se queda quieta. Los fotogramas de mas no se descargan.
+const bocas = bucle ? [] : fotogramas.slice(1, 2);
 ---
 
 <span
@@ -75,11 +77,11 @@ const bocas = bucle ? [] : fotogramas.slice(1);
           class="avatar__imagen"
         />
         {bocas.map((cara, i) => (
-          /* Las demas posiciones de la boca van apiladas encima, tapadas, y
-             el reproductor va descubriendo una u otra mientras suena la
-             explicacion. Son decorativas: el alt lo pone la de abajo. */
+          /* La cara con la boca abierta va apilada encima, tapada, y el
+             reproductor la descubre y la vuelve a tapar mientras suena la
+             explicacion. Es decorativa: el alt lo pone la de abajo. */
           <img
-            src={ruta('avatares', cara.ruta)}
+            src={ruta('avatares', cara)}
             alt=""
             width={tamano}
             height={tamano}
@@ -88,7 +90,6 @@ const bocas = bucle ? [] : fotogramas.slice(1);
             class="avatar__imagen avatar__boca"
             aria-hidden="true"
             data-boca={i + 1}
-            data-apertura={cara.apertura}
           />
         ))}
       </>
@@ -103,6 +104,11 @@ const bocas = bucle ? [] : fotogramas.slice(1);
 <style>
   .avatar {
     display: inline-grid;
+    /* Una sola celda del tamano exacto del avatar. Sin fijar la pista, la
+       fila crece hasta el tamano natural de lo que lleve dentro -un bucle en
+       vertical mide 9:16- y entonces el 100% de la imagen pasa a medirse
+       contra esa fila crecida, no contra el avatar: se desbordaba por abajo. */
+    grid-template: 100% / 100%;
     place-items: center;
     width: var(--avatar-lado);
     height: var(--avatar-lado);
@@ -147,10 +153,12 @@ const bocas = bucle ? [] : fotogramas.slice(1);
     opacity: 1;
   }
 
+  /* El bucle viene en vertical (9:16) y la cara esta en el tercio de arriba:
+     se recorta en circulo como las fotos y se sube el encuadre hasta ella. */
   .avatar__bucle {
-    border-radius: 0.5rem;
+    border-radius: 999px;
     object-fit: cover;
-    object-position: 50% 50%;
+    object-position: 50% 18%;
   }
 
   .avatar__iniciales {

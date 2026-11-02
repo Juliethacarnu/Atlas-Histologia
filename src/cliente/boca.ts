@@ -1,38 +1,31 @@
 /**
- * Mueve la boca de la caricatura al compas de la voz.
+ * Mueve la boca de la caricatura segun suene o no la voz.
  *
- * Se mide la energia del audio que esta sonando y la cara se abre tanto como
- * suene: `npm run optimizar` deja en boca.json cuanto abre la boca cada
- * fotograma, de 0 a 1, asi que basta con poner el que se parezca al volumen
- * de ese instante. En los silencios -una coma, un punto, el hueco entre dos
- * frases- se cierra y se queda quieta. La cara se mueve cuando la persona
- * habla y para cuando calla, en vez de dar vueltas sin parar.
+ * Son dos posiciones y nada mas: la cara en reposo -el primer fotograma de la
+ * carpeta, con la boca cerrada- y la siguiente, con la boca abierta. Mientras
+ * se oye voz se van turnando; en cuanto el audio baja del umbral -una coma, un
+ * punto, el hueco entre dos frases- se queda la de reposo y se para.
  *
- * Como la apertura sale de medir las propias imagenes, da igual en que orden
- * esten numeradas: no hace falta dibujarlas de menos a mas abierta.
+ * Dos poses alternas leen mejor que repartir muchas caras por volumen: es como
+ * se ha animado siempre el habla en dibujos, y no depende de acertar que cara
+ * corresponde a que nivel.
  *
- * El primer fotograma de la carpeta es a la vez la cara en reposo y una
- * posicion mas de la rueda: por eso la cara de cuando habla casa con la de
- * cuando calla, porque es la misma imagen.
+ * El umbral no puede ser un numero fijo. Las grabaciones estan a volumenes muy
+ * distintos (la mediana va de 0,013 a 0,039 segun quien la hiciera) y con un
+ * valor fijo unas se quedan con la boca siempre abierta y otras siempre
+ * cerrada. Se toma una fraccion del pico reciente de esa misma voz.
  *
  * Si no se puede escuchar el audio (el navegador no deja abrir el contexto, o
- * la explicacion viene de YouTube y el sonido vive dentro de un iframe de
- * otro dominio), la boca se mueve igual, a ritmo fijo. Lo que nunca se hace
- * es enganchar el audio antes de saber que el contexto arranca: si algo
- * falla, la explicacion tiene que seguir oyendose.
+ * la explicacion viene de YouTube y el sonido vive dentro de un iframe de otro
+ * dominio), la boca se turna igual, a ritmo fijo. Lo que nunca se hace es
+ * enganchar el audio antes de saber que el contexto arranca: si algo falla, la
+ * explicacion tiene que seguir oyendose.
  */
 
-/** Cuanto dura cada posicion de la boca cuando no se puede oir la voz. */
+/** Cuanto dura cada una de las dos posiciones. */
 const MIN_MS = 110;
 const MAX_MS = 150;
-/** Siguiendo la voz, lo minimo que se aguanta una cara antes de cambiar. */
-const AGUANTE_MS = 55;
-/**
- * El umbral de silencio no puede ser fijo: las grabaciones estan a volumenes
- * muy distintos (la mediana va de 0,013 a 0,039 segun quien la hiciera), y un
- * numero fijo deja a unas con la boca siempre abierta y a otras siempre
- * cerrada. Se toma una fraccion del pico reciente de esa misma voz.
- */
+/** Que fraccion del pico reciente hay que pasar para contar como voz. */
 const FRACCION_UMBRAL = 0.05;
 /** Suelo absoluto, para que el ruido de fondo de un silencio no cuente. */
 const UMBRAL_MINIMO = 0.002;
@@ -106,7 +99,7 @@ async function enganchar(el: HTMLMediaElement): Promise<(() => number) | null> {
     };
   } catch {
     // Navegador sin Web Audio, o el elemento ya enganchado a otro grafo: se
-    // sigue sin oido, moviendo la boca a ciegas.
+    // sigue sin oido, turnando la boca a ciegas.
     return null;
   }
 }
@@ -114,10 +107,10 @@ async function enganchar(el: HTMLMediaElement): Promise<(() => number) | null> {
 /* ------------------------------- La boca --------------------------------- */
 
 class Boca {
-  /** Las posiciones abiertas; la cerrada es la de debajo, sin tapar. */
-  private caras: HTMLElement[];
-  /** 0 = la cara de reposo; 1..n = cada una de las de encima. */
-  private i = 0;
+  /** La cara con la boca abierta; la cerrada es la de debajo, sin tapar. */
+  private readonly abierta: HTMLElement | null;
+  /** false = cara en reposo (boca cerrada); true = boca abierta. */
+  private abierto = false;
   private cuadro: number | null = null;
   private siguienteSalto = 0;
   private calladoDesde = 0;
@@ -126,33 +119,12 @@ class Boca {
   private envolvente = 0;
   private pico = 0;
 
-  /** Cuanto abre la boca cada cara, incluida la de reposo (la 0). */
-  private aperturas: number[];
-  /** Con las medidas de boca.json se puede seguir el volumen de la voz. */
-  private readonly hayMedidas: boolean;
-
   constructor(avatar: HTMLElement) {
-    this.caras = Array.from(avatar.querySelectorAll<HTMLElement>('[data-boca]'));
-    this.aperturas = [0, ...this.caras.map((c) => Number(c.dataset.apertura ?? 0) || 0)];
-    this.hayMedidas = this.aperturas.some((a) => a > 0);
-  }
-
-  /** La cara cuya boca se parece mas a lo que esta sonando ahora mismo. */
-  private masCercana(objetivo: number) {
-    let mejor = 0;
-    let dist = Infinity;
-    for (let k = 0; k < this.aperturas.length; k++) {
-      const d = Math.abs(this.aperturas[k]! - objetivo);
-      if (d < dist) {
-        dist = d;
-        mejor = k;
-      }
-    }
-    return mejor;
+    this.abierta = avatar.querySelector<HTMLElement>('[data-boca]');
   }
 
   get sirve() {
-    return this.caras.length > 0;
+    return this.abierta !== null;
   }
 
   oir(nivel: (() => number) | null) {
@@ -173,24 +145,21 @@ class Boca {
       cancelAnimationFrame(this.cuadro);
       this.cuadro = null;
     }
-    this.i = 0;
-    this.pintar();
+    this.cerrar();
   }
 
-  /** Tapa todas menos la que toca; con i = 0 queda la cara de reposo. */
-  private pintar() {
-    for (const c of this.caras) c.removeAttribute('data-activo');
-    if (this.i > 0) this.caras[this.i - 1]?.setAttribute('data-activo', '');
+  private cerrar() {
+    this.abierto = false;
+    this.abierta?.removeAttribute('data-activo');
   }
 
   private paso(ahora: number) {
     this.cuadro = requestAnimationFrame((t) => this.paso(t));
 
-    // Sin oido no hay nada que seguir: se pasan los fotogramas sin mas.
+    // Sin oido no hay nada que seguir: se turna la boca sin mas.
     let hayVoz = true;
     if (this.nivel) {
-      const ahoraNivel = this.nivel();
-      this.envolvente = Math.max(ahoraNivel, this.envolvente * CAIDA);
+      this.envolvente = Math.max(this.nivel(), this.envolvente * CAIDA);
       this.pico = Math.max(this.envolvente, this.pico * CAIDA_PICO);
       hayVoz = this.envolvente >= Math.max(UMBRAL_MINIMO, this.pico * FRACCION_UMBRAL);
     }
@@ -199,33 +168,16 @@ class Boca {
       if (this.calladoDesde === 0) this.calladoDesde = ahora;
       // Un silencio corto no cierra la boca: entre silaba y silaba tambien
       // baja el volumen, y la cara no deberia pararse por eso.
-      if (ahora - this.calladoDesde >= SILENCIO_MS && this.i !== 0) {
-        this.i = 0;
-        this.pintar();
-      }
+      if (ahora - this.calladoDesde >= SILENCIO_MS && this.abierto) this.cerrar();
       return;
     }
 
     this.calladoDesde = 0;
     if (ahora < this.siguienteSalto) return;
 
-    if (this.nivel && this.hayMedidas && this.pico > 0) {
-      // Se abre tanto como suene: el volumen de ahora, medido contra el pico
-      // reciente de esta misma voz, elige la cara cuya boca se le parece.
-      const suelo = Math.max(UMBRAL_MINIMO, this.pico * FRACCION_UMBRAL) / this.pico;
-      const relativo = Math.min(1, this.envolvente / this.pico);
-      const cuanto = Math.max(0, (relativo - suelo) / Math.max(1e-6, 1 - suelo));
-      // La raiz abre la boca antes: hablando normal casi nunca se llega al
-      // pico, y si no la cara se quedaria medio cerrada todo el rato.
-      this.i = this.masCercana(cuanto);
-      this.pintar();
-      this.siguienteSalto = ahora + AGUANTE_MS;
-      return;
-    }
-
-    // Sin medidas o sin oido: se pasan los fotogramas en orden, sin mas.
-    this.i = (this.i + 1) % (this.caras.length + 1);
-    this.pintar();
+    this.abierto = !this.abierto;
+    if (this.abierto) this.abierta?.setAttribute('data-activo', '');
+    else this.abierta?.removeAttribute('data-activo');
     this.siguienteSalto = ahora + alAzar(MIN_MS, MAX_MS);
   }
 }
@@ -236,7 +188,7 @@ const bocas = new WeakMap<HTMLElement, Boca>();
  * Enciende o apaga el movimiento de la boca de un avatar. Si la persona solo
  * tiene un fotograma, o si se ha pedido menos movimiento, no hace nada.
  * `medio` es el <audio> de la explicacion, para poder seguir la voz; sin el,
- * la boca se mueve a ciegas.
+ * la boca se turna a ciegas.
  */
 export function moverBoca(
   avatar: HTMLElement,

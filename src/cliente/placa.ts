@@ -490,6 +490,10 @@ function iniciar(datos: DatosPlaca) {
           });
         } else {
           bucle.pause();
+          // Y se rebobina: el primer fotograma del bucle es la cara en
+          // reposo, con la boca cerrada. Sin esto se queda congelada a
+          // media palabra, con la boca abierta, hasta que se reanude.
+          bucle.currentTime = 0;
         }
       }
     });
