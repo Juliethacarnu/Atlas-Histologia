@@ -38,6 +38,13 @@ for (const { sistema, placas: delSistema } of porSistema) {
   if (primera) muestras[sistema.id] = urlImagen(imagenesDe(primera.data)[0]!.archivo, 'miniatura');
 }
 
+// La cinta de la portada: dos laminas de cada sistema, en el mismo orden del
+// atlas. Son las mismas miniaturas que usa la bandeja, asi que el navegador
+// las sirve de su cache y no cuestan una descarga mas.
+const cinta = porSistema.flatMap(({ placas: delSistema }) =>
+  delSistema.slice(0, 2).map((p) => urlImagen(imagenesDe(p.data)[0]!.archivo, 'miniatura')),
+);
+
 const totalEstructuras = placas.reduce((n, p) => n + p.data.estructuras.length, 0);
 const cifras = [
   { n: placas.length, etiqueta: placas.length === 1 ? 'lámina' : 'láminas' },
@@ -48,24 +55,60 @@ let contadorGlobal = 0;
 ---
 
 <Base titulo="Atlas virtual de histologia" anchoCompleto>
-  <!-- Portada: un pliego de apertura con filetes arriba y abajo. -->
-  <section class="portada contenedor-bandeja">
-    <h1 class="portada__titulo">
-      Atlas virtual<br />de histología
-    </h1>
-    <div class="portada__pie">
-      <p class="portada__entrada">
+  {/* ---------- La consola: la portada es el panel de mando ---------- */}
+  <section class="consola" id="consola">
+    <div class="consola__foco" aria-hidden="true"></div>
+
+    <div class="consola__cuerpo contenedor-bandeja">
+      <p class="consola__kicker rotulo">Atlas digital · hematoxilina y eosina</p>
+
+      <h1 class="consola__titulo">
+        Atlas virtual<br /><span class="consola__titulo-luz">de histología</span>
+      </h1>
+
+      <p class="consola__entrada">
         {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina. Cada lámina se abre
         en un visor con zoom profundo y sus estructuras están señaladas una a una.
       </p>
-      <dl class="portada__cifras">
+
+      <div class="consola__acciones">
+        <a class="boton-luz" href="#titulo-bandeja">
+          Explorar las láminas
+          <span class="boton-luz__flecha" aria-hidden="true">↓</span>
+        </a>
+        <span class="consola__atajo rotulo">o busca una estructura por su nombre</span>
+      </div>
+
+      {/* Las tres lecturas del aparato. */}
+      <dl class="lecturas">
         {cifras.map((c) => (
-          <div>
-            <dt class="tabular-nums">{c.n}</dt>
-            <dd>{c.etiqueta}</dd>
+          <div class="lecturas__celda">
+            <dt class="lecturas__cifra tabular-nums">{c.n}</dt>
+            <dd class="lecturas__etiqueta">{c.etiqueta}</dd>
           </div>
         ))}
+        <div class="lecturas__celda lecturas__celda--canales">
+          <dt class="lecturas__canales" aria-hidden="true">
+            {SISTEMAS.map((s) => (
+              <span
+                class="lecturas__canal"
+                style={`--acento-sistema:${s.acento}; --senal:${(conteos[s.id] ?? 0) / 15}`}
+              />
+            ))}
+          </dt>
+          <dd class="lecturas__etiqueta">láminas por sistema</dd>
+        </div>
       </dl>
+    </div>
+
+    {/* La cinta: doce preparaciones pasando de largo. Es decoracion, no un
+        indice: el indice de verdad esta justo debajo y es navegable. */}
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        {[...cinta, ...cinta].map((src) => (
+          <img class="cinta__lamina" src={src} alt="" loading="lazy" decoding="async" />
+        ))}
+      </div>
     </div>
   </section>
 
@@ -77,11 +120,13 @@ let contadorGlobal = 0;
     <BuscadorFiltros conteos={conteos} total={placas.length} muestras={muestras} />
 
     <div class="bandeja__laminas">
-      {porSistema.map(({ sistema, placas: delSistema }) => (
+      {porSistema.map(({ sistema, placas: delSistema }, i) => (
         <section data-grupo-sistema={sistema.id} aria-labelledby={`sis-${sistema.id}`}>
-          <header class="grupo">
+          <header class="grupo" style={`--acento-sistema: ${sistema.acento}`}>
+            <span class="grupo__orden tabular-nums" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
             <h3 id={`sis-${sistema.id}`} class="grupo__titulo">
-              <span class="grupo__punto" style={`background:${sistema.acento}`} aria-hidden="true" />
               {sistema.nombre}
             </h3>
             <span class="grupo__cuenta tabular-nums">
@@ -129,73 +174,245 @@ let contadorGlobal = 0;
 </Base>
 
 <style>
-  /* --- Portada --- */
-  .portada {
-    padding-block: clamp(2rem, 1rem + 4vw, 4.25rem) clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  /* ============================================================
+     LA CONSOLA
+     ============================================================ */
+  .consola {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(2.5rem, 1rem + 5vw, 5rem) 0;
   }
 
-  .portada__titulo {
-    font-size: clamp(2.6rem, 1rem + 6.4vw, 5.6rem);
-    font-weight: 400;
-    line-height: 0.98;
-    letter-spacing: -0.035em;
+  /* El foco que sigue al puntero: la lampara del microscopio moviendose por
+     encima del panel. Sin raton se queda donde estaba y no molesta. */
+  .consola__foco {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      22rem 22rem at var(--mx, 50%) var(--my, 30%),
+      color-mix(in srgb, var(--atlas-acento) 20%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 500ms var(--suave);
+  }
+  .consola[data-foco='si'] .consola__foco {
+    opacity: 1;
   }
 
-  /* Debajo del titulo, un filete y a los lados la entradilla y las cifras:
-     la apertura de un pliego, no una caja de texto. */
-  .portada__pie {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--atlas-texto);
+  .consola__cuerpo {
+    position: relative;
+    z-index: 1;
   }
-  @media (min-width: 900px) {
-    .portada__pie {
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: start;
-      gap: 3.5rem;
+
+  .consola__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--filo-vidrio);
+    border-radius: 999px;
+    background: var(--vidrio);
+    backdrop-filter: blur(10px);
+    padding: 0.3rem 0.8rem;
+    color: var(--atlas-texto);
+  }
+  .consola__kicker::before {
+    content: '';
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 999px;
+    background: var(--color-sis-digestivo);
+    box-shadow: 0 0 9px 0 var(--color-sis-digestivo);
+  }
+
+  .consola__titulo {
+    margin-top: 1.1rem;
+    font-size: clamp(2.7rem, 0.6rem + 8vw, 6.4rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.052em;
+  }
+
+  /* La segunda linea se pinta con el degradado del atlas y se mueve despacio:
+     es lo unico animado del titulo. */
+  .consola__titulo-luz {
+    background: linear-gradient(
+      96deg,
+      var(--color-sis-urinario),
+      var(--color-eosina) 34%,
+      var(--atlas-acento) 68%,
+      var(--color-sis-urinario)
+    );
+    background-size: 280% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: luz-corre 14s linear infinite;
+  }
+  @keyframes luz-corre {
+    to {
+      background-position: 280% 0;
     }
   }
 
-  .portada__entrada {
-    max-width: 46ch;
-    font-size: clamp(0.98rem, 0.92rem + 0.3vw, 1.08rem);
+  .consola__entrada {
+    max-width: 44ch;
+    margin-top: 1.4rem;
+    font-size: clamp(1rem, 0.94rem + 0.3vw, 1.12rem);
     line-height: 1.6;
     color: var(--atlas-texto-suave);
   }
 
-  .portada__cifras {
+  .consola__acciones {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem 2.5rem;
-    margin: 0;
+    align-items: center;
+    gap: 1rem 1.3rem;
+    margin-top: 1.8rem;
   }
-  .portada__cifras dt {
+
+  .boton-luz {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: var(--medida-tactil);
+    border-radius: 999px;
+    background: var(--atlas-acento);
+    padding: 0.6rem 1.35rem;
     font-family: var(--font-serif);
-    font-size: 2.1rem;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.025em;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--sobre-acento);
+    text-decoration: none;
+    box-shadow: 0 0 30px -8px color-mix(in srgb, var(--atlas-acento) 85%, transparent);
+    transition:
+      transform 200ms var(--brinco),
+      filter 200ms;
   }
-  .portada__cifras dd {
-    margin: 0.25rem 0 0;
-    font-size: 0.74rem;
-    line-height: 1.3;
+  .boton-luz:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.14);
+  }
+  .boton-luz__flecha {
+    transition: transform 240ms var(--brinco);
+  }
+  .boton-luz:hover .boton-luz__flecha {
+    transform: translateY(3px);
+  }
+
+  /* ---------- Las lecturas del aparato ---------- */
+  .lecturas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    gap: 1px;
+    margin: clamp(2rem, 1rem + 2.5vw, 3rem) 0 0;
+    border: 1px solid var(--filo-vidrio);
+    border-radius: var(--radius-ficha);
+    background: var(--filo-vidrio);
+    overflow: hidden;
+  }
+  .lecturas__celda {
+    background: var(--vidrio);
+    backdrop-filter: blur(12px);
+    padding: 0.9rem 1.1rem 1rem;
+  }
+  .lecturas__cifra {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 1.2rem + 1.6vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+  .lecturas__etiqueta {
+    margin: 0.45rem 0 0;
+    font-family: var(--font-instrumento);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.35;
     color: var(--atlas-texto-suave);
   }
 
-  /* --- La bandeja: indice a la izquierda, laminas a la derecha --- */
+  /* Seis barras, una por sistema, con el alto proporcional a sus laminas. */
+  .lecturas__canales {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.45rem;
+    height: clamp(1.9rem, 1.2rem + 1.6vw, 2.6rem);
+  }
+  .lecturas__canal {
+    width: 0.4rem;
+    flex: none;
+    height: calc(26% + 74% * var(--senal, 0.3));
+    border-radius: 999px;
+    background: var(--acento-sistema);
+    box-shadow: 0 0 10px -2px var(--acento-sistema);
+  }
+
+  /* ---------- La cinta de preparaciones ---------- */
+  .cinta {
+    position: relative;
+    z-index: 1;
+    margin-top: clamp(2rem, 1rem + 2.5vw, 3.25rem);
+    padding-block: 0.9rem;
+    border-top: 1px solid var(--filo-vidrio);
+    border-bottom: 1px solid var(--filo-vidrio);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7rem, #000 calc(100% - 7rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7rem, #000 calc(100% - 7rem), transparent);
+  }
+  .cinta__pista {
+    display: flex;
+    gap: 0.8rem;
+    width: max-content;
+    animation: cinta-pasa 64s linear infinite;
+  }
+  .cinta:hover .cinta__pista {
+    animation-play-state: paused;
+  }
+  @keyframes cinta-pasa {
+    to {
+      /* La pista lleva la lista dos veces: al recorrer la mitad, el dibujo
+         vuelve a ser el mismo y el salto no se ve. */
+      transform: translateX(-50%);
+    }
+  }
+  .cinta__lamina {
+    height: clamp(3.6rem, 2.4rem + 3vw, 5.4rem);
+    width: clamp(5.4rem, 3.4rem + 5vw, 8.4rem);
+    flex: none;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--filo-vidrio);
+    filter: saturate(1.05);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cinta__pista {
+      animation: none;
+    }
+    .consola__titulo-luz {
+      animation: none;
+    }
+  }
+
+  /* ============================================================
+     LA BANDEJA
+     ============================================================ */
   .bandeja {
     display: grid;
     gap: 1.5rem;
-    padding-bottom: 2rem;
+    padding-top: clamp(2.25rem, 1rem + 3vw, 3.5rem);
+    padding-bottom: 2.5rem;
   }
   @media (min-width: 1100px) {
     .bandeja {
       /* El indice vive en su propia columna y se queda pegado al desplazar;
          asi los seis sistemas estan siempre a un clic sin volver arriba. */
-      grid-template-columns: 12rem minmax(0, 1fr);
+      grid-template-columns: 13rem minmax(0, 1fr);
       grid-template-areas:
         'indice buscar'
         'indice laminas';
@@ -220,37 +437,41 @@ let contadorGlobal = 0;
     gap: 3.5rem;
   }
 
-  /* --- Cabecera de cada sistema --- */
+  /* ---------- Cada sistema es un canal numerado ---------- */
   .grupo {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: baseline;
-    column-gap: 0.9rem;
-    row-gap: 0.3rem;
-    margin-bottom: 1.1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--atlas-texto);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.85rem;
+    row-gap: 0.35rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--filo-vidrio);
+  }
+
+  .grupo__orden {
+    display: grid;
+    place-items: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.6rem;
+    background: color-mix(in srgb, var(--acento-sistema) 18%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acento-sistema) 45%, transparent);
+    font-family: var(--font-instrumento);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--atlas-texto);
   }
 
   .grupo__titulo {
-    display: flex;
-    align-items: baseline;
-    gap: 0.55rem;
-    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.75rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-  }
-
-  .grupo__punto {
-    height: 0.45rem;
-    width: 0.45rem;
-    flex: none;
-    border-radius: 999px;
-    translate: 0 -0.25rem;
+    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.038em;
   }
 
   .grupo__cuenta {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     color: var(--atlas-texto-suave);
     white-space: nowrap;
   }
@@ -261,7 +482,7 @@ let contadorGlobal = 0;
   }
 
   .grupo__descripcion {
-    grid-column: 1 / -1;
+    grid-column: 2 / -1;
     margin: 0;
   }
   @media (max-width: 639px) {
@@ -270,19 +491,14 @@ let contadorGlobal = 0;
     }
   }
 
-  /* --- Nada coincide: se dice el termino, como busca el atlas y por donde
-     seguir. Nunca se deja al lector en un callejon sin salida. --- */
+  /* ---------- Nada coincide ---------- */
   .vacio {
     max-width: 48ch;
     padding-block: clamp(2rem, 1rem + 3vw, 3rem);
   }
   .vacio__titulo {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     line-height: 1.25;
-  }
-  .vacio__titulo span {
-    font-style: italic;
   }
   .vacio__pista {
     margin-top: 0.6rem;
@@ -293,7 +509,7 @@ let contadorGlobal = 0;
   #vacio-cerca {
     margin-top: 1.6rem;
     padding-top: 0.8rem;
-    border-top: 1px solid var(--atlas-borde);
+    border-top: 1px solid var(--filo-vidrio);
   }
   .vacio__lista {
     list-style: none;
@@ -317,7 +533,6 @@ let contadorGlobal = 0;
     color: var(--color-eosina);
   }
   .vacio__lista :global(.vacio__nombre) {
-    font-family: var(--font-serif);
     font-size: 1.05rem;
   }
   .vacio__lista :global(.vacio__donde) {
@@ -326,50 +541,113 @@ let contadorGlobal = 0;
   }
   .vacio__boton {
     margin-top: 1.6rem;
-    border: 1px solid var(--atlas-borde-fuerte);
-    border-radius: var(--radius-chapa);
+    min-height: 44px;
     padding: 0.5rem 1rem;
     font-size: 0.88rem;
-    min-height: 44px;
-    transition:
-      border-color 140ms,
-      background-color 140ms;
-  }
-  .vacio__boton:hover {
-    border-color: var(--atlas-texto);
-    background: var(--atlas-superficie);
   }
 
-  /* --- Mosaico: la bandeja de preparaciones ---
-     Columnas CSS en vez de rejilla. Asi cada lamina conserva su forma (la
-     traquea es panoramica, el duodeno redondo) y el mosaico se cierra solo,
-     sin recortar ninguna ni dejar huecos. --- */
+  /* ============================================================
+     BANDEJA  ·  rejilla de celdas iguales
+     Todas las preparaciones se montan del mismo tamano, como en una caja
+     de portaobjetos: la vista se lee de un golpe y nada se desalinea.
+     ============================================================ */
   .rejilla {
-    columns: 2;
-    column-gap: 1.1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .rejilla > :global(li) {
-    margin-bottom: 1.6rem;
-  }
   @media (min-width: 640px) {
     .rejilla {
-      columns: 3;
-      column-gap: 1.35rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.3rem 1.35rem;
     }
   }
-  /* Tres columnas y no cuatro: con cuatro, el reparto secuencial de las
-     columnas CSS dejaba huecos de media pantalla, y además la lámina se ve
-     más grande, que es de lo que se trata. */
   @media (min-width: 1100px) {
     .rejilla {
-      columns: 3;
-      column-gap: 1.6rem;
-    }
-    .rejilla > :global(li) {
-      margin-bottom: 2.1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.8rem 1.7rem;
     }
   }
 </style>
+
+<script>
+  /* El foco de la consola sigue al puntero. Solo con raton: en una pantalla
+     tactil no hay puntero que seguir y la pagina queda igual. */
+  const consola = document.getElementById('consola');
+  if (consola && window.matchMedia('(hover: hover)').matches) {
+    let pendiente = false;
+    let ultimo: PointerEvent | null = null;
+
+    consola.addEventListener('pointermove', (e) => {
+      ultimo = e;
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(() => {
+        pendiente = false;
+        if (!ultimo) return;
+        const caja = consola.getBoundingClientRect();
+        consola.style.setProperty('--mx', `${((ultimo.clientX - caja.left) / caja.width) * 100}%`);
+        consola.style.setProperty('--my', `${((ultimo.clientY - caja.top) / caja.height) * 100}%`);
+      });
+    });
+    consola.addEventListener('pointerenter', () => {
+      consola.dataset.foco = 'si';
+    });
+    consola.addEventListener('pointerleave', () => {
+      delete consola.dataset.foco;
+    });
+  }
+
+  /* ---------- La lupa ----------
+     Un circulo que sigue al puntero por encima de la miniatura y enseña la
+     preparacion a 2,6 aumentos. Usa la version mediana de la foto, que se
+     pide solo cuando el puntero entra: asi no cuesta nada al cargar.
+     Sin raton no aparece: en tactil el visor de la lamina ya hace zoom. */
+  const AUMENTO = 2.6;
+  const hayRaton = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (hayRaton && !quieto) {
+    for (const marco of document.querySelectorAll<HTMLElement>('.placa__lamina')) {
+      const foto = marco.querySelector('img');
+      const grande = foto?.dataset.lupa;
+      if (!foto || !grande) continue;
+
+      let lupa: HTMLSpanElement | null = null;
+
+      marco.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        if (!lupa) {
+          lupa = document.createElement('span');
+          lupa.className = 'lupa';
+          lupa.style.backgroundImage = `url("${grande}")`;
+          marco.appendChild(lupa);
+        }
+        mover(e);
+        requestAnimationFrame(() => lupa?.setAttribute('data-ver', 'si'));
+      });
+
+      marco.addEventListener('pointermove', mover);
+      marco.addEventListener('pointerleave', () => lupa?.removeAttribute('data-ver'));
+
+      function mover(e: PointerEvent) {
+        if (!lupa) return;
+        // El montaje tiene marco, y la lupa se coloca desde el borde de
+        // dentro: hay que descontarlo o la foto bailaria respecto al puntero.
+        const caja = marco.getBoundingClientRect();
+        const x = e.clientX - caja.left - marco.clientLeft;
+        const y = e.clientY - caja.top - marco.clientTop;
+        const ancho = marco.clientWidth;
+        const alto = marco.clientHeight;
+        const r = lupa.offsetWidth / 2;
+        lupa.style.left = `${x}px`;
+        lupa.style.top = `${y}px`;
+        lupa.style.backgroundSize = `${ancho * AUMENTO}px ${alto * AUMENTO}px`;
+        lupa.style.backgroundPosition = `${r - x * AUMENTO}px ${r - y * AUMENTO}px`;
+      }
+    }
+  }
+</script>

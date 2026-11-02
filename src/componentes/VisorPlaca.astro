@@ -354,94 +354,216 @@ const variasImagenes = imagenes.length > 1;
     }
   }
 
-  /* ---------- Marcadores numerados ----------
-     Anillo de tinta con el numero dentro y un halo de papel de 2 px: asi se
-     lee igual sobre tejido claro que sobre tejido oscuro. El activo NO va en
-     eosina: sobre una tincion rosa la eosina desaparece, asi que se invierte
-     en tinta, que es lo unico que contrasta con todo lo que hay debajo. */
+  /* ---------- La marca de una estructura · propuesta G ----------
+     Lenguaje de instrumento: un anillo de luz en el punto exacto, un hilo de
+     neon que se aparta y una chapa de cristal oscuro con el nombre en
+     versalitas. La chapa es oscura en los dos temas, porque lo que hay
+     debajo es la foto y la foto no cambia de tema. */
+  .indicador {
+    position: absolute;
+    width: 0;
+    height: 0;
+    --marca-neon: #ff2e86;
+    --marca-chapa: rgb(8 8 28 / 0.8);
+    --marca-filo: rgb(255 255 255 / 0.28);
+  }
+
   .marcador {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-block: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    text-align: left;
+  }
+  .indicador[data-lado='izquierda'] .marcador {
+    left: auto;
+    right: 0;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  /* El anillo: hueco, para no tapar el tejido que senala. */
+  .indicador__punto {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    box-shadow:
+      0 0 0 1px rgb(8 8 28 / 0.85),
+      0 0 10px 0 rgb(255 255 255 / 0.55);
+    transform: translate(-50%, -50%);
+    transition:
+      width 240ms var(--brinco),
+      height 240ms var(--brinco),
+      border-color 240ms,
+      box-shadow 240ms;
+  }
+  .indicador[data-lado='izquierda'] .indicador__punto {
+    left: auto;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  /* El hilo: neon con un pelo oscuro debajo, para que no se pierda sobre la
+     eosina clara. */
+  .indicador__guia {
+    width: 1.9rem;
+    height: 2px;
+    flex: none;
+    border-radius: 999px;
+    background: linear-gradient(to right, #fff, rgb(255 255 255 / 0.35));
+    box-shadow: 0 0 0 1px rgb(8 8 28 / 0.55);
+  }
+  .indicador[data-lado='izquierda'] .indicador__guia {
+    background: linear-gradient(to left, #fff, rgb(255 255 255 / 0.35));
+  }
+
+  /* La chapa con el nombre. */
+  .indicador__rotulo {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    max-width: 12.5rem;
+    padding: 0.2rem 0.65rem 0.22rem 0.25rem;
+    border: 1px solid var(--marca-filo);
+    border-radius: 999px;
+    background: var(--marca-chapa);
+    backdrop-filter: blur(8px) saturate(1.2);
+    color: #fff;
+    box-shadow: 0 8px 22px -12px rgb(0 0 0 / 0.9);
+    transition:
+      border-color 220ms,
+      box-shadow 220ms,
+      transform 220ms var(--brinco);
+  }
+  .indicador[data-lado='izquierda'] .indicador__rotulo {
+    flex-direction: row-reverse;
+    padding: 0.2rem 0.25rem 0.22rem 0.65rem;
+  }
+
+  .indicador__numero {
     display: grid;
     place-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
+    height: 1.15rem;
+    min-width: 1.15rem;
+    flex: none;
     border-radius: 999px;
-    border: 2px solid var(--atlas-texto);
-    background: var(--atlas-fondo);
-    color: var(--atlas-texto);
-    box-shadow: 0 0 0 2px var(--atlas-fondo);
-    cursor: pointer;
-    transition:
-      width 160ms var(--ease-visor),
-      height 160ms var(--ease-visor),
-      background-color 160ms,
-      color 160ms;
-  }
-
-  /* El objetivo tactil llega a 44 px aunque el anillo mida 24: en movil el
-     dedo no acierta un circulo de 24 px sobre una foto que ademas se arrastra. */
-  .marcador::before {
-    content: '';
-    position: absolute;
-    inset: calc((1.5rem - 44px) / 2);
-    border-radius: 999px;
-  }
-
-  .marcador > span {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
+    background: rgb(255 255 255 / 0.16);
+    font-family: var(--font-instrumento);
+    font-size: 0.6rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     line-height: 1;
+    color: #fff;
   }
 
-  .marcador:hover {
-    background: var(--atlas-superficie-alta);
+  .indicador__texto {
+    font-family: var(--font-instrumento);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* Activo: el anillo se invierte y crece a 28 px. */
-  .marcador--activo {
-    width: 1.75rem;
-    height: 1.75rem;
-    background: var(--atlas-texto);
-    color: var(--atlas-fondo);
+  /* Activa: el anillo se llena de neon, la chapa se enciende y un aro sale
+     del punto para encontrarlo sin leer. */
+  .indicador--activa {
+    z-index: 3;
   }
-  .marcador--activo:hover {
-    background: var(--atlas-texto);
+  .indicador--activa .indicador__punto {
+    width: 15px;
+    height: 15px;
+    border-color: var(--marca-neon);
+    background: var(--marca-neon);
+    box-shadow:
+      0 0 0 1px rgb(8 8 28 / 0.85),
+      0 0 14px 2px color-mix(in srgb, var(--marca-neon) 70%, transparent);
   }
-
-  /* El pulso va en una capa aparte para no pisar el filo del anillo. */
-  .marcador--activo::after {
+  .indicador--activa .indicador__punto::after {
     content: '';
     position: absolute;
-    inset: -2px;
+    inset: -5px;
     border-radius: 999px;
-    animation: atlas-pulso-marcador 1.6s ease-out infinite;
+    border: 2px solid var(--marca-neon);
+    animation: senal-aro 1.9s ease-out infinite;
+  }
+  @keyframes senal-aro {
+    0% {
+      transform: scale(0.7);
+      opacity: 0.85;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  .indicador--activa .indicador__guia {
+    background: linear-gradient(to right, var(--marca-neon), rgb(255 46 134 / 0.3));
+  }
+  .indicador--activa[data-lado='izquierda'] .indicador__guia {
+    background: linear-gradient(to left, var(--marca-neon), rgb(255 46 134 / 0.3));
+  }
+  .indicador--activa .indicador__rotulo {
+    border-color: var(--marca-neon);
+    box-shadow:
+      0 0 0 3px color-mix(in srgb, var(--marca-neon) 22%, transparent),
+      0 10px 26px -12px rgb(0 0 0 / 0.9);
+  }
+  .indicador--activa .indicador__numero {
+    background: var(--marca-neon);
   }
 
-  /* El foco de la interfaz es eosina, pero sobre la tincion no se ve: aqui
-     es un anillo doble de tinta y papel. */
+  .marcador:hover .indicador__rotulo {
+    transform: translateY(-1px);
+    border-color: rgb(255 255 255 / 0.6);
+  }
+
   .marcador:focus-visible {
     outline: none;
-    box-shadow:
-      0 0 0 2px var(--atlas-fondo),
-      0 0 0 4px var(--atlas-texto);
+  }
+  .marcador:focus-visible .indicador__rotulo {
+    box-shadow: 0 0 0 3px #fff;
+  }
+
+  /* Modo repaso. */
+  .indicador--oculta .indicador__texto {
+    font-size: 0;
+  }
+  .indicador--oculta .indicador__texto::after {
+    content: 'por revelar';
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    opacity: 0.7;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marcador--activo::after {
+    .indicador--activa .indicador__punto::after {
       animation: none;
+      opacity: 0.45;
     }
   }
 
-  /* En modo repaso el numero se sustituye por una interrogacion hasta que la
-     estructura se revela; el marcador sigue estando donde estaba. */
-  .marcador--oculto > span {
-    font-size: 0;
-  }
-  .marcador--oculto > span::after {
-    content: '?';
-    font-size: 0.75rem;
+  @media (max-width: 639px) {
+    .indicador__guia {
+      width: 1.1rem;
+    }
+    .indicador__rotulo {
+      max-width: 8.5rem;
+    }
+    .indicador__texto {
+      font-size: 0.64rem;
+    }
   }
 
   /* ---------- El riel de zoom ----------

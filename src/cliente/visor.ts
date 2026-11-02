@@ -2,6 +2,7 @@ import OpenSeadragon from 'openseadragon';
 import type { DatosPlaca, EstructuraCliente } from './tipos';
 import { movimientoReducido } from './tipos';
 import * as estado from './estado';
+import { crearMarca } from './marcas';
 
 /** Fracción del ancho de la imagen que ocupa el encuadre al acercarse a una estructura. */
 const ENCUADRE = 0.2;
@@ -104,19 +105,16 @@ export class Visor {
     const tamano = item.getContentSize();
 
     for (const { estructura, punto, indice } of this.estructurasVisibles()) {
-      const boton = document.createElement('button');
-      boton.type = 'button';
-      boton.className = 'marcador';
-      boton.dataset.estructura = estructura.id;
-      boton.setAttribute('aria-pressed', 'false');
-      boton.innerHTML = `<span aria-hidden="true">${estructura.numero}</span>`;
-      this.etiquetarMarcador(boton, estructura);
+      // La marca ya no es un disco encima del punto: el punto queda limpio y
+      // el nombre se aparta hacia el lado donde hay sitio.
+      const { raiz, boton } = crearMarca(estructura, punto);
       if (indice > 0) boton.tabIndex = -1; // solo el primer punto entra en el orden de tabulación
+      this.etiquetarMarcador(boton, estructura);
 
       // OpenSeadragon captura el puntero en su lienzo: si dejamos que estos
-      // eventos suban, el clic nunca llega a generarse sobre el marcador.
+      // eventos suban, el clic nunca llega a generarse sobre la marca.
       for (const evento of ['pointerdown', 'pointerup', 'mousedown', 'mouseup', 'touchstart']) {
-        boton.addEventListener(evento, (ev) => ev.stopPropagation());
+        raiz.addEventListener(evento, (ev) => ev.stopPropagation());
       }
 
       boton.addEventListener('click', (ev) => {
@@ -127,7 +125,7 @@ export class Visor {
 
       const viewportPunto = item.imageToViewportCoordinates(punto.x * tamano.x, punto.y * tamano.y);
       this.osd.addOverlay({
-        element: boton,
+        element: raiz,
         location: viewportPunto,
         placement: OpenSeadragon.Placement.CENTER,
         checkResize: false,
@@ -160,6 +158,9 @@ export class Visor {
     for (const [id, botones] of this.marcadores) {
       const es = this.datos.estructuras.find((e) => e.id === id);
       for (const b of botones) {
+        const raiz = b.closest('.indicador') ?? b;
+        raiz.classList.toggle('indicador--activa', id === activa);
+        raiz.classList.toggle('indicador--oculta', repaso && !reveladas.has(id));
         b.classList.toggle('marcador--activo', id === activa);
         // En repaso el numero se tapa con una interrogacion hasta revelarla.
         b.classList.toggle('marcador--oculto', repaso && !reveladas.has(id));

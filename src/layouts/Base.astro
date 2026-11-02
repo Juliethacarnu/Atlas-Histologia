@@ -1,5 +1,6 @@
 ---
 import '../estilos/global.css';
+import '../estilos/variante.css';
 import Meta from '../componentes/base/Meta.astro';
 import Encabezado from '../componentes/base/Encabezado.astro';
 import PiePagina from '../componentes/base/PiePagina.astro';
@@ -13,6 +14,8 @@ interface Props {
   encabezadoCompacto?: boolean;
   /** El visor ocupa la ventana entera: ahí el pie estorba. */
   pie?: boolean;
+  /** Marca la página en <html> para que la hoja de la propuesta la vista. */
+  pagina?: string;
 }
 const {
   titulo,
@@ -21,11 +24,12 @@ const {
   anchoCompleto = false,
   encabezadoCompacto = false,
   pie = true,
+  pagina,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" data-pagina={pagina}>
   <head>
     <Meta titulo={titulo} descripcion={descripcion} imagen={imagen} />
     <script is:inline>

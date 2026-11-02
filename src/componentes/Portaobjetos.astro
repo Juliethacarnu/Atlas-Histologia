@@ -43,6 +43,7 @@ const segundaLinea =
     <div class="placa__lamina" style={`--proporcion: ${proporcion.toFixed(4)}`}>
       <img
         src={urlImagen(portada.archivo, 'miniatura')}
+        data-lupa={urlImagen(portada.archivo, 'media')}
         alt={`Preparación: ${placa.titulo}`}
         width="480"
         height={Math.round(480 / proporcion)}
@@ -86,11 +87,14 @@ const segundaLinea =
     box-shadow: inset 0 0 0 1px rgb(28 26 22 / 0.14);
     transition: box-shadow 200ms;
   }
+  /* Al pasar por encima se enciende el filo con el color de su sistema:
+     el mismo color que la cinta que la sujeta. */
   .placa:hover .placa__lamina,
   .placa:focus-visible .placa__lamina {
     box-shadow:
-      inset 0 0 0 1px rgb(28 26 22 / 0.14),
-      0 0 0 3px var(--color-eosina);
+      0 0 0 1px color-mix(in srgb, var(--acento) 60%, transparent),
+      0 0 0 5px color-mix(in srgb, var(--acento) 22%, transparent),
+      var(--sombra-flote-alta);
   }
 
   .placa__lamina img {

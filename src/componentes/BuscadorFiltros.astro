@@ -43,7 +43,7 @@ const { conteos, total, muestras = {} } = Astro.props;
         class="sistema"
         data-filtro={s.id}
         aria-pressed="false"
-        style={`--acento-sistema: ${s.acento}`}
+        style={`--acento-sistema: ${s.acento}; --senal: ${(conteos[s.id] ?? 0) / 15}`}
       >
         {muestras[s.id] ? (
           <img
