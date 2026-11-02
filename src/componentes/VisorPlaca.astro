@@ -354,19 +354,18 @@ const variasImagenes = imagenes.length > 1;
     }
   }
 
-  /* ---------- Marcadores numerados ----------
-     Anillo de tinta con el numero dentro y un halo de papel de 2 px: asi se
-     lee igual sobre tejido claro que sobre tejido oscuro. El activo NO va en
-     eosina: sobre una tincion rosa la eosina desaparece, asi que se invierte
-     en tinta, que es lo unico que contrasta con todo lo que hay debajo. */
   /* ---------- La marca de una estructura · propuesta G ----------
-     Un bocadillo de comic: el punto es un aro de tinta en el sitio exacto y
-     al lado, apuntando con su pico, una cajita con el nombre. Mismo filo de
-     2 px y misma sombra maciza que el resto de la interfaz. */
+     Lenguaje de instrumento: un anillo de luz en el punto exacto, un hilo de
+     neon que se aparta y una chapa de cristal oscuro con el nombre en
+     versalitas. La chapa es oscura en los dos temas, porque lo que hay
+     debajo es la foto y la foto no cambia de tema. */
   .indicador {
     position: absolute;
     width: 0;
     height: 0;
+    --marca-neon: #ff2e86;
+    --marca-chapa: rgb(8 8 28 / 0.8);
+    --marca-filo: rgb(255 255 255 / 0.28);
   }
 
   .marcador {
@@ -387,18 +386,24 @@ const variasImagenes = imagenes.length > 1;
     text-align: right;
   }
 
-  /* El aro: blanco con filo de tinta, visible sobre cualquier tincion. */
+  /* El anillo: hueco, para no tapar el tejido que senala. */
   .indicador__punto {
     position: absolute;
     left: 0;
     top: 50%;
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     border-radius: 999px;
-    border: 2.5px solid #2e2733;
-    background: #fff;
+    border: 2px solid #fff;
+    box-shadow:
+      0 0 0 1px rgb(8 8 28 / 0.85),
+      0 0 10px 0 rgb(255 255 255 / 0.55);
     transform: translate(-50%, -50%);
-    transition: width 200ms var(--brinco), height 200ms var(--brinco), background-color 200ms;
+    transition:
+      width 240ms var(--brinco),
+      height 240ms var(--brinco),
+      border-color 240ms,
+      box-shadow 240ms;
   }
   .indicador[data-lado='izquierda'] .indicador__punto {
     left: auto;
@@ -406,115 +411,129 @@ const variasImagenes = imagenes.length > 1;
     transform: translate(50%, -50%);
   }
 
+  /* El hilo: neon con un pelo oscuro debajo, para que no se pierda sobre la
+     eosina clara. */
   .indicador__guia {
-    width: 1rem;
-    height: 2.5px;
+    width: 1.9rem;
+    height: 2px;
     flex: none;
-    background: #2e2733;
+    border-radius: 999px;
+    background: linear-gradient(to right, #fff, rgb(255 255 255 / 0.35));
+    box-shadow: 0 0 0 1px rgb(8 8 28 / 0.55);
+  }
+  .indicador[data-lado='izquierda'] .indicador__guia {
+    background: linear-gradient(to left, #fff, rgb(255 255 255 / 0.35));
   }
 
-  /* El bocadillo. */
+  /* La chapa con el nombre. */
   .indicador__rotulo {
-    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    max-width: 11.5rem;
-    padding: 0.16rem 0.6rem 0.2rem 0.3rem;
-    border: 2.5px solid #2e2733;
-    border-radius: 0.7rem;
-    background: #fff;
-    box-shadow: 3px 3px 0 #2e2733;
-    color: #2e2733;
-    transition: transform 180ms var(--brinco), background-color 180ms, box-shadow 180ms;
+    gap: 0.45rem;
+    max-width: 12.5rem;
+    padding: 0.2rem 0.65rem 0.22rem 0.25rem;
+    border: 1px solid var(--marca-filo);
+    border-radius: 999px;
+    background: var(--marca-chapa);
+    backdrop-filter: blur(8px) saturate(1.2);
+    color: #fff;
+    box-shadow: 0 8px 22px -12px rgb(0 0 0 / 0.9);
+    transition:
+      border-color 220ms,
+      box-shadow 220ms,
+      transform 220ms var(--brinco);
   }
   .indicador[data-lado='izquierda'] .indicador__rotulo {
     flex-direction: row-reverse;
-    padding: 0.16rem 0.3rem 0.2rem 0.6rem;
-  }
-  /* El pico, un cuadrado girado que tapa el filo del bocadillo. */
-  .indicador__rotulo::before {
-    content: '';
-    position: absolute;
-    left: -7px;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    background: inherit;
-    border-left: 2.5px solid #2e2733;
-    border-bottom: 2.5px solid #2e2733;
-    transform: translateY(-50%) rotate(45deg);
-  }
-  .indicador[data-lado='izquierda'] .indicador__rotulo::before {
-    left: auto;
-    right: -7px;
-    border-left: 0;
-    border-bottom: 0;
-    border-right: 2.5px solid #2e2733;
-    border-top: 2.5px solid #2e2733;
+    padding: 0.2rem 0.25rem 0.22rem 0.65rem;
   }
 
   .indicador__numero {
     display: grid;
     place-items: center;
-    height: 1.2rem;
-    min-width: 1.2rem;
+    height: 1.15rem;
+    min-width: 1.15rem;
     flex: none;
-    border-radius: 0.4rem;
-    border: 2px solid #2e2733;
-    background: #ffd9e7;
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.16);
+    font-family: var(--font-instrumento);
+    font-size: 0.6rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
     line-height: 1;
-    color: #2e2733;
+    color: #fff;
   }
 
   .indicador__texto {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 1.25;
+    font-family: var(--font-instrumento);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  /* Activa: el aro se rellena y el bocadillo se pinta de rosa. */
+  /* Activa: el anillo se llena de neon, la chapa se enciende y un aro sale
+     del punto para encontrarlo sin leer. */
   .indicador--activa {
     z-index: 3;
   }
   .indicador--activa .indicador__punto {
     width: 15px;
     height: 15px;
-    background: var(--marca-rosa);
+    border-color: var(--marca-neon);
+    background: var(--marca-neon);
+    box-shadow:
+      0 0 0 1px rgb(8 8 28 / 0.85),
+      0 0 14px 2px color-mix(in srgb, var(--marca-neon) 70%, transparent);
+  }
+  .indicador--activa .indicador__punto::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 999px;
+    border: 2px solid var(--marca-neon);
+    animation: senal-aro 1.9s ease-out infinite;
+  }
+  @keyframes senal-aro {
+    0% {
+      transform: scale(0.7);
+      opacity: 0.85;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  .indicador--activa .indicador__guia {
+    background: linear-gradient(to right, var(--marca-neon), rgb(255 46 134 / 0.3));
+  }
+  .indicador--activa[data-lado='izquierda'] .indicador__guia {
+    background: linear-gradient(to left, var(--marca-neon), rgb(255 46 134 / 0.3));
   }
   .indicador--activa .indicador__rotulo {
-    background: var(--marca-rosa);
-    color: #fff;
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 #2e2733;
+    border-color: var(--marca-neon);
+    box-shadow:
+      0 0 0 3px color-mix(in srgb, var(--marca-neon) 22%, transparent),
+      0 10px 26px -12px rgb(0 0 0 / 0.9);
   }
   .indicador--activa .indicador__numero {
-    background: #fff;
-    color: var(--marca-rosa);
+    background: var(--marca-neon);
   }
 
   .marcador:hover .indicador__rotulo {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 #2e2733;
-  }
-  .marcador:active .indicador__rotulo {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 #2e2733;
+    transform: translateY(-1px);
+    border-color: rgb(255 255 255 / 0.6);
   }
 
   .marcador:focus-visible {
     outline: none;
   }
   .marcador:focus-visible .indicador__rotulo {
-    box-shadow: 3px 3px 0 #2e2733, 0 0 0 3px var(--marca-rosa);
+    box-shadow: 0 0 0 3px #fff;
   }
 
   /* Modo repaso. */
@@ -523,20 +542,27 @@ const variasImagenes = imagenes.length > 1;
   }
   .indicador--oculta .indicador__texto::after {
     content: 'por revelar';
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
     opacity: 0.7;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .indicador--activa .indicador__punto::after {
+      animation: none;
+      opacity: 0.45;
+    }
   }
 
   @media (max-width: 639px) {
     .indicador__guia {
-      width: 0.7rem;
+      width: 1.1rem;
     }
     .indicador__rotulo {
-      max-width: 8rem;
+      max-width: 8.5rem;
     }
     .indicador__texto {
-      font-size: 0.74rem;
+      font-size: 0.64rem;
     }
   }
 

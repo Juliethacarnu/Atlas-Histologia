@@ -1,491 +1,589 @@
 /* ============================================================
-   PROPUESTA G · «Cajitas pastel»
-   Todo vive dentro de una caja: filo de tinta de 2 px, sombra maciza
-   desplazada y relleno pastel distinto para cada sistema. Al pasar por
-   encima la caja se levanta; al pulsar, se hunde y la sombra desaparece.
-   Fondo de topitos. Sin serif: una sola tipografía redonda en toda la
-   interfaz.
+   PROPUESTA G  ·  «Mesa de luz»
+   Una consola de exploracion. El fondo es cristal profundo con una rejilla
+   de instrumento y tres auroras quietas; los filos se encienden con el color
+   del sistema; las cifras se leen como en un aparato y un barrido de luz
+   recorre cada lamina al pasar por encima.
+   Tema claro = el laboratorio de dia (porcelana azulada).
+   Tema oscuro = la sala a oscuras con la lampara del microscopio encendida.
    ============================================================ */
-@import '@fontsource-variable/quicksand/wght.css';
+
+@import '@fontsource-variable/space-grotesk/wght.css';
+@import '@fontsource-variable/instrument-sans/wght.css';
 
 :root {
-  --font-serif: 'Quicksand Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Quicksand Variable', ui-sans-serif, system-ui, sans-serif;
+  /* Space Grotesk para todo lo que es titulo o cifra: rejilla geometrica y
+     cifras de ancho fijo, que es lo que pide un instrumento. */
+  --font-serif: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    'Instrument Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-instrumento: 'Space Grotesk Variable', ui-monospace, monospace;
 
-  --atlas-fondo: #fff7ec;
+  --radius-chapa: 0.5rem;
+  --radius-ficha: 0.95rem;
+  --radius-hoja: 1.5rem;
+
+  --suave: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --brinco: cubic-bezier(0.34, 1.38, 0.64, 1);
+
+  /* ---- Tema claro: laboratorio de dia ---- */
+  --atlas-fondo: #eaeefb;
   --atlas-superficie: #ffffff;
   --atlas-superficie-alta: #ffffff;
-  --atlas-texto: #2e2733;
-  --atlas-texto-suave: #655a6e;
-  --atlas-borde: #ddd0c0;
-  --atlas-borde-fuerte: #2e2733;
-  --atlas-lamina-fondo: #efe4d6;
-  --atlas-velo: rgb(255 255 255 / 0.95);
-  --atlas-acento: #7b3fd4;
+  --atlas-texto: #0f1130;
+  --atlas-texto-suave: #4a5080;
+  --atlas-borde: #d2d9f4;
+  --atlas-borde-fuerte: #767ead;
+  --atlas-lamina-fondo: #dbe1f6;
+  --atlas-velo: rgb(234 238 251 / 0.9);
   --atlas-sobre-eosina: #ffffff;
-
-  --color-eosina: #d4246b;
-  --color-eosina-tenue: #ffd9e7;
-  --color-hematoxilina: #7b3fd4;
-  --color-hematoxilina-tenue: #e7dcff;
-  --color-sis-sangre: #e0336f;
-  --color-sis-piel: #d9762a;
-  --color-sis-respiratorio: #2f7fd0;
-  --color-sis-digestivo: #0e9168;
-  --color-sis-urinario: #7b4ae0;
-  --color-sis-endocrino: #b3820b;
-
-  /* Pasteles de relleno: el mismo tono del sistema, muy rebajado. */
-  --past-sangre: #ffd6e4;
-  --past-piel: #ffe0c6;
-  --past-respiratorio: #d2e7ff;
-  --past-digestivo: #c8eedd;
-  --past-urinario: #e4daff;
-  --past-endocrino: #ffeec0;
-
-  --radius-chapa: 0.7rem;
-  --radius-ficha: 1.1rem;
-  --radius-hoja: 1.4rem;
-
-  --tinta-caja: #2e2733;
-  --sombra-caja: 4px 4px 0 var(--tinta-caja);
-  --sombra-caja-alta: 7px 7px 0 var(--tinta-caja);
-  --atlas-sombra-baja: 3px 3px 0 var(--tinta-caja);
-  --atlas-sombra-alta: 6px 6px 0 var(--tinta-caja);
-  --brinco: cubic-bezier(0.34, 1.4, 0.64, 1);
   --sobre-acento: #ffffff;
-  /* El color de la marca no cambia con el tema: la lamina es la misma. */
-  --marca-rosa: #d4246b;
+
+  --color-eosina: #c0186a;
+  --color-eosina-tenue: #fbe2ee;
+  --atlas-acento: #4335c6;
+
+  /* Seis canales de color. Se usan como filo, barra y punto; nunca como
+     texto, asi que pueden ser saturados. */
+  --color-sis-sangre: #e0263f;
+  --color-sis-piel: #e07400;
+  --color-sis-respiratorio: #1f6ae0;
+  --color-sis-digestivo: #0c9b63;
+  --color-sis-urinario: #7b2ff2;
+  --color-sis-endocrino: #0097b2;
+
+  /* Material del fondo. */
+  --aurora-1: rgb(123 47 242 / 0.2);
+  --aurora-2: rgb(0 151 178 / 0.18);
+  --aurora-3: rgb(224 38 111 / 0.14);
+  --linea-rejilla: rgb(15 17 48 / 0.08);
+  --filo-vidrio: rgb(15 17 48 / 0.1);
+  --vidrio: rgb(255 255 255 / 0.66);
+  --vidrio-alto: rgb(255 255 255 / 0.86);
+  --brillo-barrido: rgb(255 255 255 / 0.55);
+  --sombra-flote: 0 26px 60px -34px rgb(15 17 48 / 0.45);
+  --sombra-flote-alta: 0 34px 70px -30px rgb(15 17 48 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema='claro']) {
-    --atlas-fondo: #211c28;
-    --atlas-superficie: #2d2636;
-    --atlas-superficie-alta: #372e42;
-    --atlas-texto: #fdf6ff;
-    --atlas-texto-suave: #c6b7d4;
-    --atlas-borde: #43394f;
-    --atlas-borde-fuerte: #0f0b14;
-    --atlas-lamina-fondo: #140f1a;
-    --atlas-velo: rgb(45 38 54 / 0.95);
-    --atlas-acento: #c9a3ff;
-    --atlas-sobre-eosina: #211c28;
-    --color-eosina: #ff8ab8;
-    --color-eosina-tenue: #5a2440;
-    --color-hematoxilina-tenue: #3b2a57;
-    --color-sis-sangre: #ff8ab0;
-    --color-sis-piel: #f5a868;
-    --color-sis-respiratorio: #8cc1f5;
-    --color-sis-digestivo: #6fd9b0;
-    --color-sis-urinario: #b79bff;
-    --color-sis-endocrino: #e9c25f;
-    --past-sangre: #582a40;
-    --past-piel: #5a3a22;
-    --past-respiratorio: #22405e;
-    --past-digestivo: #1d4a3b;
-    --past-urinario: #3b2f5e;
-    --past-endocrino: #534020;
-    --sobre-acento: #211c28;
-    --tinta-caja: #0f0b14;
+    --atlas-fondo: #06061a;
+    --atlas-superficie: #10133a;
+    --atlas-superficie-alta: #171b49;
+    --atlas-texto: #edefff;
+    --atlas-texto-suave: #9aa1da;
+    --atlas-borde: #24284f;
+    --atlas-borde-fuerte: #6b73ad;
+    --atlas-lamina-fondo: #04040f;
+    --atlas-velo: rgb(6 6 26 / 0.88);
+    --atlas-sobre-eosina: #06061a;
+    --sobre-acento: #06061a;
+
+    --color-eosina: #ff5fa2;
+    --color-eosina-tenue: #2a0f26;
+    --atlas-acento: #9f8cff;
+
+    --color-sis-sangre: #ff5c6e;
+    --color-sis-piel: #ffae3d;
+    --color-sis-respiratorio: #66a8ff;
+    --color-sis-digestivo: #3fe0a0;
+    --color-sis-urinario: #b388ff;
+    --color-sis-endocrino: #45d6f2;
+
+    --aurora-1: rgb(104 48 220 / 0.42);
+    --aurora-2: rgb(0 158 190 / 0.3);
+    --aurora-3: rgb(226 36 118 / 0.26);
+    --linea-rejilla: rgb(150 164 255 / 0.075);
+    --filo-vidrio: rgb(166 178 255 / 0.16);
+    --vidrio: rgb(26 30 72 / 0.6);
+    --vidrio-alto: rgb(32 37 86 / 0.82);
+    --brillo-barrido: rgb(190 205 255 / 0.3);
+    --sombra-flote: 0 26px 60px -30px rgb(0 0 0 / 0.75);
+    --sombra-flote-alta: 0 34px 70px -26px rgb(0 0 0 / 0.85);
   }
 }
 
 :root[data-tema='oscuro'] {
-  --atlas-fondo: #211c28;
-  --atlas-superficie: #2d2636;
-  --atlas-superficie-alta: #372e42;
-  --atlas-texto: #fdf6ff;
-  --atlas-texto-suave: #c6b7d4;
-  --atlas-borde: #43394f;
-  --atlas-borde-fuerte: #0f0b14;
-  --atlas-lamina-fondo: #140f1a;
-  --atlas-velo: rgb(45 38 54 / 0.95);
-  --atlas-acento: #c9a3ff;
-  --atlas-sobre-eosina: #211c28;
-  --color-eosina: #ff8ab8;
-  --color-eosina-tenue: #5a2440;
-  --color-hematoxilina-tenue: #3b2a57;
-  --color-sis-sangre: #ff8ab0;
-  --color-sis-piel: #f5a868;
-  --color-sis-respiratorio: #8cc1f5;
-  --color-sis-digestivo: #6fd9b0;
-  --color-sis-urinario: #b79bff;
-  --color-sis-endocrino: #e9c25f;
-  --past-sangre: #582a40;
-  --past-piel: #5a3a22;
-  --past-respiratorio: #22405e;
-  --past-digestivo: #1d4a3b;
-  --past-urinario: #3b2f5e;
-  --past-endocrino: #534020;
-  --sobre-acento: #211c28;
-  --tinta-caja: #0f0b14;
+  --atlas-fondo: #06061a;
+  --atlas-superficie: #10133a;
+  --atlas-superficie-alta: #171b49;
+  --atlas-texto: #edefff;
+  --atlas-texto-suave: #9aa1da;
+  --atlas-borde: #24284f;
+  --atlas-borde-fuerte: #6b73ad;
+  --atlas-lamina-fondo: #04040f;
+  --atlas-velo: rgb(6 6 26 / 0.88);
+  --atlas-sobre-eosina: #06061a;
+  --sobre-acento: #06061a;
+
+  --color-eosina: #ff5fa2;
+  --color-eosina-tenue: #2a0f26;
+  --atlas-acento: #9f8cff;
+
+  --color-sis-sangre: #ff5c6e;
+  --color-sis-piel: #ffae3d;
+  --color-sis-respiratorio: #66a8ff;
+  --color-sis-digestivo: #3fe0a0;
+  --color-sis-urinario: #b388ff;
+  --color-sis-endocrino: #45d6f2;
+
+  --aurora-1: rgb(104 48 220 / 0.42);
+  --aurora-2: rgb(0 158 190 / 0.3);
+  --aurora-3: rgb(226 36 118 / 0.26);
+  --linea-rejilla: rgb(150 164 255 / 0.075);
+  --filo-vidrio: rgb(166 178 255 / 0.16);
+  --vidrio: rgb(26 30 72 / 0.6);
+  --vidrio-alto: rgb(32 37 86 / 0.82);
+  --brillo-barrido: rgb(190 205 255 / 0.3);
+  --sombra-flote: 0 26px 60px -30px rgb(0 0 0 / 0.75);
+  --sombra-flote-alta: 0 34px 70px -26px rgb(0 0 0 / 0.85);
 }
 
-/* --- Fondo de topitos --- */
-body {
+/* ============================================================
+   EL FONDO  ·  rejilla de instrumento + tres auroras quietas
+   El color vive en <html> y el cuerpo va transparente: asi el cuerpo no
+   tapa los dos pseudoelementos que estan detras.
+   ============================================================ */
+html {
   background-color: var(--atlas-fondo);
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--tinta-caja) 13%, transparent) 1.6px, transparent 1.7px);
-  background-size: 1.4rem 1.4rem;
 }
 
-/* Pastel y tinta por sistema. */
-[data-grupo-sistema='sangre'] { --tono: var(--color-sis-sangre); --past: var(--past-sangre); }
-[data-grupo-sistema='piel'] { --tono: var(--color-sis-piel); --past: var(--past-piel); }
-[data-grupo-sistema='respiratorio'] { --tono: var(--color-sis-respiratorio); --past: var(--past-respiratorio); }
-[data-grupo-sistema='digestivo'] { --tono: var(--color-sis-digestivo); --past: var(--past-digestivo); }
-[data-grupo-sistema='urinario'] { --tono: var(--color-sis-urinario); --past: var(--past-urinario); }
-[data-grupo-sistema='endocrino'] { --tono: var(--color-sis-endocrino); --past: var(--past-endocrino); }
-.sistema[data-filtro='sangre'] { --past: var(--past-sangre); }
-.sistema[data-filtro='piel'] { --past: var(--past-piel); }
-.sistema[data-filtro='respiratorio'] { --past: var(--past-respiratorio); }
-.sistema[data-filtro='digestivo'] { --past: var(--past-digestivo); }
-.sistema[data-filtro='urinario'] { --past: var(--past-urinario); }
-.sistema[data-filtro='endocrino'] { --past: var(--past-endocrino); }
-.sistema[data-filtro='todos'] { --past: var(--color-eosina-tenue); }
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(44rem 30rem at 10% -8%, var(--aurora-1), transparent 70%),
+    radial-gradient(40rem 28rem at 92% 2%, var(--aurora-2), transparent 70%),
+    radial-gradient(46rem 32rem at 62% 96%, var(--aurora-3), transparent 72%);
+}
 
-/* --- Rótulos: etiqueta de caja --- */
-:root:root .rotulo, :root:root .indice__rotulo{
-  font-family: var(--font-sans);
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--linea-rejilla) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--linea-rejilla) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  -webkit-mask-image: radial-gradient(ellipse 130% 90% at 50% 0%, #000 30%, transparent 88%);
+  mask-image: radial-gradient(ellipse 130% 90% at 50% 0%, #000 30%, transparent 88%);
+}
+
+body {
+  background: transparent;
+  letter-spacing: -0.004em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* El rotulito de seccion deja la cursiva y pasa a versalita de instrumento. */
+:root:root .rotulo {
+  font-family: var(--font-instrumento);
   font-style: normal;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
   color: var(--atlas-texto-suave);
 }
 
-/* --- Cabecera --- */
-:root:root .cabecera{
-  background: var(--atlas-superficie);
-  border-bottom: 2px solid var(--tinta-caja);
-  box-shadow: 0 4px 0 -1px color-mix(in srgb, var(--color-eosina) 55%, transparent);
+/* ============================================================
+   CABECERA  ·  una barra de cristal que flota separada del borde
+   ============================================================ */
+:root:root .cabecera {
+  padding-block: 0.55rem;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
   backdrop-filter: none;
 }
-:root:root .marca__sello{
-  height: 2rem;
-  width: 2rem;
-  padding: 0.2rem;
-  color: var(--atlas-texto);
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.7rem;
-  background: var(--color-eosina-tenue);
-  transition: transform 300ms var(--brinco);
+:root:root .cabecera > div {
+  gap: 0.75rem;
+  max-width: 86rem;
+  border: 1px solid var(--filo-vidrio);
+  border-radius: 999px;
+  background: var(--vidrio-alto);
+  backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: var(--sombra-flote);
+  padding: 0.4rem 0.75rem 0.4rem 0.9rem;
 }
-:root:root .marca:hover .marca__sello{
-  transform: rotate(-8deg);
+@media (min-width: 640px) {
+  :root:root .cabecera {
+    padding-block: 0.8rem;
+  }
 }
-:root:root .marca__nombre{
-  font-weight: 700;
-  letter-spacing: -0.015em;
+
+:root:root .marca__sello {
+  height: 1.7rem;
+  width: 1.7rem;
+  color: var(--atlas-acento);
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--atlas-acento) 55%, transparent));
 }
-:root:root .navegacion__enlace{
-  border-radius: 0.6rem;
-  border: 2px solid transparent;
-  padding: 0.25rem 0.6rem;
-  font-weight: 700;
+:root:root .marca__nombre {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
-:root:root .navegacion__enlace:hover{
-  border-color: var(--tinta-caja);
-  background: var(--color-eosina-tenue);
-  color: var(--atlas-texto);
+
+:root:root .navegacion__enlace {
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition:
+    color 160ms,
+    background-color 160ms;
 }
-:root:root .navegacion__enlace[aria-current='page']{
-  border-color: var(--tinta-caja);
-  background: var(--color-eosina);
+:root:root .navegacion__enlace:hover {
+  background: color-mix(in srgb, var(--atlas-acento) 12%, transparent);
+}
+:root:root .navegacion__enlace[aria-current='page'] {
+  background: var(--atlas-acento);
   color: var(--sobre-acento);
-  box-shadow: 2px 2px 0 var(--tinta-caja);
 }
-:root:root .navegacion__enlace[aria-current='page']::after{
+:root:root .navegacion__enlace[aria-current='page']::after {
   display: none;
 }
 
-/* --- Portada --- */
-:root:root .portada__titulo{
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.94;
+/* ============================================================
+   BUSCADOR  ·  una capsula de cristal con la lupa encendida
+   ============================================================ */
+:root:root .buscador {
+  gap: 0.6rem;
+  border: 1px solid var(--filo-vidrio);
+  border-radius: 999px;
+  background: var(--vidrio);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--sombra-flote);
+  padding: 0.6rem 1.1rem;
 }
-:root:root .portada__pie{
-  border-top: 2px solid var(--tinta-caja);
+:root:root .buscador:focus-within {
+  border-color: color-mix(in srgb, var(--atlas-acento) 70%, transparent);
+  box-shadow:
+    var(--sombra-flote),
+    0 0 0 4px color-mix(in srgb, var(--atlas-acento) 20%, transparent);
 }
-:root:root .portada__cifras{
-  gap: 0.8rem;
+:root:root .buscador__lupa {
+  font-size: 1.15rem;
+  color: var(--atlas-acento);
 }
-:root:root .portada__cifras > div{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 1rem;
-  padding: 0.6rem 1rem;
-  box-shadow: var(--sombra-caja);
-  background: var(--atlas-superficie);
-  transition: transform 260ms var(--brinco), box-shadow 260ms;
+:root:root .buscador input {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
 }
-:root:root .portada__cifras > div:nth-child(1) { background: var(--past-sangre); }
-:root:root .portada__cifras > div:nth-child(2) { background: var(--past-respiratorio); }
-:root:root .portada__cifras > div:nth-child(3) { background: var(--past-digestivo); }
-:root:root .portada__cifras > div:hover{
-  transform: translate(-2px, -2px);
-  box-shadow: var(--sombra-caja-alta);
-}
-:root:root .portada__cifras dt{
-  font-weight: 700;
-  font-size: 2rem;
-  color: var(--atlas-texto);
-}
-:root:root .portada__cifras dd{
-  font-weight: 700;
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+:root:root .buscador__conteo {
+  border: 1px solid var(--filo-vidrio);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-family: var(--font-instrumento);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--atlas-texto);
 }
 
-/* --- Buscador: una caja más --- */
-:root:root .buscador{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.9rem;
-  background: var(--atlas-superficie);
-  box-shadow: var(--sombra-caja);
-  transition: box-shadow 160ms, transform 160ms;
+/* ============================================================
+   EL INDICE DE SISTEMAS  ·  seis canales con su barra de senal
+   ============================================================ */
+:root:root .sistema {
+  gap: 0.6rem;
+  border: 1px solid var(--filo-vidrio);
+  border-radius: 999px;
+  background: var(--vidrio);
+  backdrop-filter: blur(10px);
+  padding: 0.25rem 0.85rem 0.25rem 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition:
+    color 160ms,
+    border-color 160ms,
+    background-color 160ms,
+    box-shadow 200ms,
+    transform 200ms var(--brinco);
 }
-:root:root .buscador:focus-within{
-  transform: translate(-2px, -2px);
-  box-shadow: var(--sombra-caja-alta);
+:root:root .sistema:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 55%, transparent);
 }
-:root:root .buscador__lupa{
+:root:root .sistema[aria-pressed='true'] {
+  border-color: transparent;
+  background: var(--acento-sistema, var(--atlas-acento));
+  color: var(--sobre-acento);
+  box-shadow: 0 0 22px -6px
+    color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 70%, transparent);
+}
+:root:root .sistema[aria-pressed='true'] .sistema__n {
+  color: var(--sobre-acento);
+  opacity: 0.85;
+}
+
+:root:root .sistema__muestra {
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 1px var(--filo-vidrio),
+    0 0 0 2px color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 45%, transparent);
+}
+:root:root .sistema__muestra--todos {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-sis-sangre),
+    var(--color-sis-piel),
+    var(--color-sis-respiratorio),
+    var(--color-sis-digestivo),
+    var(--color-sis-urinario),
+    var(--color-sis-endocrino),
+    var(--color-sis-sangre)
+  );
+}
+:root:root .sistema__n {
+  font-family: var(--font-instrumento);
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 1100px) {
+  :root:root .indice__rotulo {
+    border-bottom: 1px solid var(--filo-vidrio);
+  }
+  :root:root .sistema {
+    position: relative;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 0.7rem;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 0.5rem 0.6rem 0.95rem;
+    text-align: left;
+  }
+  /* La barra de senal: cuanto pesa cada sistema dentro del atlas. El ancho
+     sale del numero de laminas, que la plantilla pasa en --senal. */
+  :root:root .sistema::after {
+    content: '';
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.45rem;
+    height: 3px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--atlas-texto) 10%, transparent);
+  }
+  :root:root .sistema::before {
+    content: '';
+    position: absolute;
+    left: 0.6rem;
+    bottom: 0.45rem;
+    z-index: 1;
+    width: calc((100% - 1.2rem) * var(--senal, 0.25));
+    height: 3px;
+    border-radius: 999px;
+    background: var(--acento-sistema, var(--atlas-acento));
+    box-shadow: 0 0 10px -1px
+      color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 80%, transparent);
+    transition: width 320ms var(--suave);
+  }
+  :root:root .sistema:hover {
+    transform: none;
+    border-color: var(--filo-vidrio);
+    background: var(--vidrio);
+  }
+  :root:root .sistema[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 50%, transparent);
+    background: color-mix(in srgb, var(--acento-sistema, var(--atlas-acento)) 14%, transparent);
+    color: var(--atlas-texto);
+    box-shadow: none;
+  }
+  :root:root .sistema[aria-pressed='true'] .sistema__n {
+    color: var(--atlas-texto);
+    opacity: 1;
+  }
+  :root:root .sistema__muestra {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
+
+/* ============================================================
+   LA LAMINA EN EL INDICE  ·  una muestra montada en cristal
+   ============================================================ */
+:root:root .placa__lamina {
+  border-radius: 0.95rem;
+  box-shadow:
+    0 0 0 1px var(--filo-vidrio),
+    var(--sombra-flote);
+  transition:
+    box-shadow 260ms var(--suave),
+    transform 260ms var(--brinco);
+}
+:root:root .placa:hover .placa__lamina,
+:root:root .placa:focus-visible .placa__lamina {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--acento) 75%, transparent),
+    0 0 0 5px color-mix(in srgb, var(--acento) 16%, transparent),
+    var(--sombra-flote-alta);
+}
+
+/* El barrido: una banda de luz que cruza la lamina al pasar por encima,
+   como la lampara del microscopio recorriendo la preparacion. */
+:root:root .placa__lamina::after {
+  content: '';
+  position: absolute;
+  inset: -40% -60%;
+  pointer-events: none;
+  background: linear-gradient(
+    102deg,
+    transparent 38%,
+    var(--brillo-barrido) 50%,
+    transparent 62%
+  );
+  transform: translateX(-70%);
+  opacity: 0;
+  transition:
+    transform 850ms var(--suave),
+    opacity 200ms;
+}
+:root:root .placa:hover .placa__lamina::after {
+  transform: translateX(70%);
+  opacity: 1;
+}
+
+:root:root .placa__aumento {
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: 999px;
+  background: rgb(6 6 26 / 0.72);
+  padding: 0.1rem 0.5rem;
+  font-family: var(--font-instrumento);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+:root:root .placa__revisar {
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+}
+
+:root:root .placa__titulo {
+  margin-top: 0.7rem;
+  padding-top: 0;
+  border-top: 0;
+  font-family: var(--font-serif);
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+:root:root .placa__titulo-aumento {
+  font-family: var(--font-instrumento);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+:root:root .placa__meta {
+  margin-top: 0.18rem;
+  font-size: 0.72rem;
+}
+:root:root .placa__punto {
+  height: 0.4rem;
+  width: 0.4rem;
+  box-shadow: 0 0 8px -1px var(--acento);
+}
+
+/* ============================================================
+   CABECERA DE CADA SISTEMA  ·  un canal con su barra encendida
+   ============================================================ */
+:root:root .grupo {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--filo-vidrio);
+}
+:root:root .grupo__titulo {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+:root:root .grupo__punto {
+  height: 0.75rem;
+  width: 0.25rem;
+  border-radius: 999px;
+  translate: 0 0.05rem;
+}
+:root:root .grupo__cuenta {
+  font-family: var(--font-instrumento);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   NADA COINCIDE
+   ============================================================ */
+:root:root .vacio__titulo {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+:root:root .vacio__titulo span {
+  font-style: normal;
   color: var(--color-eosina);
 }
-
-/* --- Índice: una cajita pastel por sistema --- */
-:root:root .indice__lista{
-  gap: 0.5rem;
+:root:root .vacio__nombre {
+  font-family: var(--font-serif);
+  font-weight: 500;
 }
-:root:root .sistema{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.8rem;
-  background: color-mix(in srgb, var(--past) 45%, var(--atlas-superficie));
-  padding: 0.3rem 0.5rem;
-  font-weight: 700;
-  box-shadow: 2px 2px 0 var(--tinta-caja);
-  transition: transform 160ms var(--brinco), box-shadow 160ms, background-color 160ms;
-}
-:root:root .sistema:hover{
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--tinta-caja);
-  background: var(--past);
-}
-:root:root .sistema:active{
-  transform: translate(1px, 1px);
-  box-shadow: 0 0 0 var(--tinta-caja);
-}
-:root:root .sistema[aria-pressed='true']{
-  background: var(--past);
-  box-shadow: 4px 4px 0 var(--tinta-caja);
-}
-:root:root .sistema__muestra{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.55rem;
-  height: 2rem;
-  width: 2rem;
-}
-:root:root .sistema__muestra--todos{
-  background: linear-gradient(135deg, var(--past-sangre) 0 33%, var(--past-digestivo) 33% 66%, var(--past-urinario) 66%);
-}
-:root:root .sistema__nombre{
-  font-weight: 700;
-}
-
-/* --- Cabecera de grupo: una etiqueta pastel --- */
-:root:root .grupo{
-  border-bottom: 0;
-  background: var(--past);
-  border: 2px solid var(--tinta-caja);
-  border-radius: 1rem;
-  padding: 0.7rem 1rem;
-  box-shadow: var(--sombra-caja);
-}
-:root:root .grupo__titulo{
-  font-weight: 700;
-  color: var(--atlas-texto);
-}
-:root:root .grupo__punto{
-  height: 0.8rem;
-  width: 0.8rem;
-  border-radius: 0.25rem;
-  border: 2px solid var(--tinta-caja);
-}
-:root:root .grupo__cuenta{
-  font-weight: 700;
-  color: var(--atlas-texto);
-}
-:root:root .grupo__descripcion{
-  color: var(--atlas-texto);
-  opacity: 0.75;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.78rem;
-}
-
-/* --- La bandeja: cada lámina en su caja --- */
-:root:root .placa{
-  display: block;
-  border: 2px solid var(--tinta-caja);
-  border-radius: 1.1rem;
-  padding: 0.5rem 0.5rem 0.7rem;
-  background: var(--atlas-superficie);
-  box-shadow: var(--sombra-caja);
-  transition: transform 200ms var(--brinco), box-shadow 200ms, background-color 200ms;
-}
-:root:root .placa:hover, :root:root .placa:focus-visible{
-  transform: translate(-3px, -3px);
-  box-shadow: var(--sombra-caja-alta);
-  background: var(--past, var(--color-eosina-tenue));
-}
-:root:root .placa:active{
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--tinta-caja);
-}
-:root:root .placa__lamina{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.7rem;
-  box-shadow: none;
-}
-:root:root .placa:hover .placa__lamina, :root:root .placa:focus-visible .placa__lamina{
-  box-shadow: none;
-}
-:root:root .placa__aumento{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.5rem;
-  background: var(--atlas-superficie);
-  color: var(--atlas-texto);
-  font-weight: 700;
-  padding: 0.05rem 0.35rem;
-}
-:root:root .placa__revisar{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.5rem;
-  font-weight: 700;
-}
-:root:root .placa__titulo{
-  border-top: 0;
-  margin-top: 0.55rem;
-  padding-top: 0;
-  padding-inline: 0.2rem;
-  font-weight: 700;
-  font-size: 1.02rem;
-  letter-spacing: -0.015em;
-}
-:root:root .placa:hover .placa__titulo{
-  color: var(--atlas-texto);
-}
-:root:root .placa__meta{
-  padding-inline: 0.2rem;
-  font-weight: 600;
-  color: var(--atlas-texto-suave);
-}
-:root:root .placa__punto{
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 0.15rem;
-  border: 1.5px solid var(--tinta-caja);
-}
-
-/* --- El vacío --- */
-:root:root .vacio__boton{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.8rem;
-  background: var(--color-eosina-tenue);
-  font-weight: 700;
-  box-shadow: var(--sombra-caja);
-  transition: transform 160ms var(--brinco), box-shadow 160ms;
-}
-:root:root .vacio__boton:hover{
-  transform: translate(-2px, -2px);
-  box-shadow: var(--sombra-caja-alta);
-  background: var(--color-eosina-tenue);
-}
-
-/* --- Dentro de la lámina --- */
-:root:root .panel-estructuras{
-  border-radius: var(--radius-ficha);
-  border: 2px solid var(--tinta-caja);
-}
-:root:root .fila-estructura{
-  border-radius: 0.7rem;
-  border: 2px solid transparent;
-  font-weight: 600;
-  transition: transform 160ms var(--brinco), background-color 140ms, border-color 140ms;
-}
-:root:root .fila-estructura:hover{
-  border-color: var(--tinta-caja);
-  background: var(--color-eosina-tenue);
-  transform: translate(-2px, -2px);
-}
-:root:root .fila-estructura[aria-current='true']{
-  border-color: var(--tinta-caja);
-  box-shadow: 2px 2px 0 var(--tinta-caja);
-}
-:root:root .numero-fila{
-  border-radius: 0.45rem;
-  border: 2px solid var(--tinta-caja);
-  font-weight: 700;
-}
-:root:root .boton-panel{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.7rem;
-  font-weight: 700;
-  box-shadow: 2px 2px 0 var(--tinta-caja);
-  transition: transform 160ms var(--brinco), box-shadow 160ms, background-color 140ms;
-}
-:root:root .boton-panel:hover:not(:disabled){
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--tinta-caja);
-  background: var(--color-hematoxilina-tenue);
-}
-:root:root .boton-panel:active:not(:disabled){
-  transform: translate(1px, 1px);
-  box-shadow: none;
-}
-:root:root .ficha{
-  border-radius: var(--radius-ficha);
-  border: 2px solid var(--tinta-caja);
-}
-:root:root .ficha__numero{
-  border-radius: 0.5rem;
-  border: 2px solid var(--tinta-caja);
-  background: var(--color-eosina);
+:root:root .vacio__boton {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--atlas-acento);
   color: var(--sobre-acento);
-  font-weight: 700;
+  padding-inline: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--atlas-acento) 80%, transparent);
 }
-:root:root .ficha__accion{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.6rem;
-  font-weight: 700;
-  box-shadow: 2px 2px 0 var(--tinta-caja);
-  transition: transform 160ms var(--brinco), box-shadow 160ms;
+:root:root .vacio__boton:hover {
+  border-color: transparent;
+  background: var(--atlas-acento);
+  filter: brightness(1.12);
 }
-:root:root .ficha__accion:hover:not(:disabled){
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--tinta-caja);
-  background: var(--color-eosina-tenue);
+
+/* ============================================================
+   LA PAGINA DE UNA LAMINA  ·  paneles de cristal sobre el campo
+   ============================================================ */
+:root:root .panel-estructuras,
+:root:root .ficha,
+:root:root .asa,
+:root:root .atajos {
+  border-radius: var(--radius-ficha);
 }
-:root:root .tira__hoja{
-  border-radius: 0.6rem;
-  border: 2px solid var(--tinta-caja);
+:root:root .panel-estructuras {
+  border: 1px solid var(--filo-vidrio);
+  background: var(--vidrio-alto);
+  backdrop-filter: blur(22px) saturate(1.25);
+  box-shadow: var(--sombra-flote-alta);
 }
-:root:root #minimapa{
-  border-radius: 0.7rem;
-  border: 2px solid var(--tinta-caja);
+:root:root .ficha__numero {
+  border-radius: 999px;
+  background: var(--atlas-acento);
+  color: var(--sobre-acento);
+  font-family: var(--font-instrumento);
+  font-weight: 600;
 }
-:root:root .riel{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.8rem;
-}
-:root:root .quiz__opciones button{
-  border: 2px solid var(--tinta-caja);
-  border-radius: 0.7rem;
-  font-weight: 700;
-}
-:root:root .pie{
-  border-top: 2px solid var(--tinta-caja);
+:root:root .chip-zoom,
+:root:root .riel {
+  border-radius: 999px;
 }
