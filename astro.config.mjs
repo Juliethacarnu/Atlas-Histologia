@@ -63,9 +63,6 @@ export default defineConfig({
   build: { format: 'directory' },
   vite: {
     plugins: [tailwindcss(), atajoDeDesarrollo()],
-    // Esta propuesta se sirve desde un arbol de trabajo aparte y comparte el
-    // node_modules del repositorio, que queda dos niveles mas arriba.
-    server: { fs: { allow: ['.', '../..'] } },
   },
   integrations: [
     /**
