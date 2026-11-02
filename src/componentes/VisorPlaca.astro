@@ -359,89 +359,185 @@ const variasImagenes = imagenes.length > 1;
      lee igual sobre tejido claro que sobre tejido oscuro. El activo NO va en
      eosina: sobre una tincion rosa la eosina desaparece, asi que se invierte
      en tinta, que es lo unico que contrasta con todo lo que hay debajo. */
+  /* ---------- La marca de una estructura · propuesta G ----------
+     Un bocadillo de comic: el punto es un aro de tinta en el sitio exacto y
+     al lado, apuntando con su pico, una cajita con el nombre. Mismo filo de
+     2 px y misma sombra maciza que el resto de la interfaz. */
+  .indicador {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
   .marcador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-block: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    text-align: left;
+  }
+  .indicador[data-lado='izquierda'] .marcador {
+    left: auto;
+    right: 0;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  /* El aro: blanco con filo de tinta, visible sobre cualquier tincion. */
+  .indicador__punto {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-radius: 999px;
+    border: 2.5px solid #2e2733;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    transition: width 200ms var(--brinco), height 200ms var(--brinco), background-color 200ms;
+  }
+  .indicador[data-lado='izquierda'] .indicador__punto {
+    left: auto;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .indicador__guia {
+    width: 1rem;
+    height: 2.5px;
+    flex: none;
+    background: #2e2733;
+  }
+
+  /* El bocadillo. */
+  .indicador__rotulo {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 11.5rem;
+    padding: 0.16rem 0.6rem 0.2rem 0.3rem;
+    border: 2.5px solid #2e2733;
+    border-radius: 0.7rem;
+    background: #fff;
+    box-shadow: 3px 3px 0 #2e2733;
+    color: #2e2733;
+    transition: transform 180ms var(--brinco), background-color 180ms, box-shadow 180ms;
+  }
+  .indicador[data-lado='izquierda'] .indicador__rotulo {
+    flex-direction: row-reverse;
+    padding: 0.16rem 0.3rem 0.2rem 0.6rem;
+  }
+  /* El pico, un cuadrado girado que tapa el filo del bocadillo. */
+  .indicador__rotulo::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: inherit;
+    border-left: 2.5px solid #2e2733;
+    border-bottom: 2.5px solid #2e2733;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .indicador[data-lado='izquierda'] .indicador__rotulo::before {
+    left: auto;
+    right: -7px;
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 2.5px solid #2e2733;
+    border-top: 2.5px solid #2e2733;
+  }
+
+  .indicador__numero {
     display: grid;
     place-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 999px;
-    border: 2px solid var(--atlas-texto);
-    background: var(--atlas-fondo);
-    color: var(--atlas-texto);
-    box-shadow: 0 0 0 2px var(--atlas-fondo);
-    cursor: pointer;
-    transition:
-      width 160ms var(--ease-visor),
-      height 160ms var(--ease-visor),
-      background-color 160ms,
-      color 160ms;
-  }
-
-  /* El objetivo tactil llega a 44 px aunque el anillo mida 24: en movil el
-     dedo no acierta un circulo de 24 px sobre una foto que ademas se arrastra. */
-  .marcador::before {
-    content: '';
-    position: absolute;
-    inset: calc((1.5rem - 44px) / 2);
-    border-radius: 999px;
-  }
-
-  .marcador > span {
+    height: 1.2rem;
+    min-width: 1.2rem;
+    flex: none;
+    border-radius: 0.4rem;
+    border: 2px solid #2e2733;
+    background: #ffd9e7;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.62rem;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
     line-height: 1;
+    color: #2e2733;
   }
 
-  .marcador:hover {
-    background: var(--atlas-superficie-alta);
+  .indicador__texto {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* Activo: el anillo se invierte y crece a 28 px. */
-  .marcador--activo {
-    width: 1.75rem;
-    height: 1.75rem;
-    background: var(--atlas-texto);
-    color: var(--atlas-fondo);
+  /* Activa: el aro se rellena y el bocadillo se pinta de rosa. */
+  .indicador--activa {
+    z-index: 3;
   }
-  .marcador--activo:hover {
-    background: var(--atlas-texto);
+  .indicador--activa .indicador__punto {
+    width: 15px;
+    height: 15px;
+    background: var(--marca-rosa);
+  }
+  .indicador--activa .indicador__rotulo {
+    background: var(--marca-rosa);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #2e2733;
+  }
+  .indicador--activa .indicador__numero {
+    background: #fff;
+    color: var(--marca-rosa);
   }
 
-  /* El pulso va en una capa aparte para no pisar el filo del anillo. */
-  .marcador--activo::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 999px;
-    animation: atlas-pulso-marcador 1.6s ease-out infinite;
+  .marcador:hover .indicador__rotulo {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #2e2733;
+  }
+  .marcador:active .indicador__rotulo {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #2e2733;
   }
 
-  /* El foco de la interfaz es eosina, pero sobre la tincion no se ve: aqui
-     es un anillo doble de tinta y papel. */
   .marcador:focus-visible {
     outline: none;
-    box-shadow:
-      0 0 0 2px var(--atlas-fondo),
-      0 0 0 4px var(--atlas-texto);
+  }
+  .marcador:focus-visible .indicador__rotulo {
+    box-shadow: 3px 3px 0 #2e2733, 0 0 0 3px var(--marca-rosa);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .marcador--activo::after {
-      animation: none;
-    }
-  }
-
-  /* En modo repaso el numero se sustituye por una interrogacion hasta que la
-     estructura se revela; el marcador sigue estando donde estaba. */
-  .marcador--oculto > span {
+  /* Modo repaso. */
+  .indicador--oculta .indicador__texto {
     font-size: 0;
   }
-  .marcador--oculto > span::after {
-    content: '?';
-    font-size: 0.75rem;
+  .indicador--oculta .indicador__texto::after {
+    content: 'por revelar';
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 639px) {
+    .indicador__guia {
+      width: 0.7rem;
+    }
+    .indicador__rotulo {
+      max-width: 8rem;
+    }
+    .indicador__texto {
+      font-size: 0.74rem;
+    }
   }
 
   /* ---------- El riel de zoom ----------

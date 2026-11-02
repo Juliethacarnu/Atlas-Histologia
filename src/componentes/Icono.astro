@@ -11,7 +11,8 @@
  * que un hueco silencioso en la interfaz.
  */
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
 
 /** Pesos de Phosphor. `regular` para casi todo; `fill` para play y pausa. */
 export type PesoIcono = 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
@@ -28,7 +29,12 @@ interface Props {
 
 const { nombre, peso = 'regular', tamano, clase, titulo } = Astro.props;
 
-const CARPETA = join(process.cwd(), 'node_modules', '@phosphor-icons', 'core', 'assets');
+// Se resuelve el paquete, no se arma la ruta a mano: asi los iconos salen
+// igual aunque el proyecto se sirva desde un arbol de trabajo aparte, donde
+// node_modules esta un nivel mas arriba.
+const CARPETA = dirname(
+  dirname(createRequire(import.meta.url).resolve('@phosphor-icons/core/assets/regular/x.svg')),
+);
 
 // Los iconos se reutilizan muchisimo entre paginas: leer el disco una vez.
 const cache: Map<string, string> = ((globalThis as Record<string, unknown>).__iconosAtlas ??=
