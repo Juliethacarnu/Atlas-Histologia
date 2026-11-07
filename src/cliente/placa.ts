@@ -10,6 +10,7 @@ import { crearReproductor, type Reproductor } from './video';
 import { prepararQuiz } from './quiz';
 import { montarTranscripcion } from './transcripcion';
 import { moverBoca } from './boca';
+import { montarLupa } from './lupa';
 
 const datos = leerDatosPlaca();
 if (datos) iniciar(datos);
@@ -151,6 +152,33 @@ function iniciar(datos: DatosPlaca) {
   for (const boton of document.querySelectorAll<HTMLButtonElement>('[data-accion]')) {
     const accion = acciones[boton.dataset.accion ?? ''];
     if (accion) boton.addEventListener('click', accion);
+  }
+
+  /* -------------------------------- Lupa --------------------------------- */
+  /** Lo rellena el montaje de la lupa; sin raton se queda sin hacer nada. */
+  let alternarLupa = () => {};
+  const botonLupa = document.querySelector<HTMLButtonElement>('[data-accion="lupa"]');
+  // La foto se pide al vuelo y no se guarda: la tira puede cambiarla.
+  const lupa = montarLupa(marco, contenedor, visor.viewer, () => datos.imagenes[estado.obtener().imagen]?.url);
+
+  if (lupa && botonLupa) {
+    const pintarBotonLupa = () => {
+      botonLupa.setAttribute('aria-pressed', String(lupa.encendida));
+      botonLupa.title = lupa.encendida ? 'Apagar la lupa' : 'Lupa al pasar el cursor';
+    };
+    botonLupa.addEventListener('click', () => {
+      lupa.alternar();
+      pintarBotonLupa();
+    });
+    // Puede venir encendida de otra lamina: el boton tiene que decirlo.
+    pintarBotonLupa();
+    alternarLupa = () => {
+      lupa.alternar();
+      pintarBotonLupa();
+    };
+  } else {
+    // Sin raton la lupa no existe, y su boton tampoco.
+    botonLupa?.remove();
   }
 
   /* --------------------------- Lista lateral ----------------------------- */
@@ -575,6 +603,10 @@ function iniciar(datos: DatosPlaca) {
       case 'r':
       case 'R':
         estado.alternarRepaso();
+        break;
+      case 'l':
+      case 'L':
+        alternarLupa();
         break;
       case 'Escape':
         if (tira?.dataset.abierta === 'si') cerrarLaminas();

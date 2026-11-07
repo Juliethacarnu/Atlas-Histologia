@@ -97,6 +97,18 @@ const variasImagenes = imagenes.length > 1;
       <span class="solo-lectores">Ajustar a la pantalla</span>
       <Icono nombre="corners-in" />
     </button>
+    {/* La lupa: solo donde hay raton al que seguir. Si no lo hay, el guion
+        se lleva el boton, porque un control que no hace nada confunde mas
+        que la falta del control. */}
+    <button
+      type="button"
+      class="boton-visor boton-visor--lupa"
+      data-accion="lupa"
+      aria-pressed="false"
+    >
+      <span class="solo-lectores">Lupa al pasar el cursor</span>
+      <Icono nombre="magnifying-glass" />
+    </button>
     {/* A pantalla completa solo en escritorio: en el movil el navegador ya
         se queda con la pantalla y el boton seria un cuarto objetivo de 44 px
         sobre una foto de 280. */}
@@ -624,6 +636,63 @@ const variasImagenes = imagenes.length > 1;
        pierde contra la regla de arriba, asi que se dice aqui. */
     .boton-visor[data-accion='pantalla-completa'] {
       display: none;
+    }
+  }
+
+  /* Encendida se queda hundida, como un interruptor que esta puesto: es el
+     unico boton del riel que recuerda un estado en vez de hacer algo y
+     volver a su sitio. */
+  .boton-visor[aria-pressed='true'] {
+    background: var(--color-eosina);
+    color: var(--atlas-sobre-eosina);
+  }
+  .boton-visor[aria-pressed='true']:hover {
+    background: color-mix(in srgb, var(--color-eosina) 86%, #000);
+  }
+
+  /* ---------- La lupa ----------
+     El mismo cristal que en la bandeja de la portada: un circulo con filo
+     blanco y su sombra, sin nada escrito encima. Va por debajo del riel y de
+     la tira (z-20) para no taparle a nadie los controles, y no recibe el
+     puntero, que es de OpenSeadragon: si lo interceptara, arrastrar la
+     lamina dejaria de funcionar justo donde se esta mirando. */
+  .lupa-visor {
+    position: absolute;
+    z-index: 4;
+    height: 11rem;
+    width: 11rem;
+    border-radius: 999px;
+    border: 3px solid #fff;
+    background-repeat: no-repeat;
+    box-shadow:
+      0 0 0 1px rgb(8 8 28 / 0.3),
+      0 16px 34px -14px rgb(8 8 28 / 0.8);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.75);
+    transition:
+      opacity 180ms,
+      transform 220ms var(--brinco);
+  }
+  .lupa-visor[data-ver='si'] {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  /* Quien pide menos movimiento no pide menos lupa: la encendio a proposito.
+     Lo que se quita es el brinco con el que entra. */
+  @media (prefers-reduced-motion: reduce) {
+    .lupa-visor {
+      transition: opacity 120ms;
+      transform: translate(-50%, -50%);
+    }
+    .lupa-visor[data-ver='si'] {
+      transform: translate(-50%, -50%);
+    }
+  }
+  @media (max-width: 1023px) {
+    .lupa-visor {
+      height: 8rem;
+      width: 8rem;
     }
   }
 
