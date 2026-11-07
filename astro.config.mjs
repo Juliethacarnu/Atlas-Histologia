@@ -21,37 +21,55 @@ const BASE = '/Atlas-Histologia';
  * No se toca la raiz: Vite ya le ha quitado la base a la URL cuando llega
  * aqui, asi que '/' y '/Atlas-Histologia/' son indistinguibles y redirigir
  * una acabaria redirigiendo la otra contra si misma.
+ *
+ * Lo dificil fue colocarlo. Astro trae su propio filtro de base que contesta
+ * 404 a todo lo que caiga fuera de /Atlas-Histologia y pida `Accept:
+ * text/html`, y lo pone al principio de la pila. Eso daba un sintoma
+ * desconcertante -curl recibia el redirector y el navegador un 404, porque lo
+ * unico que los separaba era esa cabecera- y explica por que no bastan ni
+ * `servidor.middlewares.use()`, que encola al final, ni `enforce: 'pre'`, ni
+ * meterlo a mano al principio: Astro lo monta en el gancho posterior y se
+ * pone delante de todos.
+ *
+ * La solucion es jugar su misma carta un turno mas tarde: `configureServer`
+ * devuelve una funcion, y esas corren despues de las de Astro. Lo que se mete
+ * entonces al principio de la pila queda, ahora si, el primero de todos.
  */
 function atajoDeDesarrollo() {
+  /**
+   * @param {import('node:http').IncomingMessage} peticion
+   * @param {import('node:http').ServerResponse} respuesta
+   * @param {() => void} siguiente
+   */
+  function redirigirSiEstaMalEscrita(peticion, respuesta, siguiente) {
+    const ruta = (peticion.url ?? '/').split('?')[0];
+    const enMinusculas = ruta.toLowerCase();
+    const baseEnMinusculas = BASE.toLowerCase();
+
+    const esLaBaseMalEscrita =
+      ruta !== BASE &&
+      !ruta.startsWith(BASE + '/') &&
+      (enMinusculas === baseEnMinusculas || enMinusculas.startsWith(baseEnMinusculas + '/'));
+
+    if (esLaBaseMalEscrita) {
+      respuesta.writeHead(302, { Location: BASE + ruta.slice(BASE.length) });
+      return respuesta.end();
+    }
+
+    siguiente();
+  }
+
   return {
     name: 'atlas:atajo-de-desarrollo',
     apply: 'serve',
     /** @param {import('vite').ViteDevServer} servidor */
     configureServer(servidor) {
-      servidor.middlewares.use(
-        /**
-         * @param {import('node:http').IncomingMessage} peticion
-         * @param {import('node:http').ServerResponse} respuesta
-         * @param {() => void} siguiente
-         */
-        (peticion, respuesta, siguiente) => {
-          const ruta = (peticion.url ?? '/').split('?')[0];
-          const enMinusculas = ruta.toLowerCase();
-          const baseEnMinusculas = BASE.toLowerCase();
-
-          const esLaBaseMalEscrita =
-            ruta !== BASE &&
-            !ruta.startsWith(BASE + '/') &&
-            (enMinusculas === baseEnMinusculas || enMinusculas.startsWith(baseEnMinusculas + '/'));
-
-          if (esLaBaseMalEscrita) {
-            respuesta.writeHead(302, { Location: BASE + ruta.slice(BASE.length) });
-            return respuesta.end();
-          }
-
-          siguiente();
-        },
-      );
+      return () => {
+        servidor.middlewares.stack.unshift({
+          route: '',
+          handle: redirigirSiEstaMalEscrita,
+        });
+      };
     },
   };
 }
