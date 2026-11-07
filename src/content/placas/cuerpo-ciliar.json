@@ -1,0 +1,54 @@
+{
+  "id": "cuerpo-ciliar",
+  "titulo": "Cuerpo Ciliar",
+  "sistema": "ojo",
+  "organo": "Cuerpo Ciliar",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra un corte histológico a mayor aumento del cuerpo ciliar, detallando los haces de músculo liso organizados para la acomodación del cristalino. Continuándose desde esta base muscular, se proyectan los procesos ciliares cubiertos externamente por un epitelio bicapa fuertemente pigmentado, cuya función es la producción de humor acuoso.",
+  "fuente": "",
+  "credito": "Figura 1. Cuerpo y procesos ciliares del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "cuerpo-ciliar-1",
+      "aumento": "",
+      "credito": "Figura 1. Cuerpo y procesos ciliares del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "smooth-muscle-of-ciliary-body-musculo-liso-del-cuerpo-ciliar",
+      "numero": 1.0,
+      "nombre": "Smooth muscle of ciliary body (Músculo liso del cuerpo ciliar)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.32,
+          "y": 0.305,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ciliary-processes-with-pigmented-epithelium-procesos-ciliare",
+      "numero": 2.0,
+      "nombre": "Ciliary processes with pigmented epithelium (Procesos ciliares con epitelio pigmentado)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.825,
+          "y": 0.505,
+          "imagen": 0
+        },
+        {
+          "x": 0.81,
+          "y": 0.685,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

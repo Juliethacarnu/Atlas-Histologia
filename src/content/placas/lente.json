@@ -1,0 +1,90 @@
+{
+  "id": "lente",
+  "titulo": "Lente",
+  "sistema": "ojo",
+  "organo": "Lente",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra la microestructura periférica del cristalino, destacando la hilera de epitelio cúbico simple que tapiza su superficie anterior justo por debajo de la cápsula. Hacia la región ecuatorial, estas células se alargan y pierden progresivamente sus núcleos para transformarse de manera organizada en las densas fibras del cristalino que conforman el cuerpo de la lente.",
+  "fuente": "",
+  "credito": "Figura 1. Cristalino del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "lente-1",
+      "aumento": "",
+      "credito": "Figura 1. Cristalino del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cuboidal-epithelium-of-front-lens-surface-epitelio-cubico-de",
+      "numero": 1.0,
+      "nombre": "Cuboidal epithelium of front lens surface (Epitelio cúbico de la superficie anterior del cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.495,
+          "y": 0.325,
+          "imagen": 0
+        },
+        {
+          "x": 0.645,
+          "y": 0.265,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nuclei-of-lens-fibers-nucleos-de-las-fibras-del-cristalino",
+      "numero": 2.0,
+      "nombre": "Nuclei of lens fibers (Núcleos de las fibras del cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.745,
+          "y": 0.335,
+          "imagen": 0
+        },
+        {
+          "x": 0.85,
+          "y": 0.355,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-fibers-fibras-del-cristalino",
+      "numero": 3.0,
+      "nombre": "Lens fibers (Fibras del cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.435,
+          "y": 0.515,
+          "imagen": 0
+        },
+        {
+          "x": 0.75,
+          "y": 0.6,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "front-surface-of-lens-superficie-anterior-del-cristalino",
+      "numero": 4.0,
+      "nombre": "Front surface of lens (Superficie anterior del cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.925,
+          "y": 0.835,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

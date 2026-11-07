@@ -1,0 +1,70 @@
+{
+  "id": "celulas-luteinicas",
+  "titulo": "Células Luteínicas",
+  "sistema": "reproductor-femenino",
+  "organo": "Células Luteínicas",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "Las células luteínicas son las células secretoras del cuerpo lúteo y se originan a partir de las células de la granulosa y de la teca interna tras la ovulación. Las células luteínicas de la granulosa son grandes y poseen un citoplasma pálido rico en lípidos, mientras que las células luteínicas de la teca son más pequeñas y se tiñen más intensamente. Si ocurre fecundación e implantación, la hCG mantiene activo el cuerpo lúteo durante las primeras etapas del embarazo.",
+  "fuente": "",
+  "credito": "Figura 1. Células luteínicas del cuerpo lúteo humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "celulas-luteinicas-1",
+      "aumento": "",
+      "credito": "Figura 1. Células luteínicas del cuerpo lúteo humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "celulas-luteinicas-de-la-granulosa-granulosa-luteal-cells",
+      "numero": 1.0,
+      "nombre": "Células luteínicas de la granulosa (Granulosa Luteal Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.82,
+          "y": 0.33,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-luteinicas-de-la-teca-theca-luteal-cells",
+      "numero": 2.0,
+      "nombre": "Células luteínicas de la teca (Theca Luteal Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.79,
+          "y": 0.965,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cuerpo-luteo",
+      "numero": 3.0,
+      "nombre": "Cuerpo lúteo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estroma-ovarico",
+      "numero": 4.0,
+      "nombre": "Estroma ovárico",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "capilares-y-vasos-sanguineos",
+      "numero": 5.0,
+      "nombre": "Capilares y vasos sanguíneos",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,150 @@
+{
+  "id": "glandula-adrenal-medula",
+  "titulo": "Glándula Adrenal: Médula",
+  "sistema": "endocrino",
+  "organo": "Glándula Adrenal :Médula",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4",
+    "×40"
+  ],
+  "descripcionGeneral": "La médula suprarrenal ocupa el centro de la glándula y está integrada por células cromafines (feocromocitos), las cuales son neuronas postsinápticas modificadas sin evaginaciones axónicas inervadas directamente por fibras simpáticas presinápticas. Estas células se organizan en cúmulos ovoides rodeados por capilares fenestrados y se dividen en dos poblaciones: una que almacena y secreta noradrenalina en vesículas grandes de centro denso, y otra que sintetiza adrenalina en vesículas más pequeñas promovida por los glucocorticoides corticales, acompañada por células ganglionares simpáticas e irrigada por un sistema venoso cuya vena adrenomedular central posee haces musculares lisos longitudinales para regular la salida hormonal.",
+  "fuente": "",
+  "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "glandula-adrenal-medula-1",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "glandula-adrenal-medula-2",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "glandula-adrenal-medula.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "corteza-capa-reticular",
+      "numero": 1.0,
+      "nombre": "Corteza (capa reticular)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.11,
+          "y": 0.21,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "medula",
+      "numero": 2.0,
+      "nombre": "Médula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.287,
+          "y": 0.475,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-endocrinas",
+      "numero": 2.1,
+      "nombre": "Células endocrinas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.215,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "vena-central",
+      "numero": 2.2,
+      "nombre": "Vena central",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.557,
+          "y": 0.69,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "vena-colectora",
+      "numero": 2.3,
+      "nombre": "Vena colectora",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.158,
+          "y": 0.855,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sinusoide",
+      "numero": 3.0,
+      "nombre": "Sinusoide",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.645,
+          "y": 0.09,
+          "imagen": 1
+        },
+        {
+          "x": 0.125,
+          "y": 0.545,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celula-ganglionar",
+      "numero": 4.0,
+      "nombre": "Célula ganglionar",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.287,
+          "y": 0.315,
+          "imagen": 1
+        },
+        {
+          "x": 0.33,
+          "y": 0.43,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-medulares",
+      "numero": 5.0,
+      "nombre": "Células medulares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.415,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

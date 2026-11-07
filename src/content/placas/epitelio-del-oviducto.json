@@ -1,0 +1,71 @@
+{
+  "id": "epitelio-del-oviducto",
+  "titulo": "Epitelio del Oviducto",
+  "sistema": "reproductor-femenino",
+  "organo": "Epitelio del Oviducto",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El epitelio del oviducto está formado principalmente por dos tipos celulares: células ciliadas y células secretoras (células en clavija o peg cells). Las células ciliadas generan corrientes que facilitan el transporte del ovocito hacia el útero, mientras que las células secretoras producen sustancias que lubrican la trompa uterina y proporcionan protección y nutrición al ovocito durante su recorrido.",
+  "fuente": "",
+  "credito": "Figura 1. Epitelio del oviducto humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "epitelio-del-oviducto-1",
+      "aumento": "",
+      "credito": "Figura 1. Epitelio del oviducto humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "celula-ciliada-ciliated-cell",
+      "numero": 1.0,
+      "nombre": "Célula ciliada (Ciliated Cell)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.9,
+          "y": 0.635,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cilindrico-simple",
+      "numero": 2.0,
+      "nombre": "Epitelio cilíndrico simple",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cilios",
+      "numero": 3.0,
+      "nombre": "Cilios",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celulas-secretoras-peg-cells",
+      "numero": 4.0,
+      "nombre": "Células secretoras (peg cells)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "lamina-propia",
+      "numero": 5.0,
+      "nombre": "Lámina propia",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "mucosa-del-oviducto",
+      "numero": 6.0,
+      "nombre": "Mucosa del oviducto",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,114 @@
+{
+  "id": "prostata",
+  "titulo": "Próstata",
+  "sistema": "reproductor-masculino",
+  "organo": "Próstata",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "La próstata está constituida por glándulas de morfología irregular que se encuentran inmersas dentro de un extenso estroma fibromuscular. En el interior de las luces glandulares es frecuente observar cuerpos amiláceos (concreciones prostáticas), los cuales destacan como estructuras redondeadas intensamente acidófilas (de color rojo brillante o rosado intenso). El epitelio que reviste estas glándulas es de tipo cilíndrico secretor y se caracteriza por presentar un citoplasma apical pálido. Asimismo, en los componentes del estroma, las fibras de músculo liso se entrelazan de forma compacta con el colágeno, llegando a teñirse con mayor intensidad en algunas preparaciones.",
+  "fuente": "",
+  "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "prostata-1",
+      "aumento": "",
+      "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4)."
+    },
+    {
+      "archivo": "prostata-2",
+      "aumento": "",
+      "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4)."
+    },
+    {
+      "archivo": "prostata-3",
+      "aumento": "",
+      "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4)."
+    },
+    {
+      "archivo": "prostata-4",
+      "aumento": "",
+      "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "estroma-fibromuscular-fibromuscular-stroma",
+      "numero": 1.0,
+      "nombre": "Estroma fibromuscular (fibromuscular stroma)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.635,
+          "y": 0.21,
+          "imagen": 0
+        },
+        {
+          "x": 0.67,
+          "y": 0.045,
+          "imagen": 1
+        },
+        {
+          "x": 0.495,
+          "y": 0.565,
+          "imagen": 2
+        },
+        {
+          "x": 0.21,
+          "y": 0.815,
+          "imagen": 3
+        }
+      ]
+    },
+    {
+      "id": "cuerpo-amilaceo-corpus-amylacea",
+      "numero": 2.0,
+      "nombre": "Cuerpo amiláceo (corpus amylacea)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.425,
+          "y": 0.4,
+          "imagen": 1
+        },
+        {
+          "x": 0.9,
+          "y": 0.395,
+          "imagen": 2
+        }
+      ]
+    },
+    {
+      "id": "luz-glandular-luz-glandular-lumen-lumen",
+      "numero": 3.0,
+      "nombre": "Luz glandular / Luz (glandular lumen / lumen)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.895,
+          "y": 0.555,
+          "imagen": 0
+        },
+        {
+          "x": 0.185,
+          "y": 0.885,
+          "imagen": 1
+        },
+        {
+          "x": 0.435,
+          "y": 0.09,
+          "imagen": 2
+        }
+      ]
+    },
+    {
+      "id": "celulas-epiteliales-secretoras-secretory-epithelial-cells",
+      "numero": 4.0,
+      "nombre": "Células epiteliales secretoras (secretory epithelial cells)",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

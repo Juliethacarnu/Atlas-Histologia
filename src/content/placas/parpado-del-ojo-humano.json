@@ -1,0 +1,134 @@
+{
+  "id": "parpado-del-ojo-humano",
+  "titulo": "Párpado del ojo humano",
+  "sistema": "ojo",
+  "organo": "Párpado del ojo humano",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen presenta un corte sagital completo del párpado, mostrando la transición externa de la piel revestida por epidermis y folículos de pestañas hacia la mucosa interna de la conjuntiva palpebral. En su zona central densa destaca la placa tarsal de tejido conectivo que alberga las glándulas sebáceas de Meibomio ramificadas, flanqueada estructuralmente por los haces de músculo estriado esquelético encargados del parpadeo.",
+  "fuente": "",
+  "credito": "Figura 1. Párpado del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "parpado-del-ojo-humano-1",
+      "aumento": "",
+      "credito": "Figura 1. Párpado del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "eyelash-follicle-foliculo-piloso-de-la-pestana",
+      "numero": 1.0,
+      "nombre": "Eyelash follicle (Folículo piloso de la pestaña)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.335,
+          "y": 0.32,
+          "imagen": 0
+        },
+        {
+          "x": 0.24,
+          "y": 0.43,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "glands-of-meibom-glandulas-de-meibomio",
+      "numero": 2.0,
+      "nombre": "Glands of Meibom (Glándulas de Meibomio)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.345,
+          "y": 0.735,
+          "imagen": 0
+        },
+        {
+          "x": 0.61,
+          "y": 0.715,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cornea-cornea-nota-el-rotulo-azul-apunta-hacia-el-espacio-o",
+      "numero": 3.0,
+      "nombre": "Cornea (Córnea - Nota: El rótulo azul apunta hacia el espacio o superficie corneal externa en parpadeo)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.455,
+          "y": 0.98,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscle-musculo-orbicular-de-los-parpados",
+      "numero": 4.0,
+      "nombre": "Muscle (Músculo orbicular de los párpados)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.645,
+          "y": 0.38,
+          "imagen": 0
+        },
+        {
+          "x": 0.715,
+          "y": 0.4,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epidermis-epidermis",
+      "numero": 5.0,
+      "nombre": "Epidermis (Epidermis)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.875,
+          "y": 0.345,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tarsal-plate-tarso-placa-tarsal",
+      "numero": 6.0,
+      "nombre": "Tarsal plate (Tarso / Placa tarsal)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.835,
+          "y": 0.745,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "conjunctiva-conjuntiva-palpebral",
+      "numero": 7.0,
+      "nombre": "Conjunctiva (Conjuntiva palpebral)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.595,
+          "y": 0.835,
+          "imagen": 0
+        },
+        {
+          "x": 0.575,
+          "y": 0.925,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

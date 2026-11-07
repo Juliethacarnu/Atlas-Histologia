@@ -1,0 +1,98 @@
+{
+  "id": "procesos-ciliares",
+  "titulo": "Procesos Ciliares y fibras suspensorias",
+  "sistema": "ojo",
+  "organo": "Procesos Ciliares y fibras suspensorias",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen detalla la región de conexión entre el cuerpo ciliar y el cristalino, mostrando cómo las prolongaciones de los procesos ciliares dan origen a las delgadas fibras suspensorias de la zónula. Estas estructuras filamentosas cruzan el espacio circundante para fijarse firmemente a la cápsula del cristalino y regular su curvatura, mientras que en la parte superior se distingue el nacimiento de la túnica del iris.",
+  "fuente": "",
+  "credito": "Figura 1. Procesos ciliares y fibras suspensorias del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "procesos-ciliares-1",
+      "aumento": "",
+      "credito": "Figura 1. Procesos ciliares y fibras suspensorias del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "ciliary-body-cuerpo-ciliar",
+      "numero": 1.0,
+      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.145,
+          "y": 0.18,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "iris-iris",
+      "numero": 2.0,
+      "nombre": "Iris (Iris)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.605,
+          "y": 0.095,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ciliary-processes-procesos-ciliares",
+      "numero": 3.0,
+      "nombre": "Ciliary processes (Procesos ciliares)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.215,
+          "y": 0.755,
+          "imagen": 0
+        },
+        {
+          "x": 0.29,
+          "y": 0.62,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "suspensory-fibers-fibras-suspensorias",
+      "numero": 4.0,
+      "nombre": "Suspensory fibers (Fibras suspensorias)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.435,
+          "y": 0.565,
+          "imagen": 0
+        },
+        {
+          "x": 0.695,
+          "y": 0.36,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-cristalin",
+      "numero": 5.0,
+      "nombre": "Lens (Cristalin",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.93,
+          "y": 0.555,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -18,7 +18,12 @@
       "credito": "Figura 1. Alveolos"
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "alveolos.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "neumocitos-tipo-1",

@@ -1,0 +1,124 @@
+{
+  "id": "iris-del-ojo-humano",
+  "titulo": "Iris del ojo humano",
+  "sistema": "ojo",
+  "organo": "Iris del ojo humano",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra un corte histológico detallado del iris, sirviendo como diafragma contráctil entre las cámaras anterior y posterior del ojo por delante del cristalino. Su estructura comprende un estroma de tejido conectivo laxo altamente vascularizado y pigmentado, flanqueado en la región pupilar profunda por los haces del músculo esfínter y fibras mioepiteliales del músculo dilatador, todo ello respaldado basalmente por una doble capa epitelial intensamente melánica.",
+  "fuente": "",
+  "credito": "Figura 1. Iris del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "iris-del-ojo-humano-1",
+      "aumento": "",
+      "credito": "Figura 1. Iris del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "pupillary-dilator-musculo-dilatador-de-la-pupila",
+      "numero": 1.0,
+      "nombre": "Pupillary dilator (Músculo dilatador de la pupila)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "stroma-estroma-del-iris",
+      "numero": 2.0,
+      "nombre": "Stroma (Estroma del iris)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.315,
+          "y": 0.285,
+          "imagen": 0
+        },
+        {
+          "x": 0.47,
+          "y": 0.375,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "anterior-chamber-camara-anterior",
+      "numero": 3.0,
+      "nombre": "Anterior chamber (Cámara anterior)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.605,
+          "y": 0.07,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pupillary-sphincter-musculo-esfinter-de-la-pupila",
+      "numero": 4.0,
+      "nombre": "Pupillary sphincter (Músculo esfínter de la pupila)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.49,
+          "y": 0.545,
+          "imagen": 0
+        },
+        {
+          "x": 0.765,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "posterior-chamber-camara-posterior",
+      "numero": 5.0,
+      "nombre": "Posterior chamber (Cámara posterior)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.11,
+          "y": 0.845,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pigmented-epithelial-layer-capa-epitelial-pigmentada",
+      "numero": 6.0,
+      "nombre": "Pigmented epithelial layer (Capa epitelial pigmentada)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.315,
+          "y": 0.665,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-cristalino",
+      "numero": 7.0,
+      "nombre": "Lens (Cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.85,
+          "y": 0.87,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

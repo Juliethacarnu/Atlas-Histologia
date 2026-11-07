@@ -1,0 +1,75 @@
+{
+  "id": "cordon-umbilical",
+  "titulo": "Cordón Umbilical",
+  "sistema": "reproductor-femenino",
+  "organo": "Cordón umbilical",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El cordón umbilical conecta al feto con la placenta y está formado principalmente por un tejido conectivo mucoso especializado denominado gelatina de Wharton, que protege los vasos sanguíneos umbilicales. En su interior se observan una vena umbilical y dos arterias umbilicales. La vena transporta sangre oxigenada desde la placenta hacia el feto, mientras que las arterias llevan sangre pobre en oxígeno desde el feto hacia la placenta.",
+  "fuente": "",
+  "credito": "Figura 1. Cordón umbilical humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "cordon-umbilical-1",
+      "aumento": "",
+      "credito": "Figura 1. Cordón umbilical humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "vena-umbilical-vein",
+      "numero": 1.0,
+      "nombre": "Vena umbilical (Vein)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.495,
+          "y": 0.32,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "arterias-umbilicales-arteries",
+      "numero": 2.0,
+      "nombre": "Arterias umbilicales (Arteries)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.31,
+          "y": 0.765,
+          "imagen": 0
+        },
+        {
+          "x": 0.705,
+          "y": 0.765,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "gelatina-de-wharton",
+      "numero": 3.0,
+      "nombre": "Gelatina de Wharton",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-conectivo-mucoso",
+      "numero": 4.0,
+      "nombre": "Tejido conectivo mucoso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cordon-umbilical",
+      "numero": 5.0,
+      "nombre": "Cordón umbilical",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

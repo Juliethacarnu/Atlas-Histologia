@@ -1,0 +1,93 @@
+{
+  "id": "ovario",
+  "titulo": "Ovario",
+  "sistema": "reproductor-femenino",
+  "organo": "Ovario",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "El ovario humano está formado por una médula interna y una corteza externa, cuyos límites no son claramente distinguibles. La médula contiene vasos sanguíneos y nervios, mientras que la corteza alberga folículos en diferentes etapas de desarrollo. En la imagen también se observa un cuerpo lúteo, estructura que se forma tras la ovulación. Los folículos que no liberan su ovocito sufren un proceso de degeneración denominado atresia folicular, convirtiéndose en folículos atrésicos. El cuerpo lúteo puede mantenerse funcional gracias a la acción de la hormona luteinizante (LH) y la gonadotropina coriónica humana (hCG).",
+  "fuente": "",
+  "credito": "Figura 1. Corte histológico de ovario humano que muestra el hilio, la corteza, la médula, un folículo antral y un cuerpo lúteo. Adaptado de Medcell Histology Guide.",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "ovario-1",
+      "aumento": "",
+      "credito": "Figura 1. Corte histológico de ovario humano que muestra el hilio, la corteza, la médula, un folículo antral y un cuerpo lúteo. Adaptado de Medcell Histology Guide."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "ovario.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "hilio-ovarico-hilus",
+      "numero": 1.0,
+      "nombre": "Hilio ovárico (Hilus)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.215,
+          "y": 0.53,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corteza-ovarica-cortex",
+      "numero": 2.0,
+      "nombre": "Corteza ovárica (Cortex)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.505,
+          "y": 0.35,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "medula-ovarica-medulla",
+      "numero": 3.0,
+      "nombre": "Médula ovárica (Medulla)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.51,
+          "y": 0.64,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "foliculo-antral-antral-follicle",
+      "numero": 4.0,
+      "nombre": "Folículo antral (Antral Follicle)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.565,
+          "y": 0.22,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cuerpo-luteo-corpus-luteum",
+      "numero": 5.0,
+      "nombre": "Cuerpo lúteo (Corpus luteum)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.79,
+          "y": 0.37,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

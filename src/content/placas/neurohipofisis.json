@@ -18,7 +18,12 @@
       "credito": ""
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "neurohipofisis.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "granulos-secretorios",

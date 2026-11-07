@@ -1,0 +1,157 @@
+{
+  "id": "glandula-adrenal-corteza",
+  "titulo": "Glándula Adrenal: Corteza",
+  "sistema": "endocrino",
+  "organo": "Glándula Adrenal :Corteza",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×8",
+    "×40"
+  ],
+  "descripcionGeneral": "La corteza suprarrenal abarca cerca del 90 % del peso de la glándula y está organizada en tres zonas concéntricas rodeadas por capilares fenestrados: la zona glomerular externa (hasta el 15 % del volumen), cuyas células se disponen en grupos ovoides para secretar aldosterona bajo la regulación del sistema renina-angiotensina-aldosterona para controlar la homeostasis de  y ; la zona fascicular media (alrededor del 80 %), formada por cordones rectos de células poliédricas con abundantes inclusiones lipídicas que sintetizan glucocorticoides (como cortisol) bajo el control del eje CRH-ACTH; y la zona reticular interna (5-7 %), constituida por cordones anastomosados de células más pequeñas que secretan andrógenos suprarrenales como DHEA, DHEAS y androstenediona.",
+  "fuente": "",
+  "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "glandula-adrenal-corteza-1",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "glandula-adrenal-corteza-2",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "glandula-adrenal-corteza.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "corteza-adrenal",
+      "numero": 1.0,
+      "nombre": "Corteza Adrenal",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.585,
+          "y": 0.49,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-glomerular",
+      "numero": 1.1,
+      "nombre": "Capa Glomerular",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.383,
+          "y": 0.165,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-fasciculada",
+      "numero": 1.2,
+      "nombre": "Capa Fasciculada",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.383,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-reticular",
+      "numero": 1.3,
+      "nombre": "Capa Reticular",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.383,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sinusoides",
+      "numero": 2.0,
+      "nombre": "Sinusoides",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.288,
+          "y": 0.075,
+          "imagen": 1
+        },
+        {
+          "x": 0.385,
+          "y": 0.1,
+          "imagen": 1
+        },
+        {
+          "x": 0.045,
+          "y": 0.59,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-endocrinas-espongiocitos",
+      "numero": 3.0,
+      "nombre": "Células endocrinas(espongiocitos)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.255,
+          "y": 0.24,
+          "imagen": 1
+        },
+        {
+          "x": 0.26,
+          "y": 0.47,
+          "imagen": 1
+        },
+        {
+          "x": 0.805,
+          "y": 0.4,
+          "imagen": 1
+        },
+        {
+          "x": 0.775,
+          "y": 0.57,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "gotas-de-grasa",
+      "numero": 4.0,
+      "nombre": "Gotas de grasa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.225,
+          "y": 0.265,
+          "imagen": 1
+        },
+        {
+          "x": 0.225,
+          "y": 0.45,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,89 @@
+{
+  "id": "cervix",
+  "titulo": "Cérvix",
+  "sistema": "reproductor-femenino",
+  "organo": "Cuello Uterino",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El cérvix o cuello uterino es la porción inferior del útero que comunica la cavidad uterina con la vagina. Presenta una importante transición epitelial: el endocérvix está revestido por epitelio cilíndrico simple secretor de moco, mientras que el ectocérvix está cubierto por epitelio plano estratificado no queratinizado. La zona donde ambos epitelios se encuentran se denomina unión escamocolumnar o zona de transformación.",
+  "fuente": "",
+  "credito": "Figura 1. Cérvix (cuello uterino) humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "cervix-1",
+      "aumento": "",
+      "credito": "Figura 1. Cérvix (cuello uterino) humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "cervix.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "epitelio-cilindrico-simple-simple-columnar",
+      "numero": 1.0,
+      "nombre": "Epitelio cilíndrico simple (Simple Columnar)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1,
+          "y": 0.615,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-plano-estratificado-stratified-squamous",
+      "numero": 2.0,
+      "nombre": "Epitelio plano estratificado (Stratified Squamous)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.345,
+          "y": 0.555,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "endocervix",
+      "numero": 3.0,
+      "nombre": "Endocérvix",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "ectocervix",
+      "numero": 4.0,
+      "nombre": "Ectocérvix",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "union-escamocolumnar",
+      "numero": 5.0,
+      "nombre": "Unión escamocolumnar",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estroma-cervical",
+      "numero": 6.0,
+      "nombre": "Estroma cervical",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cervix-cuello-uterino",
+      "numero": 7.0,
+      "nombre": "Cérvix (cuello uterino)",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

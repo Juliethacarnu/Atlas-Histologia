@@ -18,7 +18,12 @@
       "credito": ""
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "adenohipofisis.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celulas-acidofilos",

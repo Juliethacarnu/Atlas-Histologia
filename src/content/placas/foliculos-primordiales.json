@@ -1,0 +1,81 @@
+{
+  "id": "foliculos-primordiales",
+  "titulo": "Folículos primordiales",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículos primordiales",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "Los folículos primordiales se forman durante los primeros cinco meses del desarrollo fetal del ovario y constituyen una reserva finita de ovocitos. Están compuestos por un ovocito rodeado por una sola capa de células foliculares planas. Estos folículos permanecen detenidos en la primera división meiótica hasta la pubertad, momento en el que algunos reanudan su desarrollo y se transforman en folículos primarios.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo primordial del ovario humano. Se identifica un ovocito primario rodeado por una capa simple de células foliculares escamosas. Fuente: Adaptado de Medcell Histology Guide (1). Folículo Primordial",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "foliculos-primordiales-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo primordial del ovario humano. Se identifica un ovocito primario rodeado por una capa simple de células foliculares escamosas. Fuente: Adaptado de Medcell Histology Guide (1). Folículo Primordial"
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "foliculos-primordiales.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "nucleo-del-ovocito-nucleus",
+      "numero": 1.0,
+      "nombre": "Núcleo del ovocito (Nucleus)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.47,
+          "y": 0.585,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "citoplasma-del-ovocito-cytoplasm",
+      "numero": 2.0,
+      "nombre": "Citoplasma del ovocito (Cytoplasm)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.395,
+          "y": 0.645,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-foliculares-follicular-cells",
+      "numero": 3.0,
+      "nombre": "Células foliculares (Follicular Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.64,
+          "y": 0.4,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ovocito-primario",
+      "numero": 4.0,
+      "nombre": "Ovocito primario",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "foliculo-primordial",
+      "numero": 5.0,
+      "nombre": "Folículo primordial",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

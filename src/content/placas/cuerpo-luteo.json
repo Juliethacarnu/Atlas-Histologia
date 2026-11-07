@@ -1,0 +1,70 @@
+{
+  "id": "cuerpo-luteo",
+  "titulo": "Cuerpo lúteo",
+  "sistema": "reproductor-femenino",
+  "organo": "Cuerpo Lúteo",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El cuerpo lúteo es la estructura endocrina que se forma a partir del folículo colapsado después de la ovulación. Está compuesto principalmente por células luteínicas, derivadas de las células de la granulosa y de la teca interna, las cuales producen hormonas esteroideas, especialmente progesterona. En el centro puede observarse un coágulo sanguíneo, remanente del proceso ovulatorio.",
+  "fuente": "",
+  "credito": "Figura 1. Cuerpo lúteo del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "cuerpo-luteo-1",
+      "aumento": "",
+      "credito": "Figura 1. Cuerpo lúteo del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cuerpo-luteo",
+      "numero": 1.0,
+      "nombre": "Cuerpo lúteo",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "celulas-luteinicas-luteal-cells",
+      "numero": 2.0,
+      "nombre": "Células luteínicas (Luteal Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.745,
+          "y": 0.31,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "coagulo-sanguineo-blood-clot",
+      "numero": 3.0,
+      "nombre": "Coágulo sanguíneo (Blood Clot)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.565,
+          "y": 0.455,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tejido-conectivo-estromal",
+      "numero": 4.0,
+      "nombre": "Tejido conectivo estromal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vasos-sanguineos-del-cuerpo-luteo",
+      "numero": 5.0,
+      "nombre": "Vasos sanguíneos del cuerpo lúteo",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

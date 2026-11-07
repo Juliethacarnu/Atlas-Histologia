@@ -1,0 +1,75 @@
+{
+  "id": "nervio-optico",
+  "titulo": "Nervio óptico",
+  "sistema": "ojo",
+  "organo": "Nervio óptico",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El nervio óptico está formado por los axones de las células ganglionares de la retina, que convergen en una región denominada disco óptico. En la retina, estas fibras nerviosas carecen de mielina para no interferir con el paso de la luz hacia los fotorreceptores. Al atravesar el disco óptico y formar el nervio óptico, los axones adquieren su vaina de mielina, permitiendo la conducción eficiente de los impulsos visuales.",
+  "fuente": "",
+  "credito": "Figura 1. Nervio óptico y disco óptico de la retina humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "nervio-optico-1",
+      "aumento": "",
+      "credito": "Figura 1. Nervio óptico y disco óptico de la retina humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "disco-optico-optic-disc",
+      "numero": 1.0,
+      "nombre": "Disco óptico (Optic Disc)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.48,
+          "y": 0.385,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nervio-optico-optic-nerve",
+      "numero": 2.0,
+      "nombre": "Nervio óptico (Optic Nerve)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.71,
+          "y": 0.4,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fibras-del-nervio-optico-optic-nerve-fibers",
+      "numero": 3.0,
+      "nombre": "Fibras del nervio óptico (Optic Nerve Fibers)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.455,
+          "y": 0.69,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "retina-retina",
+      "numero": 4.0,
+      "nombre": "Retina (Retina)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.465,
+          "y": 0.8,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,69 @@
+{
+  "id": "cuerpo-albicans",
+  "titulo": "Cuerpo Albicans",
+  "sistema": "reproductor-femenino",
+  "organo": "Cuerpo Albicans",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El cuerpo albicans es la estructura que se forma cuando no ocurre fecundación. En este caso, el cuerpo lúteo involuciona progresivamente y sus células secretoras degeneran, siendo eliminadas por macrófagos. Como resultado, queda una cicatriz compuesta principalmente por tejido fibroso, que persiste en el estroma ovárico.",
+  "fuente": "",
+  "credito": "Figura 1. Cuerpo albicans del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "cuerpo-albicans-1",
+      "aumento": "",
+      "credito": "Figura 1. Cuerpo albicans del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "cuerpo-albicans.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "cuerpo-albicans",
+      "numero": 1.0,
+      "nombre": "Cuerpo albicans",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-fibroso-fibrous-tissue",
+      "numero": 2.0,
+      "nombre": "Tejido fibroso (Fibrous Tissue)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.655,
+          "y": 0.25,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "estroma-ovarico",
+      "numero": 3.0,
+      "nombre": "Estroma ovárico",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "foliculos-ovaricos-circundantes",
+      "numero": 4.0,
+      "nombre": "Folículos ováricos circundantes",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vasos-sanguineos",
+      "numero": 5.0,
+      "nombre": "Vasos sanguíneos",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

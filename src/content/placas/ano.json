@@ -23,7 +23,12 @@
       "credito": ""
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "ano.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "zona-de-transicion-del-epitelio",

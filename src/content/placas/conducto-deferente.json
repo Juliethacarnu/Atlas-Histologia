@@ -1,0 +1,67 @@
+{
+  "id": "conducto-deferente",
+  "titulo": "Conducto deferente",
+  "sistema": "reproductor-masculino",
+  "organo": "Conducto deferente",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "El conducto deferente es un tubo muscular (conducto) que transporta los espermatozoides desde el epidídimo hasta el conducto eyaculador. La luz del conducto deferente está revestida por un epitelio cilíndrico seudoestratificado, similar al que reviste el epidídimo. Las células cilíndricas tienen estereocilios apicales y las células basales probablemente sirven para reponer el epitelio cilíndrico.",
+  "fuente": "",
+  "credito": "Figura 1. Revestimiento epitelial de la mucosa del conducto deferente. Nota: Adaptado de King D. Histology at SIU: Vas Deferens [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "conducto-deferente-1",
+      "aumento": "",
+      "credito": "Figura 1. Revestimiento epitelial de la mucosa del conducto deferente. Nota: Adaptado de King D. Histology at SIU: Vas Deferens [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "conducto-deferente.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "luz-lumen",
+      "numero": 1.0,
+      "nombre": "Luz (lumen)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.46,
+          "y": 0.46,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-de-celulas-basales-basal-cell-layer",
+      "numero": 2.0,
+      "nombre": "Capa de células basales (basal cell layer)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.655,
+          "y": 0.21,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capa-de-celulas-cilindricas-columnar-cell-layer",
+      "numero": 3.0,
+      "nombre": "Capa de células cilíndricas (columnar cell layer)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.705,
+          "y": 0.3,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,75 @@
+{
+  "id": "fovea",
+  "titulo": "Fóvea",
+  "sistema": "ojo",
+  "organo": "Fóvea",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La fóvea es la región de la retina responsable de la visión más precisa y de la mayor agudeza visual. Se identifica por una depresión en la superficie retiniana y se localiza sobre el eje visual del ojo. En esta zona predominan los conos y las capas internas de la retina están desplazadas, lo que facilita el paso de la luz hacia los fotorreceptores y optimiza la calidad de la visión central.",
+  "fuente": "",
+  "credito": "Figura 1. Fóvea de la retina humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "fovea-1",
+      "aumento": "",
+      "credito": "Figura 1. Fóvea de la retina humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "fovea-fovea",
+      "numero": 1.0,
+      "nombre": "Fóvea (Fovea)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.515,
+          "y": 0.315,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "retina-retina",
+      "numero": 2.0,
+      "nombre": "Retina (Retina)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.85,
+          "y": 0.305,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "coroides-choroid",
+      "numero": 3.0,
+      "nombre": "Coroides (Choroid)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.87,
+          "y": 0.66,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "esclerotica-sclera",
+      "numero": 4.0,
+      "nombre": "Esclerótica (Sclera)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.86,
+          "y": 0.83,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

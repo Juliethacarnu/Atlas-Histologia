@@ -1,0 +1,158 @@
+{
+  "id": "testiculo",
+  "titulo": "Testículo",
+  "sistema": "reproductor-masculino",
+  "organo": "Testículo",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El testículo consta principalmente de túbulos seminíferos rodeados por una cápsula fibrosa resistente, la túnica albugínea. Los tabiques de tejido conectivo (no incluidos en esta micrografía) se extienden desde la túnica albugínea para dividir el testículo en lobulillos. El aspecto complejo del epitelio tubular se debe a la presencia, además de las células cilídbricas epiteliales de Sertoli, de células germinales en proceso de meiosis.",
+  "fuente": "",
+  "credito": "",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "testiculo-1",
+      "aumento": "",
+      "credito": ""
+    },
+    {
+      "archivo": "testiculo-2",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "tunica-albuginea-tunica-albuginea",
+      "numero": 1.0,
+      "nombre": "Túnica albugínea (tunica albuginea)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.105,
+          "y": 0.33,
+          "imagen": 0
+        },
+        {
+          "x": 0.105,
+          "y": 0.6,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "vaso-sanguineo-blood-vessel",
+      "numero": 2.0,
+      "nombre": "Vaso sanguíneo (blood vessel)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.245,
+          "y": 0.92,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tubulos-seminiferos-seminiferous-tubules",
+      "numero": 3.0,
+      "nombre": "Túbulos seminíferos (seminiferous tubules)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.545,
+          "y": 0.225,
+          "imagen": 0
+        },
+        {
+          "x": 0.535,
+          "y": 0.465,
+          "imagen": 0
+        },
+        {
+          "x": 0.565,
+          "y": 0.645,
+          "imagen": 0
+        },
+        {
+          "x": 0.645,
+          "y": 0.865,
+          "imagen": 0
+        },
+        {
+          "x": 0.905,
+          "y": 0.595,
+          "imagen": 0
+        },
+        {
+          "x": 0.068,
+          "y": 0.215,
+          "imagen": 1
+        },
+        {
+          "x": 0.195,
+          "y": 0.355,
+          "imagen": 1
+        },
+        {
+          "x": 0.098,
+          "y": 0.6,
+          "imagen": 1
+        },
+        {
+          "x": 0.235,
+          "y": 0.59,
+          "imagen": 1
+        },
+        {
+          "x": 0.385,
+          "y": 0.6,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "epitelio-tubular-cortado-tangencialmente-tangentially-sectio",
+      "numero": 4.0,
+      "nombre": "Epitelio tubular cortado tangencialmente (tangentially sectioned tubule epithelium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.385,
+          "y": 0.135,
+          "imagen": 1
+        },
+        {
+          "x": 0.405,
+          "y": 0.335,
+          "imagen": 1
+        },
+        {
+          "x": 0.655,
+          "y": 0.475,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "grupos-de-celulas-de-leydig-leydig-cell-clusters",
+      "numero": 5.0,
+      "nombre": "• Grupos de células de Leydig (Leydig cell clusters)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.45,
+          "y": 0.885,
+          "imagen": 1
+        },
+        {
+          "x": 0.555,
+          "y": 0.52,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

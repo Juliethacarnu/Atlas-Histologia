@@ -1,0 +1,98 @@
+{
+  "id": "cornea",
+  "titulo": "Córnea",
+  "sistema": "ojo",
+  "organo": "Córnea",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La córnea es la estructura transparente y avascular de la túnica fibrosa del ojo, constituida de anterior a posterior por cinco capas: el epitelio corneal (plano estratificado no queratinizado que ayuda a retener la película lagrimal), la membrana de Bowman (lámina acelular de colágeno resistente), el estroma corneal (que abarca cerca del 90 % del espesor y cuya disposición ortogonal de láminas de colágeno y queratocitos fundamenta su transparencia), la membrana de Descemet (gruesa lámina basal posterior) y el endotelio corneal (epitelio plano simple que regula activamente la hidratación corneal bombeando líquido hacia la cámara anterior para mantener la claridad óptica). • Fibroblasts (Fibroblastos) • Collagen (Colágeno)",
+  "fuente": "",
+  "credito": "Figura 1. Córnea humana. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "cornea-1",
+      "aumento": "",
+      "credito": "Figura 1. Córnea humana. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "air-aire",
+      "numero": 1.0,
+      "nombre": "Air (Aire)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.025,
+          "y": 0.49,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corneal-epithelium-epitelio-corneal",
+      "numero": 2.0,
+      "nombre": "Corneal epithelium (Epitelio corneal)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.105,
+          "y": 0.42,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epithelial-cells-celulas-epiteliales",
+      "numero": 3.0,
+      "nombre": "Epithelial cells (Células epiteliales)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1,
+          "y": 0.5,
+          "imagen": 0
+        },
+        {
+          "x": 0.105,
+          "y": 0.565,
+          "imagen": 0
+        },
+        {
+          "x": 0.15,
+          "y": 0.625,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corneal-connective-tissue-substantia-propria-tejido-conectiv",
+      "numero": 4.0,
+      "nombre": "Corneal connective tissue / substantia propria (Tejido conectivo corneal / sustancia propia)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.295,
+          "y": 0.835,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "aqueous-humor-humor-acuoso",
+      "numero": 5.0,
+      "nombre": "Aqueous humor (Humor acuoso)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.975,
+          "y": 0.52,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

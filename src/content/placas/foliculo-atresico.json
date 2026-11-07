@@ -1,0 +1,75 @@
+{
+  "id": "foliculo-atresico",
+  "titulo": "Folículo Atrésico",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículo Atrésico",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El folículo atrésico es un folículo ovárico que ha sufrido atresia, un proceso degenerativo que puede ocurrir en cualquier etapa de su desarrollo. Durante este proceso, las células de la granulosa experimentan apoptosis y el ovocito degenera. La membrana basal se engrosa formando una membrana vítrea, mientras que el tejido fibroso reemplaza progresivamente las estructuras foliculares originales.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo atrésico del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "foliculo-atresico-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo atrésico del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-atresico.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "foliculo-atresico",
+      "numero": 1.0,
+      "nombre": "Folículo atrésico",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "membrana-vitrea-glassy-membrane",
+      "numero": 2.0,
+      "nombre": "Membrana vítrea (Glassy Membrane)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.525,
+          "y": 0.54,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "cuerpo-fibroso-corpus-fibrosum",
+      "numero": 3.0,
+      "nombre": "Cuerpo fibroso (Corpus Fibrosum)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.415,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "tejido-conectivo-fibroso",
+      "numero": 4.0,
+      "nombre": "Tejido conectivo fibroso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estroma-ovarico",
+      "numero": 5.0,
+      "nombre": "Estroma ovárico",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

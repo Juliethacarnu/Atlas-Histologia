@@ -1,0 +1,119 @@
+{
+  "id": "ojo",
+  "titulo": "Ojo",
+  "sistema": "ojo",
+  "organo": "",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "",
+  "fuente": "",
+  "credito": "",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "ojo-1",
+      "aumento": "",
+      "credito": ""
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cornea-cornea",
+      "numero": 1.0,
+      "nombre": "Cornea (Córnea)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.71,
+          "y": 0.075,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "anterior-chamber-camara-anterior",
+      "numero": 2.0,
+      "nombre": "Anterior chamber (Cámara anterior)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.695,
+          "y": 0.26,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "iris-iris",
+      "numero": 3.0,
+      "nombre": "Iris (Iris)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.455,
+          "y": 0.4,
+          "imagen": 0
+        },
+        {
+          "x": 0.945,
+          "y": 0.405,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pupil-pupila",
+      "numero": 4.0,
+      "nombre": "Pupil (Pupila)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7,
+          "y": 0.385,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-cristalino",
+      "numero": 5.0,
+      "nombre": "Lens (Cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.705,
+          "y": 0.475,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ciliary-body-cuerpo-ciliar",
+      "numero": 6.0,
+      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.245,
+          "y": 0.665,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sclera-esclera",
+      "numero": 7.0,
+      "nombre": "Sclera (Esclera)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.095,
+          "y": 0.595,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

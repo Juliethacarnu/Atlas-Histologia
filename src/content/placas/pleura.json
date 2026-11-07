@@ -18,7 +18,12 @@
       "credito": "Figura 1 . Pleura · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "pleura.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "mesotelio-epitelio-plano-simple",

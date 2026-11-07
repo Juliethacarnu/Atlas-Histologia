@@ -1,0 +1,64 @@
+{
+  "id": "glandula-adrenal",
+  "titulo": "Glándula Adrenal",
+  "sistema": "endocrino",
+  "organo": "Glándula Adrenal",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×2"
+  ],
+  "descripcionGeneral": "Las glándulas suprarrenales son órganos pares retroperitoneales cubiertos por una gruesa cápsula de tejido conjuntivo que emite tabiques hacia el interior. Histológicamente están compuestas por dos regiones concéntricas con diferente origen embrionario y función: la corteza suprarrenal, porción periférica secretora de esteroides que abarca cerca del 90 % del peso de la glándula, y la médula suprarrenal, porción central profunda especializada en la secreción de catecolaminas. Su irrigación proviene de las arterias suprarrenales superior, media e inferior, formando capilares capsulares, capilares sinusoidales corticales fenestrados y arteriolas medulares. Su drenaje venoso converge en la vena adrenomedular central, una estructura vascular característica cuya túnica media posee conspicuos haces musculares lisos de orientación longitudinal que ayudan a regular el flujo de salida de las hormonas hacia la vena cava o renal.",
+  "fuente": "",
+  "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "glandula-adrenal-1",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "capsula",
+      "numero": 1.0,
+      "nombre": "Capsula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.335,
+          "y": 0.115,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corteza",
+      "numero": 2.0,
+      "nombre": "Corteza",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.56,
+          "y": 0.245,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "medula",
+      "numero": 3.0,
+      "nombre": "Médula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.56,
+          "y": 0.665,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,166 @@
+{
+  "id": "capas-de-la-retina",
+  "titulo": "Capas de la Retina",
+  "sistema": "ojo",
+  "organo": "Capas de la Retina",
+  "tincion": "Capas de la Retina",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen expone la organización estratificada de la retina neural, mostrando el procesamiento visual desde la capa de fotorreceptores y el epitelio pigmentario de soporte basal, pasando por los núcleos y sinapsis de las capas nucleares y plexiformes, hasta las células ganglionares cuyos axones forman la capa de fibras nerviosas periféricas. Por debajo de esta estructura nerviosa se disponen secuencialmente la coroides vascular y el soporte fibroso externo de la esclera.",
+  "fuente": "",
+  "credito": "Figura 1. Capas de la retina y túnicas posteriores del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "capas-de-la-retina-1",
+      "aumento": "",
+      "credito": "Figura 1. Capas de la retina y túnicas posteriores del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "blood-vessel-vaso-sanguineo",
+      "numero": 1.0,
+      "nombre": "Blood vessel (Vaso sanguíneo)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.26,
+          "y": 0.165,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nerve-fiber-layer-capa-de-fibras-nerviosas",
+      "numero": 2.0,
+      "nombre": "Nerve fiber layer (Capa de fibras nerviosas)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.085,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ganglion-cell-layer-capa-de-celulas-ganglionares",
+      "numero": 3.0,
+      "nombre": "Ganglion cell layer (Capa de células ganglionares)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.18,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "inner-plexiform-layer-capa-plexiforme-interna",
+      "numero": 4.0,
+      "nombre": "Inner plexiform layer (Capa plexiforme interna)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.25,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "inner-nuclear-layer-capa-nuclear-interna",
+      "numero": 5.0,
+      "nombre": "Inner nuclear layer (Capa nuclear interna)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.33,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "outer-plexiform-layer-capa-plexiforme-externa",
+      "numero": 6.0,
+      "nombre": "Outer plexiform layer (Capa plexiforme externa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.425,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "outer-nuclear-layer-capa-nuclear-externa",
+      "numero": 7.0,
+      "nombre": "Outer nuclear layer (Capa nuclear externa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.51,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "receptor-layer-capa-de-fotorreceptores",
+      "numero": 8.0,
+      "nombre": "Receptor layer (Capa de fotorreceptores)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.61,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pigmented-epithelium-epitelio-pigmentario",
+      "numero": 9.0,
+      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.665,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "choroid-coroides",
+      "numero": 10.0,
+      "nombre": "Choroid (Coroides)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.765,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sclera-esclera",
+      "numero": 11.0,
+      "nombre": "Sclera (Esclera)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.25,
+          "y": 0.885,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,88 @@
+{
+  "id": "disco-optico",
+  "titulo": "Disco óptico y salida del nervio óptico del ojo humano",
+  "sistema": "ojo",
+  "organo": "Disco óptico y salida del nervio óptico del ojo humano",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra la región posterior del globo ocular donde los axones de las células ganglionares de la retina neural convergen para formar el nervio óptico. Esta zona de transición interrumpe la continuidad de la coroides y del epitelio pigmentario, creando el disco óptico o punto ciego, un área carente de fotorreceptores a través de la cual las fibras nerviosas abandonan el ojo hacia el sistema nervioso central.",
+  "fuente": "",
+  "credito": "Figura 1. Disco óptico y salida del nervio óptico del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "disco-optico-1",
+      "aumento": "",
+      "credito": "Figura 1. Disco óptico y salida del nervio óptico del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "choroid-coroides",
+      "numero": 1.0,
+      "nombre": "Choroid (Coroides)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.125,
+          "y": 0.245,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pigmented-epithelium-epitelio-pigmentario",
+      "numero": 2.0,
+      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.275,
+          "y": 0.325,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "retina-retina-neural",
+      "numero": 3.0,
+      "nombre": "Retina (Retina neural)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.435,
+          "y": 0.245,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "blind-spot-punto-ciego-disco-optico",
+      "numero": 4.0,
+      "nombre": "Blind spot (Punto ciego / Disco óptico)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.655,
+          "y": 0.25,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "optic-nerve-nervio-optico",
+      "numero": 5.0,
+      "nombre": "Optic nerve (Nervio óptico)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.845,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,77 @@
+{
+  "id": "trompa-uterina",
+  "titulo": "Trompa Uterina",
+  "sistema": "reproductor-femenino",
+  "organo": "Trompa Uterina",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El oviducto o trompa uterina es el conducto encargado de transportar el ovocito desde el ovario hasta el útero. Su característica más notable es una mucosa muy plegada, que aumenta la superficie interna y facilita el transporte del ovocito. Rodeando la mucosa se encuentra una capa de músculo liso, cuya contracción contribuye al desplazamiento del contenido hacia el útero.",
+  "fuente": "",
+  "credito": "Figura 1. Oviducto (trompa uterina) humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "trompa-uterina-1",
+      "aumento": "",
+      "credito": "Figura 1. Oviducto (trompa uterina) humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "mucosa-mucosa",
+      "numero": 1.0,
+      "nombre": "Mucosa (Mucosa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.62,
+          "y": 0.35,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "musculo-liso-smooth-muscle",
+      "numero": 2.0,
+      "nombre": "Músculo liso (Smooth Muscle)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.785,
+          "y": 0.325,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "luz-del-oviducto",
+      "numero": 3.0,
+      "nombre": "Luz del oviducto",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "pliegues-mucosos",
+      "numero": 4.0,
+      "nombre": "Pliegues mucosos",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tunica-muscular",
+      "numero": 5.0,
+      "nombre": "Túnica muscular",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "oviducto-trompa-uterina",
+      "numero": 6.0,
+      "nombre": "Oviducto (trompa uterina)",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

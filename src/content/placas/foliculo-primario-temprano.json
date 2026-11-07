@@ -1,0 +1,62 @@
+{
+  "id": "foliculo-primario-temprano",
+  "titulo": "Folículo primario temprano",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículo primero temprano",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El folículo primario temprano se caracteriza por la presencia de un ovocito central rodeado por una única capa de células foliculares cúbicas. Entre el ovocito y las células foliculares se encuentra la zona pelúcida, una fina capa acelular que participa en la interacción entre ambas estructuras y en los procesos de fecundación posteriores. Durante esta etapa, el folículo comienza su crecimiento y diferenciación dentro de la corteza ovárica.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo primario temprano del ovario humano. Se observa un ovocito primario con núcleo prominente y citoplasma abundante, rodeado por una capa única de células foliculares cúbicas. Entre ambas estructuras se identifica la zona pelúcida, característica de esta fase del desarrollo folicular. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "foliculo-primario-temprano-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo primario temprano del ovario humano. Se observa un ovocito primario con núcleo prominente y citoplasma abundante, rodeado por una capa única de células foliculares cúbicas. Entre ambas estructuras se identifica la zona pelúcida, característica de esta fase del desarrollo folicular. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "celulas-foliculares-follicular-cells",
+      "numero": 1.0,
+      "nombre": "Células foliculares (Follicular Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.585,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "citoplasma-del-ovocito-cytoplasm",
+      "numero": 2.0,
+      "nombre": "Citoplasma del ovocito (Cytoplasm)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.555,
+          "y": 0.595,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nucleo-del-ovocito-nucleus",
+      "numero": 3.0,
+      "nombre": "Núcleo del ovocito (Nucleus)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.505,
+          "y": 0.685,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

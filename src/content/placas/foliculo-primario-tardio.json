@@ -1,0 +1,89 @@
+{
+  "id": "foliculo-primario-tardio",
+  "titulo": "Folículo primario tardío",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículo primero tardío",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El folículo primario tardío se caracteriza por la proliferación de las células foliculares, que forman varias capas alrededor del ovocito y constituyen un epitelio estratificado denominado zona granulosa. En esta etapa, el ovocito aumenta de tamaño y la zona pelúcida se observa con mayor claridad como una banda eosinófila que lo rodea. Este estadio representa una fase intermedia importante antes de la formación del folículo secundario.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo primario tardío del ovario humano. Se observa un ovocito primario con núcleo prominente y abundante citoplasma, rodeado por múltiples capas de células foliculares que constituyen la zona granulosa. La zona pelúcida aparece claramente definida entre el ovocito y las células foliculares. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "foliculo-primario-tardio-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo primario tardío del ovario humano. Se observa un ovocito primario con núcleo prominente y abundante citoplasma, rodeado por múltiples capas de células foliculares que constituyen la zona granulosa. La zona pelúcida aparece claramente definida entre el ovocito y las células foliculares. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "celulas-foliculares-zona-granulosa",
+      "numero": 1.0,
+      "nombre": "Células foliculares (zona granulosa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.75,
+          "y": 0.17,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "zona-pelucida",
+      "numero": 2.0,
+      "nombre": "Zona pelúcida",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.775,
+          "y": 0.395,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "nucleo-del-ovocito",
+      "numero": 3.0,
+      "nombre": "Núcleo del ovocito",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.535,
+          "y": 0.525,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "citoplasma-del-ovocito",
+      "numero": 4.0,
+      "nombre": "Citoplasma del ovocito",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.41,
+          "y": 0.585,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ovocito-primario",
+      "numero": 5.0,
+      "nombre": "Ovocito primario",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "foliculo-primario-tardio",
+      "numero": 6.0,
+      "nombre": "Folículo primario tardío",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

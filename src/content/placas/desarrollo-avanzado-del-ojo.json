@@ -1,0 +1,93 @@
+{
+  "id": "desarrollo-avanzado-del-ojo",
+  "titulo": "Desarrollo avanzado del ojo embrionario.",
+  "sistema": "ojo",
+  "organo": "Desarrollo avanzado del ojo embrionario.",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen expone un estadio más avanzado del desarrollo ocular embrionario, donde el esbozo del nervio óptico conecta la base del cáliz óptico con el sistema nervioso central. En la porción anterior, la vesícula del cristalino se ha transformado en una lente sólida orientada hacia el epitelio corneal primitivo, mientras que la cúpula óptica se diferencia claramente en una gruesa capa interna de retina neural y una delgada capa externa de epitelio pigmentario.",
+  "fuente": "",
+  "credito": "Figura 1. Desarrollo avanzado del ojo embrionario. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "desarrollo-avanzado-del-ojo-1",
+      "aumento": "",
+      "credito": "Figura 1. Desarrollo avanzado del ojo embrionario. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "corneal-epithelium-epitelio-corneal",
+      "numero": 1.0,
+      "nombre": "Corneal epithelium (Epitelio corneal)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.14,
+          "y": 0.455,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-cristalino",
+      "numero": 2.0,
+      "nombre": "Lens (Cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.165,
+          "y": 0.625,
+          "imagen": 0
+        },
+        {
+          "x": 0.245,
+          "y": 0.655,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "retina-retina-neural",
+      "numero": 3.0,
+      "nombre": "Retina (Retina neural)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.555,
+          "y": 0.435,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "pigmented-epithelium-epitelio-pigmentario",
+      "numero": 4.0,
+      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.645,
+          "y": 0.525,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "optic-nerve-nervio-optico",
+      "numero": 5.0,
+      "nombre": "Optic nerve (Nervio óptico).",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.775,
+          "y": 0.735,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

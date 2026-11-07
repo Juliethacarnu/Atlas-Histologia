@@ -1,0 +1,86 @@
+{
+  "id": "placenta",
+  "titulo": "Placenta",
+  "sistema": "reproductor-femenino",
+  "organo": "Placenta",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La placenta es un órgano temporal formado por tejidos maternos y fetales que permite el intercambio de gases, nutrientes, productos de desecho y moléculas entre la madre y el feto. Está constituida por las vellosidades coriónicas, derivadas del corion fetal, que se encuentran inmersas en espacios llenos de sangre materna llamados lagunas intervellosas. La decidua basal corresponde a la porción materna de la placenta y participa en la implantación y el soporte del embarazo.",
+  "fuente": "",
+  "credito": "Figura 1. Placenta humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "placenta-1",
+      "aumento": "",
+      "credito": "Figura 1. Placenta humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "placenta.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "vellosidades-corionicas-chorionic-villi",
+      "numero": 1.0,
+      "nombre": "Vellosidades coriónicas (Chorionic Villi)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.395,
+          "imagen": 0
+        },
+        {
+          "x": 0.5,
+          "y": 0.375,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lagunas-intervellosas-lacuna",
+      "numero": 2.0,
+      "nombre": "Lagunas intervellosas (Lacuna)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.19,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "decidua-basal-decidua-basalis",
+      "numero": 3.0,
+      "nombre": "Decidua basal (Decidua Basalis)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.89,
+          "y": 0.21,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sangre-materna",
+      "numero": 4.0,
+      "nombre": "Sangre materna",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "placenta",
+      "numero": 5.0,
+      "nombre": "Placenta",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,121 @@
+{
+  "id": "humor-acuoso",
+  "titulo": "Humor Acuoso",
+  "sistema": "ojo",
+  "organo": "Humor Acuoso",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El humor acuoso es un líquido transparente producido por el epitelio de los procesos ciliares del cuerpo ciliar. Desde la cámara posterior, fluye a través de la pupila hacia la cámara anterior y finalmente drena por el canal de Schlemm. Este sistema es fundamental para mantener la presión intraocular y nutrir estructuras avasculares del ojo, como la córnea y el cristalino.",
+  "fuente": "",
+  "credito": "Figura 1. Flujo del humor acuoso en el ojo humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "humor-acuoso-1",
+      "aumento": "",
+      "credito": "Figura 1. Flujo del humor acuoso en el ojo humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cuerpo-ciliar-ciliary-body",
+      "numero": 1.0,
+      "nombre": "Cuerpo ciliar (Ciliary Body)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.075,
+          "y": 0.305,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "procesos-ciliares-ciliary-process",
+      "numero": 2.0,
+      "nombre": "Procesos ciliares (Ciliary Process)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.215,
+          "y": 0.605,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-productor-de-humor-acuoso-epithelium",
+      "numero": 3.0,
+      "nombre": "Epitelio productor de humor acuoso (Epithelium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.09,
+          "y": 0.62,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "iris-iris",
+      "numero": 4.0,
+      "nombre": "Iris (Iris)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.57,
+          "y": 0.625,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "musculo-esfinter-de-la-pupila-pupillary-sphincter-muscle",
+      "numero": 5.0,
+      "nombre": "Músculo esfínter de la pupila (Pupillary Sphincter Muscle)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.855,
+          "y": 0.965,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "camara-posterior-posterior-chamber",
+      "numero": 6.0,
+      "nombre": "Cámara posterior (Posterior Chamber)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "camara-anterior-anterior-chamber",
+      "numero": 7.0,
+      "nombre": "Cámara anterior (Anterior Chamber)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.765,
+          "y": 0.48,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "canal-de-schlemm-canal-of-schlemm",
+      "numero": 8.0,
+      "nombre": "Canal de Schlemm (Canal of Schlemm)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.355,
+          "y": 0.165,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

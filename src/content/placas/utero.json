@@ -1,0 +1,107 @@
+{
+  "id": "utero",
+  "titulo": "Útero",
+  "sistema": "reproductor-femenino",
+  "organo": "Útero",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El útero está formado por tres capas principales: endometrio, miometrio y perimetrio. El endometrio se divide en un estrato funcional, que experimenta cambios cíclicos y se desprende durante la menstruación, y un estrato basal, que permanece y permite la regeneración del revestimiento uterino. El miometrio está constituido por músculo liso y es responsable de las contracciones uterinas.",
+  "fuente": "",
+  "credito": "Figura 1. Útero humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "utero-1",
+      "aumento": "",
+      "credito": "Figura 1. Útero humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "utero.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "endometrio-endometrium",
+      "numero": 1.0,
+      "nombre": "Endometrio (Endometrium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.3,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "estrato-funcional-stratum-functionalis",
+      "numero": 2.0,
+      "nombre": "Estrato funcional (Stratum Functionalis)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.725,
+          "y": 0.28,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "estrato-basal-stratum-basalis",
+      "numero": 3.0,
+      "nombre": "Estrato basal (Stratum Basalis)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.725,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "miometrio-myometrium",
+      "numero": 4.0,
+      "nombre": "Miometrio (Myometrium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.81,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "perimetrio-perimetrium",
+      "numero": 5.0,
+      "nombre": "Perimetrio (Perimetrium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.895,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "glandulas-endometriales",
+      "numero": 6.0,
+      "nombre": "Glándulas endometriales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "utero",
+      "numero": 7.0,
+      "nombre": "Útero",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

@@ -1,0 +1,54 @@
+{
+  "id": "vesicula-seminal",
+  "titulo": "Vesícula Seminal",
+  "sistema": "reproductor-masculino",
+  "organo": "Vesícula Seminal",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "La pared muscular de la vesícula seminal posee fibras de músculo liso entrelazadas con tejido conectivo. En esta imagen, las fibras musculares apenas pueden distinguirse del colágeno del tejido conectivo por la tinción ligeramente más intensa de las fibras musculares. La mucosa consiste en un epitelio cilíndrico secretor sustentado por la lámina propia. La ilustración aquí corresponde a una muestra no humana de nuestro conjunto de referencia; la vesícula seminal humana normalmente presenta una mucosa plegada de manera mucho más elaborada, con un aspecto similar al de un panal de abejas; ver Webpath low X, Webpath high X.",
+  "fuente": "",
+  "credito": "Figura 6. Mucosa y pared muscular de la vesícula seminal. Nota: Adaptado de King D. Histology at SIU: Seminal Vesicle [Internet]. Carbondale: Southern Illinois University School of Medicine; 2023 [actualizado 5 Feb 2023; citado 4 Oct 2026]. Disponible en: siu.edu (6).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "vesicula-seminal-1",
+      "aumento": "",
+      "credito": "Figura 6. Mucosa y pared muscular de la vesícula seminal. Nota: Adaptado de King D. Histology at SIU: Seminal Vesicle [Internet]. Carbondale: Southern Illinois University School of Medicine; 2023 [actualizado 5 Feb 2023; citado 4 Oct 2026]. Disponible en: siu.edu (6)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "pared-muscular-muscular-wall",
+      "numero": 1.0,
+      "nombre": "Pared muscular (muscular wall)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.66,
+          "y": 0.03,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lamina-propia-lamina-propria",
+      "numero": 2.0,
+      "nombre": "Lámina propia (lamina propria)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.305,
+          "y": 0.375,
+          "imagen": 0
+        },
+        {
+          "x": 0.56,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

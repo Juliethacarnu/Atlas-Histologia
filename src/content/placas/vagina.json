@@ -1,0 +1,71 @@
+{
+  "id": "vagina",
+  "titulo": "Vagina",
+  "sistema": "reproductor-femenino",
+  "organo": "Vagina",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La vagina está revestida por un epitelio plano estratificado no queratinizado, adaptado para resistir la fricción mecánica. Debajo del epitelio se encuentra una lámina propia de tejido conectivo rica en vasos sanguíneos. Las células epiteliales vaginales acumulan glucógeno, el cual contribuye al mantenimiento del ambiente vaginal normal mediante la producción de ácido láctico por la microbiota.",
+  "fuente": "",
+  "credito": "Figura 1. Vagina humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "vagina-1",
+      "aumento": "",
+      "credito": "Figura 1. Vagina humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "epitelio-vaginal-epithelium",
+      "numero": 1.0,
+      "nombre": "Epitelio vaginal (Epithelium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.715,
+          "y": 0.215,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-plano-estratificado-no-queratinizado",
+      "numero": 2.0,
+      "nombre": "Epitelio plano estratificado no queratinizado",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "lamina-propia",
+      "numero": 3.0,
+      "nombre": "Lámina propia",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "tejido-conectivo-denso",
+      "numero": 4.0,
+      "nombre": "Tejido conectivo denso",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "mucosa-vaginal",
+      "numero": 5.0,
+      "nombre": "Mucosa vaginal",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "vagina",
+      "numero": 6.0,
+      "nombre": "Vagina",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

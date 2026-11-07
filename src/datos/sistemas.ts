@@ -1,5 +1,5 @@
 /**
- * Los seis sistemas del atlas, en el orden en que se muestran.
+ * Los nueve sistemas del atlas, en el orden en que se muestran.
  * `placasEsperadas` documenta el total del proyecto y lo usa la pagina de
  * creditos para avisar si falta o sobra alguna placa.
  */
@@ -43,8 +43,29 @@ export const SISTEMAS = [
     id: 'endocrino',
     nombre: 'Sistema endocrino',
     descripcion: 'Glandulas de secrecion interna.',
-    placasEsperadas: 4,
+    placasEsperadas: 8,
     acento: 'var(--color-sis-endocrino)',
+  },
+  {
+    id: 'reproductor-masculino',
+    nombre: 'Reproductor masculino',
+    descripcion: 'Testiculo, vias espermaticas y glandulas anexas.',
+    placasEsperadas: 6,
+    acento: 'var(--color-sis-reproductor-masculino)',
+  },
+  {
+    id: 'reproductor-femenino',
+    nombre: 'Reproductor femenino',
+    descripcion: 'Ovario, trompa, utero, vagina y placenta.',
+    placasEsperadas: 19,
+    acento: 'var(--color-sis-reproductor-femenino)',
+  },
+  {
+    id: 'ojo',
+    nombre: 'Organo de la vision',
+    descripcion: 'Tunicas del ojo, cristalino, retina y anexos.',
+    placasEsperadas: 15,
+    acento: 'var(--color-sis-ojo)',
   },
 ] as const;
 

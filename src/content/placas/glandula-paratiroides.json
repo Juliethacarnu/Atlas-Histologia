@@ -1,0 +1,168 @@
+{
+  "id": "glandula-paratiroides",
+  "titulo": "Glándula Paratiroides",
+  "sistema": "endocrino",
+  "organo": "Glándula Paratiroides",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "×4",
+    "×40"
+  ],
+  "descripcionGeneral": "Se encuentra envuelta por una delgada cápsula de tejido conjuntivo que emite tabiques hacia el interior para dividir el parénquima en cordones celulares compactos. Su tejido conjuntivo estromal contiene una cantidad de adipocitos que se incrementa progresivamente con la edad, pudiendo ocupar entre el 60 % y 70 % de la masa glandular. Su parénquima altamente vascularizado por capilares fenestrados presenta dos poblaciones celulares: las células principales, que son las más abundantes, pequeñas y poligonales, con citoplasma levemente acidófilo, cúmulos de glucógeno e inclusiones lipídicas, responsables de la síntesis y secreción de la hormona paratiroidea (PTH); y las células oxífilas, que constituyen una porción menor (aisladas o en cúmulos), son de mayor tamaño, redondeadas y con un citoplasma intensamente acidófilo debido a la presencia de abundantes mitocondrias de formas grotescas, sin función secretora conocida.",
+  "fuente": "",
+  "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "glandula-paratiroides-1",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    },
+    {
+      "archivo": "glandula-paratiroides-2",
+      "aumento": "",
+      "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "estroma",
+      "numero": 1.0,
+      "nombre": "Estroma",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "capsula",
+      "numero": 1.1,
+      "nombre": "Cápsula",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.765,
+          "y": 0.665,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "tabiques-de-tejido-conectivo",
+      "numero": 1.2,
+      "nombre": "Tabiques de tejido conectivo",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.685,
+          "y": 0.345,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "tejido-adiposo-blanco",
+      "numero": 1.3,
+      "nombre": "Tejido adiposo blanco",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.542,
+          "y": 0.205,
+          "imagen": 1
+        },
+        {
+          "x": 0.4,
+          "y": 0.565,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "parenquima",
+      "numero": 2.0,
+      "nombre": "Parénquima",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "cordones-de-celulas-endocrinas",
+      "numero": 2.1,
+      "nombre": "Cordones de células endocrinas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.092,
+          "y": 0.225,
+          "imagen": 1
+        },
+        {
+          "x": 0.235,
+          "y": 0.475,
+          "imagen": 1
+        },
+        {
+          "x": 0.345,
+          "y": 0.485,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-principales",
+      "numero": 2.2,
+      "nombre": "Células principales",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7,
+          "y": 0.055,
+          "imagen": 0
+        },
+        {
+          "x": 0.255,
+          "y": 0.405,
+          "imagen": 0
+        },
+        {
+          "x": 0.655,
+          "y": 0.745,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "capilares",
+      "numero": 2.3,
+      "nombre": "Capilares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.625,
+          "y": 0.29,
+          "imagen": 0
+        },
+        {
+          "x": 0.775,
+          "y": 0.415,
+          "imagen": 0
+        },
+        {
+          "x": 0.272,
+          "y": 0.625,
+          "imagen": 0
+        },
+        {
+          "x": 0.545,
+          "y": 0.6,
+          "imagen": 0
+        },
+        {
+          "x": 0.53,
+          "y": 0.855,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

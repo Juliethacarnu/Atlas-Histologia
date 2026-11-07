@@ -1,0 +1,113 @@
+{
+  "id": "foliculo-secundario",
+  "titulo": "Folículo secundario",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículo secundario",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El folículo secundario se distingue del folículo primario por la aparición del antro folicular, una cavidad llena de líquido denominada licor folicular. En esta etapa, el ovocito permanece rodeado por la zona pelúcida y por células de la granulosa. Además, alrededor del folículo se desarrolla la teca interna, una capa celular con función endocrina encargada de la producción de hormonas esteroideas.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo secundario del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "foliculo-secundario-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo secundario del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-secundario.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "antro-folicular-follicular-antrum",
+      "numero": 1.0,
+      "nombre": "Antro folicular (Follicular Antrum)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.65,
+          "y": 0.375,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-de-la-granulosa-granulosa-cells",
+      "numero": 2.0,
+      "nombre": "Células de la granulosa (Granulosa Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.345,
+          "y": 0.465,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-del-cumulo-ooforo-cumulus-cells",
+      "numero": 3.0,
+      "nombre": "Células del cúmulo oóforo (Cumulus Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.685,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "zona-pelucida-zona-pellucida",
+      "numero": 4.0,
+      "nombre": "Zona pelúcida (Zona Pellucida)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7,
+          "y": 0.615,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ovocito-oocyte",
+      "numero": 5.0,
+      "nombre": "Ovocito (Oocyte)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.595,
+          "y": 0.72,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "teca-interna-theca-interna",
+      "numero": 6.0,
+      "nombre": "Teca interna (Theca Interna)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.275,
+          "y": 0.235,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "foliculo-secundario",
+      "numero": 7.0,
+      "nombre": "Folículo secundario",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

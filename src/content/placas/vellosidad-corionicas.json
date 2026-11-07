@@ -1,0 +1,88 @@
+{
+  "id": "vellosidad-corionicas",
+  "titulo": "Vellosidad Coriónicas",
+  "sistema": "reproductor-femenino",
+  "organo": "Vellosidad Coriónicas",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "Las vellosidades coriónicas son las principales unidades funcionales de la placenta y permiten el intercambio de sustancias entre la sangre materna y fetal. En las vellosidades maduras se observan capilares fetales muy próximos al sincitiotrofoblasto, lo que reduce la distancia de difusión para el oxígeno, nutrientes y productos de desecho. Estas vellosidades están rodeadas por las lagunas intervellosas, que contienen sangre materna.",
+  "fuente": "",
+  "credito": "Figura 1. Vellosidades coriónicas de placenta humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "vellosidad-corionicas-1",
+      "aumento": "",
+      "credito": "Figura 1. Vellosidades coriónicas de placenta humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "vellosidad-corionicas.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "vellosidades-corionicas-chorionic-villi",
+      "numero": 1.0,
+      "nombre": "Vellosidades coriónicas (Chorionic Villi)",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "capilares-fetales-capillary",
+      "numero": 2.0,
+      "nombre": "Capilares fetales (Capillary)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.745,
+          "y": 0.26,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sincitiotrofoblasto-syncytiotrophoblasts",
+      "numero": 3.0,
+      "nombre": "Sincitiotrofoblasto (Syncytiotrophoblasts)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.705,
+          "y": 0.555,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lagunas-intervellosas-lacuna",
+      "numero": 4.0,
+      "nombre": "Lagunas intervellosas (Lacuna)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.34,
+          "y": 0.31,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sangre-materna",
+      "numero": 5.0,
+      "nombre": "Sangre materna",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "placenta-madura",
+      "numero": 6.0,
+      "nombre": "Placenta madura",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

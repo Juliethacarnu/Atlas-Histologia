@@ -1,0 +1,145 @@
+{
+  "id": "cornea-2",
+  "titulo": "Córnea",
+  "sistema": "ojo",
+  "organo": "Córnea",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra un corte del segmento anterior del ojo, donde la córnea transparente se continúa con la esclera en el limbo esclerocorneal. Por detrás, el iris funciona como un diafragma contráctil que separa la cámara anterior de la cámara posterior, mientras que el cristalino permanece suspendido mediante las fibras de la zónula. Estas fibras se anclan al cuerpo y a los procesos ciliares, los cuales poseen un epitelio bicapa encargado de secretar el humor acuoso que llena ambos compartimentos de fluidos.",
+  "fuente": "",
+  "credito": "Figura 1. Córnea y estructuras anteriores del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "daniel",
+  "imagenes": [
+    {
+      "archivo": "cornea-2-1",
+      "aumento": "",
+      "credito": "Figura 1. Córnea y estructuras anteriores del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cornea-cornea",
+      "numero": 1.0,
+      "nombre": "Cornea (Córnea)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.52,
+          "y": 0.075,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "sclera-esclera",
+      "numero": 2.0,
+      "nombre": "Sclera (Esclera)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.045,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "anterior-chamber-camara-anterior",
+      "numero": 3.0,
+      "nombre": "Anterior chamber (Cámara anterior)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.79,
+          "y": 0.045,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "iris-iris",
+      "numero": 4.0,
+      "nombre": "Iris (Iris)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.655,
+          "y": 0.15,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "posterior-chamber-camara-posterior",
+      "numero": 5.0,
+      "nombre": "Posterior chamber (Cámara posterior)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.73,
+          "y": 0.345,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-cristalino",
+      "numero": 6.0,
+      "nombre": "Lens (Cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.88,
+          "y": 0.405,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ciliary-body-cuerpo-ciliar",
+      "numero": 7.0,
+      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.245,
+          "y": 0.7,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ciliary-process-procesos-ciliares",
+      "numero": 8.0,
+      "nombre": "Ciliary process (Procesos ciliares)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.385,
+          "y": 0.755,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "suspensory-fibers-fibras-suspensorias",
+      "numero": 9.0,
+      "nombre": "Suspensory fibers (Fibras suspensorias)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.435,
+          "y": 0.885,
+          "imagen": 0
+        },
+        {
+          "x": 0.5,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

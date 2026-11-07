@@ -1,0 +1,101 @@
+{
+  "id": "ciclo-uterino",
+  "titulo": "Ciclo Uterino",
+  "sistema": "reproductor-femenino",
+  "organo": "Ciclo Uterino",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El ciclo uterino comprende cambios cíclicos del endometrio regulados por las hormonas ováricas. Durante la fase proliferativa, el estrógeno estimula el crecimiento y la regeneración del endometrio. En la fase secretora, la progesterona induce el desarrollo de glándulas más tortuosas y secretoras. Si no ocurre fecundación, disminuyen los niveles hormonales y se produce la fase menstrual, caracterizada por el desprendimiento del estrato funcional del endometrio.",
+  "fuente": "",
+  "credito": "Figura 1. Ciclo uterino humano: fases proliferativa temprana, proliferativa tardía, secretora y menstrual. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "ciclo-uterino-1",
+      "aumento": "",
+      "credito": "Figura 1. Ciclo uterino humano: fases proliferativa temprana, proliferativa tardía, secretora y menstrual. Fuente: Adaptado de Medcell Histology Guide (1)."
+    },
+    {
+      "archivo": "ciclo-uterino-2",
+      "aumento": "",
+      "credito": "Figura 1. Ciclo uterino humano: fases proliferativa temprana, proliferativa tardía, secretora y menstrual. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "fase-proliferativa-temprana-early-proliferative",
+      "numero": 1.0,
+      "nombre": "Fase proliferativa temprana (Early Proliferative)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.175,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fase-proliferativa-tardia-late-proliferative",
+      "numero": 2.0,
+      "nombre": "Fase proliferativa tardía (Late Proliferative)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.51,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fase-secretora-secretory",
+      "numero": 3.0,
+      "nombre": "Fase secretora (Secretory)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.85,
+          "y": 0.9,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "fase-menstrual-menstrual",
+      "numero": 4.0,
+      "nombre": "Fase menstrual (Menstrual)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.515,
+          "y": 0.885,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "endometrio",
+      "numero": 5.0,
+      "nombre": "Endometrio",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "glandulas-endometriales",
+      "numero": 6.0,
+      "nombre": "Glándulas endometriales",
+      "descripcion": "",
+      "puntos": []
+    },
+    {
+      "id": "estrato-funcional",
+      "numero": 7.0,
+      "nombre": "Estrato funcional",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}

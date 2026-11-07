@@ -1,0 +1,131 @@
+{
+  "id": "epididimo",
+  "titulo": "Epidídimo",
+  "sistema": "reproductor-masculino",
+  "organo": "Epidídimo",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [],
+  "descripcionGeneral": "El epidídimo es un tubo largo (de 4 a 5 metros) fuertemente enrollado, a lo largo del cual los espermatozoides maduran a medida que se desplazan desde el testículo hacia el conducto deferente. Este tubo está rodeado por músculo liso y se encuentra inmerso en un estroma vascular laxo. El músculo liso se vuelve más grueso a medida que el conducto se aproxima al conducto deferente. La luz del conducto epididimario contiene espermatozoides y está revestida por un epitelio cilíndrico seudoestratificado con estereocilios apicales. El epitelio del conducto epididimario es similar al que reviste el conducto deferente. 5 Estereocilios (stereocilia)",
+  "fuente": "",
+  "credito": "Figura 1. Sección histológica del epidídimo mostrando el revestimiento epitelial y espermatozoides en la luz. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Detalle a gran aumento del epitelio cilíndrico seudoestratificado del epidídimo y sus especializaciones apicales. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "epididimo-1",
+      "aumento": "",
+      "credito": "Figura 1. Sección histológica del epidídimo mostrando el revestimiento epitelial y espermatozoides en la luz. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Detalle a gran aumento del epitelio cilíndrico seudoestratificado del epidídimo y sus especializaciones apicales. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2)."
+    },
+    {
+      "archivo": "epididimo-2",
+      "aumento": "",
+      "credito": "Figura 1. Sección histológica del epidídimo mostrando el revestimiento epitelial y espermatozoides en la luz. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Detalle a gran aumento del epitelio cilíndrico seudoestratificado del epidídimo y sus especializaciones apicales. Nota: Adaptado de King D. Histology at SIU: Epididymis [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "epididimo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "lamina-propia-lamina-propria",
+      "numero": 1.0,
+      "nombre": "Lámina propia (lamina propria)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.49,
+          "y": 0.095,
+          "imagen": 0
+        },
+        {
+          "x": 0.67,
+          "y": 0.025,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "musculo-liso-smooth-muscle",
+      "numero": 2.0,
+      "nombre": "Músculo liso (smooth muscle)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.2,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-epithelium",
+      "numero": 3.0,
+      "nombre": "Epitelio (epithelium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.475,
+          "y": 0.31,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "espermatozoides-en-la-luz-sperm-cells-in-lumen",
+      "numero": 4.0,
+      "nombre": "Espermatozoides en la luz (sperm cells in lumen)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.505,
+          "y": 0.665,
+          "imagen": 0
+        },
+        {
+          "x": 0.75,
+          "y": 0.885,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-basales-basal-cells",
+      "numero": 6.0,
+      "nombre": "Células basales (basal cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.18,
+          "imagen": 1
+        },
+        {
+          "x": 0.685,
+          "y": 0.19,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-cilindricas-columnar-cells",
+      "numero": 7.0,
+      "nombre": "Células cilíndricas (columnar cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.675,
+          "y": 0.4,
+          "imagen": 1
+        },
+        {
+          "x": 0.59,
+          "y": 0.445,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

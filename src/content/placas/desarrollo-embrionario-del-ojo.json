@@ -1,0 +1,85 @@
+{
+  "id": "desarrollo-embrionario-del-ojo",
+  "titulo": "Desarrollo embrionario del ojo y prosencéfalo en embrión",
+  "sistema": "ojo",
+  "organo": "Desarrollo embrionario del ojo y prosencéfalo en embrión",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "La imagen muestra un corte transversal de la cabeza de un embrión en desarrollo, exhibiendo las vesículas telencefálicas y diencefálicas que darán origen al cerebro anterior junto con sus cavidades ventriculares asociadas. A los lados, se evidencia la inducción recíproca del sistema visual mediante la invaginación de los cálices ópticos a partir del neuroectodermo y la formación de la vesícula del cristalino derivada del ectodermo superficial.",
+  "fuente": "",
+  "credito": "Figura 1. Desarrollo embrionario del ojo y prosencéfalo en embrión. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": "sara",
+  "imagenes": [
+    {
+      "archivo": "desarrollo-embrionario-del-ojo-1",
+      "aumento": "",
+      "credito": "Figura 1. Desarrollo embrionario del ojo y prosencéfalo en embrión. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "telencephalic-vesicles-lateral-ventricles-vesiculas-telencef",
+      "numero": 1.0,
+      "nombre": "Telencephalic vesicles / lateral ventricles (Vesículas telencefálicas / ventrículos laterales)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.325,
+          "y": 0.15,
+          "imagen": 0
+        },
+        {
+          "x": 0.76,
+          "y": 0.13,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "diencephalic-vesicle-third-ventricle-vesicula-diencefalica-t",
+      "numero": 2.0,
+      "nombre": "Diencephalic vesicle / third ventricle (Vesícula diencefálica / tercer ventrículo)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.53,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "lens-vesicle-vesicula-cristaliniana-vesicula-del-cristalino",
+      "numero": 3.0,
+      "nombre": "Lens vesicle (Vesícula cristaliniana / vesícula del cristalino)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.095,
+          "y": 0.715,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "optic-cups-callices-opticos-cupulas-opticas",
+      "numero": 4.0,
+      "nombre": "Optic cups (Cállices ópticos / cúpulas ópticas)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.23,
+          "y": 0.715,
+          "imagen": 0
+        },
+        {
+          "x": 0.845,
+          "y": 0.68,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

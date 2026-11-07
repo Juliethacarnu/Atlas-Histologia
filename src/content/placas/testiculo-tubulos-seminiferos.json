@@ -1,0 +1,212 @@
+{
+  "id": "testiculo-tubulos-seminiferos",
+  "titulo": "Testículo :tubulos seminíferos",
+  "sistema": "reproductor-masculino",
+  "organo": "Testículo",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El epitelio de los túbulos seminíferos presenta una estructura compleja debido a que contiene células germinales en diferentes etapas de la meiosis distribuidas entre las células de Sertoli, donde los núcleos más grandes y basales corresponden a fases tempranas (espermatogonias y espermatocitos primarios) y los más cercanos a la luz del túbulo representan las fases finales (espermatocitos secundarios, espermátidas y espermatozoides). Fuera de estos conductos, el tejido conectivo intersticial alberga células mioides contráctiles que rodean cada túbulo y cúmulos de células de Leydig, las cuales producen testosterona y se reconocen por sus núcleos redondos y su citoplasma fuertemente acidófilo.",
+  "fuente": "",
+  "credito": "Figura 1. Sección histológica de túbulos seminíferos del testículo. Nota. Tomado de King D. Histology at SIU: Testis, seminiferous tubules [Internet]; 2022 (1). Figura 2. Micrografía de alta resolución del epitelio seminífero y componentes celulares del tejido intersticial testicular. Nota: Adaptado de King D. Histology at SIU: Testis, seminiferous tubule [Internet]:2022(2).",
+  "presentador": "andrea",
+  "imagenes": [
+    {
+      "archivo": "testiculo-tubulos-seminiferos-1",
+      "aumento": "",
+      "credito": "Figura 1. Sección histológica de túbulos seminíferos del testículo. Nota. Tomado de King D. Histology at SIU: Testis, seminiferous tubules [Internet]; 2022 (1). Figura 2. Micrografía de alta resolución del epitelio seminífero y componentes celulares del tejido intersticial testicular. Nota: Adaptado de King D. Histology at SIU: Testis, seminiferous tubule [Internet]:2022(2)."
+    },
+    {
+      "archivo": "testiculo-tubulos-seminiferos-2",
+      "aumento": "",
+      "credito": "Figura 1. Sección histológica de túbulos seminíferos del testículo. Nota. Tomado de King D. Histology at SIU: Testis, seminiferous tubules [Internet]; 2022 (1). Figura 2. Micrografía de alta resolución del epitelio seminífero y componentes celulares del tejido intersticial testicular. Nota: Adaptado de King D. Histology at SIU: Testis, seminiferous tubule [Internet]:2022(2)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "luz-del-tubulo-seminifero-lumen-of-seminiferous-tubule",
+      "numero": 1.0,
+      "nombre": "Luz del túbulo seminífero (lumen of seminiferous tubule)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.33,
+          "y": 0.44,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-tubular-tubule-epithelium",
+      "numero": 2.0,
+      "nombre": "Epitelio tubular (tubule epithelium)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.535,
+          "y": 0.09,
+          "imagen": 0
+        },
+        {
+          "x": 0.725,
+          "y": 0.8,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-de-leydig-leydig-cells",
+      "numero": 3.0,
+      "nombre": "Células de Leydig (Leydig cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.915,
+          "y": 0.49,
+          "imagen": 0
+        },
+        {
+          "x": 0.645,
+          "y": 0.925,
+          "imagen": 1
+        },
+        {
+          "x": 0.655,
+          "y": 0.985,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-mioides-myoid-cells",
+      "numero": 4.0,
+      "nombre": "Células mioides (myoid cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.685,
+          "y": 0.275,
+          "imagen": 0
+        },
+        {
+          "x": 0.7,
+          "y": 0.395,
+          "imagen": 0
+        },
+        {
+          "x": 0.77,
+          "y": 0.445,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "espermatidas-spermatids",
+      "numero": 5.0,
+      "nombre": "Espermátidas (spermatids)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.365,
+          "y": 0.155,
+          "imagen": 1
+        },
+        {
+          "x": 0.37,
+          "y": 0.215,
+          "imagen": 1
+        },
+        {
+          "x": 0.48,
+          "y": 0.335,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "espermatozoides-spermatozoa",
+      "numero": 6.0,
+      "nombre": "Espermatozoides (spermatozoa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.275,
+          "y": 0.625,
+          "imagen": 1
+        },
+        {
+          "x": 0.325,
+          "y": 0.59,
+          "imagen": 1
+        },
+        {
+          "x": 0.38,
+          "y": 0.555,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "espermatocitos-spermatocytes",
+      "numero": 7.0,
+      "nombre": "Espermatocitos (spermatocytes)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.385,
+          "imagen": 1
+        },
+        {
+          "x": 0.585,
+          "y": 0.395,
+          "imagen": 1
+        },
+        {
+          "x": 0.565,
+          "y": 0.465,
+          "imagen": 1
+        },
+        {
+          "x": 0.59,
+          "y": 0.525,
+          "imagen": 1
+        },
+        {
+          "x": 0.555,
+          "y": 0.565,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "nucleos-de-las-celulas-de-sertoli-sertoli-cell-nuclei-sertol",
+      "numero": 8.0,
+      "nombre": "Núcleos de las células de Sertoli (Sertoli cell nuclei / Sertoli nuclei)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.185,
+          "y": 0.825,
+          "imagen": 1
+        },
+        {
+          "x": 0.275,
+          "y": 0.83,
+          "imagen": 1
+        },
+        {
+          "x": 0.655,
+          "y": 0.29,
+          "imagen": 1
+        },
+        {
+          "x": 0.685,
+          "y": 0.395,
+          "imagen": 1
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

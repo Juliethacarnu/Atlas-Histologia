@@ -18,7 +18,12 @@
       "credito": "Figura 2. Laringe · Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "laringe.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "pliegue-vestibular-cuerda-vocal-falsa",

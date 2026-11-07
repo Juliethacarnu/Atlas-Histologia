@@ -1,0 +1,100 @@
+{
+  "id": "foliculo-de-graaf",
+  "titulo": "Folículo de Graaf",
+  "sistema": "reproductor-femenino",
+  "organo": "Folículo de Graaf",
+  "tincion": "",
+  "aumentos": [],
+  "descripcionGeneral": "El folículo de Graaf o folículo maduro representa la última etapa del desarrollo folicular antes de la ovulación. Se caracteriza por la presencia de un gran antro folicular que ocupa la mayor parte del folículo y por contener un ovocito secundario ubicado de manera excéntrica. El ovocito está rodeado por la zona pelúcida y la corona radiada, estructuras que lo acompañarán durante la ovulación.",
+  "fuente": "",
+  "credito": "Figura 1. Folículo de Graaf (folículo maduro) del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": "valeria",
+  "imagenes": [
+    {
+      "archivo": "foliculo-de-graaf-1",
+      "aumento": "",
+      "credito": "Figura 1. Folículo de Graaf (folículo maduro) del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-de-graaf.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
+  "estructuras": [
+    {
+      "id": "ovocito-secundario-secondary-oocyte",
+      "numero": 1.0,
+      "nombre": "Ovocito secundario (Secondary Oocyte)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.795,
+          "y": 0.525,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "corona-radiada-corona-radiata",
+      "numero": 2.0,
+      "nombre": "Corona radiada (Corona Radiata)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.755,
+          "y": 0.47,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "zona-pelucida-zona-pellucida",
+      "numero": 3.0,
+      "nombre": "Zona pelúcida (Zona Pellucida)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.735,
+          "y": 0.53,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "antro-folicular-antrum",
+      "numero": 4.0,
+      "nombre": "Antro folicular (Antrum)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.65,
+          "y": 0.7,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-de-la-granulosa-granulosa-cells",
+      "numero": 5.0,
+      "nombre": "Células de la granulosa (Granulosa Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.905,
+          "y": 0.88,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "foliculo-de-graaf-o-foliculo-maduro",
+      "numero": 6.0,
+      "nombre": "Folículo de Graaf o folículo maduro",
+      "descripcion": "",
+      "puntos": []
+    }
+  ],
+  "borrador": false
+}
