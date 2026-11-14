@@ -4,10 +4,7 @@
   "sistema": "respiratorio",
   "organo": "Bronquio Intrapulmonar",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x3",
-    "x6"
-  ],
+  "aumentos": ["x3", "x6"],
   "descripcionGeneral": "El bronquio intrapulmonar presenta una mucosa revestida por epitelio cilíndrico pseudoestratificado ciliado con una lámina propia cuyo espesor disminuye conforme se reduce su calibre. Inmediatamente por fuera se dispone una capa muscular de músculo liso organizado de forma continua, seguida de una submucosa de tejido conectivo laxo con glándulas seromucosas y tejido adiposo. A diferencia de la tráquea, su soporte de sostén se transforma en placas cartilaginosas discontinuas e irregulares distribuidas alrededor de la circunferencia, las cuales disminuyen gradualmente hasta desaparecer en los bronquiolos, todo delimitado exteriormente por una adventicia de tejido conectivo.",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 1: Bronquio · Figura 2 : bronquio, partes.",
@@ -41,6 +38,11 @@
           "x": 0.5071,
           "y": 0.637,
           "imagen": 0
+        },
+        {
+          "x": 0.8,
+          "y": 0.88,
+          "imagen": 1
         }
       ]
     },
@@ -91,7 +93,7 @@
       "puntos": [
         {
           "x": 0.658,
-          "y": 0.2491,
+          "y": 0.2,
           "imagen": 0
         },
         {

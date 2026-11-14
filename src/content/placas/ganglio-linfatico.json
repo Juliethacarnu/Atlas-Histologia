@@ -31,11 +31,11 @@
       "puntos": [
         {
           "x": 0.5,
-          "y": 0.965,
+          "y": 0.98,
           "imagen": 0
         },
         {
-          "x": 0.105,
+          "x": 0.08,
           "y": 0.5,
           "imagen": 0
         }
@@ -46,7 +46,13 @@
       "numero": 2,
       "nombre": "Hilio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.399,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "corteza-superficial-nodulo-linfoide",
@@ -55,7 +61,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.12,
+          "x": 0.25,
           "y": 0.22,
           "imagen": 0
         },
@@ -71,7 +77,13 @@
       "numero": 4,
       "nombre": "Corteza profunda (VEA)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7,
+          "y": 0.745,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "medula",

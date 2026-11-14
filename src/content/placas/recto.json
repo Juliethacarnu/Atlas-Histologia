@@ -4,9 +4,7 @@
   "sistema": "digestivo",
   "organo": "Recto / epitelio cilíndrico simple",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x4"
-  ],
+  "aumentos": ["x4"],
   "descripcionGeneral": "El recto consta de cuatro capas adaptadas para almacenar y lubricar las heces antes de la defecación. Su mucosa es lisa y carece de vellosidades; está revestida por un epitelio cilíndrico simple que posee la mayor densidad de células caliciformes de todo el tracto digestivo, organizadas en criptas de Lieberkühn profundas. Debajo se sitúa la submucosa, un tejido conectivo elástico que destaca por albergar el desarrollado plexo venoso hemorroidal. En la capa muscular externa, la subcapa longitudinal de músculo liso vuelve a ser continua y uniforme, perdiendo las tenias que venían del colon. Su envoltura externa es mixta: presenta una capa serosa en su porción superior intraperitoneal y una adventicia fibrosa en su segmento inferior retroperitoneal.",
   "fuente": "",
   "credito": "Figura 1. Recto",
@@ -32,8 +30,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.37,
-          "y": 0.5,
+          "x": 0.55,
+          "y": 0.67,
           "imagen": 0
         }
       ]
@@ -45,8 +43,21 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.22,
-          "y": 0.5,
+          "x": 0.54,
+          "y": 0.77,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-de-la-mucosa",
+      "numero": 3,
+      "nombre": "Muscular de la mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.54,
+          "y": 0.73,
           "imagen": 0
         }
       ]

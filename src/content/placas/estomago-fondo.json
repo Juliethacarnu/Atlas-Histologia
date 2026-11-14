@@ -4,10 +4,7 @@
   "sistema": "digestivo",
   "organo": "Fondo / epitelio cilíndrico simple",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x4",
-    "x20"
-  ],
+  "aumentos": ["x4", "x20"],
   "descripcionGeneral": "El fondo gástrico es una región especializada principalmente en la secreción del jugo gástrico y la digestión de proteínas. Su mucosa está revestida por epitelio cilíndrico simple mucosecretor y presenta fovéolas gástricas cortas, en cuyo fondo desembocan glándulas fúndicas largas y rectas. Estas contienen células parietales, que producen ácido clorhídrico (HCl) y factor intrínseco, y células principales, que secretan pepsinógeno y lipasa gástrica. También posee células mucosas del cuello y enteroendocrinas. El HCl crea un medio ácido que favorece la activación de la pepsina y ayuda a destruir microorganismos, mientras que el factor intrínseco es fundamental para la posterior absorción de vitamina B12.",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 1. Estómago · Figura 2. Glandulas fondocorporales",
@@ -58,18 +55,82 @@
       ]
     },
     {
-      "id": "muscular-externa",
+      "id": "muscular",
       "numero": 3,
-      "nombre": "Muscular externa",
+      "nombre": "Muscular de la mucosa",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3,
+          "y": 0.67,
+          "imagen": 0
+        }
+      ]
     },
     {
-      "id": "serosa",
+      "id": "epitelio",
       "numero": 4,
-      "nombre": "Serosa",
+      "nombre": "Epitelio cilíndrico simple",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.43,
+          "y": 0.13,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "fibras-musculares",
+      "numero": 5,
+      "nombre": "Fibras musculares lisas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7,
+          "y": 0.8,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "glandulas-fundicas",
+      "numero": 6,
+      "nombre": "Glándulas fúndicas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3,
+          "y": 0.4,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-principales",
+      "numero": 7,
+      "nombre": "Células principales",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.76,
+          "y": 0.38,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-oxinticas",
+      "numero": 8,
+      "nombre": "Células oxinticas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.83,
+          "y": 0.48,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": false

@@ -4,10 +4,7 @@
   "sistema": "digestivo",
   "organo": "Colon / epitelio cilíndrico simple con abundantes células caliciformes",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x4",
-    "x16"
-  ],
+  "aumentos": ["x4", "x16"],
   "descripcionGeneral": "El colon consta de cuatro capas adaptadas para absorber agua y compactar las heces. Su mucosa es lisa y carece de vellosidades; está revestida por un epitelio cilíndrico simple con abundantes células caliciformes que forman criptas de Lieberkühn rectas. Debajo se encuentra la submucosa, un tejido conectivo laxo muy vascularizado. El rasgo histológico más distintivo está en su muscular externa, donde la subcapa longitudinal externa de músculo liso no es continua, sino que se condensa en tres bandas gruesas llamadas tenias colónicas. Su capa más externa es una serosa en los segmentos móviles y una adventicia en las porciones fijas retroperitoneales.",
   "fuente": "",
   "credito": "",
@@ -32,19 +29,6 @@
   },
   "estructuras": [
     {
-      "id": "ausencia-de-vellosidades",
-      "numero": 1,
-      "nombre": "Ausencia de vellosidades",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.25,
-          "y": 0.07,
-          "imagen": 0
-        }
-      ]
-    },
-    {
       "id": "mucosa",
       "numero": 2,
       "nombre": "Mucosa",
@@ -67,6 +51,11 @@
           "x": 0.4,
           "y": 0.4,
           "imagen": 0
+        },
+        {
+          "x": 0.8,
+          "y": 0.8,
+          "imagen": 1
         }
       ]
     },
@@ -88,7 +77,78 @@
       "numero": 5,
       "nombre": "Serosa (porciones intraperitoniales) Adventicia (porciones retroperitoneales)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3,
+          "y": 0.98,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cilindrico-simple",
+      "numero": 6,
+      "nombre": "Epitelio cilíndrico simple",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.1,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-caliciformes",
+      "numero": 7,
+      "nombre": "Células caliciformes",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.35,
+          "y": 0.32,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-endocrinas",
+      "numero": 8,
+      "nombre": "Células endocrinas",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.35,
+          "y": 0.42,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "muscular-de-la-mucosa",
+      "numero": 9,
+      "nombre": "Muscular de la mucosa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.75,
+          "y": 0.36,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "plexo-submucoso-de-meissner",
+      "numero": 10,
+      "nombre": "Plexo submucoso de Meissner",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.75,
+          "y": 0.7,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": false

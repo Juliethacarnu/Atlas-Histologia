@@ -4,10 +4,7 @@
   "sistema": "respiratorio",
   "organo": "Bronquiolo",
   "tincion": "Hematoxilina y eosina (H&E) 4 Aumento:",
-  "aumentos": [
-    "x24",
-    "x40"
-  ],
+  "aumentos": ["x24", "x40"],
   "descripcionGeneral": "El bronquiolo respiratorio es una vía aérea pequeña que conecta los bronquiolos terminales con los conductos alveolares. Su pared ya presenta alvéolos, por lo que cumple una doble función: conducir el aire y comenzar el intercambio gaseoso de O₂ y CO₂.Histológicamente tiene epitelio cúbico simple, con células ciliadas y células club, además de músculo liso. No presenta cartílago ni glándulas.",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 2 : bronquiolo respiratorio · Figura 2 : bronquiolo respiratorio, partes",
@@ -38,8 +35,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.525,
-          "y": 0.245,
+          "x": 0.57,
+          "y": 0.16,
           "imagen": 1
         }
       ]
@@ -51,8 +48,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.435,
-          "y": 0.26,
+          "x": 0.46,
+          "y": 0.25,
           "imagen": 1
         }
       ]
@@ -77,6 +74,11 @@
           "x": 0.2063,
           "y": 0.5794,
           "imagen": 0
+        },
+        {
+          "x": 0.4,
+          "y": 0.7,
+          "imagen": 1
         }
       ]
     },
@@ -88,7 +90,7 @@
       "puntos": [
         {
           "x": 0.5249,
-          "y": 0.4579,
+          "y": 0.4379,
           "imagen": 0
         }
       ]

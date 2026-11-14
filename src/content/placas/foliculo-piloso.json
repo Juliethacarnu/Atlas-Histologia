@@ -4,10 +4,7 @@
   "sistema": "piel-anexos",
   "organo": "Piel fina - folículo piloso",
   "tincion": "Tricrómico de Masson y Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "4x",
-    "16x"
-  ],
+  "aumentos": ["4x", "16x"],
   "descripcionGeneral": "El folículo piloso es una invaginación de la epidermis especializada en la producción y crecimiento del pelo. Histológicamente se organiza en cuatro segmentos principales: el infundíbulo, el istmo, la protuberancia folicular —que alberga un reservorio de células madre y melanoblastos— y el segmento inferior. En la base de este último se expande el bulbo piloso, el cual rodea una papila dérmica vascularizada y contiene la matriz del pelo, conformada por células matriciales en rápida división. Dichas células originan tanto la estructura central del pelo —compuesta por médula, corteza y cutícula— como la vaina radicular interna (subdividida en capa de Henle, capa de Huxley y cutícula de la vaina). Por fuera se dispone la vaina radicular externa, separada del tejido conjuntivo por una membrana vítrea, organizando la estructura junto con la glándula sebácea y el músculo erector del pelo.",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 1. Imagen fotografica propia · Figura 2. Foliculo piloso",
@@ -39,7 +36,7 @@
       "puntos": [
         {
           "x": 0.52,
-          "y": 0.46,
+          "y": 0.5,
           "imagen": 0
         },
         {
@@ -56,8 +53,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.8264,
-          "y": 0.3048,
+          "x": 0.87,
+          "y": 0.24,
           "imagen": 1
         }
       ]
@@ -82,8 +79,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.25,
-          "y": 0.485,
+          "x": 0.3,
+          "y": 0.52,
           "imagen": 1
         }
       ]
@@ -122,7 +119,7 @@
       "puntos": [
         {
           "x": 0.3,
-          "y": 0.265,
+          "y": 0.29,
           "imagen": 1
         }
       ]

@@ -4,10 +4,7 @@
   "sistema": "respiratorio",
   "organo": "Bronquiolo",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x20",
-    "x40"
-  ],
+  "aumentos": ["x20", "x40"],
   "descripcionGeneral": "El bronquiolo es una vía aérea de conducción (≤ 1 mm) cuya característica principal es la ausencia total de cartílago y de glándulas. Su mucosa transiciona de un epitelio cilíndrico simple a cúbico simple, donde las células caliciformes son sustituidas por células de Clara (secretoras de agente tensioactivo y proteínas protectoras). Su pared destaca por poseer una capa prominente de músculo liso circular que regula el flujo de aire, delimitada exteriormente por una delgada adventicia.",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 1 : bronquiolo. · Figura 2 : bronquiolo, partes.",
@@ -52,7 +49,7 @@
       "puntos": [
         {
           "x": 0.945,
-          "y": 0.63,
+          "y": 0.58,
           "imagen": 1
         }
       ]
@@ -77,8 +74,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.09,
-          "y": 0.32,
+          "x": 0.34,
+          "y": 0.27,
           "imagen": 1
         }
       ]
@@ -93,6 +90,11 @@
           "x": 0.634,
           "y": 0.7623,
           "imagen": 0
+        },
+        {
+          "x": 0.66,
+          "y": 0.16,
+          "imagen": 1
         }
       ]
     }

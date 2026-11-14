@@ -4,9 +4,7 @@
   "sistema": "digestivo",
   "organo": "Ano",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "(4x-10x)(20x-40x)"
-  ],
+  "aumentos": ["(4x-10x)(20x-40x)"],
   "descripcionGeneral": "El ano representa la zona de transición terminal del tubo digestivo hacia el exterior, donde sus cuatro capas cambian drásticamente. Su mucosa destaca por una transición epitelial brusca: pasa de epitelio cilíndrico simple (en el recto) a epitelio plano estratificado no queratinizado (en la zona anal), y finalmente a epitelio plano estratificado queratinizado (epidermis) en la piel perianal; además, carece de criptas de Lieberkühn y células caliciformes, reemplazándolas por glándulas anales circundantes. La submucosa es un tejido conectivo denso muy elástico que contiene grandes redes vasculares del plexo venoso hemorroidal externo. La capa muscular externa se modifica por completo para el control de la defecación: la capa circular interna de músculo liso se engrosa para formar el esfínter anal interno (involuntario), mientras que externamente se rodea por músculo esquelético de la pelvis que constituye el esfínter anal externo (voluntario). Al estar fuera de la cavidad peritoneal, su capa más externa es exclusivamente una adventicia que une el conducto a los tejidos pélvicos adyacentes.",
   "fuente": "",
   "credito": "Figura 1. epitelio de transicion.",
@@ -31,21 +29,8 @@
   },
   "estructuras": [
     {
-      "id": "zona-de-transicion-del-epitelio",
-      "numero": 1,
-      "nombre": "Zona de transición del epitelio",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.465,
-          "y": 0.45,
-          "imagen": 0
-        }
-      ]
-    },
-    {
       "id": "glandulas-anales",
-      "numero": 2,
+      "numero": 1,
       "nombre": "Glándulas anales",
       "descripcion": "",
       "puntos": [
@@ -58,7 +43,7 @@
     },
     {
       "id": "esfinter-anal-interno",
-      "numero": 3,
+      "numero": 2,
       "nombre": "Esfinter anal interno",
       "descripcion": "",
       "puntos": [
@@ -71,13 +56,52 @@
     },
     {
       "id": "esfinter-anal-externo",
-      "numero": 4,
+      "numero": 3,
       "nombre": "Esfinter anal externo",
       "descripcion": "",
       "puntos": [
         {
           "x": 0.05,
           "y": 0.605,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-de-transicion",
+      "numero": 4,
+      "nombre": "Epitelio de transición",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.78,
+          "y": 0.18,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cilindrico-simple",
+      "numero": 5,
+      "nombre": "Epitelio cilíndrico simple",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6,
+          "y": 0.155,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio-cubico-estratificado",
+      "numero": 6,
+      "nombre": "Epitelio cubico estratificado",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.3,
           "imagen": 0
         }
       ]

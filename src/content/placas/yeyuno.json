@@ -4,10 +4,7 @@
   "sistema": "digestivo",
   "organo": "Yeyuno / epitelio cilíndrico simple",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "×2",
-    "×40"
-  ],
+  "aumentos": ["×2", "×40"],
   "descripcionGeneral": "El yeyuno mantiene las cuatro capas digestivas, pero se especializa intensamente en la absorción de nutrientes. Su mucosa destaca por tener las vellosidades intestinales más altas y desarrolladas, sostenidas por pliegues circulares permanentes (válvulas de Kerckring) muy prominentes, revestidas por un epitelio cilíndrico simple rico en enterocitos y células caliciformes que se invaginan en las criptas de Lieberkühn. A diferencia del duodeno, su submucosa es un tejido conectivo típico que carece de glándulas de Brunner, y tampoco posee las grandes placas de Peyer características del íleon. La capa muscular externa conserva sus dos subcapas de músculo liso (circular interna y longitudinal externa) para el peristaltismo, y toda su superficie exterior está revestida por una capa serosa (peritoneo visceral), ya que es un órgano completamente intraperitoneal y móvil.",
   "fuente": "",
   "credito": "",
@@ -61,21 +58,26 @@
       "numero": 1.2,
       "nombre": "Células Caliciformes",
       "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "borde-en-cepillo",
-      "numero": 1.3,
-      "nombre": "Borde en Cepillo",
-      "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.79,
+          "y": 0.41,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "celula-plasmatica",
       "numero": 1.4,
       "nombre": "Célula plasmática",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.27,
+          "y": 0.52,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "submucosa",
@@ -98,7 +100,7 @@
       "puntos": [
         {
           "x": 0.22,
-          "y": 0.72,
+          "y": 0.82,
           "imagen": 0
         }
       ]
@@ -111,7 +113,7 @@
       "puntos": [
         {
           "x": 0.15,
-          "y": 0.93,
+          "y": 0.9,
           "imagen": 0
         }
       ]

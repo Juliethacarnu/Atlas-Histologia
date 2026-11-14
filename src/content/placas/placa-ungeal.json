@@ -4,9 +4,7 @@
   "sistema": "piel-anexos",
   "organo": "Placa Ungeal",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "×4"
-  ],
+  "aumentos": ["×4"],
   "descripcionGeneral": "La placa ungueal es una lámina rígida compuesta por láminas compactas de queratina dura, la cual descansa directamente sobre el lecho ungueal, constituido por un epitelio continuo con los estratos basal y espinoso de la epidermis. Su desarrollo se inicia en la raíz ungueal a partir de la matriz, una zona germinativa que alberga células madre, células epiteliales, melanocitos, células de Merkel y de Langerhans, cuyas divisiones y acumulación constante de queratina impulsan el crecimiento continuo de la uña. Histológicamente, la placa está protegida en su margen proximal por el eponiquio (cutícula), presenta en su base la lúnula (un área semilunar opaca por queratinización parcial) y se afianza en su borde libre distal sobre el hiponiquio, que es un engrosamiento de la capa epidérmica.",
   "fuente": "",
   "credito": "Figura 1. Anexos. placa ungeal",
@@ -33,7 +31,7 @@
       "puntos": [
         {
           "x": 0.135,
-          "y": 0.641,
+          "y": 0.66,
           "imagen": 0
         }
       ]
@@ -46,7 +44,7 @@
       "puntos": [
         {
           "x": 0.255,
-          "y": 0.586,
+          "y": 0.576,
           "imagen": 0
         }
       ]
@@ -113,7 +111,13 @@
       "numero": 7,
       "nombre": "Estrato lúcido",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.905,
+          "y": 0.38,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "hiponiquio",
@@ -123,7 +127,7 @@
       "puntos": [
         {
           "x": 0.915,
-          "y": 0.17,
+          "y": 0.1,
           "imagen": 0
         }
       ]

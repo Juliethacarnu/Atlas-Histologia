@@ -4,10 +4,7 @@
   "sistema": "piel-anexos",
   "organo": "Tejido epitelial plano estratificado queratinizado",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x4",
-    "x20"
-  ],
+  "aumentos": ["x4", "x20"],
   "descripcionGeneral": "La piel fina es un órgano laminar con un espesor total de entre 1 y 2 mm, cuya arquitectura histológica está adaptada para ofrecer una protección flexible en las zonas del cuerpo que no sufren fricción mecánica extrema,está compuesta externamente por una epidermis delgada de epitelio plano estratificado (de solo cuatro capas, sin estrato lúcido) que actúa como barrera impermeable. Justo debajo se encuentra la dermis, una capa de tejido conectivo con ondulaciones muy suaves que le aporta nutrición y elasticidad. El rasgo microscópico más característico de este tejido es la unidad pilosebácea, un conjunto exclusivo de la piel fina que integra el folículo piloso, la glándula sebácea que lo lubrica y el músculo erector del pelo.",
   "fuente": "",
   "credito": "Figura 1. Piel fina · Figura 2. Piel fina",
@@ -64,8 +61,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.7589,
-          "y": 0.7701,
+          "x": 0.7289,
+          "y": 0.7401,
           "imagen": 0
         }
       ]
@@ -78,8 +75,13 @@
       "puntos": [
         {
           "x": 0.8616,
-          "y": 0.5086,
+          "y": 0.498,
           "imagen": 0
+        },
+        {
+          "x": 0.55,
+          "y": 0.6,
+          "imagen": 1
         }
       ]
     },

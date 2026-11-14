@@ -4,9 +4,7 @@
   "sistema": "sangre-linfoide",
   "organo": "Bazo",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "×10"
-  ],
+  "aumentos": ["×10"],
   "descripcionGeneral": "La pulpa blanca del bazo está constituida por tejido linfoide basófilo formado por la vaina linfática periarterial (VLPA) rica en linfocitos T y por nódulos esplénicos de linfocitos B, los cuales rodean a la arteria central y la desplazan hacia una posición excéntrica. A su vez, la pulpa roja está integrada por una red de cordones esplénicos (de Billroth) y senos o sinusoides vasculares, cuya función principal es la filtración de la sangre y la destrucción de eritrocitos y plaquetas envejecidos o dañados mediante la acción de los macrófagos.",
   "fuente": "",
   "credito": "Figura 1. Bazo, organo linfoide",
@@ -45,7 +43,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.317,
+          "x": 0.289,
           "y": 0.105,
           "imagen": 0
         },
@@ -68,7 +66,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.1371,
+          "x": 0.08,
           "y": 0.4648,
           "imagen": 0
         },
@@ -84,7 +82,18 @@
       "numero": 3.1,
       "nombre": "Zona del Manto",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.08,
+          "y": 0.51,
+          "imagen": 0
+        },
+        {
+          "x": 0.84,
+          "y": 0.83,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "centro-germinativo",

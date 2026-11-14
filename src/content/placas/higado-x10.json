@@ -4,10 +4,7 @@
   "sistema": "digestivo",
   "organo": "Higado",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "10x",
-    "40x"
-  ],
+  "aumentos": ["10x", "40x"],
   "descripcionGeneral": "El hígado está cubierto por la cápsula de Glisson y organizado en lobulillos hexagonales. El parénquima está formado por cordones de hepatocitos que irradian hacia una vena centrolobulillar central. Entre estos cordones corren los sinusoides hepáticos (capilares con células de Kupffer) y se delimita el espacio de Disse (con células de Ito). En las esquinas del hexágono se ubican los espacios porta, constituidos por la tríada portal: una rama de la arteria hepática, una de la vena porta y un conductillo biliar de epitelio cúbico.",
   "fuente": "",
   "credito": "",
@@ -32,15 +29,8 @@
   },
   "estructuras": [
     {
-      "id": "capsula-de-gilsson",
-      "numero": 1,
-      "nombre": "Cápsula de Gilsson",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
       "id": "lobulillo-hepatico-clasico",
-      "numero": 2,
+      "numero": 1,
       "nombre": "Lobulillo hepatico clasico",
       "descripcion": "",
       "puntos": [
@@ -53,10 +43,15 @@
     },
     {
       "id": "vena-central",
-      "numero": 3,
+      "numero": 2,
       "nombre": "Vena central",
       "descripcion": "",
       "puntos": [
+        {
+          "x": 0.46,
+          "y": 0.44,
+          "imagen": 0
+        },
         {
           "x": 0.47,
           "y": 0.45,
@@ -65,9 +60,9 @@
       ]
     },
     {
-      "id": "triada-portal",
-      "numero": 4,
-      "nombre": "Triada portal",
+      "id": "espacios-portales",
+      "numero": 3,
+      "nombre": "Espacios portales",
       "descripcion": "",
       "puntos": [
         {
@@ -78,14 +73,53 @@
       ]
     },
     {
-      "id": "cordones-hepaticos",
-      "numero": 5,
-      "nombre": "Cordones hepaticos",
+      "id": "hepatocitos",
+      "numero": 4,
+      "nombre": "Hepatocitos",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.6,
-          "y": 0.8,
+          "x": 0.59,
+          "y": 0.74,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "espacios-de-disse",
+      "numero": 5,
+      "nombre": "Espacios de Disse",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.55,
+          "y": 0.65,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-de-kupffer",
+      "numero": 6,
+      "nombre": "Células de Kupffer",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.65,
+          "y": 0.92,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "sinosoides-hepaticos",
+      "numero": 7,
+      "nombre": "Sinusoides hepáticos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.17,
           "imagen": 1
         }
       ]

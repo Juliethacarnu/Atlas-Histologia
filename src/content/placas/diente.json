@@ -4,9 +4,7 @@
   "sistema": "digestivo",
   "organo": "Diente",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x4"
-  ],
+  "aumentos": ["x4"],
   "descripcionGeneral": "El diente está constituido por tres tejidos duros mineralizados y un núcleo blando central distribuidos entre la corona y la raíz. El esmalte, que recubre la corona, es el tejido más duro y calcificado del organismo, es acelular y está formado por prismas secretados por ameloblastos. Debajo se encuentra la dentina, un tejido elástico y avascular que conforma la mayor parte del diente, caracterizado por túbulos dentinarios que alojan los procesos de los odontoblastos. Estos últimos delimitan con la pulpa dental, un tejido conectivo laxo altamente vascularizado e inervado que nutre y da sensibilidad al órgano a través del complejo dentino-pulpar. Finalmente, la raíz está recubierta por el cemento, un tejido similar al hueso y avascular que permite el anclaje del diente al hueso alveolar mediante el ligamento periodontal.",
   "fuente": "",
   "credito": "Figura 1. Diente",
@@ -30,7 +28,13 @@
       "numero": 1,
       "nombre": "Ameloblastos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.485,
+          "y": 0.06,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "esmalte",
@@ -40,7 +44,7 @@
       "puntos": [
         {
           "x": 0.449,
-          "y": 0.097,
+          "y": 0.09,
           "imagen": 0
         }
       ]
@@ -65,8 +69,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.5041,
-          "y": 0.1962,
+          "x": 0.47,
+          "y": 0.1762,
           "imagen": 0
         }
       ]

@@ -4,10 +4,7 @@
   "sistema": "digestivo",
   "organo": "Esófago / epitelioplano estratificado no queratinizado",
   "tincion": "Hematoxilina y eosina (H&E)",
-  "aumentos": [
-    "x 4",
-    "x12"
-  ],
+  "aumentos": ["x 4", "x12"],
   "descripcionGeneral": "El esófago es un tubo muscular de aproximadamente 25 cm de longitud que transporta los alimentos y líquidos desde la faringe hasta el estómago, cuya luz en corte transversal se observa colapsada por pliegues longitudinales. Su pared histológica comprende una mucosa revestida por un epitelio plano estratificado no queratinizado, una lámina propia con tejido linfoide y una muscular de la mucosa compuesta por músculo liso dispuesto en dirección longitudinal; una submucosa de tejido conectivo denso irregular que alberga el plexo submucoso (de Meissner) y glándulas esofágicas propiamente dichas secretoras de moco lubricante; una muscular externa organizada en capas circular interna y longitudinal externa con el plexo mientérico (de Auerbach) entre ellas, que exhibe una transición de músculo estriado en su tercio superior, mixto en el tercio medio y liso en el distal; y una capa externa de adventicia que lo fija al cuello y mediastino, la cual pasa a ser serosa en sus últimos 2 cm dentro de la cavidad abdominal",
   "fuente": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.).",
   "credito": "Figura 1. Esofago, Estructuras · Figura 2. Esofago",
@@ -70,7 +67,7 @@
       "puntos": [
         {
           "x": 0.21,
-          "y": 0.37,
+          "y": 0.28,
           "imagen": 0
         },
         {
@@ -116,7 +113,13 @@
       "numero": 5,
       "nombre": "Adventicia",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.95,
+          "y": 0.98,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
