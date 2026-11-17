@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**451 de 504 estructuras marcadas (89%). Quedan 53.**
+**451 de 502 estructuras marcadas (90%). Quedan 51.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (51)
+## Reproductor femenino (49)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -53,8 +53,6 @@ estructuras que esa foto concreta no rotula.
 | Folículo primario tardío | 5 | Ovocito primario |
 | Folículo primario tardío | 6 | Folículo primario tardío |
 | Folículo secundario | 7 | Folículo secundario |
-| Folículos primordiales | 4 | Ovocito primario |
-| Folículos primordiales | 5 | Folículo primordial |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
 | Trompa Uterina | 3 | Luz del oviducto |

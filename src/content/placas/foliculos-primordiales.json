@@ -61,20 +61,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "ovocito-primario",
-      "numero": 4.0,
-      "nombre": "Ovocito primario",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "foliculo-primordial",
-      "numero": 5.0,
-      "nombre": "Folículo primordial",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false
