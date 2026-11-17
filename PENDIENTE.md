@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**505 de 506 estructuras marcadas (100%). Quedan 1.**
+**504 de 505 estructuras marcadas (100%). Quedan 1.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda

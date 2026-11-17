@@ -100,19 +100,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "utero",
-      "numero": 7.0,
-      "nombre": "Útero",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.4005,
-          "y": 0.495,
-          "imagen": 0
-        }
-      ]
     }
   ],
   "borrador": false
