@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**389 de 475 estructuras marcadas (81%). Quedan 86.**
+**452 de 508 estructuras marcadas (89%). Quedan 56.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -10,68 +10,18 @@ aqui es lo que la lamina no senala: casi siempre entradas de la leyenda que
 nombran el conjunto (el organo entero, el estroma, "vasos sanguineos") o
 estructuras que esa foto concreta no rotula.
 
-## Sangre y linfoide (3)
+## Sistema digestivo (1)
 
 | Placa | Nº | Estructura |
 |---|---|---|
-| Bazo | 3.1 | Zona del Manto |
-| Ganglio Linfático | 2 | Hilio |
-| Ganglio Linfático | 4 | Corteza profunda (VEA) |
-
-## Piel y anexos (2)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Piel gruesa | 9 | Estrato Basal |
-| Placa ungeal | 7 | Estrato lúcido |
-
-## Respiratorio (4)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Alvéolos | 1 | Neumocitos tipo 1 |
-| Alvéolos | 3 | Macrofago alveolar |
-| Alvéolos | 4 | Miofibroblasto |
-| Laringe | 7 | Ligamento vocal |
-
-## Digestivo (12)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Colon | 5 | Serosa (porciones intraperitoniales) Adventicia (porciones retroperitoneales) |
-| Diente | 1 | Ameloblastos |
-| Duodeno | 4 | Adventicia/ serosa |
-| Esófago | 5 | Adventicia |
-| Estomago :fondo | 3 | Muscular externa |
-| Estomago :fondo | 4 | Serosa |
-| Higado | 1 | Cápsula de Gilsson |
-| Íleon | 5 | Serosa |
 | Yeyuno | 1.1 | Enterocitos |
-| Yeyuno | 1.2 | Células Caliciformes |
-| Yeyuno | 1.3 | Borde en Cepillo |
-| Yeyuno | 1.4 | Célula plasmática |
 
-## Urinario (3)
+## Sistema endocrino (2)
 
 | Placa | Nº | Estructura |
 |---|---|---|
-| Riñon :Corteza | 4 | Intersticio renal y capilares peritubulares |
-| Riñon | 1 | Capsula renal |
-| Uretra masculina | 4 | Tunica albuginea del cuero esponjoso |
-
-## Endocrino (9)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Adenohipófisis | 1 | Células Acidófilos |
-| Adenohipófisis | 2 | Células Basófilas |
-| Adenohipófisis | 3 | Células Cromófobas |
 | Glándula Paratiroides | 1 | Estroma |
 | Glándula Paratiroides | 2 | Parénquima |
-| Glándula Tiroides | 1 | Luz uretra (uretra esponjosa) |
-| Glándula Tiroides | 2 | Mucosa |
-| Glándula Tiroides | 3 | Cuero esponjoso del pene |
-| Glándula Tiroides | 4 | Tunica albuginea del cuero esponjoso |
 
 ## Reproductor masculino (1)
 
@@ -83,14 +33,6 @@ estructuras que esa foto concreta no rotula.
 
 | Placa | Nº | Estructura |
 |---|---|---|
-| Células Luteínicas | 3 | Cuerpo lúteo |
-| Células Luteínicas | 4 | Estroma ovárico |
-| Células Luteínicas | 5 | Capilares y vasos sanguíneos |
-| Cérvix | 3 | Endocérvix |
-| Cérvix | 4 | Ectocérvix |
-| Cérvix | 5 | Unión escamocolumnar |
-| Cérvix | 6 | Estroma cervical |
-| Cérvix | 7 | Cérvix (cuello uterino) |
 | Ciclo Uterino | 5 | Endometrio |
 | Ciclo Uterino | 6 | Glándulas endometriales |
 | Ciclo Uterino | 7 | Estrato funcional |
@@ -104,6 +46,14 @@ estructuras que esa foto concreta no rotula.
 | Cuerpo lúteo | 1 | Cuerpo lúteo |
 | Cuerpo lúteo | 4 | Tejido conectivo estromal |
 | Cuerpo lúteo | 5 | Vasos sanguíneos del cuerpo lúteo |
+| Células Luteínicas | 3 | Cuerpo lúteo |
+| Células Luteínicas | 4 | Estroma ovárico |
+| Células Luteínicas | 5 | Capilares y vasos sanguíneos |
+| Cérvix | 3 | Endocérvix |
+| Cérvix | 4 | Ectocérvix |
+| Cérvix | 5 | Unión escamocolumnar |
+| Cérvix | 6 | Estroma cervical |
+| Cérvix | 7 | Cérvix (cuello uterino) |
 | Epitelio del Oviducto | 2 | Epitelio cilíndrico simple |
 | Epitelio del Oviducto | 3 | Cilios |
 | Epitelio del Oviducto | 4 | Células secretoras (peg cells) |
@@ -124,8 +74,6 @@ estructuras que esa foto concreta no rotula.
 | Trompa Uterina | 4 | Pliegues mucosos |
 | Trompa Uterina | 5 | Túnica muscular |
 | Trompa Uterina | 6 | Oviducto (trompa uterina) |
-| Útero | 6 | Glándulas endometriales |
-| Útero | 7 | Útero |
 | Vagina | 2 | Epitelio plano estratificado no queratinizado |
 | Vagina | 3 | Lámina propia |
 | Vagina | 4 | Tejido conectivo denso |
@@ -134,6 +82,8 @@ estructuras que esa foto concreta no rotula.
 | Vellosidad Coriónicas | 1 | Vellosidades coriónicas (Chorionic Villi) |
 | Vellosidad Coriónicas | 5 | Sangre materna |
 | Vellosidad Coriónicas | 6 | Placenta madura |
+| Útero | 6 | Glándulas endometriales |
+| Útero | 7 | Útero |
 
 ## Organo de la vision (1)
 

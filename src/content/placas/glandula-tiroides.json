@@ -32,32 +32,95 @@
   },
   "estructuras": [
     {
-      "id": "luz-uretra-uretra-esponjosa",
+      "id": "parenquima",
       "numero": 1,
-      "nombre": "Luz uretra (uretra esponjosa)",
+      "nombre": "Parénquima (folículos tiroideos)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.1974,
+          "y": 0.4198,
+          "imagen": 0
+        }
+      ]
     },
     {
-      "id": "mucosa",
+      "id": "estroma",
       "numero": 2,
-      "nombre": "Mucosa",
+      "nombre": "Estroma (tejido conectivo y vasos)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5789,
+          "y": 0.5089,
+          "imagen": 0
+        }
+      ]
     },
     {
-      "id": "cuero-esponjoso-del-pene",
+      "id": "foliculo-tiroideo",
       "numero": 3,
-      "nombre": "Cuero esponjoso del pene",
+      "nombre": "Folículo tiroideo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.4681,
+          "y": 0.5604,
+          "imagen": 1
+        }
+      ]
     },
     {
-      "id": "tunica-albuginea-del-cuero-esponjoso",
-      "numero": 4,
-      "nombre": "Tunica albuginea del cuero esponjoso",
+      "id": "epitelio-folicular",
+      "numero": 3.1,
+      "nombre": "Epitelio folicular",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.4071,
+          "y": 0.6835,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "liquido-folicular",
+      "numero": 3.2,
+      "nombre": "Líquido folicular (coloide)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5092,
+          "y": 0.7165,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-foliculares",
+      "numero": 4,
+      "nombre": "Células foliculares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2369,
+          "y": 0.0484,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "celulas-parafoliculares",
+      "numero": 5,
+      "nombre": "Células parafoliculares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.505,
+          "y": 0.0857,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": true

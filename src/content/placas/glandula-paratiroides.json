@@ -27,13 +27,6 @@
   "video": null,
   "estructuras": [
     {
-      "id": "estroma",
-      "numero": 1.0,
-      "nombre": "Estroma",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
       "id": "capsula",
       "numero": 1.1,
       "nombre": "Cápsula",
@@ -76,13 +69,6 @@
           "imagen": 1
         }
       ]
-    },
-    {
-      "id": "parenquima",
-      "numero": 2.0,
-      "nombre": "Parénquima",
-      "descripcion": "",
-      "puntos": []
     },
     {
       "id": "cordones-de-celulas-endocrinas",

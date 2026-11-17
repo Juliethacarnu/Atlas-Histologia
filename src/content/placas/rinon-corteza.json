@@ -13,7 +13,7 @@
   "presentador": "valeria",
   "imagenes": [
     {
-      "archivo": "rinon-corteza-1",
+      "archivo": "rinon-corteza-2",
       "aumento": "",
       "credito": ""
     }
@@ -32,21 +32,21 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.082,
-          "y": 0.73,
+          "x": 0.1,
+          "y": 0.53,
           "imagen": 0
         }
       ]
     },
     {
-      "id": "tubulos-del-laberinto-cortical",
+      "id": "tubulos-contomeados-distales",
       "numero": 2,
-      "nombre": "Tubulos del laberinto cortical",
+      "nombre": "Tubulos contomeados distales",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.35,
-          "y": 0.35,
+          "x": 0.21,
+          "y": 0.39,
           "imagen": 0
         }
       ]
@@ -65,11 +65,30 @@
       ]
     },
     {
-      "id": "intersticio-renal-y-capilares-peritubulares",
+      "id": "tubulos-rectos-proximales",
       "numero": 4,
-      "nombre": "Intersticio renal y capilares peritubulares",
+      "nombre": "Tubulos Rectos proximales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.77,
+          "y": 0.74,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "conductos-conectores-rectos",
+      "numero": 4,
+      "nombre": "Conductos conectores rectos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.2,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": false

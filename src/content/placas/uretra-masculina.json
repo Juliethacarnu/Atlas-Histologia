@@ -39,8 +39,13 @@
       "puntos": [
         {
           "x": 0.43,
-          "y": 0.27,
+          "y": 0.53,
           "imagen": 0
+        },
+        {
+          "x": 0.3,
+          "y": 0.5,
+          "imagen": 1
         }
       ]
     },
@@ -58,24 +63,61 @@
       ]
     },
     {
-      "id": "cuero-esponjoso-del-pene",
+      "id": "cuerpo-esponjoso-del-pene",
       "numero": 3,
-      "nombre": "Cuero esponjoso del pene",
+      "nombre": "Cuerpo esponjoso del pene",
       "descripcion": "",
       "puntos": [
         {
           "x": 0.2,
           "y": 0.16,
           "imagen": 0
+        },
+        {
+          "x": 0.8,
+          "y": 0.8,
+          "imagen": 1
         }
       ]
     },
     {
-      "id": "tunica-albuginea-del-cuero-esponjoso",
+      "id": "tunica-albuginea-del-cuerpo-esponjoso",
       "numero": 4,
-      "nombre": "Tunica albuginea del cuero esponjoso",
+      "nombre": "Tunica albuginea del cuerpo esponjoso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2,
+          "y": 0.43,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "epitelio",
+      "numero": 4,
+      "nombre": "Epitelio",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.37,
+          "y": 0.23,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "glandulas-de-littre",
+      "numero": 4,
+      "nombre": "Glandulas de Littre",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.2,
+          "imagen": 1
+        }
+      ]
     }
   ],
   "borrador": true

@@ -41,7 +41,7 @@
       "puntos": [
         {
           "x": 0.635,
-          "y": 0.21,
+          "y": 0.17,
           "imagen": 0
         },
         {
@@ -101,13 +101,6 @@
           "imagen": 2
         }
       ]
-    },
-    {
-      "id": "celulas-epiteliales-secretoras-secretory-epithelial-cells",
-      "numero": 4.0,
-      "nombre": "Células epiteliales secretoras (secretory epithelial cells)",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false

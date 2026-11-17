@@ -30,21 +30,39 @@
       "numero": 1,
       "nombre": "Células Acidófilos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7855,
+          "y": 0.149,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "celulas-basofilas",
       "numero": 2,
       "nombre": "Células Basófilas",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3942,
+          "y": 0.2354,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "celulas-cromofobas",
       "numero": 3,
       "nombre": "Células Cromófobas",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7242,
+          "y": 0.6436,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "capilar",
@@ -53,8 +71,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.478,
-          "y": 0.862,
+          "x": 0.461,
+          "y": 0.8423,
           "imagen": 0
         }
       ]

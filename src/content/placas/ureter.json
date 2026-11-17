@@ -46,20 +46,46 @@
       "puntos": [
         {
           "x": 0.44,
-          "y": 0.3,
+          "y": 0.34,
           "imagen": 0
         }
       ]
     },
     {
-      "id": "muscular-musculo-liso",
+      "id": "muscular-circular",
       "numero": 3,
-      "nombre": "Muscular (músculo liso)",
+      "nombre": "Muscular circular",
       "descripcion": "",
       "puntos": [
         {
           "x": 0.68,
           "y": 0.7,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-longitudinal-interna",
+      "numero": 3,
+      "nombre": "Muscular longitudinal interna",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.68,
+          "y": 0.5,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "muscular-longitudinal-externa",
+      "numero": 3,
+      "nombre": "Muscular longitudinal externa",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5,
+          "y": 0.86,
           "imagen": 0
         }
       ]
@@ -71,7 +97,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.22,
+          "x": 0.13,
           "y": 0.92,
           "imagen": 0
         }

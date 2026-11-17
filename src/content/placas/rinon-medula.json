@@ -32,8 +32,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.555,
-          "y": 0.235,
+          "x": 0.52,
+          "y": 0.2,
           "imagen": 0
         }
       ]
@@ -45,7 +45,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.428,
+          "x": 0.4,
           "y": 0.452,
           "imagen": 0
         }
@@ -58,8 +58,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.455,
-          "y": 0.235,
+          "x": 0.329,
+          "y": 0.33,
           "imagen": 0
         }
       ]
@@ -78,14 +78,14 @@
       ]
     },
     {
-      "id": "intersticio-medular-y-celulas-intersticiales",
+      "id": "celulas-intersticiales",
       "numero": 5,
-      "nombre": "Intersticio medular y células intersticiales",
+      "nombre": "Células intersticiales",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.2,
-          "y": 0.52,
+          "x": 0.155,
+          "y": 0.51,
           "imagen": 0
         }
       ]

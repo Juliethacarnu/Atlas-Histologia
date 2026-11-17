@@ -32,8 +32,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.29,
-          "y": 0.48,
+          "x": 0.3,
+          "y": 0.28,
           "imagen": 0
         }
       ]
@@ -52,14 +52,40 @@
       ]
     },
     {
-      "id": "aparato-yuxtaglomerular",
+      "id": "celulas-yuxtaglomerulares",
       "numero": 3,
-      "nombre": "Aparato Yuxtaglomerular",
+      "nombre": "Células yuxtaglomerulares",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.6,
-          "y": 0.29,
+          "x": 0.64, 
+          "y": 0.31,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "macula-densa",
+      "numero": 4,
+      "nombre": "Macula densa",
+      "descripcion": "",
+      "puntos": [
+        { 
+          "x": 0.69, 
+          "y": 0.28,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "podocitos",
+      "numero": 5,
+      "nombre": "Podocitos",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.64, 
+          "y": 0.73,
           "imagen": 0
         }
       ]
