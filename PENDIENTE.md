@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**505 de 507 estructuras marcadas (100%). Quedan 2.**
+**505 de 506 estructuras marcadas (100%). Quedan 1.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -15,9 +15,3 @@ estructuras que esa foto concreta no rotula.
 | Placa | Nº | Estructura |
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
-
-## Reproductor femenino (1)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Cuerpo Albicans | 4 | Folículos ováricos circundantes |

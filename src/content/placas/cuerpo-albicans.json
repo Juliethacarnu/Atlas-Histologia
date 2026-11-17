@@ -67,7 +67,13 @@
       "numero": 4.0,
       "nombre": "Folículos ováricos circundantes",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.24,
+          "y": 0.3162,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vasos-sanguineos",
