@@ -1,0 +1,51 @@
+{
+  "id": "cresta-ampular",
+  "titulo": "Cresta ampular",
+  "sistema": "oido",
+  "organo": "Cresta ampular del oído interno humano",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "40x"
+  ],
+  "descripcionGeneral": "La imagen presenta un detalle a mayor aumento de la cresta ampular, la estructura mecanorreceptora situada en la ampolla del canal semicircular encargada del equilibrio dinámico. Se distingue el epitelio sensorial compuesto por células ciliadas que proyectan sus estereocilios hacia una masa gelatinosa suprayacente llamada cúpula, la cual se desplaza por los movimientos de la endolinfa para desencadenar impulsos nerviosos ante la aceleración rotacional.",
+  "fuente": "",
+  "credito": "Figura 1. Cresta ampular del oído interno humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": null,
+  "imagenes": [
+    {
+      "archivo": "cresta-ampular-1",
+      "aumento": "40x",
+      "credito": "Figura 1. Cresta ampular del oído interno humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "cupola-cupula-gelatinosa",
+      "numero": 1,
+      "nombre": "Cupola (Cúpula gelatinosa)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4896,
+          "y": 0.0743,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "hair-cells-celulas-ciliadas",
+      "numero": 2,
+      "nombre": "Hair cells (Células ciliadas)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4896,
+          "y": 0.1937,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}
