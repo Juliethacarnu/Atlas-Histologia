@@ -25,13 +25,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.335,
-          "y": 0.32,
-          "imagen": 0
-        },
-        {
-          "x": 0.24,
-          "y": 0.43,
+          "x": 0.2397,
+          "y": 0.4293,
           "imagen": 0
         }
       ]
@@ -43,13 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.345,
-          "y": 0.735,
-          "imagen": 0
-        },
-        {
-          "x": 0.61,
-          "y": 0.715,
+          "x": 0.3445,
+          "y": 0.7345,
           "imagen": 0
         }
       ]
@@ -57,12 +47,12 @@
     {
       "id": "cornea-cornea-nota-el-rotulo-azul-apunta-hacia-el-espacio-o",
       "numero": 3.0,
-      "nombre": "Cornea (Córnea - Nota: El rótulo azul apunta hacia el espacio o superficie corneal externa en parpadeo)",
+      "nombre": "Cornea (Córnea)",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.455,
-          "y": 0.98,
+          "x": 0.4526,
+          "y": 0.9397,
           "imagen": 0
         }
       ]
@@ -74,13 +64,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.645,
-          "y": 0.38,
-          "imagen": 0
-        },
-        {
-          "x": 0.715,
-          "y": 0.4,
+          "x": 0.6455,
+          "y": 0.3793,
           "imagen": 0
         }
       ]
@@ -118,13 +103,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.595,
-          "y": 0.835,
-          "imagen": 0
-        },
-        {
-          "x": 0.575,
-          "y": 0.925,
+          "x": 0.5864,
+          "y": 0.8534,
           "imagen": 0
         }
       ]
