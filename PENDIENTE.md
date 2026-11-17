@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**452 de 508 estructuras marcadas (89%). Quedan 56.**
+**451 de 504 estructuras marcadas (89%). Quedan 53.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -15,19 +15,6 @@ estructuras que esa foto concreta no rotula.
 | Placa | Nº | Estructura |
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
-
-## Sistema endocrino (2)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Glándula Paratiroides | 1 | Estroma |
-| Glándula Paratiroides | 2 | Parénquima |
-
-## Reproductor masculino (1)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Próstata | 4 | Células epiteliales secretoras (secretory epithelial cells) |
 
 ## Reproductor femenino (51)
 
