@@ -30,8 +30,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.175,
-          "y": 0.9,
+          "x": 0.0659,
+          "y": 0.7645,
           "imagen": 0
         }
       ]
@@ -43,8 +43,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.51,
-          "y": 0.9,
+          "x": 0.483,
+          "y": 0.4587,
           "imagen": 0
         }
       ]
@@ -56,8 +56,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.85,
-          "y": 0.9,
+          "x": 0.8342,
+          "y": 0.4587,
           "imagen": 0
         }
       ]
@@ -69,8 +69,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.515,
-          "y": 0.885,
+          "x": 0.5,
+          "y": 0.4286,
           "imagen": 1
         }
       ]
@@ -80,21 +80,39 @@
       "numero": 5.0,
       "nombre": "Endometrio",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.0988,
+          "y": 0.5505,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "glandulas-endometriales",
       "numero": 6.0,
       "nombre": "Glándulas endometriales",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.1416,
+          "y": 0.3945,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "estrato-funcional",
       "numero": 7.0,
       "nombre": "Estrato funcional",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2195,
+          "y": 0.2294,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
