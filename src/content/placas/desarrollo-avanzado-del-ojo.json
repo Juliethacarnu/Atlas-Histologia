@@ -38,13 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.165,
-          "y": 0.625,
-          "imagen": 0
-        },
-        {
-          "x": 0.245,
-          "y": 0.655,
+          "x": 0.2445,
+          "y": 0.6551,
           "imagen": 0
         }
       ]
@@ -78,7 +73,7 @@
     {
       "id": "optic-nerve-nervio-optico",
       "numero": 5.0,
-      "nombre": "Optic nerve (Nervio óptico).",
+      "nombre": "Optic nerve (Nervio óptico)",
       "descripcion": "",
       "puntos": [
         {
