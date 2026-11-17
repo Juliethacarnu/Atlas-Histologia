@@ -436,6 +436,18 @@ const variasImagenes = imagenes.length > 1;
   .indicador[data-lado='izquierda'] .indicador__guia {
     background: linear-gradient(to left, #fff, rgb(255 255 255 / 0.35));
   }
+  /* Cuando dos marcas estan cerca, el acomodo sube o baja el rotulo
+     (--desfase) y la guia se inclina y estira para seguir unida al punto. */
+  .indicador__guia {
+    transform-origin: left center;
+    transform: rotate(var(--giro, 0rad)) scaleX(var(--estira, 1));
+  }
+  .indicador[data-lado='izquierda'] .indicador__guia {
+    transform-origin: right center;
+  }
+  .indicador__rotulo {
+    translate: 0 var(--desfase, 0px);
+  }
 
   /* La chapa con el nombre. */
   .indicador__rotulo {

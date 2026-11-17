@@ -21,6 +21,9 @@ export function crearMarca(estructura: EstructuraCliente, punto: PuntoNormalizad
   // El nombre se va hacia donde queda lámina: si el punto está en el tercio
   // derecho, hacia la izquierda; si no, hacia la derecha.
   raiz.dataset.lado = punto.x > 0.62 ? 'izquierda' : 'derecha';
+  // El lado preferido se guarda aparte: el acomodo de rotulos puede cambiar
+  // `lado` para esquivar a otra marca y necesita volver a partir de aqui.
+  raiz.dataset.ladoBase = raiz.dataset.lado;
   // Y si el punto está pegado al borde de arriba, el nombre no puede salir
   // hacia arriba: se avisa para que la propuesta lo cuelgue hacia abajo.
   raiz.dataset.alto = punto.y < 0.2 ? 'borde' : 'centro';

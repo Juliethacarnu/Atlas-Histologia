@@ -59,6 +59,9 @@ export class Visor {
     // que el arrastre y el zoom dejen llegar al borde derecho de la imagen
     // en vez de detenerlo debajo del panel.
     window.addEventListener('atlas:panel', () => this.ajustarMargenPanel(true));
+    // Al acercar o alejar cambian las distancias en pantalla entre marcas.
+    this.osd.addHandler('animation-finish', () => this.acomodarRotulos());
+    this.osd.addHandler('resize', () => requestAnimationFrame(() => this.acomodarRotulos()));
     window.addEventListener('resize', () => this.ajustarMargenPanel(false));
     this.mostrarImagen(0);
   }
@@ -166,6 +169,78 @@ export class Visor {
     }
 
     this.sincronizarMarcadores();
+    // Los overlays se colocan en el siguiente cuadro: se mide despues.
+    requestAnimationFrame(() => this.acomodarRotulos());
+  }
+
+  /**
+   * Evita que los nombres de dos marcas cercanas se pisen. Para cada marca,
+   * en orden, se prueba su lado preferido, luego el otro, y despues se sube o
+   * baja el rotulo; la guia se inclina para seguir unida al punto. Se queda
+   * la primera posicion que no choca con un rotulo ya colocado ni con otro
+   * punto; si ninguna queda libre, la que menos se superpone.
+   */
+  private acomodarRotulos() {
+    const raices = [...this.osd.element.querySelectorAll<HTMLElement>('.indicador')];
+    if (raices.length < 2) return;
+    const guiaLargo = (r: HTMLElement) =>
+      r.querySelector<HTMLElement>('.indicador__guia')?.offsetWidth ?? 30;
+
+    const poner = (r: HTMLElement, lado: string, desfase: number) => {
+      r.dataset.lado = lado;
+      const largo = guiaLargo(r);
+      const giro = Math.atan2(desfase, largo) * (lado === 'izquierda' ? -1 : 1);
+      r.style.setProperty('--desfase', `${desfase}px`);
+      r.style.setProperty('--giro', `${giro}rad`);
+      r.style.setProperty('--estira', String(Math.hypot(largo, desfase) / largo));
+    };
+
+    // Todos vuelven a su posicion preferida antes de medir.
+    for (const r of raices) poner(r, r.dataset.ladoBase ?? 'derecha', 0);
+
+    type Caja = { l: number; t: number; r: number; b: number };
+    const caja = (el: Element, margen = 0): Caja => {
+      const c = el.getBoundingClientRect();
+      return { l: c.left - margen, t: c.top - margen, r: c.right + margen, b: c.bottom + margen };
+    };
+    const choque = (a: Caja, b: Caja) =>
+      Math.max(0, Math.min(a.r, b.r) - Math.max(a.l, b.l)) *
+      Math.max(0, Math.min(a.b, b.b) - Math.max(a.t, b.t));
+
+    const puntos = raices.map((r) => {
+      const p = r.querySelector('.indicador__punto');
+      return p ? caja(p, 3) : null;
+    });
+    const colocados: Caja[] = [];
+
+    raices.forEach((r, i) => {
+      const rotulo = r.querySelector('.indicador__rotulo');
+      if (!rotulo) return;
+      const base = r.dataset.ladoBase ?? 'derecha';
+      const otro = base === 'izquierda' ? 'derecha' : 'izquierda';
+      const alto = rotulo.getBoundingClientRect().height + 4;
+      const opciones: [string, number][] = [];
+      for (const k of [0, -1, 1, -2, 2]) {
+        opciones.push([base, k * alto], [otro, k * alto]);
+      }
+
+      let mejor: { lado: string; desfase: number; caja: Caja; costo: number } | null = null;
+      for (const [lado, desfase] of opciones) {
+        poner(r, lado, desfase);
+        const c = caja(rotulo, 2);
+        let costo = 0;
+        for (const o of colocados) costo += choque(c, o);
+        puntos.forEach((p, j) => {
+          if (p && j !== i) costo += choque(c, p) * 4;
+        });
+        if (!mejor || costo < mejor.costo) mejor = { lado, desfase, caja: c, costo };
+        if (costo === 0) break;
+      }
+      if (mejor) {
+        poner(r, mejor.lado, mejor.desfase);
+        colocados.push(mejor.caja);
+      }
+    });
   }
 
   /** El texto accesible del marcador se oculta durante el modo repaso. */
