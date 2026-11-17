@@ -25,13 +25,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.325,
-          "y": 0.15,
-          "imagen": 0
-        },
-        {
-          "x": 0.76,
-          "y": 0.13,
+          "x": 0.3245,
+          "y": 0.1505,
           "imagen": 0
         }
       ]
@@ -43,8 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.53,
-          "y": 0.5,
+          "x": 0.5305,
+          "y": 0.6271,
           "imagen": 0
         }
       ]
@@ -65,17 +60,12 @@
     {
       "id": "optic-cups-callices-opticos-cupulas-opticas",
       "numero": 4.0,
-      "nombre": "Optic cups (Cállices ópticos / cúpulas ópticas)",
+      "nombre": "Optic cups (Cálices ópticos / cúpulas ópticas)",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.23,
-          "y": 0.715,
-          "imagen": 0
-        },
-        {
-          "x": 0.845,
-          "y": 0.68,
+          "x": 0.2303,
+          "y": 0.7157,
           "imagen": 0
         }
       ]
