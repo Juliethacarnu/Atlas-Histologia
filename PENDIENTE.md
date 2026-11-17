@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**481 de 484 estructuras marcadas (99%). Quedan 3.**
+**482 de 484 estructuras marcadas (100%). Quedan 2.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -21,9 +21,3 @@ estructuras que esa foto concreta no rotula.
 | Placa | Nº | Estructura |
 |---|---|---|
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
-
-## Organo de la vision (1)
-
-| Placa | Nº | Estructura |
-|---|---|---|
-| Humor Acuoso | 6 | Cámara posterior (Posterior Chamber) |

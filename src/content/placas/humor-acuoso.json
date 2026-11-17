@@ -25,8 +25,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.075,
-          "y": 0.305,
+          "x": 0.0661,
+          "y": 0.4297,
           "imagen": 0
         }
       ]
@@ -51,8 +51,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.09,
-          "y": 0.62,
+          "x": 0.0925,
+          "y": 0.5703,
           "imagen": 0
         }
       ]
@@ -88,7 +88,13 @@
       "numero": 6.0,
       "nombre": "Cámara posterior (Posterior Chamber)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3216,
+          "y": 0.7598,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "camara-anterior-anterior-chamber",
@@ -97,8 +103,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.765,
-          "y": 0.48,
+          "x": 0.6608,
+          "y": 0.3906,
           "imagen": 0
         }
       ]
