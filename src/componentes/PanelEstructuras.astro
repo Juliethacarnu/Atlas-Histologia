@@ -35,9 +35,36 @@ const organoDistinto =
   !!placa.organo && placa.organo.toLowerCase() !== placa.titulo.toLowerCase();
 ---
 
-<aside class="panel-estructuras" aria-labelledby="titulo-panel">
+<!-- En escritorio el panel se pliega para dejar la lamina entera a la vista.
+     Esta pestana es lo unico que queda en pantalla mientras esta plegado. -->
+<button
+  type="button"
+  id="mostrar-panel"
+  class="pestana-panel"
+  aria-controls="panel-estructuras"
+  aria-expanded="false"
+  title="Mostrar la información de la lámina (I)"
+  aria-keyshortcuts="I"
+>
+  <Icono nombre="caret-double-left" peso="bold" />
+  <span>Información</span>
+</button>
+
+<aside id="panel-estructuras" class="panel-estructuras" aria-labelledby="titulo-panel">
   <div class="flex flex-col gap-3.5 border-b border-borde px-4 pt-4 pb-3.5">
-    <div>
+    <div class="relative pr-9">
+      <button
+        type="button"
+        id="plegar-panel"
+        class="plegar-panel"
+        aria-controls="panel-estructuras"
+        aria-expanded="true"
+        title="Ocultar el panel (I)"
+        aria-keyshortcuts="I"
+      >
+        <span class="solo-lectores">Ocultar el panel de información</span>
+        <Icono nombre="caret-double-right" peso="bold" />
+      </button>
       <p class="flex items-center gap-1.5 text-[0.72rem] text-texto-suave">
         <span
           class="h-1.5 w-1.5 rounded-full"
@@ -153,7 +180,7 @@ const organoDistinto =
     <summary>Atajos de teclado</summary>
     <p>
       <kbd>←</kbd> <kbd>→</kbd> lámina anterior y siguiente · <kbd>+</kbd> <kbd>−</kbd>
-      <kbd>0</kbd> zoom · <kbd>L</kbd> lupa · <kbd>M</kbd> explicador · <kbd>R</kbd> repaso
+      <kbd>0</kbd> zoom · <kbd>L</kbd> lupa · <kbd>M</kbd> explicador · <kbd>R</kbd> repaso · <kbd>I</kbd> ocultar panel
     </p>
   </details>
 
@@ -184,6 +211,74 @@ const organoDistinto =
       box-shadow: var(--atlas-sombra-alta);
       overflow-y: auto;
       overscroll-behavior: contain;
+    }
+  }
+
+  /* --- Plegar el panel (solo escritorio) --- */
+  .plegar-panel,
+  .pestana-panel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .plegar-panel {
+      position: absolute;
+      top: -0.25rem;
+      right: -0.4rem;
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      color: var(--atlas-texto-suave);
+      transition:
+        color 140ms,
+        background-color 140ms;
+    }
+    .plegar-panel:hover,
+    .plegar-panel:focus-visible {
+      color: var(--atlas-texto);
+      background: color-mix(in srgb, var(--atlas-texto) 10%, transparent);
+    }
+    .panel-estructuras {
+      transition:
+        transform 260ms var(--ease-visor, ease),
+        opacity 200ms;
+    }
+    :root[data-panel='plegado'] .panel-estructuras {
+      transform: translateX(calc(100% + 1rem));
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        transform 260ms var(--ease-visor, ease),
+        opacity 200ms,
+        visibility 0s 260ms;
+    }
+    :root[data-panel='plegado'] .pestana-panel {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem 0.45rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--filo-vidrio, var(--atlas-borde));
+      background: var(--vidrio-alto, var(--atlas-superficie));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--atlas-sombra-alta);
+      color: var(--atlas-texto);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    :root[data-panel='plegado'] .pestana-panel:hover {
+      background: var(--atlas-superficie);
+    }
+  }
+  @media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+    .panel-estructuras,
+    :root[data-panel='plegado'] .panel-estructuras {
+      transition: none;
     }
   }
 
@@ -377,6 +472,54 @@ const organoDistinto =
 </style>
 
 <script>
+  /* Plegar y desplegar el panel. Se recuerda entre laminas en este navegador;
+     si el almacenamiento falla, el panel simplemente arranca abierto. */
+  const CLAVE_PANEL = 'atlas:panel-plegado';
+  const raiz = document.documentElement;
+  const plegar = document.getElementById('plegar-panel');
+  const mostrar = document.getElementById('mostrar-panel');
+
+  function ponerPanel(plegado: boolean, guardar = true) {
+    if (plegado) raiz.dataset.panel = 'plegado';
+    else delete raiz.dataset.panel;
+    plegar?.setAttribute('aria-expanded', String(!plegado));
+    mostrar?.setAttribute('aria-expanded', String(!plegado));
+    if (guardar) {
+      try {
+        localStorage.setItem(CLAVE_PANEL, plegado ? 'si' : 'no');
+      } catch {
+        /* sin almacenamiento: no pasa nada */
+      }
+    }
+    window.dispatchEvent(new CustomEvent('atlas:panel'));
+  }
+
+  let inicial = false;
+  try {
+    inicial = localStorage.getItem(CLAVE_PANEL) === 'si';
+  } catch {
+    inicial = false;
+  }
+  ponerPanel(inicial, false);
+
+  plegar?.addEventListener('click', () => {
+    ponerPanel(true);
+    mostrar?.focus();
+  });
+  mostrar?.addEventListener('click', () => {
+    ponerPanel(false);
+    plegar?.focus();
+  });
+  // Tecla I: alterna el panel, salvo mientras se escribe en un campo.
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'i' && ev.key !== 'I') return;
+    if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    const objetivo = ev.target as HTMLElement | null;
+    if (objetivo?.closest('input, textarea, select, [contenteditable="true"]')) return;
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
+    ponerPanel(raiz.dataset.panel !== 'plegado');
+  });
+
   const texto = document.getElementById('descripcion-placa');
   const boton = document.getElementById('alternar-descripcion');
   const etiqueta = boton?.querySelector('span');

@@ -721,6 +721,15 @@ const variasImagenes = imagenes.length > 1;
     }
   }
 
+  /* Con el panel plegado el minimapa pasa a la esquina, bajo la pestana
+     que vuelve a abrir el panel. */
+  @media (min-width: 1024px) {
+    :root[data-panel='plegado'] #minimapa {
+      right: 0.75rem;
+      top: 3.6rem;
+    }
+  }
+
   /* El minimapa de OpenSeadragon */
   #minimapa .displayregion {
     border: 2px solid var(--color-eosina) !important;

@@ -49,8 +49,37 @@ export class Visor {
       (ev as unknown as { preventDefaultAction: boolean }).preventDefaultAction = true;
     });
 
-    this.osd.addHandler('open', () => this.pintarMarcadores());
+    this.osd.addHandler('open', () => {
+      // La vista inicial se calcula sobre el hueco libre, no bajo el panel.
+      this.osd.viewport.setMargins({ right: this.anchoTapadoPorPanel() });
+      this.osd.viewport.goHome(true);
+      this.pintarMarcadores();
+    });
+    // El panel flota sobre la lamina. Se le dice al visor cuanto tapa, para
+    // que el arrastre y el zoom dejen llegar al borde derecho de la imagen
+    // en vez de detenerlo debajo del panel.
+    window.addEventListener('atlas:panel', () => this.ajustarMargenPanel(true));
+    window.addEventListener('resize', () => this.ajustarMargenPanel(false));
     this.mostrarImagen(0);
+  }
+
+  /** Ancho en px que el panel superpuesto tapa por la derecha (0 si no tapa). */
+  private anchoTapadoPorPanel(): number {
+    const panel = document.querySelector<HTMLElement>('.panel-estructuras');
+    if (!panel || getComputedStyle(panel).position !== 'absolute') return 0;
+    if (document.documentElement.dataset.panel === 'plegado') return 0;
+    return panel.getBoundingClientRect().width + 24; // panel + su margen
+  }
+
+  private ajustarMargenPanel(animar: boolean) {
+    const derecha = this.anchoTapadoPorPanel();
+    const vista = this.osd.viewport;
+    // Se conserva el centro de lo que se estaba viendo dentro del hueco libre.
+    const antes = vista.getCenter(true);
+    vista.setMargins({ right: derecha });
+    if (this.osd.world.getItemCount() === 0) return;
+    vista.panTo(antes, !animar || movimientoReducido());
+    vista.applyConstraints(!animar || movimientoReducido());
   }
 
   get viewer() {
@@ -224,7 +253,7 @@ export class Visor {
     // del visor: se corre el encuadre para que la estructura quede centrada en
     // la parte que de verdad se ve, no en el ancho completo del lienzo.
     const caja = new OpenSeadragon.Rect(
-      centro.x - ancho / 2 + this.desplazamientoPanel(ancho),
+      centro.x - ancho / 2,
       centro.y - alto / 2,
       ancho,
       alto,
@@ -235,16 +264,6 @@ export class Visor {
     // pegada a un borde.
     this.osd.viewport.applyConstraints();
     if (enfocar) this.marcadores.get(id)?.[0]?.focus({ preventScroll: true });
-  }
-
-  /** Mitad del ancho del panel superpuesto, en unidades del viewport. */
-  private desplazamientoPanel(anchoEncuadre: number): number {
-    const panel = document.querySelector<HTMLElement>('.panel-estructuras');
-    if (!panel || getComputedStyle(panel).position !== 'absolute') return 0;
-    const anchoContenedor = this.osd.viewport.getContainerSize().x;
-    if (anchoContenedor === 0) return 0;
-    const tapadoPx = panel.getBoundingClientRect().width + 24; // panel + su margen
-    return (tapadoPx / 2 / anchoContenedor) * anchoEncuadre;
   }
 
   acercar() {
