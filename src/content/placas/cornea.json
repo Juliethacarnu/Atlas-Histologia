@@ -21,7 +21,7 @@
     {
       "id": "air-aire",
       "numero": 1.0,
-      "nombre": "Air (Aire)",
+      "nombre": "Aire",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "corneal-epithelium-epitelio-corneal",
       "numero": 2.0,
-      "nombre": "Corneal epithelium (Epitelio corneal)",
+      "nombre": "Epitelio corneal",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "epithelial-cells-celulas-epiteliales",
       "numero": 3.0,
-      "nombre": "Epithelial cells (Células epiteliales)",
+      "nombre": "Células epiteliales",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "corneal-connective-tissue-substantia-propria-tejido-conectiv",
       "numero": 4.0,
-      "nombre": "Corneal connective tissue / substantia propria (Tejido conectivo corneal / sustancia propia)",
+      "nombre": "Tejido conectivo corneal / sustancia propia",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "aqueous-humor-humor-acuoso",
       "numero": 5.0,
-      "nombre": "Aqueous humor (Humor acuoso)",
+      "nombre": "Humor acuoso",
       "descripcion": "",
       "puntos": [
         {

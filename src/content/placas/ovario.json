@@ -26,7 +26,7 @@
     {
       "id": "hilio-ovarico-hilus",
       "numero": 1.0,
-      "nombre": "Hilio ovárico (Hilus)",
+      "nombre": "Hilio ovárico",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "corteza-ovarica-cortex",
       "numero": 2.0,
-      "nombre": "Corteza ovárica (Cortex)",
+      "nombre": "Corteza ovárica",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "medula-ovarica-medulla",
       "numero": 3.0,
-      "nombre": "Médula ovárica (Medulla)",
+      "nombre": "Médula ovárica",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +65,7 @@
     {
       "id": "foliculo-antral-antral-follicle",
       "numero": 4.0,
-      "nombre": "Folículo antral (Antral Follicle)",
+      "nombre": "Folículo antral",
       "descripcion": "",
       "puntos": [
         {
@@ -78,7 +78,7 @@
     {
       "id": "cuerpo-luteo-corpus-luteum",
       "numero": 5.0,
-      "nombre": "Cuerpo lúteo (Corpus luteum)",
+      "nombre": "Cuerpo lúteo",
       "descripcion": "",
       "puntos": [
         {

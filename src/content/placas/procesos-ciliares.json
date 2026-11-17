@@ -21,7 +21,7 @@
     {
       "id": "ciliary-body-cuerpo-ciliar",
       "numero": 1.0,
-      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "nombre": "Cuerpo ciliar",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "iris-iris",
       "numero": 2.0,
-      "nombre": "Iris (Iris)",
+      "nombre": "Iris",
       "descripcion": "",
       "puntos": [
         {
@@ -47,12 +47,12 @@
     {
       "id": "ciliary-processes-procesos-ciliares",
       "numero": 3.0,
-      "nombre": "Ciliary processes (Procesos ciliares)",
+      "nombre": "Procesos ciliares",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.2906,
-          "y": 0.621,
+          "x": 0.2931,
+          "y": 0.5771,
           "imagen": 0
         }
       ]
@@ -60,7 +60,7 @@
     {
       "id": "suspensory-fibers-fibras-suspensorias",
       "numero": 4.0,
-      "nombre": "Suspensory fibers (Fibras suspensorias)",
+      "nombre": "Fibras suspensorias",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "lens-cristalin",
       "numero": 5.0,
-      "nombre": "Lens (Cristalino)",
+      "nombre": "Cristalino",
       "descripcion": "",
       "puntos": [
         {

@@ -26,7 +26,7 @@
     {
       "id": "luz-del-tubulo-seminifero-lumen-of-seminiferous-tubule",
       "numero": 1.0,
-      "nombre": "Luz del túbulo seminífero (lumen of seminiferous tubule)",
+      "nombre": "Luz del túbulo seminífero",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "epitelio-tubular-tubule-epithelium",
       "numero": 2.0,
-      "nombre": "Epitelio tubular (tubule epithelium)",
+      "nombre": "Epitelio tubular",
       "descripcion": "",
       "puntos": [
         {
@@ -57,7 +57,7 @@
     {
       "id": "celulas-de-leydig-leydig-cells",
       "numero": 3.0,
-      "nombre": "Células de Leydig (Leydig cells)",
+      "nombre": "Células de Leydig",
       "descripcion": "",
       "puntos": [
         {
@@ -80,7 +80,7 @@
     {
       "id": "celulas-mioides-myoid-cells",
       "numero": 4.0,
-      "nombre": "Células mioides (myoid cells)",
+      "nombre": "Células mioides",
       "descripcion": "",
       "puntos": [
         {
@@ -103,7 +103,7 @@
     {
       "id": "espermatidas-spermatids",
       "numero": 5.0,
-      "nombre": "Espermátidas (spermatids)",
+      "nombre": "Espermátidas",
       "descripcion": "",
       "puntos": [
         {
@@ -116,7 +116,7 @@
     {
       "id": "espermatozoides-spermatozoa",
       "numero": 6.0,
-      "nombre": "Espermatozoides (spermatozoa)",
+      "nombre": "Espermatozoides",
       "descripcion": "",
       "puntos": [
         {
@@ -129,7 +129,7 @@
     {
       "id": "espermatocitos-spermatocytes",
       "numero": 7.0,
-      "nombre": "Espermatocitos (spermatocytes)",
+      "nombre": "Espermatocitos",
       "descripcion": "",
       "puntos": [
         {
@@ -142,7 +142,7 @@
     {
       "id": "nucleos-de-las-celulas-de-sertoli-sertoli-cell-nuclei-sertol",
       "numero": 8.0,
-      "nombre": "Núcleos de las células de Sertoli (Sertoli cell nuclei / Sertoli nuclei)",
+      "nombre": "Núcleos de las células de Sertoli",
       "descripcion": "",
       "puntos": [
         {

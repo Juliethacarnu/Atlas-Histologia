@@ -26,7 +26,7 @@
     {
       "id": "tunica-albuginea-tunica-albuginea",
       "numero": 1.0,
-      "nombre": "Túnica albugínea (tunica albuginea)",
+      "nombre": "Túnica albugínea",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "vaso-sanguineo-blood-vessel",
       "numero": 2.0,
-      "nombre": "Vaso sanguíneo (blood vessel)",
+      "nombre": "Vaso sanguíneo",
       "descripcion": "",
       "puntos": [
         {
@@ -52,10 +52,10 @@
     {
       "id": "tubulos-seminiferos-seminiferous-tubules",
       "numero": 3.0,
-      "nombre": "Túbulos seminíferos (seminiferous tubules)",
+      "nombre": "Túbulos seminíferos",
       "descripcion": "",
       "puntos": [
-                {
+        {
           "x": 0.645,
           "y": 0.865,
           "imagen": 0
@@ -95,7 +95,7 @@
     {
       "id": "epitelio-tubular-cortado-tangencialmente-tangentially-sectio",
       "numero": 4.0,
-      "nombre": "Epitelio tubular cortado tangencialmente (tangentially sectioned tubule epithelium)",
+      "nombre": "Epitelio tubular cortado tangencialmente",
       "descripcion": "",
       "puntos": [
         {
@@ -108,7 +108,7 @@
     {
       "id": "grupos-de-celulas-de-leydig-leydig-cell-clusters",
       "numero": 5.0,
-      "nombre": "• Grupos de células de Leydig (Leydig cell clusters)",
+      "nombre": "Grupos de células de Leydig",
       "descripcion": "",
       "puntos": [
         {

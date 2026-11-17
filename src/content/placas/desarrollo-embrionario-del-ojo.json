@@ -21,7 +21,7 @@
     {
       "id": "telencephalic-vesicles-lateral-ventricles-vesiculas-telencef",
       "numero": 1.0,
-      "nombre": "Telencephalic vesicles / lateral ventricles (Vesículas telencefálicas / ventrículos laterales)",
+      "nombre": "Vesículas telencefálicas / ventrículos laterales",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "diencephalic-vesicle-third-ventricle-vesicula-diencefalica-t",
       "numero": 2.0,
-      "nombre": "Diencephalic vesicle / third ventricle (Vesícula diencefálica / tercer ventrículo)",
+      "nombre": "Vesícula diencefálica / tercer ventrículo",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "lens-vesicle-vesicula-cristaliniana-vesicula-del-cristalino",
       "numero": 3.0,
-      "nombre": "Lens vesicle (Vesícula cristaliniana / vesícula del cristalino)",
+      "nombre": "Vesícula cristaliniana / vesícula del cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "optic-cups-callices-opticos-cupulas-opticas",
       "numero": 4.0,
-      "nombre": "Optic cups (Cálices ópticos / cúpulas ópticas)",
+      "nombre": "Cálices ópticos / cúpulas ópticas",
       "descripcion": "",
       "puntos": [
         {

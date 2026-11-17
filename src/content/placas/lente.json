@@ -21,7 +21,7 @@
     {
       "id": "cuboidal-epithelium-of-front-lens-surface-epitelio-cubico-de",
       "numero": 1.0,
-      "nombre": "Cuboidal epithelium of front lens surface (Epitelio cúbico de la superficie anterior del cristalino)",
+      "nombre": "Epitelio cúbico de la superficie anterior del cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -34,12 +34,12 @@
     {
       "id": "nuclei-of-lens-fibers-nucleos-de-las-fibras-del-cristalino",
       "numero": 2.0,
-      "nombre": "Nuclei of lens fibers (Núcleos de las fibras del cristalino)",
+      "nombre": "Núcleos de las fibras del cristalino",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.7445,
-          "y": 0.3351,
+          "x": 0.6763,
+          "y": 0.3702,
           "imagen": 0
         }
       ]
@@ -47,7 +47,7 @@
     {
       "id": "lens-fibers-fibras-del-cristalino",
       "numero": 3.0,
-      "nombre": "Lens fibers (Fibras del cristalino)",
+      "nombre": "Fibras del cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "front-surface-of-lens-superficie-anterior-del-cristalino",
       "numero": 4.0,
-      "nombre": "Front surface of lens (Superficie anterior del cristalino)",
+      "nombre": "Superficie anterior del cristalino",
       "descripcion": "",
       "puntos": [
         {

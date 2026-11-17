@@ -21,12 +21,12 @@
     {
       "id": "choroid-coroides",
       "numero": 1.0,
-      "nombre": "Choroid (Coroides)",
+      "nombre": "Coroides",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.125,
-          "y": 0.245,
+          "x": 0.1271,
+          "y": 0.263,
           "imagen": 0
         }
       ]
@@ -34,7 +34,7 @@
     {
       "id": "pigmented-epithelium-epitelio-pigmentario",
       "numero": 2.0,
-      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "nombre": "Epitelio pigmentario",
       "descripcion": "",
       "puntos": [
         {
@@ -47,12 +47,12 @@
     {
       "id": "retina-retina-neural",
       "numero": 3.0,
-      "nombre": "Retina (Retina neural)",
+      "nombre": "Retina neural",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.435,
-          "y": 0.245,
+          "x": 0.4279,
+          "y": 0.2704,
           "imagen": 0
         }
       ]
@@ -60,7 +60,7 @@
     {
       "id": "blind-spot-punto-ciego-disco-optico",
       "numero": 4.0,
-      "nombre": "Blind spot (Punto ciego / Disco óptico)",
+      "nombre": "Punto ciego / Disco óptico",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "optic-nerve-nervio-optico",
       "numero": 5.0,
-      "nombre": "Optic nerve (Nervio óptico)",
+      "nombre": "Nervio óptico",
       "descripcion": "",
       "puntos": [
         {

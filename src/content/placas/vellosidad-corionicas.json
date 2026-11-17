@@ -24,22 +24,9 @@
   },
   "estructuras": [
     {
-      "id": "vellosidades-corionicas-chorionic-villi",
-      "numero": 1.0,
-      "nombre": "Vellosidades coriónicas (Chorionic Villi)",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.6126,
-          "y": 0.4697,
-          "imagen": 0
-        }
-      ]
-    },
-    {
       "id": "capilares-fetales-capillary",
       "numero": 2.0,
-      "nombre": "Capilares fetales (Capillary)",
+      "nombre": "Capilares fetales",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +39,7 @@
     {
       "id": "sincitiotrofoblasto-syncytiotrophoblasts",
       "numero": 3.0,
-      "nombre": "Sincitiotrofoblasto (Syncytiotrophoblasts)",
+      "nombre": "Sincitiotrofoblasto",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +52,7 @@
     {
       "id": "lagunas-intervellosas-lacuna",
       "numero": 4.0,
-      "nombre": "Lagunas intervellosas (Lacuna)",
+      "nombre": "Lagunas intervellosas",
       "descripcion": "",
       "puntos": [
         {

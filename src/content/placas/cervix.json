@@ -26,7 +26,7 @@
     {
       "id": "epitelio-cilindrico-simple-simple-columnar",
       "numero": 1.0,
-      "nombre": "Epitelio cilíndrico simple (Simple Columnar)",
+      "nombre": "Epitelio cilíndrico simple",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "epitelio-plano-estratificado-stratified-squamous",
       "numero": 2.0,
-      "nombre": "Epitelio plano estratificado (Stratified Squamous)",
+      "nombre": "Epitelio plano estratificado",
       "descripcion": "",
       "puntos": [
         {

@@ -26,7 +26,7 @@
     {
       "id": "ovocito-secundario-secondary-oocyte",
       "numero": 1.0,
-      "nombre": "Ovocito secundario (Secondary Oocyte)",
+      "nombre": "Ovocito secundario",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "corona-radiada-corona-radiata",
       "numero": 2.0,
-      "nombre": "Corona radiada (Corona Radiata)",
+      "nombre": "Corona radiada",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "zona-pelucida-zona-pellucida",
       "numero": 3.0,
-      "nombre": "Zona pelúcida (Zona Pellucida)",
+      "nombre": "Zona pelúcida",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +65,7 @@
     {
       "id": "antro-folicular-antrum",
       "numero": 4.0,
-      "nombre": "Antro folicular (Antrum)",
+      "nombre": "Antro folicular",
       "descripcion": "",
       "puntos": [
         {
@@ -78,7 +78,7 @@
     {
       "id": "celulas-de-la-granulosa-granulosa-cells",
       "numero": 5.0,
-      "nombre": "Células de la granulosa (Granulosa Cells)",
+      "nombre": "Células de la granulosa",
       "descripcion": "",
       "puntos": [
         {

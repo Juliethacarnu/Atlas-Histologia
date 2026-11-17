@@ -21,7 +21,7 @@
     {
       "id": "blood-vessel-vaso-sanguineo",
       "numero": 1.0,
-      "nombre": "Blood vessel (Vaso sanguíneo)",
+      "nombre": "Vaso sanguíneo",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "nerve-fiber-layer-capa-de-fibras-nerviosas",
       "numero": 2.0,
-      "nombre": "Nerve fiber layer (Capa de fibras nerviosas)",
+      "nombre": "Capa de fibras nerviosas",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "ganglion-cell-layer-capa-de-celulas-ganglionares",
       "numero": 3.0,
-      "nombre": "Ganglion cell layer (Capa de células ganglionares)",
+      "nombre": "Capa de células ganglionares",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "inner-plexiform-layer-capa-plexiforme-interna",
       "numero": 4.0,
-      "nombre": "Inner plexiform layer (Capa plexiforme interna)",
+      "nombre": "Capa plexiforme interna",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "inner-nuclear-layer-capa-nuclear-interna",
       "numero": 5.0,
-      "nombre": "Inner nuclear layer (Capa nuclear interna)",
+      "nombre": "Capa nuclear interna",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "outer-plexiform-layer-capa-plexiforme-externa",
       "numero": 6.0,
-      "nombre": "Outer plexiform layer (Capa plexiforme externa)",
+      "nombre": "Capa plexiforme externa",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "outer-nuclear-layer-capa-nuclear-externa",
       "numero": 7.0,
-      "nombre": "Outer nuclear layer (Capa nuclear externa)",
+      "nombre": "Capa nuclear externa",
       "descripcion": "",
       "puntos": [
         {
@@ -112,7 +112,7 @@
     {
       "id": "receptor-layer-capa-de-fotorreceptores",
       "numero": 8.0,
-      "nombre": "Receptor layer (Capa de fotorreceptores)",
+      "nombre": "Capa de fotorreceptores",
       "descripcion": "",
       "puntos": [
         {
@@ -125,7 +125,7 @@
     {
       "id": "pigmented-epithelium-epitelio-pigmentario",
       "numero": 9.0,
-      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "nombre": "Epitelio pigmentario",
       "descripcion": "",
       "puntos": [
         {
@@ -138,7 +138,7 @@
     {
       "id": "choroid-coroides",
       "numero": 10.0,
-      "nombre": "Choroid (Coroides)",
+      "nombre": "Coroides",
       "descripcion": "",
       "puntos": [
         {
@@ -151,7 +151,7 @@
     {
       "id": "sclera-esclera",
       "numero": 11.0,
-      "nombre": "Sclera (Esclera)",
+      "nombre": "Esclera",
       "descripcion": "",
       "puntos": [
         {

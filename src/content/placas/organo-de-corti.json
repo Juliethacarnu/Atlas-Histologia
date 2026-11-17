@@ -23,7 +23,7 @@
     {
       "id": "membrana-vestibular-vestibular-membrane",
       "numero": 1,
-      "nombre": "Membrana vestibular (Vestibular Membrane)",
+      "nombre": "Membrana vestibular",
       "descripcion": "",
       "puntos": [
         {
@@ -36,7 +36,7 @@
     {
       "id": "rampa-media-o-conducto-coclear-scala-media",
       "numero": 2,
-      "nombre": "Rampa media o conducto coclear (Scala Media)",
+      "nombre": "Rampa media o conducto coclear",
       "descripcion": "",
       "puntos": [
         {
@@ -49,7 +49,7 @@
     {
       "id": "membrana-tectorial-tectorial-membrane",
       "numero": 3,
-      "nombre": "Membrana tectorial (Tectorial Membrane)",
+      "nombre": "Membrana tectorial",
       "descripcion": "",
       "puntos": [
         {
@@ -62,7 +62,7 @@
     {
       "id": "celula-ciliada-interna-inner-hair-cell",
       "numero": 4,
-      "nombre": "Célula ciliada interna (Inner Hair Cell)",
+      "nombre": "Célula ciliada interna",
       "descripcion": "",
       "puntos": [
         {
@@ -75,7 +75,7 @@
     {
       "id": "celulas-ciliadas-externas-outer-hair-cells",
       "numero": 5,
-      "nombre": "Células ciliadas externas (Outer Hair Cells)",
+      "nombre": "Células ciliadas externas",
       "descripcion": "",
       "puntos": [
         {
@@ -88,7 +88,7 @@
     {
       "id": "celulas-de-sosten-sustentacular-cells",
       "numero": 6,
-      "nombre": "Células de sostén (Sustentacular Cells)",
+      "nombre": "Células de sostén",
       "descripcion": "",
       "puntos": [
         {
@@ -101,7 +101,7 @@
     {
       "id": "membrana-basilar-basilar-membrane",
       "numero": 7,
-      "nombre": "Membrana basilar (Basilar Membrane)",
+      "nombre": "Membrana basilar",
       "descripcion": "",
       "puntos": [
         {
@@ -114,7 +114,7 @@
     {
       "id": "rampa-timpanica-scala-tympani",
       "numero": 8,
-      "nombre": "Rampa timpánica (Scala Tympani)",
+      "nombre": "Rampa timpánica",
       "descripcion": "",
       "puntos": [
         {

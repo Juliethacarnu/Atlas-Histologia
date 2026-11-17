@@ -21,7 +21,7 @@
     {
       "id": "pared-muscular-muscular-wall",
       "numero": 1.0,
-      "nombre": "Pared muscular (muscular wall)",
+      "nombre": "Pared muscular",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "lamina-propia-lamina-propria",
       "numero": 2.0,
-      "nombre": "Lámina propia (lamina propria)",
+      "nombre": "Lámina propia",
       "descripcion": "",
       "puntos": [
         {

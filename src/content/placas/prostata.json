@@ -36,7 +36,7 @@
     {
       "id": "estroma-fibromuscular-fibromuscular-stroma",
       "numero": 1.0,
-      "nombre": "Estroma fibromuscular (fibromuscular stroma)",
+      "nombre": "Estroma fibromuscular",
       "descripcion": "",
       "puntos": [
         {
@@ -64,7 +64,7 @@
     {
       "id": "cuerpo-amilaceo-corpus-amylacea",
       "numero": 2.0,
-      "nombre": "Cuerpo amiláceo (corpus amylacea)",
+      "nombre": "Cuerpo amiláceo",
       "descripcion": "",
       "puntos": [
         {
@@ -82,7 +82,7 @@
     {
       "id": "luz-glandular-luz-glandular-lumen-lumen",
       "numero": 3.0,
-      "nombre": "Luz glandular / Luz (glandular lumen / lumen)",
+      "nombre": "Luz glandular / Luz",
       "descripcion": "",
       "puntos": [
         {

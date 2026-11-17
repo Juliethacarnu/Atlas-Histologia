@@ -21,7 +21,7 @@
     {
       "id": "smooth-muscle-of-ciliary-body-musculo-liso-del-cuerpo-ciliar",
       "numero": 1.0,
-      "nombre": "Smooth muscle of ciliary body (Músculo liso del cuerpo ciliar)",
+      "nombre": "Músculo liso del cuerpo ciliar",
       "descripcion": "",
       "puntos": [
         {
@@ -34,12 +34,12 @@
     {
       "id": "ciliary-processes-with-pigmented-epithelium-procesos-ciliare",
       "numero": 2.0,
-      "nombre": "Ciliary processes with pigmented epithelium (Procesos ciliares con epitelio pigmentado)",
+      "nombre": "Procesos ciliares con epitelio pigmentado",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.8251,
-          "y": 0.5047,
+          "x": 0.8158,
+          "y": 0.4929,
           "imagen": 0
         }
       ]

@@ -21,7 +21,7 @@
     {
       "id": "cornea-cornea",
       "numero": 1.0,
-      "nombre": "Cornea (Córnea)",
+      "nombre": "Córnea",
       "descripcion": "",
       "puntos": [
         {
@@ -34,12 +34,12 @@
     {
       "id": "sclera-esclera",
       "numero": 2.0,
-      "nombre": "Sclera (Esclera)",
+      "nombre": "Esclera",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.0744,
-          "y": 0.5762,
+          "x": 0.0769,
+          "y": 0.5279,
           "imagen": 0
         }
       ]
@@ -47,7 +47,7 @@
     {
       "id": "anterior-chamber-camara-anterior",
       "numero": 3.0,
-      "nombre": "Anterior chamber (Cámara anterior)",
+      "nombre": "Cámara anterior",
       "descripcion": "",
       "puntos": [
         {
@@ -60,12 +60,12 @@
     {
       "id": "iris-iris",
       "numero": 4.0,
-      "nombre": "Iris (Iris)",
+      "nombre": "Iris",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.655,
-          "y": 0.15,
+          "x": 0.6762,
+          "y": 0.1784,
           "imagen": 0
         }
       ]
@@ -73,7 +73,7 @@
     {
       "id": "posterior-chamber-camara-posterior",
       "numero": 5.0,
-      "nombre": "Posterior chamber (Cámara posterior)",
+      "nombre": "Cámara posterior",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "lens-cristalino",
       "numero": 6.0,
-      "nombre": "Lens (Cristalino)",
+      "nombre": "Cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "ciliary-body-cuerpo-ciliar",
       "numero": 7.0,
-      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "nombre": "Cuerpo ciliar",
       "descripcion": "",
       "puntos": [
         {
@@ -112,12 +112,12 @@
     {
       "id": "ciliary-process-procesos-ciliares",
       "numero": 8.0,
-      "nombre": "Ciliary process (Procesos ciliares)",
+      "nombre": "Procesos ciliares",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.385,
-          "y": 0.755,
+          "x": 0.3995,
+          "y": 0.7472,
           "imagen": 0
         }
       ]
@@ -125,7 +125,7 @@
     {
       "id": "suspensory-fibers-fibras-suspensorias",
       "numero": 9.0,
-      "nombre": "Suspensory fibers (Fibras suspensorias)",
+      "nombre": "Fibras suspensorias",
       "descripcion": "",
       "puntos": [
         {

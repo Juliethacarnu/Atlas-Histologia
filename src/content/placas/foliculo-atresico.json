@@ -26,7 +26,7 @@
     {
       "id": "membrana-vitrea-glassy-membrane",
       "numero": 1,
-      "nombre": "Membrana vítrea (Glassy Membrane)",
+      "nombre": "Membrana vítrea",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "cuerpo-fibroso-corpus-fibrosum",
       "numero": 2,
-      "nombre": "Cuerpo fibroso (Corpus Fibrosum)",
+      "nombre": "Cuerpo fibroso",
       "descripcion": "",
       "puntos": [
         {

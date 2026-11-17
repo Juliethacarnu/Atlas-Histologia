@@ -21,7 +21,7 @@
     {
       "id": "fovea-fovea",
       "numero": 1.0,
-      "nombre": "Fóvea (Fovea)",
+      "nombre": "Fóvea",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "retina-retina",
       "numero": 2.0,
-      "nombre": "Retina (Retina)",
+      "nombre": "Retina",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "coroides-choroid",
       "numero": 3.0,
-      "nombre": "Coroides (Choroid)",
+      "nombre": "Coroides",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "esclerotica-sclera",
       "numero": 4.0,
-      "nombre": "Esclerótica (Sclera)",
+      "nombre": "Esclerótica",
       "descripcion": "",
       "puntos": [
         {

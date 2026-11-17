@@ -26,7 +26,7 @@
     {
       "id": "vellosidades-corionicas-chorionic-villi",
       "numero": 1.0,
-      "nombre": "Vellosidades coriónicas (Chorionic Villi)",
+      "nombre": "Vellosidades coriónicas",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "lagunas-intervellosas-lacuna",
       "numero": 2.0,
-      "nombre": "Lagunas intervellosas (Lacuna)",
+      "nombre": "Lagunas intervellosas",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "decidua-basal-decidua-basalis",
       "numero": 3.0,
-      "nombre": "Decidua basal (Decidua Basalis)",
+      "nombre": "Decidua basal",
       "descripcion": "",
       "puntos": [
         {

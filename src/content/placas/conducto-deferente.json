@@ -26,7 +26,7 @@
     {
       "id": "luz-lumen",
       "numero": 1.0,
-      "nombre": "Luz (lumen)",
+      "nombre": "Luz",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "capa-de-celulas-basales-basal-cell-layer",
       "numero": 2.0,
-      "nombre": "Capa de células basales (basal cell layer)",
+      "nombre": "Capa de células basales",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "capa-de-celulas-cilindricas-columnar-cell-layer",
       "numero": 3.0,
-      "nombre": "Capa de células cilíndricas (columnar cell layer)",
+      "nombre": "Capa de células cilíndricas",
       "descripcion": "",
       "puntos": [
         {

@@ -21,7 +21,7 @@
     {
       "id": "mucosa-mucosa",
       "numero": 1.0,
-      "nombre": "Mucosa (Mucosa)",
+      "nombre": "Mucosa",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "musculo-liso-smooth-muscle",
       "numero": 2.0,
-      "nombre": "Músculo liso (Smooth Muscle)",
+      "nombre": "Músculo liso",
       "descripcion": "",
       "puntos": [
         {

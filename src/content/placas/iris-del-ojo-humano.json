@@ -21,7 +21,7 @@
     {
       "id": "pupillary-dilator-musculo-dilatador-de-la-pupila",
       "numero": 1.0,
-      "nombre": "Pupillary dilator (Músculo dilatador de la pupila)",
+      "nombre": "Músculo dilatador de la pupila",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "stroma-estroma-del-iris",
       "numero": 2.0,
-      "nombre": "Stroma (Estroma del iris)",
+      "nombre": "Estroma del iris",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "anterior-chamber-camara-anterior",
       "numero": 3.0,
-      "nombre": "Anterior chamber (Cámara anterior)",
+      "nombre": "Cámara anterior",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "pupillary-sphincter-musculo-esfinter-de-la-pupila",
       "numero": 4.0,
-      "nombre": "Pupillary sphincter (Músculo esfínter de la pupila)",
+      "nombre": "Músculo esfínter de la pupila",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "posterior-chamber-camara-posterior",
       "numero": 5.0,
-      "nombre": "Posterior chamber (Cámara posterior)",
+      "nombre": "Cámara posterior",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "pigmented-epithelial-layer-capa-epitelial-pigmentada",
       "numero": 6.0,
-      "nombre": "Pigmented epithelial layer (Capa epitelial pigmentada)",
+      "nombre": "Capa epitelial pigmentada",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "lens-cristalino",
       "numero": 7.0,
-      "nombre": "Lens (Cristalino)",
+      "nombre": "Cristalino",
       "descripcion": "",
       "puntos": [
         {

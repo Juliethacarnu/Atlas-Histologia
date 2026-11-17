@@ -21,7 +21,7 @@
     {
       "id": "celulas-luteinicas-luteal-cells",
       "numero": 1,
-      "nombre": "Células luteínicas (Luteal Cells)",
+      "nombre": "Células luteínicas",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "coagulo-sanguineo-blood-clot",
       "numero": 2,
-      "nombre": "Coágulo sanguíneo (Blood Clot)",
+      "nombre": "Coágulo sanguíneo",
       "descripcion": "",
       "puntos": [
         {

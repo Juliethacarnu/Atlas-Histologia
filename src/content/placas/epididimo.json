@@ -31,7 +31,7 @@
     {
       "id": "lamina-propia-lamina-propria",
       "numero": 1.0,
-      "nombre": "Lámina propia (lamina propria)",
+      "nombre": "Lámina propia",
       "descripcion": "",
       "puntos": [
         {
@@ -49,7 +49,7 @@
     {
       "id": "musculo-liso-smooth-muscle",
       "numero": 2.0,
-      "nombre": "Músculo liso (smooth muscle)",
+      "nombre": "Músculo liso",
       "descripcion": "",
       "puntos": [
         {
@@ -62,7 +62,7 @@
     {
       "id": "epitelio-epithelium",
       "numero": 3.0,
-      "nombre": "Epitelio (epithelium)",
+      "nombre": "Epitelio",
       "descripcion": "",
       "puntos": [
         {
@@ -75,7 +75,7 @@
     {
       "id": "espermatozoides-en-la-luz-sperm-cells-in-lumen",
       "numero": 4.0,
-      "nombre": "Espermatozoides en la luz (sperm cells in lumen)",
+      "nombre": "Espermatozoides en la luz",
       "descripcion": "",
       "puntos": [
         {
@@ -93,7 +93,7 @@
     {
       "id": "celulas-basales-basal-cells",
       "numero": 6.0,
-      "nombre": "Células basales (basal cells)",
+      "nombre": "Células basales",
       "descripcion": "",
       "puntos": [
         {
@@ -106,7 +106,7 @@
     {
       "id": "celulas-cilindricas-columnar-cells",
       "numero": 7.0,
-      "nombre": "Células cilíndricas (columnar cells)",
+      "nombre": "Células cilíndricas",
       "descripcion": "",
       "puntos": [
         {

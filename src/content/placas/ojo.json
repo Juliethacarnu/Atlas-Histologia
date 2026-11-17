@@ -21,7 +21,7 @@
     {
       "id": "cornea-cornea",
       "numero": 1.0,
-      "nombre": "Cornea (Córnea)",
+      "nombre": "Córnea",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "anterior-chamber-camara-anterior",
       "numero": 2.0,
-      "nombre": "Anterior chamber (Cámara anterior)",
+      "nombre": "Cámara anterior",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "iris-iris",
       "numero": 3.0,
-      "nombre": "Iris (Iris)",
+      "nombre": "Iris",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "pupil-pupila",
       "numero": 4.0,
-      "nombre": "Pupil (Pupila)",
+      "nombre": "Pupila",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "lens-cristalino",
       "numero": 5.0,
-      "nombre": "Lens (Cristalino)",
+      "nombre": "Cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "ciliary-body-cuerpo-ciliar",
       "numero": 6.0,
-      "nombre": "Ciliary body (Cuerpo ciliar)",
+      "nombre": "Cuerpo ciliar",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "sclera-esclera",
       "numero": 7.0,
-      "nombre": "Sclera (Esclera)",
+      "nombre": "Esclera",
       "descripcion": "",
       "puntos": [
         {

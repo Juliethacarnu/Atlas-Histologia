@@ -21,7 +21,7 @@
     {
       "id": "celulas-foliculares-follicular-cells",
       "numero": 1.0,
-      "nombre": "Células foliculares (Follicular Cells)",
+      "nombre": "Células foliculares",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "citoplasma-del-ovocito-cytoplasm",
       "numero": 2.0,
-      "nombre": "Citoplasma del ovocito (Cytoplasm)",
+      "nombre": "Citoplasma del ovocito",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "nucleo-del-ovocito-nucleus",
       "numero": 3.0,
-      "nombre": "Núcleo del ovocito (Nucleus)",
+      "nombre": "Núcleo del ovocito",
       "descripcion": "",
       "puntos": [
         {

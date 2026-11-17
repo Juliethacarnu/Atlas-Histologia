@@ -21,7 +21,7 @@
     {
       "id": "disco-optico-optic-disc",
       "numero": 1.0,
-      "nombre": "Disco óptico (Optic Disc)",
+      "nombre": "Disco óptico",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "nervio-optico-optic-nerve",
       "numero": 2.0,
-      "nombre": "Nervio óptico (Optic Nerve)",
+      "nombre": "Nervio óptico",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "fibras-del-nervio-optico-optic-nerve-fibers",
       "numero": 3.0,
-      "nombre": "Fibras del nervio óptico (Optic Nerve Fibers)",
+      "nombre": "Fibras del nervio óptico",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "retina-retina",
       "numero": 4.0,
-      "nombre": "Retina (Retina)",
+      "nombre": "Retina",
       "descripcion": "",
       "puntos": [
         {

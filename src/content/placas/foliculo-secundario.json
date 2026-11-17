@@ -26,7 +26,7 @@
     {
       "id": "antro-folicular-follicular-antrum",
       "numero": 1.0,
-      "nombre": "Antro folicular (Follicular Antrum)",
+      "nombre": "Antro folicular",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "celulas-de-la-granulosa-granulosa-cells",
       "numero": 2.0,
-      "nombre": "Células de la granulosa (Granulosa Cells)",
+      "nombre": "Células de la granulosa",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "celulas-del-cumulo-ooforo-cumulus-cells",
       "numero": 3.0,
-      "nombre": "Células del cúmulo oóforo (Cumulus Cells)",
+      "nombre": "Células del cúmulo oóforo",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +65,7 @@
     {
       "id": "zona-pelucida-zona-pellucida",
       "numero": 4.0,
-      "nombre": "Zona pelúcida (Zona Pellucida)",
+      "nombre": "Zona pelúcida",
       "descripcion": "",
       "puntos": [
         {
@@ -78,7 +78,7 @@
     {
       "id": "ovocito-oocyte",
       "numero": 5.0,
-      "nombre": "Ovocito (Oocyte)",
+      "nombre": "Ovocito",
       "descripcion": "",
       "puntos": [
         {
@@ -91,7 +91,7 @@
     {
       "id": "teca-interna-theca-interna",
       "numero": 6.0,
-      "nombre": "Teca interna (Theca Interna)",
+      "nombre": "Teca interna",
       "descripcion": "",
       "puntos": [
         {

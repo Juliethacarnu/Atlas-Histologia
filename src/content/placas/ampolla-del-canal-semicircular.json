@@ -23,7 +23,7 @@
     {
       "id": "bone-hueso",
       "numero": 1,
-      "nombre": "Bone (Hueso)",
+      "nombre": "Hueso",
       "descripcion": "",
       "puntos": [
         {
@@ -36,7 +36,7 @@
     {
       "id": "perilymph-space-espacio-perilinfatico",
       "numero": 2,
-      "nombre": "Perilymph space (Espacio perilinfático)",
+      "nombre": "Espacio perilinfático",
       "descripcion": "",
       "puntos": [
         {
@@ -49,7 +49,7 @@
     {
       "id": "ampulla-of-semicircular-canal-ampolla-del-canal-semicircular",
       "numero": 3,
-      "nombre": "Ampulla of semicircular canal (Ampolla del canal semicircular)",
+      "nombre": "Ampolla del canal semicircular",
       "descripcion": "",
       "puntos": [
         {
@@ -62,7 +62,7 @@
     {
       "id": "crista-cresta-ampular",
       "numero": 4,
-      "nombre": "Crista (Cresta ampular)",
+      "nombre": "Cresta ampular",
       "descripcion": "",
       "puntos": [
         {
@@ -75,7 +75,7 @@
     {
       "id": "utricle-utriculo",
       "numero": 5,
-      "nombre": "Utricle (Utrículo)",
+      "nombre": "Utrículo",
       "descripcion": "",
       "puntos": [
         {
@@ -88,7 +88,7 @@
     {
       "id": "macula-macula-acustica",
       "numero": 6,
-      "nombre": "Macula (Mácula acústica)",
+      "nombre": "Mácula acústica",
       "descripcion": "",
       "puntos": [
         {

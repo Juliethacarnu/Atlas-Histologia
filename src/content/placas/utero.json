@@ -26,7 +26,7 @@
     {
       "id": "endometrio-endometrium",
       "numero": 1.0,
-      "nombre": "Endometrio (Endometrium)",
+      "nombre": "Endometrio",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "estrato-funcional-stratum-functionalis",
       "numero": 2.0,
-      "nombre": "Estrato funcional (Stratum Functionalis)",
+      "nombre": "Estrato funcional",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "estrato-basal-stratum-basalis",
       "numero": 3.0,
-      "nombre": "Estrato basal (Stratum Basalis)",
+      "nombre": "Estrato basal",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +65,7 @@
     {
       "id": "miometrio-myometrium",
       "numero": 4.0,
-      "nombre": "Miometrio (Myometrium)",
+      "nombre": "Miometrio",
       "descripcion": "",
       "puntos": [
         {
@@ -78,7 +78,7 @@
     {
       "id": "perimetrio-perimetrium",
       "numero": 5.0,
-      "nombre": "Perimetrio (Perimetrium)",
+      "nombre": "Perimetrio",
       "descripcion": "",
       "puntos": [
         {

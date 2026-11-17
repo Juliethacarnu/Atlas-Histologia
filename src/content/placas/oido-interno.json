@@ -23,7 +23,7 @@
     {
       "id": "rampa-timpanica-scala-tympani",
       "numero": 1,
-      "nombre": "Rampa timpánica (Scala Tympani)",
+      "nombre": "Rampa timpánica",
       "descripcion": "",
       "puntos": [
         {
@@ -36,7 +36,7 @@
     {
       "id": "organo-de-corti-organ-of-corti",
       "numero": 2,
-      "nombre": "Órgano de Corti (Organ of Corti)",
+      "nombre": "Órgano de Corti",
       "descripcion": "",
       "puntos": [
         {
@@ -49,7 +49,7 @@
     {
       "id": "modiolo-modiolus",
       "numero": 3,
-      "nombre": "Modiolo (Modiolus)",
+      "nombre": "Modiolo",
       "descripcion": "",
       "puntos": [
         {
@@ -62,7 +62,7 @@
     {
       "id": "rampa-media-o-conducto-coclear-scala-media",
       "numero": 4,
-      "nombre": "Rampa media o conducto coclear (Scala Media)",
+      "nombre": "Rampa media o conducto coclear",
       "descripcion": "",
       "puntos": [
         {
@@ -75,7 +75,7 @@
     {
       "id": "rampa-vestibular-scala-vestibuli",
       "numero": 5,
-      "nombre": "Rampa vestibular (Scala Vestibuli)",
+      "nombre": "Rampa vestibular",
       "descripcion": "",
       "puntos": [
         {
@@ -88,7 +88,7 @@
     {
       "id": "ganglio-espiral-spiral-ganglion",
       "numero": 6,
-      "nombre": "Ganglio espiral (Spiral Ganglion)",
+      "nombre": "Ganglio espiral",
       "descripcion": "",
       "puntos": [
         {
@@ -101,7 +101,7 @@
     {
       "id": "hueso-temporal-bone",
       "numero": 7,
-      "nombre": "Hueso temporal (Bone)",
+      "nombre": "Hueso temporal",
       "descripcion": "",
       "puntos": [
         {

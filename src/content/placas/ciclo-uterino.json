@@ -26,7 +26,7 @@
     {
       "id": "fase-proliferativa-temprana-early-proliferative",
       "numero": 1.0,
-      "nombre": "Fase proliferativa temprana (Early Proliferative)",
+      "nombre": "Fase proliferativa temprana",
       "descripcion": "",
       "puntos": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "fase-proliferativa-tardia-late-proliferative",
       "numero": 2.0,
-      "nombre": "Fase proliferativa tardía (Late Proliferative)",
+      "nombre": "Fase proliferativa tardía",
       "descripcion": "",
       "puntos": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "fase-secretora-secretory",
       "numero": 3.0,
-      "nombre": "Fase secretora (Secretory)",
+      "nombre": "Fase secretora",
       "descripcion": "",
       "puntos": [
         {
@@ -65,7 +65,7 @@
     {
       "id": "fase-menstrual-menstrual",
       "numero": 4.0,
-      "nombre": "Fase menstrual (Menstrual)",
+      "nombre": "Fase menstrual",
       "descripcion": "",
       "puntos": [
         {

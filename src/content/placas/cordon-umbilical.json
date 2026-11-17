@@ -21,7 +21,7 @@
     {
       "id": "vena-umbilical-vein",
       "numero": 1.0,
-      "nombre": "Vena umbilical (Vein)",
+      "nombre": "Vena umbilical",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "arterias-umbilicales-arteries",
       "numero": 2.0,
-      "nombre": "Arterias umbilicales (Arteries)",
+      "nombre": "Arterias umbilicales",
       "descripcion": "",
       "puntos": [
         {
@@ -66,19 +66,6 @@
         {
           "x": 0.8075,
           "y": 0.5263,
-          "imagen": 0
-        }
-      ]
-    },
-    {
-      "id": "cordon-umbilical",
-      "numero": 5.0,
-      "nombre": "Cordón umbilical",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.8696,
-          "y": 0.1974,
           "imagen": 0
         }
       ]

@@ -21,7 +21,7 @@
     {
       "id": "cuerpo-ciliar-ciliary-body",
       "numero": 1.0,
-      "nombre": "Cuerpo ciliar (Ciliary Body)",
+      "nombre": "Cuerpo ciliar",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "procesos-ciliares-ciliary-process",
       "numero": 2.0,
-      "nombre": "Procesos ciliares (Ciliary Process)",
+      "nombre": "Procesos ciliares",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "epitelio-productor-de-humor-acuoso-epithelium",
       "numero": 3.0,
-      "nombre": "Epitelio productor de humor acuoso (Epithelium)",
+      "nombre": "Epitelio productor de humor acuoso",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "iris-iris",
       "numero": 4.0,
-      "nombre": "Iris (Iris)",
+      "nombre": "Iris",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "musculo-esfinter-de-la-pupila-pupillary-sphincter-muscle",
       "numero": 5.0,
-      "nombre": "Músculo esfínter de la pupila (Pupillary Sphincter Muscle)",
+      "nombre": "Músculo esfínter de la pupila",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "camara-posterior-posterior-chamber",
       "numero": 6.0,
-      "nombre": "Cámara posterior (Posterior Chamber)",
+      "nombre": "Cámara posterior",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "camara-anterior-anterior-chamber",
       "numero": 7.0,
-      "nombre": "Cámara anterior (Anterior Chamber)",
+      "nombre": "Cámara anterior",
       "descripcion": "",
       "puntos": [
         {
@@ -112,7 +112,7 @@
     {
       "id": "canal-de-schlemm-canal-of-schlemm",
       "numero": 8.0,
-      "nombre": "Canal de Schlemm (Canal of Schlemm)",
+      "nombre": "Canal de Schlemm",
       "descripcion": "",
       "puntos": [
         {

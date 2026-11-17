@@ -21,7 +21,7 @@
     {
       "id": "celulas-luteinicas-de-la-granulosa-granulosa-luteal-cells",
       "numero": 1.0,
-      "nombre": "Células luteínicas de la granulosa (Granulosa Luteal Cells)",
+      "nombre": "Células luteínicas de la granulosa",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "celulas-luteinicas-de-la-teca-theca-luteal-cells",
       "numero": 2.0,
-      "nombre": "Células luteínicas de la teca (Theca Luteal Cells)",
+      "nombre": "Células luteínicas de la teca",
       "descripcion": "",
       "puntos": [
         {

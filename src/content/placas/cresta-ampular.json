@@ -23,7 +23,7 @@
     {
       "id": "cupola-cupula-gelatinosa",
       "numero": 1,
-      "nombre": "Cupola (Cúpula gelatinosa)",
+      "nombre": "Cúpula gelatinosa",
       "descripcion": "",
       "puntos": [
         {
@@ -36,7 +36,7 @@
     {
       "id": "hair-cells-celulas-ciliadas",
       "numero": 2,
-      "nombre": "Hair cells (Células ciliadas)",
+      "nombre": "Células ciliadas",
       "descripcion": "",
       "puntos": [
         {

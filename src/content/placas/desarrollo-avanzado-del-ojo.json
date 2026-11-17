@@ -21,7 +21,7 @@
     {
       "id": "corneal-epithelium-epitelio-corneal",
       "numero": 1.0,
-      "nombre": "Corneal epithelium (Epitelio corneal)",
+      "nombre": "Epitelio corneal",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "lens-cristalino",
       "numero": 2.0,
-      "nombre": "Lens (Cristalino)",
+      "nombre": "Cristalino",
       "descripcion": "",
       "puntos": [
         {
@@ -47,7 +47,7 @@
     {
       "id": "retina-retina-neural",
       "numero": 3.0,
-      "nombre": "Retina (Retina neural)",
+      "nombre": "Retina neural",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "pigmented-epithelium-epitelio-pigmentario",
       "numero": 4.0,
-      "nombre": "Pigmented epithelium (Epitelio pigmentario)",
+      "nombre": "Epitelio pigmentario",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "optic-nerve-nervio-optico",
       "numero": 5.0,
-      "nombre": "Optic nerve (Nervio óptico)",
+      "nombre": "Nervio óptico",
       "descripcion": "",
       "puntos": [
         {

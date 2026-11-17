@@ -21,7 +21,7 @@
     {
       "id": "celula-ciliada-ciliated-cell",
       "numero": 1.0,
-      "nombre": "Célula ciliada (Ciliated Cell)",
+      "nombre": "Célula ciliada",
       "descripcion": "",
       "puntos": [
         {
@@ -60,7 +60,7 @@
     {
       "id": "celulas-secretoras-peg-cells",
       "numero": 4.0,
-      "nombre": "Células secretoras (peg cells)",
+      "nombre": "Células secretoras",
       "descripcion": "",
       "puntos": [
         {

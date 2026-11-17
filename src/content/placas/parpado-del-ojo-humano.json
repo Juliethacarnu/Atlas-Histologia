@@ -21,7 +21,7 @@
     {
       "id": "eyelash-follicle-foliculo-piloso-de-la-pestana",
       "numero": 1.0,
-      "nombre": "Eyelash follicle (Folículo piloso de la pestaña)",
+      "nombre": "Folículo piloso de la pestaña",
       "descripcion": "",
       "puntos": [
         {
@@ -34,7 +34,7 @@
     {
       "id": "glands-of-meibom-glandulas-de-meibomio",
       "numero": 2.0,
-      "nombre": "Glands of Meibom (Glándulas de Meibomio)",
+      "nombre": "Glándulas de Meibomio",
       "descripcion": "",
       "puntos": [
         {
@@ -47,12 +47,12 @@
     {
       "id": "cornea-cornea-nota-el-rotulo-azul-apunta-hacia-el-espacio-o",
       "numero": 3.0,
-      "nombre": "Cornea (Córnea)",
+      "nombre": "Córnea",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.4526,
-          "y": 0.9397,
+          "x": 0.466,
+          "y": 0.9586,
           "imagen": 0
         }
       ]
@@ -60,7 +60,7 @@
     {
       "id": "muscle-musculo-orbicular-de-los-parpados",
       "numero": 4.0,
-      "nombre": "Muscle (Músculo orbicular de los párpados)",
+      "nombre": "Músculo orbicular de los párpados",
       "descripcion": "",
       "puntos": [
         {
@@ -73,7 +73,7 @@
     {
       "id": "epidermis-epidermis",
       "numero": 5.0,
-      "nombre": "Epidermis (Epidermis)",
+      "nombre": "Epidermis",
       "descripcion": "",
       "puntos": [
         {
@@ -86,7 +86,7 @@
     {
       "id": "tarsal-plate-tarso-placa-tarsal",
       "numero": 6.0,
-      "nombre": "Tarsal plate (Tarso / Placa tarsal)",
+      "nombre": "Tarso / Placa tarsal",
       "descripcion": "",
       "puntos": [
         {
@@ -99,7 +99,7 @@
     {
       "id": "conjunctiva-conjuntiva-palpebral",
       "numero": 7.0,
-      "nombre": "Conjunctiva (Conjuntiva palpebral)",
+      "nombre": "Conjuntiva palpebral",
       "descripcion": "",
       "puntos": [
         {
