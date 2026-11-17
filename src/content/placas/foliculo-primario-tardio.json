@@ -25,8 +25,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.75,
-          "y": 0.17,
+          "x": 0.7644,
+          "y": 0.2445,
           "imagen": 0
         }
       ]
@@ -38,8 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.775,
-          "y": 0.395,
+          "x": 0.7675,
+          "y": 0.4047,
           "imagen": 0
         }
       ]
@@ -69,20 +69,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "ovocito-primario",
-      "numero": 5.0,
-      "nombre": "Ovocito primario",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "foliculo-primario-tardio",
-      "numero": 6.0,
-      "nombre": "Folículo primario tardío",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false
