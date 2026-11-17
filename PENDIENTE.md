@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**457 de 488 estructuras marcadas (94%). Quedan 31.**
+**462 de 488 estructuras marcadas (95%). Quedan 26.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (29)
+## Reproductor femenino (24)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -32,11 +32,6 @@ estructuras que esa foto concreta no rotula.
 | Cérvix | 5 | Unión escamocolumnar |
 | Cérvix | 6 | Estroma cervical |
 | Cérvix | 7 | Cérvix (cuello uterino) |
-| Epitelio del Oviducto | 2 | Epitelio cilíndrico simple |
-| Epitelio del Oviducto | 3 | Cilios |
-| Epitelio del Oviducto | 4 | Células secretoras (peg cells) |
-| Epitelio del Oviducto | 5 | Lámina propia |
-| Epitelio del Oviducto | 6 | Mucosa del oviducto |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
 | Vagina | 2 | Epitelio plano estratificado no queratinizado |

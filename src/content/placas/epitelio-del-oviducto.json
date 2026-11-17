@@ -36,35 +36,65 @@
       "numero": 2.0,
       "nombre": "Epitelio cilíndrico simple",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5574,
+          "y": 0.798,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cilios",
       "numero": 3.0,
       "nombre": "Cilios",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8444,
+          "y": 0.6416,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "celulas-secretoras-peg-cells",
       "numero": 4.0,
       "nombre": "Células secretoras (peg cells)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.6689,
+          "y": 0.697,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "lamina-propia",
       "numero": 5.0,
       "nombre": "Lámina propia",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.596,
+          "y": 0.1089,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "mucosa-del-oviducto",
       "numero": 6.0,
       "nombre": "Mucosa del oviducto",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3642,
+          "y": 0.396,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
