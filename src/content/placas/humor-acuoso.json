@@ -38,8 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.215,
-          "y": 0.605,
+          "x": 0.2104,
+          "y": 0.584,
           "imagen": 0
         }
       ]
@@ -64,21 +64,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.57,
-          "y": 0.625,
-          "imagen": 0
-        }
-      ]
-    },
-    {
-      "id": "musculo-esfinter-de-la-pupila-pupillary-sphincter-muscle",
-      "numero": 5.0,
-      "nombre": "Músculo esfínter de la pupila",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.855,
-          "y": 0.965,
+          "x": 0.5396,
+          "y": 0.6445,
           "imagen": 0
         }
       ]
