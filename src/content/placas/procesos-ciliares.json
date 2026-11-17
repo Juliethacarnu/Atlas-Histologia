@@ -25,8 +25,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.145,
-          "y": 0.18,
+          "x": 0.1142,
+          "y": 0.381,
           "imagen": 0
         }
       ]
@@ -38,8 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.605,
-          "y": 0.095,
+          "x": 0.5178,
+          "y": 0.1448,
           "imagen": 0
         }
       ]
@@ -51,13 +51,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.215,
-          "y": 0.755,
-          "imagen": 0
-        },
-        {
-          "x": 0.29,
-          "y": 0.62,
+          "x": 0.2906,
+          "y": 0.621,
           "imagen": 0
         }
       ]
@@ -69,12 +64,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.435,
-          "y": 0.565,
-          "imagen": 0
-        },
-        {
-          "x": 0.695,
+          "x": 0.6954,
           "y": 0.36,
           "imagen": 0
         }
@@ -83,12 +73,12 @@
     {
       "id": "lens-cristalin",
       "numero": 5.0,
-      "nombre": "Lens (Cristalin",
+      "nombre": "Lens (Cristalino)",
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.93,
-          "y": 0.555,
+          "x": 0.9137,
+          "y": 0.7238,
           "imagen": 0
         }
       ]
