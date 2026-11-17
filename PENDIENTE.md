@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**497 de 507 estructuras marcadas (98%). Quedan 10.**
+**503 de 507 estructuras marcadas (99%). Quedan 4.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -22,15 +22,9 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
 
-## Oido interno (8)
+## Oido interno (2)
 
 | Placa | Nº | Estructura |
 |---|---|---|
-| Ampolla del canal semicircular y utrículo | 1 | Bone (Hueso) |
-| Ampolla del canal semicircular y utrículo | 2 | Perilymph space (Espacio perilinfático) |
-| Ampolla del canal semicircular y utrículo | 3 | Ampulla of semicircular canal (Ampolla del canal semicircular) |
-| Ampolla del canal semicircular y utrículo | 4 | Crista (Cresta ampular) |
-| Ampolla del canal semicircular y utrículo | 5 | Utricle (Utrículo) |
-| Ampolla del canal semicircular y utrículo | 6 | Macula (Mácula acústica) |
 | Cresta ampular | 1 | Cupola (Cúpula gelatinosa) |
 | Cresta ampular | 2 | Hair cells (Células ciliadas) |

@@ -1,0 +1,103 @@
+{
+  "id": "ampolla-del-canal-semicircular",
+  "titulo": "Ampolla del canal semicircular y utrículo",
+  "sistema": "oido",
+  "organo": "Ampolla del canal semicircular y utrículo del oído interno",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "40x"
+  ],
+  "descripcionGeneral": "La imagen muestra las estructuras del laberinto membranoso contenidas en el espacio perilinfático dentro de la cavidad ósea protectora. Se observa la ampolla del canal semicircular que aloja la cresta ampular encargada de detectar la aceleración angular, comunicándose directamente con la cavidad del utrículo, cuya pared presenta la mácula acústica especializada en el registro del equilibrio estático y la aceleración lineal.",
+  "fuente": "",
+  "credito": "Figura 1. Ampolla del canal semicircular y utrículo del oído interno. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
+  "presentador": null,
+  "imagenes": [
+    {
+      "archivo": "ampolla-del-canal-semicircular-1",
+      "aumento": "40x",
+      "credito": "Figura 1. Ampolla del canal semicircular y utrículo del oído interno. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "bone-hueso",
+      "numero": 1,
+      "nombre": "Bone (Hueso)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.344,
+          "y": 0.068,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "perilymph-space-espacio-perilinfatico",
+      "numero": 2,
+      "nombre": "Perilymph space (Espacio perilinfático)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5046,
+          "y": 0.3061,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ampulla-of-semicircular-canal-ampolla-del-canal-semicircular",
+      "numero": 3,
+      "nombre": "Ampulla of semicircular canal (Ampolla del canal semicircular)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.172,
+          "y": 0.5612,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "crista-cresta-ampular",
+      "numero": 4,
+      "nombre": "Crista (Cresta ampular)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3326,
+          "y": 0.6667,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "utricle-utriculo",
+      "numero": 5,
+      "nombre": "Utricle (Utrículo)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6651,
+          "y": 0.6293,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "macula-macula-acustica",
+      "numero": 6,
+      "nombre": "Macula (Mácula acústica)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.7867,
+          "y": 0.6429,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}
