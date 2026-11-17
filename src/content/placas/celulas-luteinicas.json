@@ -43,27 +43,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "cuerpo-luteo",
-      "numero": 3.0,
-      "nombre": "Cuerpo lúteo",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "estroma-ovarico",
-      "numero": 4.0,
-      "nombre": "Estroma ovárico",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "capilares-y-vasos-sanguineos",
-      "numero": 5.0,
-      "nombre": "Capilares y vasos sanguíneos",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false
