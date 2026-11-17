@@ -28,7 +28,13 @@
       "numero": 1.0,
       "nombre": "Cuerpo albicans",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5569,
+          "y": 0.5929,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-fibroso-fibrous-tissue",
@@ -37,8 +43,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.655,
-          "y": 0.25,
+          "x": 0.6808,
+          "y": 0.5178,
           "imagen": 0
         }
       ]
@@ -48,7 +54,13 @@
       "numero": 3.0,
       "nombre": "Estroma ovárico",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8705,
+          "y": 0.9249,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "foliculos-ovaricos-circundantes",
@@ -62,7 +74,13 @@
       "numero": 5.0,
       "nombre": "Vasos sanguíneos",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.24,
+          "y": 0.9526,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
