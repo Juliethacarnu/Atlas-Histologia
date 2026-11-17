@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**456 de 494 estructuras marcadas (92%). Quedan 38.**
+**456 de 491 estructuras marcadas (93%). Quedan 35.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (36)
+## Reproductor femenino (33)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -37,9 +37,6 @@ estructuras que esa foto concreta no rotula.
 | Epitelio del Oviducto | 4 | Células secretoras (peg cells) |
 | Epitelio del Oviducto | 5 | Lámina propia |
 | Epitelio del Oviducto | 6 | Mucosa del oviducto |
-| Folículo Atrésico | 1 | Folículo atrésico |
-| Folículo Atrésico | 4 | Tejido conectivo fibroso |
-| Folículo Atrésico | 5 | Estroma ovárico |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
 | Trompa Uterina | 3 | Luz del oviducto |

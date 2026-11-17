@@ -24,15 +24,8 @@
   },
   "estructuras": [
     {
-      "id": "foliculo-atresico",
-      "numero": 1.0,
-      "nombre": "Folículo atrésico",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
       "id": "membrana-vitrea-glassy-membrane",
-      "numero": 2.0,
+      "numero": 1,
       "nombre": "Membrana vítrea (Glassy Membrane)",
       "descripcion": "",
       "puntos": [
@@ -45,7 +38,7 @@
     },
     {
       "id": "cuerpo-fibroso-corpus-fibrosum",
-      "numero": 3.0,
+      "numero": 2,
       "nombre": "Cuerpo fibroso (Corpus Fibrosum)",
       "descripcion": "",
       "puntos": [
@@ -55,20 +48,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "tejido-conectivo-fibroso",
-      "numero": 4.0,
-      "nombre": "Tejido conectivo fibroso",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "estroma-ovarico",
-      "numero": 5.0,
-      "nombre": "Estroma ovárico",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false
