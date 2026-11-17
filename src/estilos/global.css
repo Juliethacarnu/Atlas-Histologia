@@ -43,6 +43,7 @@
   --color-sis-reproductor-masculino: #4a3fb5;
   --color-sis-reproductor-femenino: #b02a6b;
   --color-sis-ojo: #15607e;
+  --color-sis-oido: #8a5a1f;
 
   --font-serif: 'Newsreader Variable', ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans:
@@ -137,6 +138,7 @@
     --color-sis-reproductor-masculino: #a79bf5;
     --color-sis-reproductor-femenino: #f08cb8;
     --color-sis-ojo: #6fc3e0;
+    --color-sis-oido: #e0a85c;
     --atlas-acento: var(--color-hematoxilina-claro);
     --atlas-campo: var(--color-nucleo-profundo);
     --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -168,6 +170,7 @@
   --color-sis-reproductor-masculino: #a79bf5;
   --color-sis-reproductor-femenino: #f08cb8;
   --color-sis-ojo: #6fc3e0;
+  --color-sis-oido: #e0a85c;
   --atlas-acento: var(--color-hematoxilina-claro);
   --atlas-campo: var(--color-nucleo-profundo);
   --atlas-sombra-baja: 0 1px 2px rgb(0 0 0 / 0.4);

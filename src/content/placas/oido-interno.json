@@ -1,0 +1,116 @@
+{
+  "id": "oido-interno",
+  "titulo": "Oído Interno",
+  "sistema": "oido",
+  "organo": "Oído interno",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "40x"
+  ],
+  "descripcionGeneral": "El oído interno, específicamente la cóclea, es la estructura responsable de transformar las vibraciones sonoras en impulsos nerviosos. Está formada por tres compartimentos: la rampa vestibular (scala vestibuli), la rampa media (scala media) y la rampa timpánica (scala tympani). En la rampa media se localiza el órgano de Corti, que contiene las células sensoriales auditivas. Además, el ganglio espiral alberga los cuerpos celulares de las neuronas que transmiten la información auditiva al nervio vestibulococlear (VIII par craneal).",
+  "fuente": "",
+  "credito": "Figura 1. Cóclea del oído interno humano. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": null,
+  "imagenes": [
+    {
+      "archivo": "oido-interno-1",
+      "aumento": "40x",
+      "credito": "Figura 1. Cóclea del oído interno humano. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "rampa-timpanica-scala-tympani",
+      "numero": 1,
+      "nombre": "Rampa timpánica (Scala Tympani)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.3859,
+          "y": 0.3006,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "organo-de-corti-organ-of-corti",
+      "numero": 2,
+      "nombre": "Órgano de Corti (Organ of Corti)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4532,
+          "y": 0.3287,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "modiolo-modiolus",
+      "numero": 3,
+      "nombre": "Modiolo (Modiolus)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.1525,
+          "y": 0.6545,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "rampa-media-o-conducto-coclear-scala-media",
+      "numero": 4,
+      "nombre": "Rampa media o conducto coclear (Scala Media)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5005,
+          "y": 0.1742,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "rampa-vestibular-scala-vestibuli",
+      "numero": 5,
+      "nombre": "Rampa vestibular (Scala Vestibuli)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5962,
+          "y": 0.4522,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "ganglio-espiral-spiral-ganglion",
+      "numero": 6,
+      "nombre": "Ganglio espiral (Spiral Ganglion)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4553,
+          "y": 0.75,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "hueso-temporal-bone",
+      "numero": 7,
+      "nombre": "Hueso temporal (Bone)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6982,
+          "y": 0.1433,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

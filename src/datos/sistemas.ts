@@ -67,6 +67,13 @@ export const SISTEMAS = [
     placasEsperadas: 15,
     acento: 'var(--color-sis-ojo)',
   },
+  {
+    id: 'oido',
+    nombre: 'Oido interno',
+    descripcion: 'Coclea, organo de Corti y aparato vestibular.',
+    placasEsperadas: 4,
+    acento: 'var(--color-sis-oido)',
+  },
 ] as const;
 
 export type SistemaId = (typeof SISTEMAS)[number]['id'];
