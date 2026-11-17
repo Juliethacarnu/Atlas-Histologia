@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**451 de 498 estructuras marcadas (91%). Quedan 47.**
+**453 de 497 estructuras marcadas (91%). Quedan 44.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (45)
+## Reproductor femenino (42)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -30,9 +30,6 @@ estructuras que esa foto concreta no rotula.
 | Cuerpo Albicans | 3 | Estroma ovárico |
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
 | Cuerpo Albicans | 5 | Vasos sanguíneos |
-| Cuerpo lúteo | 1 | Cuerpo lúteo |
-| Cuerpo lúteo | 4 | Tejido conectivo estromal |
-| Cuerpo lúteo | 5 | Vasos sanguíneos del cuerpo lúteo |
 | Células Luteínicas | 3 | Cuerpo lúteo |
 | Células Luteínicas | 4 | Estroma ovárico |
 | Células Luteínicas | 5 | Capilares y vasos sanguíneos |

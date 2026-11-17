@@ -19,15 +19,8 @@
   "video": null,
   "estructuras": [
     {
-      "id": "cuerpo-luteo",
-      "numero": 1.0,
-      "nombre": "Cuerpo lúteo",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
       "id": "celulas-luteinicas-luteal-cells",
-      "numero": 2.0,
+      "numero": 1,
       "nombre": "Células luteínicas (Luteal Cells)",
       "descripcion": "",
       "puntos": [
@@ -40,7 +33,7 @@
     },
     {
       "id": "coagulo-sanguineo-blood-clot",
-      "numero": 3.0,
+      "numero": 2,
       "nombre": "Coágulo sanguíneo (Blood Clot)",
       "descripcion": "",
       "puntos": [
@@ -53,17 +46,29 @@
     },
     {
       "id": "tejido-conectivo-estromal",
-      "numero": 4.0,
+      "numero": 3,
       "nombre": "Tejido conectivo estromal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.856,
+          "y": 0.7227,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vasos-sanguineos-del-cuerpo-luteo",
-      "numero": 5.0,
+      "numero": 4,
       "nombre": "Vasos sanguíneos del cuerpo lúteo",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7287,
+          "y": 0.7598,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
