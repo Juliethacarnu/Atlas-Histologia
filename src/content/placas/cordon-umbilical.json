@@ -38,13 +38,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.31,
-          "y": 0.765,
-          "imagen": 0
-        },
-        {
-          "x": 0.705,
-          "y": 0.765,
+          "x": 0.3106,
+          "y": 0.7654,
           "imagen": 0
         }
       ]
@@ -54,21 +49,39 @@
       "numero": 3.0,
       "nombre": "Gelatina de Wharton",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.1863,
+          "y": 0.5482,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-conectivo-mucoso",
       "numero": 4.0,
       "nombre": "Tejido conectivo mucoso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8075,
+          "y": 0.5263,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cordon-umbilical",
       "numero": 5.0,
       "nombre": "Cordón umbilical",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8696,
+          "y": 0.1974,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
