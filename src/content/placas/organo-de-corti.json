@@ -1,0 +1,129 @@
+{
+  "id": "organo-de-corti",
+  "titulo": "Órgano de Corti",
+  "sistema": "oido",
+  "organo": "Órgano de Corti",
+  "tincion": "Hematoxilina y eosina (H&E)",
+  "aumentos": [
+    "40x"
+  ],
+  "descripcionGeneral": "El órgano de Corti es el receptor sensorial de la audición y se localiza sobre la membrana basilar dentro de la cóclea. Está formado por células ciliadas internas y externas, así como por células de sostén. Las vibraciones sonoras desplazan la membrana tectorial y los estereocilios de las células ciliadas, transformando la energía mecánica en impulsos nerviosos que serán transmitidos al cerebro.",
+  "fuente": "",
+  "credito": "Figura 1. Órgano de Corti de la cóclea humana. Fuente: Adaptado de Medcell Histology Guide (1).",
+  "presentador": null,
+  "imagenes": [
+    {
+      "archivo": "organo-de-corti-1",
+      "aumento": "40x",
+      "credito": "Figura 1. Órgano de Corti de la cóclea humana. Fuente: Adaptado de Medcell Histology Guide (1)."
+    }
+  ],
+  "video": null,
+  "estructuras": [
+    {
+      "id": "membrana-vestibular-vestibular-membrane",
+      "numero": 1,
+      "nombre": "Membrana vestibular (Vestibular Membrane)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.2216,
+          "y": 0.0909,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "rampa-media-o-conducto-coclear-scala-media",
+      "numero": 2,
+      "nombre": "Rampa media o conducto coclear (Scala Media)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5909,
+          "y": 0.2901,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "membrana-tectorial-tectorial-membrane",
+      "numero": 3,
+      "nombre": "Membrana tectorial (Tectorial Membrane)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4261,
+          "y": 0.441,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celula-ciliada-interna-inner-hair-cell",
+      "numero": 4,
+      "nombre": "Célula ciliada interna (Inner Hair Cell)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4182,
+          "y": 0.6325,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-ciliadas-externas-outer-hair-cells",
+      "numero": 5,
+      "nombre": "Células ciliadas externas (Outer Hair Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.5318,
+          "y": 0.5919,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "celulas-de-sosten-sustentacular-cells",
+      "numero": 6,
+      "nombre": "Células de sostén (Sustentacular Cells)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6034,
+          "y": 0.6557,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "membrana-basilar-basilar-membrane",
+      "numero": 7,
+      "nombre": "Membrana basilar (Basilar Membrane)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6034,
+          "y": 0.7718,
+          "imagen": 0
+        }
+      ]
+    },
+    {
+      "id": "rampa-timpanica-scala-tympani",
+      "numero": 8,
+      "nombre": "Rampa timpánica (Scala Tympani)",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.6591,
+          "y": 0.9091,
+          "imagen": 0
+        }
+      ]
+    }
+  ],
+  "borrador": false
+}

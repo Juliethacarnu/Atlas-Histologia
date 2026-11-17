@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**489 de 507 estructuras marcadas (96%). Quedan 18.**
+**497 de 507 estructuras marcadas (98%). Quedan 10.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -22,7 +22,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
 
-## Oido interno (16)
+## Oido interno (8)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -34,11 +34,3 @@ estructuras que esa foto concreta no rotula.
 | Ampolla del canal semicircular y utrículo | 6 | Macula (Mácula acústica) |
 | Cresta ampular | 1 | Cupola (Cúpula gelatinosa) |
 | Cresta ampular | 2 | Hair cells (Células ciliadas) |
-| Órgano de Corti | 1 | Membrana vestibular (Vestibular Membrane) |
-| Órgano de Corti | 2 | Rampa media o conducto coclear (Scala Media) |
-| Órgano de Corti | 3 | Membrana tectorial (Tectorial Membrane) |
-| Órgano de Corti | 4 | Célula ciliada interna (Inner Hair Cell) |
-| Órgano de Corti | 5 | Células ciliadas externas (Outer Hair Cells) |
-| Órgano de Corti | 6 | Células de sostén (Sustentacular Cells) |
-| Órgano de Corti | 7 | Membrana basilar (Basilar Membrane) |
-| Órgano de Corti | 8 | Rampa timpánica (Scala Tympani) |
