@@ -30,13 +30,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.43,
-          "y": 0.395,
-          "imagen": 0
-        },
-        {
-          "x": 0.5,
-          "y": 0.375,
+          "x": 0.4302,
+          "y": 0.3961,
           "imagen": 0
         }
       ]
@@ -66,20 +61,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "sangre-materna",
-      "numero": 4.0,
-      "nombre": "Sangre materna",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "placenta",
-      "numero": 5.0,
-      "nombre": "Placenta",
-      "descripcion": "",
-      "puntos": []
     }
   ],
   "borrador": false
