@@ -82,19 +82,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "vagina",
-      "numero": 6.0,
-      "nombre": "Vagina",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.7919,
-          "y": 0.6735,
-          "imagen": 0
-        }
-      ]
     }
   ],
   "borrador": false
