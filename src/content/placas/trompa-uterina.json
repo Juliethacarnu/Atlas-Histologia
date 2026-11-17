@@ -49,28 +49,13 @@
       "numero": 3.0,
       "nombre": "Luz del oviducto",
       "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "pliegues-mucosos",
-      "numero": 4.0,
-      "nombre": "Pliegues mucosos",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "tunica-muscular",
-      "numero": 5.0,
-      "nombre": "Túnica muscular",
-      "descripcion": "",
-      "puntos": []
-    },
-    {
-      "id": "oviducto-trompa-uterina",
-      "numero": 6.0,
-      "nombre": "Oviducto (trompa uterina)",
-      "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.4526,
+          "y": 0.6805,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**456 de 491 estructuras marcadas (93%). Quedan 35.**
+**457 de 488 estructuras marcadas (94%). Quedan 31.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (33)
+## Reproductor femenino (29)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -39,10 +39,6 @@ estructuras que esa foto concreta no rotula.
 | Epitelio del Oviducto | 6 | Mucosa del oviducto |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
-| Trompa Uterina | 3 | Luz del oviducto |
-| Trompa Uterina | 4 | Pliegues mucosos |
-| Trompa Uterina | 5 | Túnica muscular |
-| Trompa Uterina | 6 | Oviducto (trompa uterina) |
 | Vagina | 2 | Epitelio plano estratificado no queratinizado |
 | Vagina | 3 | Lámina propia |
 | Vagina | 4 | Tejido conectivo denso |
