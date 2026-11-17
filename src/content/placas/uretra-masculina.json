@@ -63,6 +63,32 @@
       ]
     },
     {
+      "id": "epitelio",
+      "numero": 2.1,
+      "nombre": "Epitelio",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.37,
+          "y": 0.23,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "glandulas-de-littre",
+      "numero": 2.2,
+      "nombre": "Glandulas de Littre",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.8,
+          "y": 0.2,
+          "imagen": 1
+        }
+      ]
+    },
+    {
       "id": "cuerpo-esponjoso-del-pene",
       "numero": 3,
       "nombre": "Cuerpo esponjoso del pene",
@@ -90,32 +116,6 @@
           "x": 0.2,
           "y": 0.43,
           "imagen": 0
-        }
-      ]
-    },
-    {
-      "id": "epitelio",
-      "numero": 4,
-      "nombre": "Epitelio",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.37,
-          "y": 0.23,
-          "imagen": 1
-        }
-      ]
-    },
-    {
-      "id": "glandulas-de-littre",
-      "numero": 4,
-      "nombre": "Glandulas de Littre",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.8,
-          "y": 0.2,
-          "imagen": 1
         }
       ]
     }

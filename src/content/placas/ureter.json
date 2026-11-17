@@ -52,21 +52,8 @@
       ]
     },
     {
-      "id": "muscular-circular",
-      "numero": 3,
-      "nombre": "Muscular circular",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.68,
-          "y": 0.7,
-          "imagen": 0
-        }
-      ]
-    },
-    {
       "id": "muscular-longitudinal-interna",
-      "numero": 3,
+      "numero": 3.1,
       "nombre": "Muscular longitudinal interna",
       "descripcion": "",
       "puntos": [
@@ -78,8 +65,21 @@
       ]
     },
     {
+      "id": "muscular-circular",
+      "numero": 3.2,
+      "nombre": "Muscular circular",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.68,
+          "y": 0.7,
+          "imagen": 0
+        }
+      ]
+    },
+    {
       "id": "muscular-longitudinal-externa",
-      "numero": 3,
+      "numero": 3.3,
       "nombre": "Muscular longitudinal externa",
       "descripcion": "",
       "puntos": [

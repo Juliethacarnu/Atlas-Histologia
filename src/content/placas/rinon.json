@@ -50,16 +50,29 @@
     },
     {
       "id": "laberinto-cortical",
-            "numero": 3,
-            "nombre": "Laberinto Cortical",
-            "descripcion": "",
-            "puntos": [
-              {
-                "x": 0.4,
-                "y": 0.34,
-                "imagen": 1
-              }
-            ]
+      "numero": 2.1,
+      "nombre": "Laberinto Cortical",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.4,
+          "y": 0.34,
+          "imagen": 1
+        }
+      ]
+    },
+    {
+      "id": "rayos-medulares",
+      "numero": 2.2,
+      "nombre": "Rayos Medulares",
+      "descripcion": "",
+      "puntos": [
+        {
+          "x": 0.72,
+          "y": 0.71,
+          "imagen": 1
+        }
+      ]
     },
     {
       "id": "medula-renal",
@@ -71,19 +84,6 @@
           "x": 0.7,
           "y": 0.8,
           "imagen": 0
-        }
-      ]
-    },
-    {
-      "id": "rayos-medulares",
-      "numero": 3,
-      "nombre": "Rayos Medulares",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.72,
-          "y": 0.71,
-          "imagen": 1
         }
       ]
     },

@@ -66,7 +66,7 @@
     },
     {
       "id": "tubulos-rectos-proximales",
-      "numero": 4,
+      "numero": 3.1,
       "nombre": "Tubulos Rectos proximales",
       "descripcion": "",
       "puntos": [
@@ -79,7 +79,7 @@
     },
     {
       "id": "conductos-conectores-rectos",
-      "numero": 4,
+      "numero": 3.2,
       "nombre": "Conductos conectores rectos",
       "descripcion": "",
       "puntos": [
