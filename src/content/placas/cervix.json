@@ -100,19 +100,6 @@
           "imagen": 0
         }
       ]
-    },
-    {
-      "id": "cervix-cuello-uterino",
-      "numero": 7.0,
-      "nombre": "Cérvix (cuello uterino)",
-      "descripcion": "",
-      "puntos": [
-        {
-          "x": 0.5251,
-          "y": 0.3012,
-          "imagen": 0
-        }
-      ]
     }
   ],
   "borrador": false
