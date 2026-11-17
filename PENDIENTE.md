@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**469 de 488 estructuras marcadas (96%). Quedan 19.**
+**474 de 488 estructuras marcadas (97%). Quedan 14.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (17)
+## Reproductor femenino (12)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -29,11 +29,6 @@ estructuras que esa foto concreta no rotula.
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
-| Vagina | 2 | Epitelio plano estratificado no queratinizado |
-| Vagina | 3 | Lámina propia |
-| Vagina | 4 | Tejido conectivo denso |
-| Vagina | 5 | Mucosa vaginal |
-| Vagina | 6 | Vagina |
 | Vellosidad Coriónicas | 1 | Vellosidades coriónicas (Chorionic Villi) |
 | Vellosidad Coriónicas | 5 | Sangre materna |
 | Vellosidad Coriónicas | 6 | Placenta madura |

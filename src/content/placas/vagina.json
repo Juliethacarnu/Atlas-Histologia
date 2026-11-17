@@ -36,35 +36,65 @@
       "numero": 2.0,
       "nombre": "Epitelio plano estratificado no queratinizado",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.2941,
+          "y": 0.1939,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "lamina-propia",
       "numero": 3.0,
       "nombre": "Lámina propia",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.4751,
+          "y": 0.5102,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "tejido-conectivo-denso",
       "numero": 4.0,
       "nombre": "Tejido conectivo denso",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5656,
+          "y": 0.898,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "mucosa-vaginal",
       "numero": 5.0,
       "nombre": "Mucosa vaginal",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3733,
+          "y": 0.4082,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "vagina",
       "numero": 6.0,
       "nombre": "Vagina",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7919,
+          "y": 0.6735,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false
