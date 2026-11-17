@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**462 de 488 estructuras marcadas (95%). Quedan 26.**
+**464 de 488 estructuras marcadas (95%). Quedan 24.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (24)
+## Reproductor femenino (22)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -42,8 +42,6 @@ estructuras que esa foto concreta no rotula.
 | Vellosidad Coriónicas | 1 | Vellosidades coriónicas (Chorionic Villi) |
 | Vellosidad Coriónicas | 5 | Sangre materna |
 | Vellosidad Coriónicas | 6 | Placenta madura |
-| Útero | 6 | Glándulas endometriales |
-| Útero | 7 | Útero |
 
 ## Organo de la vision (1)
 
