@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**451 de 499 estructuras marcadas (90%). Quedan 48.**
+**451 de 498 estructuras marcadas (91%). Quedan 47.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (46)
+## Reproductor femenino (45)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -49,7 +49,6 @@ estructuras que esa foto concreta no rotula.
 | Folículo Atrésico | 1 | Folículo atrésico |
 | Folículo Atrésico | 4 | Tejido conectivo fibroso |
 | Folículo Atrésico | 5 | Estroma ovárico |
-| Folículo de Graaf | 6 | Folículo de Graaf o folículo maduro |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
 | Trompa Uterina | 3 | Luz del oviducto |
