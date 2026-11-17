@@ -54,35 +54,65 @@
       "numero": 3.0,
       "nombre": "Endocérvix",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.1167,
+          "y": 0.8032,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "ectocervix",
       "numero": 4.0,
       "nombre": "Ectocérvix",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.7468,
+          "y": 0.6627,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "union-escamocolumnar",
       "numero": 5.0,
       "nombre": "Unión escamocolumnar",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.3221,
+          "y": 0.6667,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "estroma-cervical",
       "numero": 6.0,
       "nombre": "Estroma cervical",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.8168,
+          "y": 0.8635,
+          "imagen": 0
+        }
+      ]
     },
     {
       "id": "cervix-cuello-uterino",
       "numero": 7.0,
       "nombre": "Cérvix (cuello uterino)",
       "descripcion": "",
-      "puntos": []
+      "puntos": [
+        {
+          "x": 0.5251,
+          "y": 0.3012,
+          "imagen": 0
+        }
+      ]
     }
   ],
   "borrador": false

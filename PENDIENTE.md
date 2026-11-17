@@ -2,7 +2,7 @@
 
 Generado desde `src/content/placas/`.
 
-**464 de 488 estructuras marcadas (95%). Quedan 24.**
+**469 de 488 estructuras marcadas (96%). Quedan 19.**
 
 Las marcas colocadas salen de los rotulos, flechas y numeros que las propias
 laminas llevan dibujados, no de una identificacion hecha a ojo. Lo que queda
@@ -16,7 +16,7 @@ estructuras que esa foto concreta no rotula.
 |---|---|---|
 | Yeyuno | 1.1 | Enterocitos |
 
-## Reproductor femenino (22)
+## Reproductor femenino (17)
 
 | Placa | Nº | Estructura |
 |---|---|---|
@@ -27,11 +27,6 @@ estructuras que esa foto concreta no rotula.
 | Cordón Umbilical | 4 | Tejido conectivo mucoso |
 | Cordón Umbilical | 5 | Cordón umbilical |
 | Cuerpo Albicans | 4 | Folículos ováricos circundantes |
-| Cérvix | 3 | Endocérvix |
-| Cérvix | 4 | Ectocérvix |
-| Cérvix | 5 | Unión escamocolumnar |
-| Cérvix | 6 | Estroma cervical |
-| Cérvix | 7 | Cérvix (cuello uterino) |
 | Placenta | 4 | Sangre materna |
 | Placenta | 5 | Placenta |
 | Vagina | 2 | Epitelio plano estratificado no queratinizado |
