@@ -44,7 +44,7 @@ if (!nombre) {
 
 const ORIGEN = join('originales', 'avatares', nombre, 'visemas');
 const DESTINO = join('public', 'avatares', nombre);
-const LADO = 512;
+const LADO = 768;
 const BOCAS = ['B', 'C', 'D', 'E', 'F'];
 /**
  * Cada grupo es una zona de la cara que cambia: la boca al hablar, los ojos al

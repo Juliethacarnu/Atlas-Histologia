@@ -65,7 +65,7 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
             <div class="explicador__escenario">
               <Avatar
                 presentador={presentador}
-                tamano={116}
+                tamano={320}
                 animable={true}
                 conBucle={true}
                 clase="avatar-escenario"
@@ -152,7 +152,7 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
   }
 
   .explicador__ventana {
-    width: min(17.5rem, calc(100vw - 1.5rem));
+    width: min(20rem, calc(100vw - 1.5rem));
     overflow: hidden;
   }
 
@@ -184,14 +184,35 @@ const subtitulo = video ? 'explica esta lámina' : 'sin explicación todavía';
 
   /* Escenario del modo audio: la caricatura sobre el campo oscuro, el mismo
      material que el fondo del visor. */
+  /* El presentador ocupa todo el escenario, en cuadrado y sin recorte en
+     circulo: en pequeno y redondo se perdia la cara. En pantallas bajitas el
+     cuadrado se encoge para que el reproductor no se salga. */
   .explicador__escenario {
     display: grid;
-    /* La caricatura va centrada en el escenario. Iba apoyada abajo, que es
-       lo que pedia un recorte de cuerpo entero, pero con el retrato en
-       circulo deja un hueco muerto arriba y se ve descolgada. */
     place-items: center;
-    aspect-ratio: 16 / 11;
     background: var(--color-nucleo);
+  }
+  .explicador__escenario :global(.avatar-escenario) {
+    width: min(100%, 46dvh);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 0;
+    background: none;
+    overflow: hidden;
+  }
+  .explicador__escenario :global(.avatar-escenario) {
+    position: relative;
+  }
+  .explicador__escenario :global(.avatar-escenario .avatar__imagen),
+  .explicador__escenario :global(.avatar-escenario .avatar__cara-foto) {
+    border-radius: 0;
+  }
+  /* Foto y video llenan el cuadro por posicion, no por su tamano natural:
+     si no, el video (640 px) estira la celda y la cara sale ampliada. */
+  .explicador__escenario :global(.avatar-escenario .avatar__imagen) {
+    position: absolute;
+    inset: 0;
+    object-position: 50% 50%;
   }
 
   .explicador__transporte-hueco {
