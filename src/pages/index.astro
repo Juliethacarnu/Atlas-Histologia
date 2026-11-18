@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import logoCompleto from '../assets/logo-atlas-completo.png';
 import Base from '../layouts/Base.astro';
 import Portaobjetos from '../componentes/Portaobjetos.astro';
 import BuscadorFiltros from '../componentes/BuscadorFiltros.astro';
@@ -64,6 +66,15 @@ let contadorGlobal = 0;
     <div class="consola__foco" aria-hidden="true"></div>
 
     <div class="consola__cuerpo contenedor-bandeja">
+      <Image
+        src={logoCompleto}
+        alt="Logo del Atlas Digital de Histología, elaborado por Andrea Carreño y Juanca Alaguna"
+        class="consola__logo"
+        widths={[320, 480, 720, 960]}
+        sizes="(min-width: 1024px) 26rem, 13rem"
+        loading="eager"
+        fetchpriority="high"
+      />
       <p class="consola__kicker rotulo">Atlas digital de histología</p>
 
       <h1 class="consola__titulo">
@@ -209,6 +220,25 @@ let contadorGlobal = 0;
   .consola__cuerpo {
     position: relative;
     z-index: 1;
+  }
+
+  /* El logo completo: en movil va arriba y centrado; en escritorio ocupa el
+     hueco de la derecha, a la altura del titulo. */
+  .consola__logo {
+    display: block;
+    width: min(13rem, 60vw);
+    height: auto;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 10px 40px color-mix(in srgb, var(--color-eosina) 35%, transparent));
+  }
+  @media (min-width: 1024px) {
+    .consola__logo {
+      position: absolute;
+      top: -1.5rem;
+      right: clamp(0rem, 4vw - 2rem, 3rem);
+      width: clamp(16rem, 23vw, 22rem);
+      margin: 0;
+    }
   }
 
   .consola__kicker {

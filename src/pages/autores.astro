@@ -55,7 +55,7 @@ const sinPresentador = placas.filter(
           <header class="autor__firma">
             <Avatar presentador={presentador} tamano={64} />
             <div class="min-w-0">
-              <h2 id={`autor-${presentador.id}`} class="autor__nombre">{presentador.nombre}</h2>
+              <h2 id={`autor-${presentador.id}`} class="autor__nombre">{presentador.nombreCompleto ?? presentador.nombre}</h2>
               <p class="autor__rol">{presentador.rol}</p>
             </div>
             <span class="autor__cuenta tabular-nums">

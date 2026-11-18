@@ -10,6 +10,8 @@ const presentadores = defineCollection({
   schema: z.object({
     id: z.string(),
     nombre: z.string(),
+    /** Nombre y apellidos, para la pagina de autores. El visor usa el corto. */
+    nombreCompleto: z.string().optional(),
     rol: z.string().default('Presentador'),
     /**
      * Carpeta dentro de public/avatares/ con los fotogramas de la caricatura,
