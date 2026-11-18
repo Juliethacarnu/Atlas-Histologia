@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 /**
@@ -46,4 +46,33 @@ export function fotogramasDe(carpeta: string | null | undefined): string[] {
   }
   memoria.set(carpeta, lista);
   return lista;
+}
+
+/** Donde va cada boca sobre la cara base, tal como la deja npm run visemas. */
+export interface Visemas {
+  bocas: string[];
+  x: number;
+  y: number;
+  ancho: number;
+  alto: number;
+}
+
+const memoriaVisemas = new Map<string, Visemas | null>();
+
+/**
+ * Bocas para lip-sync de un presentador: public/avatares/<carpeta>/visemas/.
+ * Devuelve null si no las tiene; entonces el avatar sigue como antes.
+ */
+export function visemasDe(carpeta: string | null | undefined): Visemas | null {
+  if (!carpeta) return null;
+  if (memoriaVisemas.has(carpeta)) return memoriaVisemas.get(carpeta)!;
+  let visemas: Visemas | null = null;
+  try {
+    const json = readFileSync(join(RAIZ, carpeta, 'visemas', 'visemas.json'), 'utf8');
+    visemas = JSON.parse(json) as Visemas;
+  } catch {
+    /* Sin bocas preparadas: no es un error. */
+  }
+  memoriaVisemas.set(carpeta, visemas);
+  return visemas;
 }

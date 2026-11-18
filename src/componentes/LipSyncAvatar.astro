@@ -1,0 +1,57 @@
+---
+/**
+ * Las bocas de una caricatura con lip-sync, apiladas sobre su cara base.
+ *
+ * Solo pinta las capas: la cara de abajo la pone Avatar.astro, y quien decide
+ * que boca se ve en cada momento es el controlador del cliente
+ * (src/cliente/lipsync-avatar.ts), que sigue el audio con su JSON de
+ * public/lipsync/. Cada boca es un recorte pequeno con el borde difuminado
+ * (npm run visemas), asi que lo unico que cambia al hablar es la boca: el
+ * pelo, los ojos y la bata son siempre la misma imagen.
+ */
+import type { Visemas } from '../utils/avatares';
+import { ruta } from '../utils/ruta';
+
+interface Props {
+  carpeta: string;
+  visemas: Visemas;
+}
+const { carpeta, visemas } = Astro.props;
+const pct = (n: number) => `${(n * 100).toFixed(3)}%`;
+---
+
+{visemas.bocas.map((boca) => (
+  <img
+    src={ruta('avatares', carpeta, 'visemas', `${boca}.webp`)}
+    alt=""
+    aria-hidden="true"
+    decoding="async"
+    class="lipsync__boca"
+    style={`left:${pct(visemas.x)};top:${pct(visemas.y)};width:${pct(visemas.ancho)};height:${pct(visemas.alto)}`}
+    data-visema={boca}
+  />
+))}
+
+<style>
+  /* Cada boca espera tapada encima de la cara. La que entra aparece por
+     encima de la que sale y esta se apaga un instante despues, ya cubierta:
+     asi nunca se ve la cara base a medio camino entre dos bocas. */
+  .lipsync__boca {
+    position: absolute;
+    z-index: 1;
+    max-width: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 70ms linear 60ms;
+  }
+  .lipsync__boca[data-activo] {
+    z-index: 2;
+    opacity: 1;
+    transition-delay: 0ms;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lipsync__boca {
+      display: none;
+    }
+  }
+</style>

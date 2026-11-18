@@ -258,6 +258,67 @@ caricatura hace un rebote muy corto. Si no hay video, se queda estática. Con
 
 ---
 
+### Avatar que habla (lip-sync)
+
+Una caricatura puede mover la boca sincronizada con su audio. Hoy la tiene Andrea.
+
+**1. Las bocas.** Hacen falta seis retratos del mismo personaje, iguales salvo la boca, en
+`originales/avatares/<Nombre>/visemas/`:
+
+| Archivo | Boca |
+|---|---|
+| `X.png` | cerrada, en reposo (es la cara base) |
+| `B.png` | apertura leve |
+| `C.png` | apertura media |
+| `D.png` | apertura amplia (a) |
+| `E.png` | labios redondos (o, u) |
+| `F.png` | labiodental (f, v) |
+
+```bash
+npm run visemas -- Andrea
+```
+
+El script alinea cada retrato con `X` (por ojos y nariz), recorta solo la zona de la boca con el
+borde difuminado y deja en `public/avatares/<Nombre>/` la cara base (`<Nombre>1.webp`) y las bocas
+(`visemas/*.webp` + `visemas.json`). En la página la cara base no cambia nunca: solo se cambia la
+boca de encima, así el pelo y la bata no tiemblan.
+
+**2. La sincronización de cada audio.**
+
+```bash
+npm run lipsync              # los audios nuevos o cambiados
+npm run lipsync -- --todo    # todos otra vez
+npm run lipsync -- ano       # solo ano.m4a
+```
+
+Analiza `public/audios/*` con [Rhubarb Lip Sync](https://github.com/DanielSWolf/rhubarb-lip-sync)
+y deja `public/lipsync/<audio>.json`. Rhubarb se descarga solo la primera vez a `.herramientas/`
+(no se sube a git); ffmpeg viene con `npm install`. Se usa su reconocedor **fonético**
+(`-r phonetic`), que no depende del idioma: el otro solo entiende inglés. Reconoce sonidos, no
+palabras, y a veces confunde vocales parecidas; para mover una boca alcanza.
+
+**Al agregar un audio nuevo:** déjalo en `public/audios/`, corre `npm run lipsync` y sube también
+el JSON que aparece en `public/lipsync/`. Si se te olvida, el audio funciona igual y la boca se
+mueve por volumen hasta que exista el JSON.
+
+**Cómo se usa en la página.** `src/componentes/LipSyncAvatar.astro` pinta las bocas encima de la
+cara y `src/cliente/lipsync-avatar.ts` (clase `LipSyncAvatar`) las mueve: en cada cuadro lee
+`audio.currentTime`, busca en el JSON la forma de boca de ese instante y destapa la imagen que le
+corresponde. Pausar, adelantar o retroceder no la descuadra porque siempre lee el tiempo del audio.
+Los códigos de Rhubarb no son los nombres de las imágenes; la tabla `MAPA_RHUBARB` los traduce:
+
+| Rhubarb | Sonido | Imagen |
+|---|---|---|
+| X | silencio | X |
+| A | m, b, p (labios cerrados) | X |
+| B | s, t, k… (dientes casi juntos) | B |
+| C | e, i | C |
+| D | a | D |
+| E | o | E |
+| F | u | E |
+| G | f, v | F |
+| H | l | C |
+
 ## 5. Cómo subir los videos
 
 Hay tres caminos. Puedes mezclarlos: cada placa elige el suyo.

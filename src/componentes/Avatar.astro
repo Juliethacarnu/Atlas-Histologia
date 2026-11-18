@@ -1,7 +1,8 @@
 ---
 import type { Presentador } from '../utils/placas';
 import { iniciales } from '../utils/placas';
-import { fotogramasDe } from '../utils/avatares';
+import { fotogramasDe, visemasDe } from '../utils/avatares';
+import LipSyncAvatar from './LipSyncAvatar.astro';
 import { ruta } from '../utils/ruta';
 
 interface Props {
@@ -34,6 +35,9 @@ const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
 // primero; en silencio se queda el primero, que es la cara en reposo. Con un
 // solo fotograma no hay nada que pasar y la cara se queda quieta.
 const bocas = bucle ? [] : fotogramas.slice(1);
+// Si tiene bocas preparadas para lip-sync, la cara base no cambia nunca y
+// encima se pinta solo la boca que toca en cada instante (LipSyncAvatar).
+const visemas = !bucle && imagen ? visemasDe(presentador?.avatarCarpeta) : null;
 ---
 
 <span
@@ -41,12 +45,14 @@ const bocas = bucle ? [] : fotogramas.slice(1);
     'avatar',
     animable && 'avatar--animable',
     bucle && 'avatar--bucle',
-    bocas.length > 0 && 'avatar--boca',
+    (bocas.length > 0 || visemas) && 'avatar--boca',
+    visemas && 'avatar--lipsync',
     clase,
   ]}
   style={`--avatar-lado:${tamano}px; --avatar-color:${color}`}
   data-fotogramas={fotogramas.length > 1 ? fotogramas.length : undefined}
   data-avatar
+  data-lipsync={visemas ? '' : undefined}
 >
   {
     bucle ? (
@@ -76,6 +82,9 @@ const bocas = bucle ? [] : fotogramas.slice(1);
           decoding="async"
           class="avatar__imagen"
         />
+        {visemas && presentador?.avatarCarpeta && (
+          <LipSyncAvatar carpeta={presentador.avatarCarpeta} visemas={visemas} />
+        )}
         {bocas.map((cara, i) => (
           /* Las demas posiciones de la boca van apiladas encima, tapadas, y
              el reproductor va descubriendo una u otra mientras suena la
@@ -123,6 +132,13 @@ const bocas = bucle ? [] : fotogramas.slice(1);
       ),
       color-mix(in srgb, var(--avatar-color) 9%, transparent);
     overflow: visible;
+  }
+
+  /* Las bocas del lip-sync se colocan en porcentajes sobre la cara: el
+     avatar es su marco. Se recortan con el mismo circulo que la imagen. */
+  .avatar--lipsync {
+    position: relative;
+    overflow: hidden;
   }
 
   /* El bucle trae su propio fondo plano: el halo sobra. */

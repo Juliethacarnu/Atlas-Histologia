@@ -14,3 +14,6 @@ dist/
 # Los cuatro arboles de trabajo con las propuestas de diseno (uno por rama).
 # Son copias de este mismo repositorio: no se versionan dentro de si mismas.
 .variantes/
+
+# Rhubarb Lip Sync, que npm run lipsync descarga solo la primera vez.
+.herramientas/

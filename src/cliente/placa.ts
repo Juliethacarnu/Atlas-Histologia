@@ -10,6 +10,8 @@ import { crearReproductor, type Reproductor } from './video';
 import { prepararQuiz } from './quiz';
 import { montarTranscripcion } from './transcripcion';
 import { moverBoca } from './boca';
+import { LipSyncAvatar } from './lipsync-avatar';
+import { ruta } from '../utils/ruta';
 import { montarLupa } from './lupa';
 
 const datos = leerDatosPlaca();
@@ -485,6 +487,17 @@ function iniciar(datos: DatosPlaca) {
     const avatares = Array.from(
       document.querySelectorAll<HTMLElement>('.avatar--animable, .avatar--boca'),
     );
+
+    // Las caricaturas con bocas preparadas hablan con lip-sync: un solo
+    // controlador para todas, que sigue el audio con su JSON de public/lipsync/.
+    const conLipSync = avatares.filter((a) => a.hasAttribute('data-lipsync'));
+    if (conLipSync.length > 0 && reproductor.medio) {
+      const pista =
+        datos.video.tipo === 'audio'
+          ? ruta('lipsync', datos.video.src.replace(/\.[^./]+$/, '') + '.json')
+          : null;
+      new LipSyncAvatar(conLipSync).conectar(reproductor.medio, pista);
+    }
 
     botonAlternar?.addEventListener('click', () => reproductor?.alternar());
 

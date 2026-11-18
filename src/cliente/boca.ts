@@ -57,7 +57,7 @@ let contexto: AudioContext | null = null;
  */
 const oidos = new WeakMap<HTMLMediaElement, Promise<(() => number) | null>>();
 
-function escuchar(el: HTMLMediaElement): Promise<(() => number) | null> {
+export function escuchar(el: HTMLMediaElement): Promise<(() => number) | null> {
   const yaEsta = oidos.get(el);
   if (yaEsta) return yaEsta;
   const intento = enganchar(el);
