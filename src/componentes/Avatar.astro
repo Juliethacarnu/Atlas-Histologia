@@ -233,6 +233,23 @@ const visemas =
     opacity: 0;
   }
 
+  /* El video del presentador diciendo el audio (video-hablando.ts): tapa la
+     foto solo cuando ya tiene imagen que mostrar. */
+  .avatar :global(.avatar__hablando) {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+  .avatar[data-hablando] :global(.avatar__hablando) {
+    opacity: 1;
+  }
+
   .avatar__iniciales {
     display: grid;
     place-items: center;

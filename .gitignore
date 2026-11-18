@@ -17,3 +17,4 @@ dist/
 
 # Rhubarb Lip Sync, que npm run lipsync descarga solo la primera vez.
 .herramientas/
+__pycache__/

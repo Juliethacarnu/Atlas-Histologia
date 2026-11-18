@@ -335,6 +335,28 @@ Los códigos de Rhubarb no son los nombres de las imágenes; la tabla `MAPA_RHUB
 | G | f, v | F |
 | H | l | C |
 
+### Presentador que dice el audio de verdad (Wav2Lip)
+
+La opción más natural: en vez de cambiar fotos de boca, se toma el video corto
+del presentador (`originales/avatares/<Nombre>/<Nombre>-bucle-original.mp4`),
+se repite lo que dure el audio de la lámina y un modelo (Wav2Lip) le redibuja
+los labios para que digan ese audio. Sale un mp4 mudo por lámina en
+`public/hablando/<audio>.mp4`; si existe, el reproductor lo muestra pegado al
+audio (`src/cliente/video-hablando.ts`), y si no, usa lo de antes.
+
+```bash
+pip install onnxruntime numpy opencv-python-headless librosa   # Python 3.10-3.12
+python scripts/hablar_wav2lip.py            # láminas que aún no tienen video
+python scripts/hablar_wav2lip.py ano bazo   # solo esas
+python scripts/hablar_wav2lip.py --todo     # todas otra vez
+```
+
+Los dos modelos (enlaces en la cabecera del script) van en
+`~/.cache/atlas-lipsync/modelos/`. Sin GPU tarda más o menos lo que dura el
+audio. Por presentador hay que indicar en `RECORTES` (dentro del script) el
+recorte cuadrado y un segundo del video en que tenga **la boca cerrada**: es
+la cara que se usa de referencia y en los silencios.
+
 ## 5. Cómo subir los videos
 
 Hay tres caminos. Puedes mezclarlos: cada placa elige el suyo.

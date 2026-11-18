@@ -39,6 +39,8 @@ export interface DatosPlaca {
   imagenes: ImagenCliente[];
   estructuras: EstructuraCliente[];
   video: VideoCliente | null;
+  /** Video del presentador diciendo este audio (public/hablando/), si existe. */
+  hablando?: string | null;
 }
 
 export function leerDatosPlaca(): DatosPlaca | null {

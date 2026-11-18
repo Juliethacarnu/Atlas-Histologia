@@ -1,4 +1,5 @@
 ---
+import { existsSync } from 'node:fs';
 import { getCollection, getEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
@@ -48,6 +49,14 @@ const presentador = presentadorEntrada?.data ?? null;
 
 const imagenes = imagenesDe(placa);
 
+// El video del presentador diciendo este audio (scripts/hablar_wav2lip.py),
+// si ya se genero para esta lamina.
+const idAudio = placa.video?.tipo === 'audio' ? placa.video.src.replace(/\.[^./]+$/, '') : null;
+const hablando =
+  idAudio && existsSync(`public/hablando/${idAudio}.mp4`)
+    ? ruta('hablando', `${idAudio}.mp4`)
+    : null;
+
 // Datos que consume el cliente: sólo lo necesario, con coordenadas normalizadas.
 const datosCliente: DatosPlaca = {
   id: placa.id,
@@ -65,6 +74,7 @@ const datosCliente: DatosPlaca = {
     puntos: puntosDe(e),
   })),
   video: placa.video,
+  hablando,
 };
 
 const descripcion =
