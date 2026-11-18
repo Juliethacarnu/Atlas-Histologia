@@ -52,16 +52,10 @@ const lugar = (g: GrupoVisemas) =>
      asi nunca se ve la cara base a medio camino entre dos bocas. */
   .lipsync__boca {
     position: absolute;
-    z-index: 1;
     max-width: none;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 70ms linear 60ms;
-  }
-  .lipsync__boca[data-activo] {
-    z-index: 2;
-    opacity: 1;
-    transition-delay: 0ms;
+    transition: opacity 85ms linear;
   }
   /* El parpadeo baja rapido y sube un poco mas lento, como uno de verdad. */
   .lipsync__ojos {

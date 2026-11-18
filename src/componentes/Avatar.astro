@@ -91,6 +91,20 @@ const visemas =
           />
         )}
       </>
+    ) : imagen && visemas && presentador?.avatarCarpeta ? (
+      /* Con lip-sync, la foto y sus bocas van juntas en una capa algo mas
+         grande que el circulo: asi se puede mecer un poco sin ensenar borde. */
+      <span class="avatar__cara" data-cara>
+        <img
+          src={ruta('avatares', imagen)}
+          alt={`Caricatura de ${nombre}`}
+          width={tamano}
+          height={tamano}
+          decoding="async"
+          class="avatar__cara-foto"
+        />
+        <LipSyncAvatar carpeta={presentador.avatarCarpeta} visemas={visemas} />
+      </span>
     ) : imagen ? (
       <>
         <img
@@ -102,9 +116,6 @@ const visemas =
           decoding="async"
           class="avatar__imagen"
         />
-        {visemas && presentador?.avatarCarpeta && (
-          <LipSyncAvatar carpeta={presentador.avatarCarpeta} visemas={visemas} />
-        )}
         {bocas.map((cara, i) => (
           /* Las demas posiciones de la boca van apiladas encima, tapadas, y
              el reproductor va descubriendo una u otra mientras suena la
@@ -159,6 +170,22 @@ const visemas =
   .avatar--lipsync {
     position: relative;
     overflow: hidden;
+  }
+
+  .avatar__cara {
+    position: absolute;
+    inset: -3%;
+    display: block;
+    transform-origin: 50% 85%;
+    transition: transform 400ms ease-out;
+    will-change: transform;
+  }
+  .avatar__cara-foto {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
   }
 
   /* El bucle trae su propio fondo plano: el halo sobra. */
