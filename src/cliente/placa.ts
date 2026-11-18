@@ -489,7 +489,7 @@ function iniciar(datos: DatosPlaca) {
     // Por decision del grupo, la foto del presentador queda fija mientras
     // suena el audio: sin rebote ni boca. Para volver a animarla (lip-sync,
     // ver README) basta con poner AVATAR_ANIMADO en true aqui y en Avatar.astro.
-    const AVATAR_ANIMADO = true;
+    const AVATAR_ANIMADO = false;
     let avatares = AVATAR_ANIMADO
       ? Array.from(document.querySelectorAll<HTMLElement>('.avatar--animable, .avatar--boca'))
       : [];
@@ -497,7 +497,7 @@ function iniciar(datos: DatosPlaca) {
     // Si esta lamina tiene el video del presentador diciendo su audio, el
     // avatar grande del reproductor lo usa y deja de lado los demas trucos.
     const escenario = document.querySelector<HTMLElement>('.avatar-escenario');
-    if (datos.hablando && escenario && reproductor.medio) {
+    if (AVATAR_ANIMADO && datos.hablando && escenario && reproductor.medio) {
       new VideoHablando(escenario, reproductor.medio, datos.hablando);
       avatares = avatares.filter((a) => a !== escenario);
     }

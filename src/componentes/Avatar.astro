@@ -30,7 +30,11 @@ const nombre = presentador?.nombre ?? 'Sin presentador';
 const color = presentador?.avatarColor ?? '#2E2566';
 const fotogramas = fotogramasDe(presentador?.avatarCarpeta);
 const imagen = fotogramas[0] ?? null;
-const bucle = conBucle ? (presentador?.avatarBucle ?? null) : null;
+// Por decision del grupo, cada presentador es su foto fija: ni video en
+// bucle, ni bocas, ni video hablado. Para volver a animarlos, AVATAR_ANIMADO
+// = true aqui y en src/cliente/placa.ts.
+const AVATAR_ANIMADO = false;
+const bucle = AVATAR_ANIMADO && conBucle ? (presentador?.avatarBucle ?? null) : null;
 // Mientras hay voz se pasan todos los fotogramas en orden, volviendo al
 // primero; en silencio se queda el primero, que es la cara en reposo. Con un
 // solo fotograma no hay nada que pasar y la cara se queda quieta.
@@ -40,7 +44,6 @@ const bocas = bucle ? [] : fotogramas.slice(1);
 // Hoy la foto queda fija mientras suena el audio (decision del grupo): las
 // bocas no se pintan. Para volver al lip-sync, AVATAR_ANIMADO = true aqui y en
 // src/cliente/placa.ts.
-const AVATAR_ANIMADO = true;
 const visemas =
   AVATAR_ANIMADO && !presentador?.avatarBucle && imagen ? visemasDe(presentador?.avatarCarpeta) : null;
 ---

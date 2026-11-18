@@ -18,3 +18,6 @@ dist/
 # Rhubarb Lip Sync, que npm run lipsync descarga solo la primera vez.
 .herramientas/
 __pycache__/
+
+# Videos hablados de prueba (Wav2Lip): hoy no se usan y pesan.
+originales/hablando/
