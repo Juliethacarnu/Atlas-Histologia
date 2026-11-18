@@ -73,33 +73,52 @@ const APERTURA: Record<string, number> = {
   F: 0.2,
 };
 
-/**
- * Que forma toca para un sonido. `codigo` es el de Rhubarb, `dura` lo que
- * dura en segundos y `fuerza` lo fuerte que suena la voz en ese instante
- * (0 a 1, relativo a su propio pico). Una misma vocal abre mas si se dice
- * fuerte y larga que si pasa de corrido: asi la boca no repite siempre los
- * mismos tres gestos.
- */
-function elegirForma(codigo: string, dura: number, fuerza: number): string {
+/** Forma de cada sonido cuando se dice con voz normal. */
+function formaDe(codigo: string, dura: number): string {
   switch (codigo) {
-    case 'B': // consonantes
+    case 'B': // consonantes: dientes casi juntos
       return 'B';
     case 'H': // l
       return 'BC';
     case 'C': // e, i
-      return fuerza > 0.5 && dura >= 0.07 ? 'C' : 'BC';
-    case 'D': // a
-      if (fuerza > 0.62 && dura >= 0.09) return 'CD';
-      return fuerza > 0.3 ? 'C' : 'BC';
     case 'E': // o: la imagen redonda es demasiado "beso" para una o
-      return fuerza > 0.45 ? 'C' : 'BC';
-    case 'F': // u
-      return dura >= 0.08 ? 'U' : 'B';
+      return 'C';
+    case 'D': // a: la que mas abre
+      return 'CD';
+    case 'F': // u: la redonda solo si dura lo bastante para no ser un tic
+      return dura >= 0.1 ? 'U' : 'BC';
     case 'G': // f
       return 'F';
     default: // X silencio, A labios cerrados (m, b, p)
       return 'X';
   }
+}
+/** Un escalon menos de apertura, para cuando la voz se apaga. */
+const MAS_CERRADA: Record<string, string> = { CD: 'C', C: 'BC', BC: 'B' };
+const ES_VOCAL = new Set(['C', 'D', 'E', 'F']);
+const CONSONANTE_BLANDA = new Set(['B', 'H']);
+
+/**
+ * El guion de la boca. En el JSON las vocales duran muy poco (unos 60 ms) y
+ * las consonantes mucho; pintado tal cual, la boca no llega a abrir antes de
+ * volver a cerrar y se queda todo el rato entreabierta, sin ritmo. Al hablar
+ * lo que se ve son las vocales: cada una se alarga un poco a costa de la
+ * consonante que la sigue (salvo m, b, p y f, que si se tienen que ver).
+ */
+function planear(cues: [number, string][]): { t: Float64Array; formas: string[] } {
+  const t = Float64Array.from(cues, (c) => c[0]);
+  const formas: string[] = [];
+  for (let i = 0; i < cues.length; i++) {
+    const codigo = cues[i]![1];
+    const fin = i + 1 < cues.length ? cues[i + 1]![0] : cues[i]![0] + 0.2;
+    formas.push(formaDe(codigo, fin - cues[i]![0]));
+    const sig = cues[i + 1];
+    if (sig && ES_VOCAL.has(codigo) && CONSONANTE_BLANDA.has(sig[1])) {
+      const finSig = i + 2 < cues.length ? cues[i + 2]![0] : sig[0] + 0.2;
+      t[i + 1] = sig[0] + Math.min(0.07, (finSig - sig[0]) * 0.5);
+    }
+  }
+  return { t, formas };
 }
 
 export interface Pista {
@@ -108,6 +127,8 @@ export interface Pista {
   codigos: string[];
   /** El mismo tramo traducido a imagen (MAPA_RHUBARB); 'X' = boca cerrada. */
   bocas: string[];
+  /** El guion ya pensado para pintar: tiempos retocados y forma de cada tramo. */
+  plan: { t: Float64Array; formas: string[] };
 }
 
 /** Cada JSON se pide una vez por pagina. */
@@ -124,6 +145,7 @@ export function cargarPista(url: string): Promise<Pista | null> {
           tiempos: Float64Array.from(json.cues, (c) => c[0]),
           codigos: json.cues.map((c) => c[1]),
           bocas: json.cues.map((c) => MAPA_RHUBARB[c[1]] ?? 'X'),
+          plan: planear(json.cues),
         };
       })
       .catch(() => null);
@@ -133,8 +155,7 @@ export function cargarPista(url: string): Promise<Pista | null> {
 }
 
 /** Indice del ultimo tramo cuyo inicio ya paso (busqueda binaria); -1 si ninguno. */
-function tramoEn(pista: Pista, t: number): number {
-  const { tiempos } = pista;
+function tramoEn(tiempos: Float64Array, t: number): number {
   let lo = 0;
   let hi = tiempos.length - 1;
   if (hi < 0 || t < tiempos[0]!) return -1;
@@ -301,9 +322,9 @@ export class LipSyncAvatar {
     if (this.caras.length === 0) return;
     this.apertura += ((APERTURA[this.actual] ?? 0) - this.apertura) * 0.12;
     const s = ahora / 1000;
-    const x = Math.sin(s * 0.9) * 0.35 + Math.sin(s * 2.3 + 1) * 0.12;
+    const x = Math.sin(s * 0.9) * 0.25 + Math.sin(s * 2.3 + 1) * 0.08;
     const y = Math.sin(s * 1.3 + 2) * 0.25 + this.apertura * 0.9;
-    const giro = Math.sin(s * 0.7 + 0.5) * 0.45 + Math.sin(s * 1.9) * 0.15;
+    const giro = Math.sin(s * 0.7 + 0.5) * 0.3 + Math.sin(s * 1.9) * 0.1;
     const t = `translate(${x.toFixed(3)}%, ${y.toFixed(3)}%) rotate(${giro.toFixed(3)}deg)`;
     for (const c of this.caras) c.style.transform = t;
   }
@@ -329,12 +350,14 @@ export class LipSyncAvatar {
   private formaAhora(medio: HTMLMediaElement): string {
     const fuerza = this.fuerza();
     if (this.pista) {
-      const t = medio.currentTime + ADELANTO_S;
-      const i = tramoEn(this.pista, t);
+      const { t, formas } = this.pista.plan;
+      const i = tramoEn(t, medio.currentTime + ADELANTO_S);
       if (i < 0) return 'X';
-      const fin = this.pista.tiempos[i + 1] ?? this.pista.tiempos[i]! + 0.2;
-      // Sin poder oir el audio se supone una voz normal.
-      return elegirForma(this.pista.codigos[i]!, fin - this.pista.tiempos[i]!, fuerza ?? 0.55);
+      const forma = formas[i]!;
+      // Si la voz se esta apagando (final de frase), la boca abre un escalon
+      // menos. Sin poder oir el audio no se toca nada.
+      if (fuerza !== null && fuerza < 0.14) return MAS_CERRADA[forma] ?? forma;
+      return forma;
     }
     // Sin JSON: apertura solo por volumen.
     if (fuerza === null || fuerza < 0.06) return 'X';
@@ -352,7 +375,7 @@ export class LipSyncAvatar {
         const opacidad = mezcla[nombre] ?? 0;
         // La que sale espera un instante, ya tapada por la que entra: asi no
         // asoma la boca cerrada de debajo a medio camino entre dos formas.
-        capa.style.transitionDelay = opacidad === 0 ? '45ms' : '0ms';
+        capa.style.transitionDelay = opacidad === 0 ? '35ms' : '0ms';
         capa.style.opacity = String(opacidad);
       }
     }
