@@ -6,8 +6,9 @@
  * labios segun esa voz. Aqui se pone encima de la foto del reproductor y se
  * lleva pegado al audio: arranca, se pausa y salta con el.
  *
- * Antes de darle a reproducir (y si el video no carga) se ve la foto de
- * siempre: el video solo aparece cuando ya tiene un cuadro que mostrar.
+ * En cuanto el video tiene su primer cuadro tapa la foto, tambien en reposo:
+ * asi al darle a reproducir la cara no salta de la foto al video. Si el
+ * video no carga se queda la foto de siempre.
  */
 
 /** Desfase tolerado antes de recolocar el video (un cuadro son 40 ms). */
@@ -26,7 +27,7 @@ export class VideoHablando {
     video.className = 'avatar__hablando';
     video.muted = true;
     video.playsInline = true;
-    video.preload = 'metadata';
+    video.preload = 'auto';
     video.setAttribute('aria-hidden', 'true');
     video.tabIndex = -1;
     video.src = url;
@@ -41,7 +42,11 @@ export class VideoHablando {
     medio.addEventListener('ratechange', () => (video.playbackRate = medio.playbackRate));
     medio.addEventListener('ended', () => {
       this.parar();
-      avatar.removeAttribute('data-hablando');
+      // Vuelve al principio, con la boca cerrada.
+      video.currentTime = 0;
+    });
+    video.addEventListener('loadeddata', () => avatar.setAttribute('data-hablando', ''), {
+      once: true,
     });
     // Sin cuadro que mostrar no se destapa: se queda la foto.
     video.addEventListener('error', () => avatar.removeAttribute('data-hablando'));
