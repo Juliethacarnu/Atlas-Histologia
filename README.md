@@ -444,6 +444,14 @@ es lo que hace accesible la explicación para quien no puede oírla.
 > Igual que con el mp4, `.gitignore` no filtra los audios: revisa que ninguno se te vaya de
 > tamaño antes de empujar.
 
+### Mejorar el sonido de los audios
+
+Los audios se grabaron con teléfonos y en sitios distintos. `npm run audios`
+les quita el retumbe y el ruido de fondo, aclara un poco la voz y los deja
+todos al mismo volumen. El original se guarda en `originales/audios/` y la
+duración no cambia, así que subtítulos y lip-sync siguen cuadrando. Al añadir
+un audio nuevo basta con volver a correrlo: solo procesa los que faltan.
+
 ### Capítulos
 
 Los capítulos enlazan el video con los marcadores: al llegar el video a ese segundo, se resalta

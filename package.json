@@ -13,7 +13,8 @@
     "importar": "node scripts/importar-placas.mjs",
     "formato": "prettier --write \"**/*.{astro,ts,js,mjs,json,css,md}\"",
     "lipsync": "node scripts/lipsync.mjs",
-    "visemas": "node scripts/preparar-visemas.mjs"
+    "visemas": "node scripts/preparar-visemas.mjs",
+    "audios": "node scripts/mejorar-audios.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

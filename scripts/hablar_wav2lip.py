@@ -20,7 +20,8 @@ Requisitos (una vez; Python 3.10-3.12):
 y dos modelos en ~/.cache/atlas-lipsync/modelos/ (o en $ATLAS_MODELOS):
     wav2lip_gan.onnx  https://huggingface.co/bluefoxcreation/Wav2lip-Onnx
     yunet.onnx        https://github.com/opencv/opencv_zoo (face_detection_yunet_2023mar.onnx)
-Funciona sin GPU: ~1 minuto de computo por minuto de audio en 12 nucleos.
+    gpen_bfr_256.onnx https://github.com/facefusion/facefusion-assets (models-3.0.0)
+Funciona sin GPU: unos 3 minutos de computo por minuto de audio en 12 nucleos.
 """
 
 import glob
@@ -34,6 +35,9 @@ import cv2
 import librosa
 import numpy as np
 import onnxruntime as ort
+from concurrent.futures import ThreadPoolExecutor
+
+ort.set_default_logger_severity(3)
 
 PLACAS = os.path.join("src", "content", "placas")
 PRESENTADORES = os.path.join("src", "content", "presentadores.json")
@@ -44,6 +48,7 @@ MODELOS = os.environ.get("ATLAS_MODELOS", os.path.expanduser("~/.cache/atlas-lip
 FPS = 25
 LADO = 448  # lado del video final, cuadrado
 LOTE = 32
+HILOS = max(1, (os.cpu_count() or 4) // 3)  # restauradores de cara en paralelo
 
 # Por presentador: recorte cuadrado del bucle original (lado y borde de arriba,
 # en pixeles del original; el ancho se toma entero) y el segundo del bucle en
@@ -57,6 +62,9 @@ RECORTES = {
     "Daniel": (1080, 135, 3.5),
     "Andrea": (1080, 48, 10.7),
 }
+
+
+POZO = ThreadPoolExecutor(HILOS)
 
 
 def ffmpeg():
@@ -148,8 +156,10 @@ class Bucle:
             if caras is None or len(caras) == 0:
                 cajas.append(cajas[-1] if cajas else None)
                 continue
-            x, y, w, h = max(caras, key=lambda c: c[2] * c[3])[:4]
-            cajas.append([x, y, x + w, y + h])
+            cara = max(caras, key=lambda c: c[2] * c[3])
+            x, y, w, h = cara[:4]
+            # Caja y, detras, ojos y nariz (para enderezar la cara al afinarla).
+            cajas.append([x, y, x + w, y + h, *cara[4:10]])
         primera = next((c for c in cajas if c is not None), None)
         if primera is None:
             raise RuntimeError(f"No se encontro la cara en el bucle de {nombre}")
@@ -158,7 +168,16 @@ class Bucle:
         k = 7
         ext = np.concatenate([cajas[-k:], cajas, cajas[:k]])
         nucleo = np.ones(2 * k + 1) / (2 * k + 1)
-        suave = np.stack([np.convolve(ext[:, j], nucleo, mode="valid") for j in range(4)], axis=1)
+        suave = np.stack(
+            [np.convolve(ext[:, j], nucleo, mode="valid") for j in range(cajas.shape[1])], axis=1
+        )
+        # Para afinar la boca (GPEN) la cara se lleva a la postura con que se
+        # entreno ese modelo: ojos y nariz en un sitio fijo de un cuadro de 256.
+        self.enderezar = [
+            cv2.estimateAffinePartial2D(p.reshape(3, 2), PLANTILLA, method=cv2.LMEDS)[0]
+            for p in suave[:, 4:10].astype(np.float32)
+        ]
+        suave = suave[:, :4]
         # Wav2Lip se entreno con cajas que bajan un poco de la barbilla.
         alto = suave[:, 3] - suave[:, 1]
         suave[:, 3] += alto * 0.08
@@ -171,7 +190,40 @@ class Bucle:
 
     def cuadro(self, i):
         j = i % len(self.cuadros)
-        return self.cuadros[j], self.cajas[j]
+        return self.cuadros[j], self.cajas[j], self.enderezar[j]
+
+
+# Ojo izquierdo, ojo derecho y nariz en la cara "de frente" de 256 px de GPEN.
+PLANTILLA = np.array([[96.49, 119.98], [159.45, 120.10], [128.32, 157.01]], np.float32)
+
+
+def mascara_boca():
+    """En la cara enderezada, la zona de la boca y la barbilla, difuminada."""
+    m = np.zeros((256, 256), np.float32)
+    cv2.ellipse(m, (128, 190), (62, 44), 0, 0, 360, 1.0, -1)
+    return cv2.GaussianBlur(m, (31, 31), 0)
+
+
+MASCARA_BOCA = mascara_boca()
+
+
+def afinar(gpen, cuadro, enderezar):
+    """
+    Wav2Lip dibuja la boca a 96 px y sale borrosa, sin dientes. GPEN es un
+    restaurador de caras: se le pasa la cara y devuelve la misma con detalle.
+    Solo se aprovecha la zona de la boca; el resto del cuadro no se toca.
+    """
+    cara = cv2.warpAffine(
+        cuadro, enderezar, (256, 256), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE
+    )
+    x = (cara[:, :, ::-1].astype(np.float32) / 255.0 - 0.5) / 0.5
+    y = gpen.run(None, {"input": x.transpose(2, 0, 1)[None]})[0][0].transpose(1, 2, 0)
+    y = np.clip((y * 0.5 + 0.5) * 255.0, 0, 255)[:, :, ::-1].astype(np.float32)
+    vuelta = cv2.invertAffineTransform(enderezar)
+    lado = (cuadro.shape[1], cuadro.shape[0])
+    nueva = cv2.warpAffine(y, vuelta, lado, flags=cv2.INTER_CUBIC)
+    m = cv2.warpAffine(MASCARA_BOCA, vuelta, lado)[..., None]
+    return np.clip(nueva * m + cuadro * (1 - m), 0, 255).astype(np.uint8)
 
 
 def mascara(alto, ancho):
@@ -194,7 +246,7 @@ def mascara(alto, ancho):
 # ------------------------------ Una lamina ------------------------------
 
 
-def hablar(sesion, bucle, ruta_audio, salida):
+def hablar(sesion, afinadores, bucle, ruta_audio, salida):
     mel, duracion, callado = mel_de(ruta_audio)
     total = int(np.ceil(duracion * FPS))
     with tempfile.TemporaryDirectory() as tmp:
@@ -204,7 +256,7 @@ def hablar(sesion, bucle, ruta_audio, salida):
             idx = range(a, min(total, a + LOTE))
             caras, mels, datos = [], [], []
             for i in idx:
-                cuadro, (x0, y0, x1, y1) = bucle.cuadro(i)
+                cuadro, (x0, y0, x1, y1), enderezar = bucle.cuadro(i)
                 cara = cv2.resize(cuadro[y0:y1, x0:x1], (96, 96), interpolation=cv2.INTER_AREA)
                 ini = int(i * 80.0 / FPS)
                 trozo = mel[:, ini : ini + 16]
@@ -212,7 +264,7 @@ def hablar(sesion, bucle, ruta_audio, salida):
                     trozo = mel[:, -16:]
                 caras.append(cara)
                 mels.append(trozo)
-                datos.append((cuadro, x0, y0, x1, y1))
+                datos.append((cuadro, x0, y0, x1, y1, enderezar))
             tapadas = np.asarray(caras, np.float32) / 255.0
             tapadas[:, 48:] = 0
             refs = np.repeat(bucle.referencia[None].astype(np.float32) / 255.0, len(tapadas), 0)
@@ -225,20 +277,27 @@ def hablar(sesion, bucle, ruta_audio, salida):
                 alim[e.name] = entrada_mel if e.shape[1] == 1 else entrada
             assert len(alim) == len(nombres) == 2
             pred = sesion.run(None, alim)[0].transpose(0, 2, 3, 1) * 255.0
-            for i, p, (cuadro, x0, y0, x1, y1) in zip(idx, pred, datos):
+            listos = []
+            for i, p, (cuadro, x0, y0, x1, y1, enderezar) in zip(idx, pred, datos):
                 c = float(callado[min(i, len(callado) - 1)])
                 if c > 0:
                     # En silencio, la boca cerrada del cuadro de referencia.
                     p = p * (1 - c) + bucle.referencia.astype(np.float32) * c
                 ancho, alto = x1 - x0, y1 - y0
                 nueva = cv2.resize(p, (ancho, alto), interpolation=cv2.INTER_CUBIC)
-                # Un poco de nitidez: el modelo trabaja a 96 px y sale blando.
-                nueva = cv2.addWeighted(nueva, 1.5, cv2.GaussianBlur(nueva, (0, 0), 1.6), -0.5, 0)
                 m = mascara(alto, ancho)
                 fuera = cuadro.copy()
                 zona = fuera[y0:y1, x0:x1].astype(np.float32)
                 fuera[y0:y1, x0:x1] = np.clip(nueva * m + zona * (1 - m), 0, 255).astype(np.uint8)
-                video.write(fuera)
+                listos.append((fuera, enderezar))
+            # Afinar la boca es lo mas lento: varios cuadros a la vez.
+            n = len(afinadores)
+            tandas = [listos[k::n] for k in range(n)]
+            hechos = list(
+                POZO.map(lambda par: [afinar(par[0], f, e) for f, e in par[1]], zip(afinadores, tandas))
+            )
+            for k in range(len(listos)):
+                video.write(hechos[k % n][k // n])
         video.release()
         os.makedirs(os.path.dirname(salida), exist_ok=True)
         subprocess.run(
@@ -283,12 +342,20 @@ def main():
     sesion = ort.InferenceSession(
         os.path.join(MODELOS, "wav2lip_gan.onnx"), opciones, providers=["CPUExecutionProvider"]
     )
+    op = ort.SessionOptions()
+    op.intra_op_num_threads = 3
+    afinadores = [
+        ort.InferenceSession(
+            os.path.join(MODELOS, "gpen_bfr_256.onnx"), op, providers=["CPUExecutionProvider"]
+        )
+        for _ in range(HILOS)
+    ]
     bucles = {}
     for i, (nombre, audio, salida) in enumerate(trabajos, 1):
         try:
             if nombre not in bucles:
                 bucles[nombre] = Bucle(nombre)
-            d = hablar(sesion, bucles[nombre], audio, salida)
+            d = hablar(sesion, afinadores, bucles[nombre], audio, salida)
             kb = os.path.getsize(salida) / 1024
             print(f"  ✓ [{i}/{len(trabajos)}] {os.path.basename(salida)} ({nombre}, {d:.0f} s, {kb:.0f} KB)", flush=True)
         except Exception as e:  # una lamina mala no para las demas
