@@ -11,6 +11,7 @@ import { prepararQuiz } from './quiz';
 import { montarTranscripcion } from './transcripcion';
 import { moverBoca } from './boca';
 import { LipSyncAvatar } from './lipsync-avatar';
+import { BucleConVoz } from './bucle-voz';
 import { ruta } from '../utils/ruta';
 import { montarLupa } from './lupa';
 
@@ -503,6 +504,16 @@ function iniciar(datos: DatosPlaca) {
       new LipSyncAvatar(conLipSync).conectar(reproductor.medio, pista);
     }
 
+    // Los que tienen video en bucle: corre solo cuando hay voz y se queda en
+    // la foto fija durante los silencios (ver bucle-voz.ts).
+    if (reproductor.medio) {
+      const pistaVoz =
+        datos.video.tipo === 'audio'
+          ? ruta('lipsync', datos.video.src.replace(/\.[^./]+$/, '') + '.json')
+          : null;
+      new BucleConVoz(avatares, reproductor.medio, pistaVoz);
+    }
+
     botonAlternar?.addEventListener('click', () => reproductor?.alternar());
 
     for (const b of botonesCapitulo) {
@@ -525,21 +536,6 @@ function iniciar(datos: DatosPlaca) {
         // Y si tiene mas de un fotograma, se le mueve la boca al compas
         // de la voz: se le pasa el audio para que lo pueda escuchar.
         moverBoca(a, reproduciendo, reproductor?.medio ?? null);
-
-        // Si el presentador tiene bucle en video, se reproduce mudo a la par.
-        const bucle = a.querySelector<HTMLVideoElement>('[data-bucle]');
-        if (!bucle) continue;
-        if (reproduciendo && !movimientoReducido()) {
-          void bucle.play().catch(() => {
-            /* el navegador puede bloquearlo: se queda en el poster */
-          });
-        } else {
-          bucle.pause();
-          // Y se rebobina: el primer fotograma del bucle es la cara en
-          // reposo, con la boca cerrada. Sin esto se queda congelada a
-          // media palabra, con la boca abierta, hasta que se reanude.
-          bucle.currentTime = 0;
-        }
       }
     });
 

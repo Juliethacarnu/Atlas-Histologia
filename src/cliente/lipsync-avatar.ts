@@ -47,7 +47,7 @@ export const MAPA_RHUBARB: Record<string, string> = {
 /** La boca se adelanta un pelin al sonido, como en la animacion de verdad. */
 const ADELANTO_S = 0.03;
 
-interface Pista {
+export interface Pista {
   tiempos: Float64Array;
   bocas: string[];
 }
@@ -55,7 +55,7 @@ interface Pista {
 /** Cada JSON se pide una vez por pagina. */
 const pistas = new Map<string, Promise<Pista | null>>();
 
-function cargarPista(url: string): Promise<Pista | null> {
+export function cargarPista(url: string): Promise<Pista | null> {
   let p = pistas.get(url);
   if (!p) {
     p = fetch(url)

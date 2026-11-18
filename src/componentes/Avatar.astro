@@ -63,19 +63,34 @@ const visemas =
     bucle ? (
       /* El bucle va mudo y parado: lo arranca el reproductor cuando suena el
          audio. El poster es la caricatura, asi que en reposo se ve igual. */
-      <video
-        class="avatar__imagen avatar__bucle"
-        src={ruta('avatares', bucle)}
-        poster={imagen ? ruta('avatares', imagen) : undefined}
-        width={tamano}
-        height={tamano}
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"
-        data-bucle
-      />
+      <>
+        <video
+          class="avatar__imagen avatar__bucle"
+          src={ruta('avatares', bucle)}
+          poster={imagen ? ruta('avatares', imagen) : undefined}
+          width={tamano}
+          height={tamano}
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          data-bucle
+        />
+        {imagen && (
+          /* La foto fija, encima del video: es lo que se ve en reposo y en
+             los silencios. Se aparta con un fundido cuando hay voz. */
+          <img
+            src={ruta('avatares', imagen)}
+            alt={`Caricatura de ${nombre}`}
+            width={tamano}
+            height={tamano}
+            decoding="async"
+            class="avatar__imagen avatar__quieto"
+            data-quieto
+          />
+        )}
+      </>
     ) : imagen ? (
       <>
         <img
@@ -180,6 +195,15 @@ const visemas =
     border-radius: 999px;
     object-fit: cover;
     object-position: 50% 18%;
+  }
+
+  /* La foto fija tapa el video salvo cuando hay voz. */
+  .avatar__quieto {
+    z-index: 1;
+    transition: opacity 140ms ease;
+  }
+  .avatar[data-voz] .avatar__quieto {
+    opacity: 0;
   }
 
   .avatar__iniciales {
