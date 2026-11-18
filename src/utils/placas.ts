@@ -55,14 +55,18 @@ export function textoBusqueda(placa: Placa, nombreDelSistema: string): string {
   );
 }
 
-/** Ordena las placas por sistema (segun SISTEMAS) y luego por titulo. */
+/** Ordena las placas por sistema (segun SISTEMAS), luego por pagina del PDF y por titulo. */
 export function ordenarPlacas<T extends { data: Placa }>(
   placas: T[],
   ordenSistemas: readonly string[],
 ): T[] {
   return [...placas].sort((a, b) => {
     const d = ordenSistemas.indexOf(a.data.sistema) - ordenSistemas.indexOf(b.data.sistema);
-    return d !== 0 ? d : a.data.titulo.localeCompare(b.data.titulo, 'es');
+    if (d !== 0) return d;
+    const pa = a.data.pagina ?? Infinity;
+    const pb = b.data.pagina ?? Infinity;
+    if (pa !== pb) return pa - pb;
+    return a.data.titulo.localeCompare(b.data.titulo, 'es');
   });
 }
 

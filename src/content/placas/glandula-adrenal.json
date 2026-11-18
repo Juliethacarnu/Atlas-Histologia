@@ -2,6 +2,7 @@
   "id": "glandula-adrenal",
   "titulo": "Glándula Adrenal",
   "sistema": "endocrino",
+  "pagina": 48,
   "organo": "Glándula Adrenal",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
@@ -18,7 +19,12 @@
       "credito": "Tomado de Atlas de Histología, Universidad de Zaragoza (s. f.)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "glandula-adrenal.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "capsula",

@@ -2,6 +2,7 @@
   "id": "ciclo-uterino",
   "titulo": "Ciclo Uterino",
   "sistema": "reproductor-femenino",
+  "pagina": 72,
   "organo": "Ciclo Uterino",
   "tincion": "",
   "aumentos": [],
@@ -21,7 +22,12 @@
       "credito": "Figura 1. Ciclo uterino humano: fases proliferativa temprana, proliferativa tardía, secretora y menstrual. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "ciclo-uterino.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "fase-proliferativa-temprana-early-proliferative",

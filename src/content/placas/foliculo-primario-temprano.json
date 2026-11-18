@@ -2,6 +2,7 @@
   "id": "foliculo-primario-temprano",
   "titulo": "Folículo primario temprano",
   "sistema": "reproductor-femenino",
+  "pagina": 59,
   "organo": "Folículo primero temprano",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Folículo primario temprano del ovario humano. Se observa un ovocito primario con núcleo prominente y citoplasma abundante, rodeado por una capa única de células foliculares cúbicas. Entre ambas estructuras se identifica la zona pelúcida, característica de esta fase del desarrollo folicular. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-primario-temprano.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celulas-foliculares-follicular-cells",

@@ -2,6 +2,7 @@
   "id": "pancreas",
   "titulo": "Páncreas",
   "sistema": "digestivo",
+  "pagina": 36,
   "organo": "Pancreas",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [

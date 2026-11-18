@@ -2,6 +2,7 @@
   "id": "desarrollo-avanzado-del-ojo",
   "titulo": "Desarrollo avanzado del ojo embrionario.",
   "sistema": "ojo",
+  "pagina": 86,
   "organo": "Desarrollo avanzado del ojo embrionario.",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Desarrollo avanzado del ojo embrionario. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "desarrollo-avanzado-del-ojo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "corneal-epithelium-epitelio-corneal",

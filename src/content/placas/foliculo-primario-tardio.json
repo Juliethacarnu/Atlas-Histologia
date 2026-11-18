@@ -2,6 +2,7 @@
   "id": "foliculo-primario-tardio",
   "titulo": "Folículo primario tardío",
   "sistema": "reproductor-femenino",
+  "pagina": 60,
   "organo": "Folículo primero tardío",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Folículo primario tardío del ovario humano. Se observa un ovocito primario con núcleo prominente y abundante citoplasma, rodeado por múltiples capas de células foliculares que constituyen la zona granulosa. La zona pelúcida aparece claramente definida entre el ovocito y las células foliculares. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "foliculo-primario-tardio.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celulas-foliculares-zona-granulosa",

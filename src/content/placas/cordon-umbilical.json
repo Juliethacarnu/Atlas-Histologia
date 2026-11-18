@@ -2,6 +2,7 @@
   "id": "cordon-umbilical",
   "titulo": "Cordón Umbilical",
   "sistema": "reproductor-femenino",
+  "pagina": 75,
   "organo": "Cordón umbilical",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Cordón umbilical humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "cordon-umbilical.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "vena-umbilical-vein",

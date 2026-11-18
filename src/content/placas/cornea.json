@@ -2,6 +2,7 @@
   "id": "cornea",
   "titulo": "Córnea",
   "sistema": "ojo",
+  "pagina": 78,
   "organo": "Córnea",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Córnea humana. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "cornea.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "air-aire",

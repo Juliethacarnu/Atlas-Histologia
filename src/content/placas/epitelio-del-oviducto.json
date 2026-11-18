@@ -2,6 +2,7 @@
   "id": "epitelio-del-oviducto",
   "titulo": "Epitelio del Oviducto",
   "sistema": "reproductor-femenino",
+  "pagina": 68,
   "organo": "Epitelio del Oviducto",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Epitelio del oviducto humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "epitelio-del-oviducto.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celula-ciliada-ciliated-cell",

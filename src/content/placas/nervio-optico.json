@@ -2,6 +2,7 @@
   "id": "nervio-optico",
   "titulo": "Nervio óptico",
   "sistema": "ojo",
+  "pagina": 90,
   "organo": "Nervio óptico",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Nervio óptico y disco óptico de la retina humana. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "nervio-optico.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "disco-optico-optic-disc",

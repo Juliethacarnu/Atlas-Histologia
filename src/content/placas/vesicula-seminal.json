@@ -2,6 +2,7 @@
   "id": "vesicula-seminal",
   "titulo": "Vesícula Seminal",
   "sistema": "reproductor-masculino",
+  "pagina": 55,
   "organo": "Vesícula Seminal",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 6. Mucosa y pared muscular de la vesícula seminal. Nota: Adaptado de King D. Histology at SIU: Seminal Vesicle [Internet]. Carbondale: Southern Illinois University School of Medicine; 2023 [actualizado 5 Feb 2023; citado 4 Oct 2026]. Disponible en: siu.edu (6)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "vesicula-seminal.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "pared-muscular-muscular-wall",

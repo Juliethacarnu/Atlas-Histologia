@@ -2,6 +2,7 @@
   "id": "procesos-ciliares",
   "titulo": "Procesos Ciliares y fibras suspensorias",
   "sistema": "ojo",
+  "pagina": 81,
   "organo": "Procesos Ciliares y fibras suspensorias",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Procesos ciliares y fibras suspensorias del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "procesos-ciliares.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "ciliary-body-cuerpo-ciliar",

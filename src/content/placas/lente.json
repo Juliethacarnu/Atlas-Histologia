@@ -2,6 +2,7 @@
   "id": "lente",
   "titulo": "Lente",
   "sistema": "ojo",
+  "pagina": 82,
   "organo": "Lente",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Cristalino del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "lente.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "cuboidal-epithelium-of-front-lens-surface-epitelio-cubico-de",

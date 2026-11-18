@@ -2,6 +2,7 @@
   "id": "cuerpo-ciliar",
   "titulo": "Cuerpo Ciliar",
   "sistema": "ojo",
+  "pagina": 80,
   "organo": "Cuerpo Ciliar",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Cuerpo y procesos ciliares del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "cuerpo-ciliar.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "smooth-muscle-of-ciliary-body-musculo-liso-del-cuerpo-ciliar",

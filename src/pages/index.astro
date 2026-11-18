@@ -16,7 +16,11 @@ const porSistema = SISTEMAS.map((s) => ({
   sistema: s,
   placas: placas
     .filter((p) => p.data.sistema === s.id)
-    .sort((a, b) => a.data.titulo.localeCompare(b.data.titulo, 'es')),
+    .sort(
+      (a, b) =>
+        (a.data.pagina ?? Infinity) - (b.data.pagina ?? Infinity) ||
+        a.data.titulo.localeCompare(b.data.titulo, 'es'),
+    ),
 }));
 
 // Dos placas del mismo sistema pueden llamarse igual y distinguirse solo por
@@ -60,14 +64,14 @@ let contadorGlobal = 0;
     <div class="consola__foco" aria-hidden="true"></div>
 
     <div class="consola__cuerpo contenedor-bandeja">
-      <p class="consola__kicker rotulo">Atlas digital · hematoxilina y eosina</p>
+      <p class="consola__kicker rotulo">Atlas digital de histología</p>
 
       <h1 class="consola__titulo">
         Atlas virtual<br /><span class="consola__titulo-luz">de histología</span>
       </h1>
 
       <p class="consola__entrada">
-        {TOTAL_PLACAS_ESPERADAS} preparaciones teñidas con hematoxilina y eosina. Cada lámina se abre
+        {TOTAL_PLACAS_ESPERADAS} preparaciones histológicas. Cada lámina se abre
         en un visor con zoom profundo y sus estructuras están señaladas una a una.
       </p>
 

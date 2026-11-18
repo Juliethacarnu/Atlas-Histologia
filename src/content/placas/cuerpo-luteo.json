@@ -2,6 +2,7 @@
   "id": "cuerpo-luteo",
   "titulo": "Cuerpo lúteo",
   "sistema": "reproductor-femenino",
+  "pagina": 63,
   "organo": "Cuerpo Lúteo",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Cuerpo lúteo del ovario humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "cuerpo-luteo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celulas-luteinicas-luteal-cells",

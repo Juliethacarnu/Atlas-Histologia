@@ -2,6 +2,7 @@
   "id": "organo-de-corti",
   "titulo": "Órgano de Corti",
   "sistema": "oido",
+  "pagina": 92,
   "organo": "Órgano de Corti",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
@@ -10,7 +11,7 @@
   "descripcionGeneral": "El órgano de Corti es el receptor sensorial de la audición y se localiza sobre la membrana basilar dentro de la cóclea. Está formado por células ciliadas internas y externas, así como por células de sostén. Las vibraciones sonoras desplazan la membrana tectorial y los estereocilios de las células ciliadas, transformando la energía mecánica en impulsos nerviosos que serán transmitidos al cerebro.",
   "fuente": "",
   "credito": "Figura 1. Órgano de Corti de la cóclea humana. Fuente: Adaptado de Medcell Histology Guide (1).",
-  "presentador": null,
+  "presentador": "andrea",
   "imagenes": [
     {
       "archivo": "organo-de-corti-1",
@@ -18,7 +19,12 @@
       "credito": "Figura 1. Órgano de Corti de la cóclea humana. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "organo-de-corti.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "membrana-vestibular-vestibular-membrane",

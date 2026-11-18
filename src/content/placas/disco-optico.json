@@ -2,6 +2,7 @@
   "id": "disco-optico",
   "titulo": "Disco óptico y salida del nervio óptico del ojo humano",
   "sistema": "ojo",
+  "pagina": 77,
   "organo": "Disco óptico y salida del nervio óptico del ojo humano",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Disco óptico y salida del nervio óptico del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "disco-optico.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "choroid-coroides",

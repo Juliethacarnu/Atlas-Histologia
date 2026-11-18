@@ -2,6 +2,7 @@
   "id": "vagina",
   "titulo": "Vagina",
   "sistema": "reproductor-femenino",
+  "pagina": 71,
   "organo": "Vagina",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Vagina humana. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "vagina.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "epitelio-vaginal-epithelium",

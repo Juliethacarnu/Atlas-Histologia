@@ -2,6 +2,7 @@
   "id": "iris-del-ojo-humano",
   "titulo": "Iris del ojo humano",
   "sistema": "ojo",
+  "pagina": 87,
   "organo": "Iris del ojo humano",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Iris del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "iris-del-ojo-humano.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "pupillary-dilator-musculo-dilatador-de-la-pupila",

@@ -2,6 +2,7 @@
   "id": "testiculo",
   "titulo": "Testículo",
   "sistema": "reproductor-masculino",
+  "pagina": 51,
   "organo": "Testículo",
   "tincion": "",
   "aumentos": [],
@@ -21,7 +22,12 @@
       "credito": ""
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "testiculo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "tunica-albuginea-tunica-albuginea",

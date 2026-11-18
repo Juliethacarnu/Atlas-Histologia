@@ -2,6 +2,7 @@
   "id": "humor-acuoso",
   "titulo": "Humor Acuoso",
   "sistema": "ojo",
+  "pagina": 88,
   "organo": "Humor Acuoso",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Flujo del humor acuoso en el ojo humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "humor-acuoso.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "cuerpo-ciliar-ciliary-body",

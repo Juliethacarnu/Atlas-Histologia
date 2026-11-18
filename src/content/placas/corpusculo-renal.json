@@ -2,6 +2,7 @@
   "id": "corpusculo-renal",
   "titulo": "Corpúsculo Renal",
   "sistema": "urinario",
+  "pagina": 40,
   "organo": "Corpúsculo Renal",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
@@ -58,7 +59,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.64, 
+          "x": 0.64,
           "y": 0.31,
           "imagen": 0
         }
@@ -70,8 +71,8 @@
       "nombre": "Macula densa",
       "descripcion": "",
       "puntos": [
-        { 
-          "x": 0.69, 
+        {
+          "x": 0.69,
           "y": 0.28,
           "imagen": 0
         }
@@ -84,7 +85,7 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.64, 
+          "x": 0.64,
           "y": 0.73,
           "imagen": 0
         }

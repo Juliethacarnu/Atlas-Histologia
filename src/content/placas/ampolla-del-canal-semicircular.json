@@ -2,6 +2,7 @@
   "id": "ampolla-del-canal-semicircular",
   "titulo": "Ampolla del canal semicircular y utrículo",
   "sistema": "oido",
+  "pagina": 93,
   "organo": "Ampolla del canal semicircular y utrículo del oído interno",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
@@ -10,7 +11,7 @@
   "descripcionGeneral": "La imagen muestra las estructuras del laberinto membranoso contenidas en el espacio perilinfático dentro de la cavidad ósea protectora. Se observa la ampolla del canal semicircular que aloja la cresta ampular encargada de detectar la aceleración angular, comunicándose directamente con la cavidad del utrículo, cuya pared presenta la mácula acústica especializada en el registro del equilibrio estático y la aceleración lineal.",
   "fuente": "",
   "credito": "Figura 1. Ampolla del canal semicircular y utrículo del oído interno. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1).",
-  "presentador": null,
+  "presentador": "sara",
   "imagenes": [
     {
       "archivo": "ampolla-del-canal-semicircular-1",
@@ -18,7 +19,12 @@
       "credito": "Figura 1. Ampolla del canal semicircular y utrículo del oído interno. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "ampolla-del-canal-semicircular.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "bone-hueso",
@@ -66,8 +72,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.3326,
-          "y": 0.6667,
+          "x": 0.3073,
+          "y": 0.6837,
           "imagen": 0
         }
       ]
@@ -92,8 +98,8 @@
       "descripcion": "",
       "puntos": [
         {
-          "x": 0.7867,
-          "y": 0.6429,
+          "x": 0.805,
+          "y": 0.6463,
           "imagen": 0
         }
       ]

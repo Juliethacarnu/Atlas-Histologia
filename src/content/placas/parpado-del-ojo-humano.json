@@ -2,6 +2,7 @@
   "id": "parpado-del-ojo-humano",
   "titulo": "Párpado del ojo humano",
   "sistema": "ojo",
+  "pagina": 84,
   "organo": "Párpado del ojo humano",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Párpado del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "parpado-del-ojo-humano.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "eyelash-follicle-foliculo-piloso-de-la-pestana",

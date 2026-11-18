@@ -111,6 +111,8 @@ const placas = defineCollection({
         .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'El id de placa debe ir en kebab-case, sin acentos'),
       titulo: z.string().min(1),
       sistema: z.enum(IDS_SISTEMAS),
+      /** Pagina del PDF del atlas: fija el orden de las laminas en el sitio. */
+      pagina: z.number().int().positive().optional(),
       /** Casilla «Órgano / Tejido» de la diapositiva: es un unico campo. */
       organo: z.string().default(''),
       tincion: z.string().default('H&E'),

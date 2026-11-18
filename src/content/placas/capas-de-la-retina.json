@@ -2,6 +2,7 @@
   "id": "capas-de-la-retina",
   "titulo": "Capas de la Retina",
   "sistema": "ojo",
+  "pagina": 83,
   "organo": "Capas de la Retina",
   "tincion": "Capas de la Retina",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Capas de la retina y túnicas posteriores del ojo humano. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "capas-de-la-retina.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "blood-vessel-vaso-sanguineo",

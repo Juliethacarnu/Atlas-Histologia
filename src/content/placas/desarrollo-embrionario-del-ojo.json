@@ -2,6 +2,7 @@
   "id": "desarrollo-embrionario-del-ojo",
   "titulo": "Desarrollo embrionario del ojo y prosencéfalo en embrión",
   "sistema": "ojo",
+  "pagina": 85,
   "organo": "Desarrollo embrionario del ojo y prosencéfalo en embrión",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Desarrollo embrionario del ojo y prosencéfalo en embrión. Fuente: Adaptado de Southern Illinois University (SIU) Histology (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "desarrollo-embrionario-del-ojo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "telencephalic-vesicles-lateral-ventricles-vesiculas-telencef",

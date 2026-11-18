@@ -9,15 +9,12 @@ import Icono from './Icono.astro';
   <form method="dialog" class="contents">
     <header class="flex items-start gap-3">
       <div class="flex-1">
+        <p class="quiz__progreso rotulo" id="quiz-progreso">Pregunta 1 de 1</p>
         <h2 id="quiz-titulo" class="font-serif text-xl font-medium">
-          ¿Qué estructura es esta?
+          ¿Qué estructura señala el punto?
         </h2>
-        <p class="mt-0.5 text-sm text-texto-suave">
-          El visor se ha acercado al marcador{' '}
-          <span id="quiz-numero" class="font-semibold">
-            1
-          </span>
-          .
+        <p id="quiz-instruccion" class="mt-0.5 text-sm text-texto-suave">
+          Mira el punto que parpadea sobre la lámina y elige su nombre.
         </p>
       </div>
       <button class="quiz__cerrar" value="cerrar" aria-label="Cerrar el quiz">
@@ -25,24 +22,34 @@ import Icono from './Icono.astro';
       </button>
     </header>
 
+    <div class="quiz__barra" aria-hidden="true"><span id="quiz-barra"></span></div>
+
     <ul id="quiz-opciones" class="quiz__opciones" role="list"></ul>
 
-    <p id="quiz-respuesta" class="min-h-10 text-sm" aria-live="polite"></p>
+    <p id="quiz-respuesta" class="quiz__respuesta" aria-live="polite"></p>
 
     <footer class="flex items-center gap-3 border-t border-borde pt-3">
       <p class="text-sm tabular-nums text-texto-suave">
-        Acertadas <span id="quiz-puntaje">0</span> de <span id="quiz-total">0</span>
+        Aciertos: <span id="quiz-puntaje">0</span> de <span id="quiz-total">0</span>
       </p>
-      <button type="button" id="quiz-siguiente" class="quiz__siguiente ml-auto">
-        Siguiente
+      <button type="button" id="quiz-siguiente" class="quiz__siguiente ml-auto" disabled>
+        Siguiente pregunta
       </button>
     </footer>
   </form>
 </dialog>
 
 <style>
+  /* El quiz no tapa la lamina: se abre como panel pegado abajo a la
+     izquierda, sin velo, para que se vea el punto por el que se pregunta. */
   .quiz {
-    width: min(26rem, calc(100vw - 2rem));
+    position: fixed;
+    inset: auto auto 4.5rem 1rem;
+    margin: 0;
+    z-index: 60;
+    width: min(24rem, calc(100vw - 2rem));
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
     border: 1px solid var(--atlas-borde);
     border-radius: var(--radius-ficha);
     background: var(--atlas-superficie);
@@ -50,10 +57,38 @@ import Icono from './Icono.astro';
     padding: 1.25rem;
     box-shadow: 0 32px 70px -24px rgb(14 9 32 / 0.65);
   }
-  .quiz::backdrop {
-    /* El campo del microscopio, no un velo gris. */
-    background: rgb(14 9 32 / 0.62);
-    backdrop-filter: blur(3px);
+  @media (max-width: 767px) {
+    .quiz {
+      inset: auto 0.5rem 0.5rem 0.5rem;
+      width: auto;
+      max-height: 55dvh;
+      padding: 1rem;
+    }
+  }
+  .quiz__progreso {
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--atlas-texto-suave);
+    margin-bottom: 0.15rem;
+  }
+  .quiz__barra {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--atlas-borde);
+    overflow: hidden;
+  }
+  .quiz__barra span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--marca-neon, var(--color-hematoxilina));
+    transition: width 240ms ease;
+  }
+  .quiz__respuesta {
+    min-height: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
   .quiz .contents {
     display: flex;
@@ -70,9 +105,6 @@ import Icono from './Icono.astro';
     gap: 0.4rem;
   }
 
-  #quiz-respuesta:not(:empty) {
-    color: var(--atlas-texto-suave);
-  }
   .quiz__cerrar {
     display: grid;
     place-items: center;
@@ -102,6 +134,22 @@ import Icono from './Icono.astro';
 <!-- Las opciones del quiz las construye el cliente: sin ámbito no llegarían
      los estilos de arriba. -->
 <style is:global>
+  /* Mientras dura el quiz solo se ve el punto preguntado: los demas
+     marcadores se apagan para que no haya duda de cual es. */
+  :root[data-quiz] .indicador:not(.indicador--activa) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  :root[data-quiz='pregunta'] .indicador--activa .indicador__rotulo,
+  :root[data-quiz='pregunta'] .indicador--activa .indicador__guia {
+    visibility: hidden;
+  }
+  #quiz-respuesta[data-estado='bien'] {
+    color: var(--color-sis-digestivo);
+  }
+  #quiz-respuesta[data-estado='mal'] {
+    color: var(--color-sis-sangre);
+  }
   #quiz-opciones button {
     display: flex;
     align-items: center;
@@ -122,6 +170,16 @@ import Icono from './Icono.astro';
   }
   #quiz-opciones button > span {
     flex: 1;
+  }
+  #quiz-opciones .quiz__letra {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--atlas-borde-fuerte);
+    font-size: 0.75rem;
   }
   #quiz-opciones button .icono {
     font-size: 1.15rem;

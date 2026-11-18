@@ -2,6 +2,7 @@
   "id": "trompa-uterina",
   "titulo": "Trompa Uterina",
   "sistema": "reproductor-femenino",
+  "pagina": 67,
   "organo": "Trompa Uterina",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Oviducto (trompa uterina) humana. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "trompa-uterina.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "mucosa-mucosa",

@@ -2,6 +2,7 @@
   "id": "prostata",
   "titulo": "Próstata",
   "sistema": "reproductor-masculino",
+  "pagina": 56,
   "organo": "Próstata",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [],
@@ -31,7 +32,12 @@
       "credito": "Figura 1. Vista panorámica del tejido prostático mostrando glándulas irregulares y estroma circundante. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (1). Figura 2. Micrografía de la próstata con la presencia de un cuerpo amiláceo prominente en la luz glandular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (2). Figura 3. Detalle de las células epiteliales cilíndricas y la coloración intensa de las fibras musculares lisas estromales. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (3). Figura 4. Pliegues mucosos de una glándula prostática inmersa en el estroma fibromuscular. Nota: Adaptado de King D. Histology at SIU: Prostate [Internet]. Carbondale: Southern Illinois University School of Medicine; 2022 [actualizado 19 May 2022; citado 4 Oct 2026]. Disponible en: siu.edu (4)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "prostata.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "estroma-fibromuscular-fibromuscular-stroma",

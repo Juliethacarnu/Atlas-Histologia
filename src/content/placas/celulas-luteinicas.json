@@ -2,6 +2,7 @@
   "id": "celulas-luteinicas",
   "titulo": "Células Luteínicas",
   "sistema": "reproductor-femenino",
+  "pagina": 64,
   "organo": "Células Luteínicas",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": "Figura 1. Células luteínicas del cuerpo lúteo humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "celulas-luteinicas.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "celulas-luteinicas-de-la-granulosa-granulosa-luteal-cells",

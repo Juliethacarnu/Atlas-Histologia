@@ -2,6 +2,7 @@
   "id": "oido-interno",
   "titulo": "Oído Interno",
   "sistema": "oido",
+  "pagina": 91,
   "organo": "Oído interno",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
@@ -10,7 +11,7 @@
   "descripcionGeneral": "El oído interno, específicamente la cóclea, es la estructura responsable de transformar las vibraciones sonoras en impulsos nerviosos. Está formada por tres compartimentos: la rampa vestibular (scala vestibuli), la rampa media (scala media) y la rampa timpánica (scala tympani). En la rampa media se localiza el órgano de Corti, que contiene las células sensoriales auditivas. Además, el ganglio espiral alberga los cuerpos celulares de las neuronas que transmiten la información auditiva al nervio vestibulococlear (VIII par craneal).",
   "fuente": "",
   "credito": "Figura 1. Cóclea del oído interno humano. Fuente: Adaptado de Medcell Histology Guide (1).",
-  "presentador": null,
+  "presentador": "daniel",
   "imagenes": [
     {
       "archivo": "oido-interno-1",
@@ -18,7 +19,12 @@
       "credito": "Figura 1. Cóclea del oído interno humano. Fuente: Adaptado de Medcell Histology Guide (1)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "oido-interno.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "rampa-timpanica-scala-tympani",

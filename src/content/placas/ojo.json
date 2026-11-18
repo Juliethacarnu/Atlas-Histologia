@@ -2,6 +2,7 @@
   "id": "ojo",
   "titulo": "Ojo",
   "sistema": "ojo",
+  "pagina": 76,
   "organo": "",
   "tincion": "",
   "aumentos": [],
@@ -16,7 +17,12 @@
       "credito": ""
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "ojo.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "cornea-cornea",

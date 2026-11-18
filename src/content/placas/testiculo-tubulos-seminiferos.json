@@ -2,6 +2,7 @@
   "id": "testiculo-tubulos-seminiferos",
   "titulo": "Testículo :tubulos seminíferos",
   "sistema": "reproductor-masculino",
+  "pagina": 52,
   "organo": "Testículo",
   "tincion": "",
   "aumentos": [],
@@ -21,7 +22,12 @@
       "credito": "Figura 1. Sección histológica de túbulos seminíferos del testículo. Nota. Tomado de King D. Histology at SIU: Testis, seminiferous tubules [Internet]; 2022 (1). Figura 2. Micrografía de alta resolución del epitelio seminífero y componentes celulares del tejido intersticial testicular. Nota: Adaptado de King D. Histology at SIU: Testis, seminiferous tubule [Internet]:2022(2)."
     }
   ],
-  "video": null,
+  "video": {
+    "tipo": "audio",
+    "src": "testiculo-tubulos-seminiferos.m4a",
+    "subtitulos": null,
+    "capitulos": []
+  },
   "estructuras": [
     {
       "id": "luz-del-tubulo-seminifero-lumen-of-seminiferous-tubule",

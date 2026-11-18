@@ -2,6 +2,7 @@
   "id": "frotis-de-sangre",
   "titulo": "Frotis de sangre",
   "sistema": "sangre-linfoide",
+  "pagina": 1,
   "organo": "Tejido sanguíneo",
   "tincion": "Hematoxilina y eosina (H&E)",
   "aumentos": [
