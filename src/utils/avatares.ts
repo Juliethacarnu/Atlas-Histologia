@@ -48,13 +48,19 @@ export function fotogramasDe(carpeta: string | null | undefined): string[] {
   return lista;
 }
 
-/** Donde va cada boca sobre la cara base, tal como la deja npm run visemas. */
-export interface Visemas {
-  bocas: string[];
+/** Un grupo de recortes (las bocas, o los ojos cerrados) y donde va sobre la cara. */
+export interface GrupoVisemas {
+  piezas: string[];
   x: number;
   y: number;
   ancho: number;
   alto: number;
+}
+
+/** Lo que deja npm run visemas en visemas.json. */
+export interface Visemas {
+  boca: GrupoVisemas;
+  ojos?: GrupoVisemas;
 }
 
 const memoriaVisemas = new Map<string, Visemas | null>();
@@ -69,7 +75,8 @@ export function visemasDe(carpeta: string | null | undefined): Visemas | null {
   let visemas: Visemas | null = null;
   try {
     const json = readFileSync(join(RAIZ, carpeta, 'visemas', 'visemas.json'), 'utf8');
-    visemas = JSON.parse(json) as Visemas;
+    const leido = JSON.parse(json) as Partial<Visemas>;
+    visemas = leido.boca ? (leido as Visemas) : null;
   } catch {
     /* Sin bocas preparadas: no es un error. */
   }

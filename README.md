@@ -260,7 +260,8 @@ caricatura hace un rebote muy corto. Si no hay video, se queda estática. Con
 
 ### Avatar que habla (lip-sync)
 
-Una caricatura puede mover la boca sincronizada con su audio. Hoy la tiene Andrea.
+Una caricatura puede mover la boca sincronizada con su audio. Hoy la tiene Andrea, que además parpadea
+mientras explica.
 
 **1. Las bocas.** Hacen falta seis retratos del mismo personaje, iguales salvo la boca, en
 `originales/avatares/<Nombre>/visemas/`:
@@ -273,6 +274,7 @@ Una caricatura puede mover la boca sincronizada con su audio. Hoy la tiene Andre
 | `D.png` | apertura amplia (a) |
 | `E.png` | labios redondos (o, u) |
 | `F.png` | labiodental (f, v) |
+| `ojos.png` | (opcional) reposo con los ojos cerrados, para parpadear |
 
 ```bash
 npm run visemas -- Andrea
@@ -296,6 +298,20 @@ y deja `public/lipsync/<audio>.json`. Rhubarb se descarga solo la primera vez a 
 (no se sube a git); ffmpeg viene con `npm install`. Se usa su reconocedor **fonético**
 (`-r phonetic`), que no depende del idioma: el otro solo entiende inglés. Reconoce sonidos, no
 palabras, y a veces confunde vocales parecidas; para mover una boca alcanza.
+
+**Mejor aún: WhisperX (español de verdad).** `scripts/lipsync_whisperx.py` transcribe el audio con
+Whisper y alinea cada letra con el sonido (modelo wav2vec2 de español). Como el español se escribe
+casi como suena, acierta mucho más que Rhubarb (vocales, b/v/m/p con labios cerrados, f). Deja el
+mismo formato de JSON y además guarda la transcripción. Necesita Python 3.10–3.12:
+
+```bash
+pip install whisperx --extra-index-url https://download.pytorch.org/whl/cpu
+python scripts/lipsync_whisperx.py            # los que aún no tienen JSON de WhisperX
+python scripts/lipsync_whisperx.py ano        # solo uno
+```
+
+Sin GPU tarda unos 45 s por cada minuto y cuarto de audio. Los JSON de WhisperX reemplazan a los de
+Rhubarb; si no lo puedes instalar, `npm run lipsync` sigue sirviendo.
 
 **Al agregar un audio nuevo:** déjalo en `public/audios/`, corre `npm run lipsync` y sube también
 el JSON que aparece en `public/lipsync/`. Si se te olvida, el audio funciona igual y la boca se

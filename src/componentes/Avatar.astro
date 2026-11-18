@@ -40,7 +40,7 @@ const bocas = bucle ? [] : fotogramas.slice(1);
 // Hoy la foto queda fija mientras suena el audio (decision del grupo): las
 // bocas no se pintan. Para volver al lip-sync, AVATAR_ANIMADO = true aqui y en
 // src/cliente/placa.ts.
-const AVATAR_ANIMADO = false;
+const AVATAR_ANIMADO = true;
 const visemas =
   AVATAR_ANIMADO && !bucle && imagen ? visemasDe(presentador?.avatarCarpeta) : null;
 ---

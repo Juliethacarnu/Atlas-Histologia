@@ -9,7 +9,7 @@
  * (npm run visemas), asi que lo unico que cambia al hablar es la boca: el
  * pelo, los ojos y la bata son siempre la misma imagen.
  */
-import type { Visemas } from '../utils/avatares';
+import type { GrupoVisemas, Visemas } from '../utils/avatares';
 import { ruta } from '../utils/ruta';
 
 interface Props {
@@ -18,19 +18,33 @@ interface Props {
 }
 const { carpeta, visemas } = Astro.props;
 const pct = (n: number) => `${(n * 100).toFixed(3)}%`;
+const lugar = (g: GrupoVisemas) =>
+  `left:${pct(g.x)};top:${pct(g.y)};width:${pct(g.ancho)};height:${pct(g.alto)}`;
 ---
 
-{visemas.bocas.map((boca) => (
+{visemas.boca.piezas.map((boca) => (
   <img
     src={ruta('avatares', carpeta, 'visemas', `${boca}.webp`)}
     alt=""
     aria-hidden="true"
     decoding="async"
     class="lipsync__boca"
-    style={`left:${pct(visemas.x)};top:${pct(visemas.y)};width:${pct(visemas.ancho)};height:${pct(visemas.alto)}`}
+    style={lugar(visemas.boca)}
     data-visema={boca}
   />
 ))}
+{/* Los ojos cerrados: se destapan un instante de vez en cuando (parpadeo). */}
+{visemas.ojos && (
+  <img
+    src={ruta('avatares', carpeta, 'visemas', 'ojos.webp')}
+    alt=""
+    aria-hidden="true"
+    decoding="async"
+    class="lipsync__ojos"
+    style={lugar(visemas.ojos)}
+    data-parpado
+  />
+)}
 
 <style>
   /* Cada boca espera tapada encima de la cara. La que entra aparece por
@@ -49,7 +63,21 @@ const pct = (n: number) => `${(n * 100).toFixed(3)}%`;
     opacity: 1;
     transition-delay: 0ms;
   }
+  /* El parpadeo baja rapido y sube un poco mas lento, como uno de verdad. */
+  .lipsync__ojos {
+    position: absolute;
+    z-index: 3;
+    max-width: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 70ms ease-in;
+  }
+  .lipsync__ojos[data-activo] {
+    opacity: 1;
+    transition-duration: 40ms;
+  }
   @media (prefers-reduced-motion: reduce) {
+    .lipsync__ojos,
     .lipsync__boca {
       display: none;
     }

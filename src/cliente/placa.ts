@@ -487,7 +487,7 @@ function iniciar(datos: DatosPlaca) {
     // Por decision del grupo, la foto del presentador queda fija mientras
     // suena el audio: sin rebote ni boca. Para volver a animarla (lip-sync,
     // ver README) basta con poner AVATAR_ANIMADO en true aqui y en Avatar.astro.
-    const AVATAR_ANIMADO = false;
+    const AVATAR_ANIMADO = true;
     const avatares = AVATAR_ANIMADO
       ? Array.from(document.querySelectorAll<HTMLElement>('.avatar--animable, .avatar--boca'))
       : [];

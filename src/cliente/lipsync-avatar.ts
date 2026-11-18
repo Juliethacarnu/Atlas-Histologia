@@ -92,6 +92,11 @@ const menosMovimiento = () => window.matchMedia('(prefers-reduced-motion: reduce
 export class LipSyncAvatar {
   /** Por avatar, sus bocas por nombre (B, C, D...). X es no destapar ninguna. */
   private readonly capas: Map<string, HTMLElement>[];
+  /** Los ojos cerrados de cada avatar, si los tiene. */
+  private readonly parpados: HTMLElement[];
+  /** Cuando toca el siguiente parpadeo y hasta cuando dura el actual (ms). */
+  private proximoParpadeo = 0;
+  private finParpadeo = 0;
   private medio: HTMLMediaElement | null = null;
   private pista: Pista | null = null;
   /** Volumen del audio, solo si no hay JSON. */
@@ -112,6 +117,9 @@ export class LipSyncAvatar {
       for (const c of a.querySelectorAll<HTMLElement>('[data-visema]')) m.set(c.dataset.visema!, c);
       return m;
     });
+    this.parpados = lista.flatMap((a) =>
+      Array.from(a.querySelectorAll<HTMLElement>('[data-parpado]')),
+    );
   }
 
   /** Engancha un audio y su JSON; suelta el anterior y vuelve a reposo. */
@@ -176,8 +184,10 @@ export class LipSyncAvatar {
         return;
       }
       this.mostrar(this.bocaAhora(medio));
+      this.parpadear(performance.now());
       this.cuadro = requestAnimationFrame(paso);
     };
+    this.proximoParpadeo = performance.now() + 1200 + Math.random() * 2000;
     this.cuadro = requestAnimationFrame(paso);
   }
 
@@ -186,6 +196,28 @@ export class LipSyncAvatar {
     this.cuadro = null;
     this.envolvente = 0;
     this.mostrar('X');
+    this.finParpadeo = 0;
+    for (const p of this.parpados) p.removeAttribute('data-activo');
+  }
+
+  /**
+   * Parpadeo mientras explica: cada 2,5 a 6 s, ojos cerrados unos 130 ms; a
+   * veces dos seguidos, como hace la gente al hablar.
+   */
+  private parpadear(ahora: number) {
+    if (this.parpados.length === 0) return;
+    const cerrados = ahora < this.finParpadeo;
+    if (!cerrados && ahora >= this.proximoParpadeo) {
+      this.finParpadeo = ahora + 110 + Math.random() * 50;
+      const doble = Math.random() < 0.15;
+      this.proximoParpadeo = doble
+        ? this.finParpadeo + 160
+        : this.finParpadeo + 2500 + Math.random() * 3500;
+    }
+    const ahoraCerrados = ahora < this.finParpadeo;
+    if (ahoraCerrados !== cerrados || ahoraCerrados) {
+      for (const p of this.parpados) p.toggleAttribute('data-activo', ahoraCerrados);
+    }
   }
 
   private pintarAhora() {
