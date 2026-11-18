@@ -14,7 +14,7 @@
     "nombreCompleto": "Valeria Goyeneche Rojas",
     "rol": "Presentador",
     "avatarCarpeta": "Valeria",
-    "avatarBucle": null,
+    "avatarBucle": "Valeria/Valeria-bucle.mp4",
     "avatarColor": "#4335c6"
   },
   {
@@ -23,7 +23,7 @@
     "nombreCompleto": "Daniel Alejando González Cáceres",
     "rol": "Presentador",
     "avatarCarpeta": "Daniel",
-    "avatarBucle": null,
+    "avatarBucle": "Daniel/Daniel-bucle.mp4",
     "avatarColor": "#2e2566"
   },
   {
@@ -32,7 +32,7 @@
     "nombreCompleto": "Julieth Andrea Carreño Nuñez",
     "rol": "Presentador",
     "avatarCarpeta": "Andrea",
-    "avatarBucle": null,
+    "avatarBucle": "Andrea/Andrea-bucle.mp4",
     "avatarColor": "#0097b2"
   }
 ]

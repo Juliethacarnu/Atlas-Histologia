@@ -42,7 +42,7 @@ const bocas = bucle ? [] : fotogramas.slice(1);
 // src/cliente/placa.ts.
 const AVATAR_ANIMADO = true;
 const visemas =
-  AVATAR_ANIMADO && !bucle && imagen ? visemasDe(presentador?.avatarCarpeta) : null;
+  AVATAR_ANIMADO && !presentador?.avatarBucle && imagen ? visemasDe(presentador?.avatarCarpeta) : null;
 ---
 
 <span
